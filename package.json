@@ -1,0 +1,38 @@
+{
+    "name": "farmrpg-plus",
+    "symbol": "FRPGP",
+    "version": "1.0.0",
+    "description": "Add features to Farm RPG while keeping code of conduct in mind.",
+    "private": true,
+    "scripts": {
+        "prebuild": "npm run lint",
+        "build": "webpack --mode=production",
+        "start:dev": "webpack --mode=development -w -d false",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix"
+    },
+    "author": "Synogun",
+    "license": "MIT",
+    "dependencies": {
+        "jquery": "3.7.1"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "7.27.2",
+        "@eslint/js": "9.29.0",
+        "@stylistic/eslint-plugin": "4.4.1",
+        "@types/jquery": "3.5.32",
+        "babel-loader": "10.0.0",
+        "webpack": "5.91.0",
+        "webpack-cli": "5.1.4",
+        "webpack-userscript": "3.2.3"
+    },
+    "userscript": {
+        "name": "FarmRPG Plus",
+        "namespace": "Violentmonkey Scripts",
+        "match": "https://farmrpg.com/*",
+        "grant": [
+            "none"
+        ],
+        "icon": "https://farmrpg.com/favicon.ico"
+    }
+}
