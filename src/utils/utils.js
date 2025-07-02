@@ -218,13 +218,13 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
  * Retrieves a list element associated with a given title from a page container.
  *
  * @param {Object} page - The page object containing the container to search within.
- * @param {string} title - The title to match against content-block-title elements.
+ * @param {string} title - The title to search for. Can be matched exactly or via regex.
  * @param {Object} [options] - Optional parameters.
- * @param {boolean} [options.returnTitle=false] - If true, returns the title element instead of the list.
- * @param {boolean} [options.regex=false] - If true, treats the title as a regular expression.
- * @param {number} [options.offset=0] - Offset from the found title. If negative, searches in reverse order.
- * @returns {jQuery} The jQuery object representing the found list element (`ul`).
- * @throws {FarmRPGPlusError} Throws if parameters are invalid or if the required elements are not found.
+ * @param {boolean} [options.returnTitle=false] - If true, returns the matching title element instead of the list.
+ * @param {boolean} [options.regex=false] - If true, uses a regular expression to match the title.
+ * @param {number} [options.offset=0] - Offset from the found title. Can be negative to search backwards.
+ * @returns {jQuery} The jQuery object representing the found list or title element.
+ * @throws {FarmRPGPlusError} Throws if parameters are invalid or elements are not found.
  */
 function getListByTitle(page, title, { returnTitle = false, regex = false, offset = 0 } = {}) {
     if (
@@ -286,7 +286,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
     }
 
     if ($card.next('.list-block')) {
-        $list = $card.next('.list-block').find('ul');
+        $list = $card.next('.list-block').find('ul').eq(0);
     }
 
     if ($list.length === 0) {
