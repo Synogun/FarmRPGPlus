@@ -1,7 +1,6 @@
 import IconsUrlEnum from '../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
-import RouterPlus from '../modules/routerPlus';
 import { createRow } from '../modules/rowFactory';
 import { getListByTitle } from '../utils/utils';
 
@@ -14,12 +13,6 @@ class HomePage {
         UPDATE: 'Most Recent Update',
         OTHER_STUFF: 'Other Stuff'
     });
-
-    refreshIfNeeded = (page) => {
-        if (page.fromPage?.name !== RouterPlus.Pages.INDEX || false) {
-            window.location.reload();
-        }
-    };
 
     addBuddyFarmButton = (page) => {
         // Example item row
@@ -51,7 +44,6 @@ class HomePage {
 
         const itExists = $(page.container).find('#frpgp-buddy-farm-row');
         if (itExists.length > 0) {
-            ConsolePlus.warn('Buddy Farm row already exists, removing old one.');
             itExists.remove();
         }
         

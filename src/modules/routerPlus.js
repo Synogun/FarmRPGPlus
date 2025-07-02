@@ -89,6 +89,7 @@ const RouterPlus = {
         }
     },
 
+    // TODO: Convert this to a more generic function that can update the back button for any page.
     fixBackButton: function (page) {
         if (!page?.navbarInnerContainer) {
             ConsolePlus.warn('No back button to fix, page does not have a navbar.');

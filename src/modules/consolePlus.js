@@ -22,6 +22,9 @@ class ConsolePlus {
      * @param {...any} args - The messages or objects to log.
      */
     static debug(...args) {
+        if (process.env.NODE_ENV === 'production') {
+            return; // Skip debug logs in production
+        }
         console.debug(`[${this._timestamp()}] FRPGP -`, ...args);
     }
 

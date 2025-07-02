@@ -16,6 +16,7 @@ export default [
                 mainView: 'readonly',
                 myApp: 'readonly',
                 Dom7: 'readonly',
+                process: 'readonly',
             },
         },
     },
