@@ -53,7 +53,6 @@ const RouterPlus = {
         // Case 0: https://farmrpg.com/
         if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
             location.replace(`${baseUrl}#!/index.php`);
-            return;
         }
 
         // Case 1: https://farmrpg.com/<page-name>.php
@@ -61,7 +60,6 @@ const RouterPlus = {
             const match = location.href.match(phpPageRegex);
             const page = match[1] + (match[2] || '');
             location.replace(`${baseUrl}#!/${page}`);
-            return;
         }
 
         // Case 2: https://farmrpg.com/<page-name>.php#!/<page-name>.php
@@ -69,24 +67,25 @@ const RouterPlus = {
             const match = location.hash.match(hashPhpRegex);
             const page = match[1] + (match[2] || '');
             location.replace(`${baseUrl}#!/${page}`);
-            return;
         }
 
         // Case 3: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+        const doubleHrefRegex = /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)?(\?.*)?$/;
         if (
             location.hash &&
-            /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/.test(location.hash)
+            doubleHrefRegex.test(location.hash)
         ) {
-            const match = location.hash.match(/^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
-            return;
+            const match = location.hash.match(doubleHrefRegex);
+            const page = (match[1] || '') + (match[2] || '');
+            location.replace(`${baseUrl}#!/${page || 'index.php'}`);
         }
 
         if (this.isFarmUrlValid(location.href)) {
-            ConsolePlus.debug('URL is valid, no changes needed.');
+            ConsolePlus.debug('URL is valid, no changes needed.', location.href);
             return;
         }
+
+        location.reload();
     },
 
     // TODO: Convert this to a more generic function that can update the back button for any page.
