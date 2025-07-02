@@ -12,7 +12,7 @@ class WellPage {
 
     addLibraryCard = (page) => {
         if (!page?.container) {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addLibraryCard.name,
             );
