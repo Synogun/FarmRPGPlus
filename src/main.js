@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ConsolePlus from './modules/consolePlus';
+import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
 import Pages from './pages/index';
 import { isResetTime } from './utils/utils';
@@ -18,6 +19,13 @@ RouterPlus.register(RouterPlus.Pages.WELL, Pages.well.apply);
 (function () {
     'use strict';
     $(function () {
+        ConsolePlus.log('FarmRPGPlus app initialized.');
+
+        if (DebugPlus.isDevelopmentMode()) {
+            ConsolePlus.warn('Development mode is enabled, debugging features are active.');
+            DebugPlus.applyDebugFeatures();
+        }
+
         if (isResetTime()) {
             ConsolePlus.warn('It is reset time, not loading the app.');
             return;
