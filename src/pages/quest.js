@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
 import { createRow } from '../modules/rowFactory';
-import storagePlus from '../modules/storagePlus';
+import StoragePlus from '../modules/storagePlus';
 import Roman from '../utils/roman';
 import { createCardList, getListByTitle, parseNameForUrl } from '../utils/utils';
 
@@ -32,7 +32,7 @@ class QuestPage {
             ` ${nextQuestNumber}`
         );
 
-        const cache = storagePlus.getItem('next_quest_cache', {});
+        const cache = StoragePlus.get('next_quest_cache', {});
 
         return cache[nextQuestName]
             ? Promise.resolve(cache[nextQuestName])
@@ -40,7 +40,7 @@ class QuestPage {
                 .then(
                     (response) => {
                         cache[nextQuestName] = response.status === 200;
-                        storagePlus.setItem('next_quest_cache', cache);
+                        StoragePlus.set('next_quest_cache', cache);
 
                         return cache[nextQuestName];
                     },

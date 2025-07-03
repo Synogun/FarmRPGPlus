@@ -6,7 +6,7 @@
  */
 class StoragePlus {
     /**
-     * Initializes the storagePlus module.
+     * Initializes the StoragePlus module.
      * Ensures that a 'frpg_plus' key exists in localStorage and parses its value into the instance's storage property.
      * If the key does not exist, it is created and initialized as an empty object.
      */
@@ -26,7 +26,7 @@ class StoragePlus {
      * @param {string} key - The key under which the value will be stored.
      * @param {*} value - The value to store. Can be of any type that is serializable to JSON.
      */
-    setItem(key, value) {
+    set(key, value) {
         this.storage[key] = value;
         window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
     }
@@ -38,7 +38,7 @@ class StoragePlus {
      * @param {*} [defaultValue=undefined] - The default value to return if the key does not exist in storage.
      * @returns {*} The value associated with the key, or null if the key does not exist.
      */
-    getItem(key, defaultValue) {
+    get(key, defaultValue) {
         const value = this.storage[key];
         return value !== undefined ? value : defaultValue;
     }
@@ -48,7 +48,7 @@ class StoragePlus {
      *
      * @param {string} key - The key of the item to remove from storage.
      */
-    removeItem(key) {
+    remove(key) {
         delete this.storage[key];
         window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
     }
