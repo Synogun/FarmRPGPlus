@@ -6,6 +6,8 @@
  * @class
  */
 class ConsolePlus {
+    static prefix = () => `[${this._timestamp()}] [FRPGP]`;
+
     /**
      * Returns the current date and time as a formatted string.
      * @private
@@ -25,7 +27,7 @@ class ConsolePlus {
         if (process.env.NODE_ENV === 'production') {
             return; // Skip debug logs in production
         }
-        console.debug(`[${this._timestamp()}] FRPGP -`, ...args);
+        console.debug(`${this.prefix()}`, ...args);
     }
 
     /**
@@ -35,7 +37,7 @@ class ConsolePlus {
      * @param {...any} args - The messages or objects to log.
      */
     static info(...args) {
-        console.info(`[${this._timestamp()}] FRPGP -`, ...args);
+        console.info(`${this.prefix()}`, ...args);
     }
 
     /**
@@ -45,7 +47,7 @@ class ConsolePlus {
      * @param {...any} args - The messages or objects to log.
      */
     static log(...args) {
-        console.log(`[${this._timestamp()}] FRPGP -`, ...args);
+        console.log(`${this.prefix()}`, ...args);
     }
 
     /**
@@ -55,7 +57,7 @@ class ConsolePlus {
      * @param {...any} args - The warning messages or objects to log.
      */
     static warn(...args) {
-        console.warn(`[${this._timestamp()}] FRPGP -`, ...args);
+        console.warn(`${this.prefix()}`, ...args);
     }
 
     /**
@@ -65,7 +67,7 @@ class ConsolePlus {
      * @param {...any} args - The error messages or objects to log.
      */
     static error(...args) {
-        console.error(`[${this._timestamp()}] FRPGP -`, ...args);
+        console.error(`${this.prefix()}`, ...args);
     }
 }
 

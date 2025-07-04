@@ -1,5 +1,4 @@
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import GamePagesEnum from '../constants/gamePagesEnum';
 import { isUrlValid } from '../utils/utils';
 import ConsolePlus from './consolePlus';
 
@@ -20,12 +19,6 @@ import ConsolePlus from './consolePlus';
  * @property {function} getPageHistory - Get navigation history from a page.
  */
 const RouterPlus = {
-    /**
-     * Predefined page names.
-     * @readonly
-     * @enum {string}
-     */
-    Pages: Object.freeze({ ...GamePagesEnum }),
 
     /**
      * Stores registered page handlers.
@@ -38,21 +31,17 @@ const RouterPlus = {
      * Fixes the URL hash if needed.
      */
     fixUrlHash: function () {
-        // common mistakes in URL structure
-        // https://farmrpg.com/
-        // https://farmrpg.com/<page-name>.php
-        // https://farmrpg.com/<page-name>.php#!/<page-name>.php
-        // https://farmrpg.com/<page-name>.php
-        // https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
 
         const { location } = window;
         const baseUrl = 'https://farmrpg.com/';
         const phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
-        const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
+        // const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
 
         // Case 0: https://farmrpg.com/
         if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
             location.replace(`${baseUrl}#!/index.php`);
+            return true;
+            // location.reload();
         }
 
         // Case 1: https://farmrpg.com/<page-name>.php
@@ -60,32 +49,40 @@ const RouterPlus = {
             const match = location.href.match(phpPageRegex);
             const page = match[1] + (match[2] || '');
             location.replace(`${baseUrl}#!/${page}`);
+            return true;
+            // location.reload();
+
         }
 
-        // Case 2: https://farmrpg.com/<page-name>.php#!/<page-name>.php
-        if (phpPageRegex.test(location.href) && location.hash && hashPhpRegex.test(location.hash)) {
-            const match = location.hash.match(hashPhpRegex);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
+        // Case 2: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+        if (location.href.startsWith(`${baseUrl}#!/${baseUrl}`)) {
+            const page = location.href.replace(`#!/${baseUrl}`, '');
+            ConsolePlus.log(page);
+            if (phpPageRegex.test(page)) {
+                location.replace(page);
+                return true;
+            }
         }
 
-        // Case 3: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
-        const doubleHrefRegex = /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)?(\?.*)?$/;
-        if (
-            location.hash &&
-            doubleHrefRegex.test(location.hash)
-        ) {
-            const match = location.hash.match(doubleHrefRegex);
-            const page = (match[1] || '') + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page || 'index.php'}`);
-        }
+        // // Case 3: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+        // const doubleHrefRegex = /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)?(\?.*)?$/;
+        // if (
+        //     location.hash &&
+        //     doubleHrefRegex.test(location.hash)
+        // ) {
+        //     const match = location.hash.match(doubleHrefRegex);
+        //     const page = (match[1] || '') + (match[2] || '');
+        //     location.replace(`${baseUrl}#!/${page || 'index.php'}`);
+        //     location.reload();
+
+        // }
 
         if (this.isFarmUrlValid(location.href)) {
             ConsolePlus.debug('URL is valid, no changes needed.', location.href);
-            return;
+            return false;
         }
 
-        location.reload();
+        // location.reload();
     },
 
     // TODO: Convert this to a more generic function that can update the back button for any page.
@@ -123,13 +120,33 @@ const RouterPlus = {
 
         ConsolePlus.log(`Back button fixed to: ${previousPageUrl}`);
     },
-    
+
+    /**
+     * Register page handlers.
+     *
+     * @param {Object<string, Function>} handlers - Page handlers to register.
+     */
+    registerHandlers: function (handlers) {
+        if (!handlers || typeof handlers !== 'object') {
+            ConsolePlus.warn('No valid handlers found.');
+            return;
+        }
+
+        for (const [page, handler] of Object.entries(handlers)) {
+            if (typeof handler === 'function') {
+                this.bindPageHandler(page, handler);
+            } else {
+                ConsolePlus.warn(`Handler for page ${page} is not a function.`);
+            }
+        }
+    },
+
     /**
      * Register a handler for a page.
      * @param {string} page - Page name.
      * @param {Function} handler - Handler for navigation.
      */
-    register: function (page, handler) {
+    bindPageHandler: function (page, handler) {
         if (
             typeof page !== 'string' ||
             !page.trim() ||
@@ -137,7 +154,7 @@ const RouterPlus = {
         ) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
-                this.register.name,
+                this.bindPageHandler.name,
             );
         }
 
@@ -248,13 +265,34 @@ const RouterPlus = {
         return history;
     },
 
+    goto: function (hash) {
+        if (typeof hash !== 'string' || hash.trim() === '') {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_URL,
+                this.goto.name,
+            );
+            return;
+        }
+
+        if (!this.isHashValid(hash)) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_URL,
+                this.goto.name,
+            );
+            return;
+        }
+
+        hash = hash.replace(/^#!\//, ''); // Remove leading #!/
+        // ConsolePlus.debug('Hash:', hash);
+        mainView.router.loadPage(hash);
+    },
+
     isFarmUrlValid: function (url) {
         return isUrlValid(url) && /^https:\/\/farmrpg\.com\/#!\/[^/]+\.php(\?.*)?$/.test(url);
     },
 
     isHashValid: function (hash) {
-        const isHashValid = hash => /^#!\/[^/]+\.php(\?.*)?$/.test(hash);
-        return isHashValid(hash);
+        return /^(#!\/)?[^/]+\.php(\?.*)?$/.test(hash);
     }
 };
 

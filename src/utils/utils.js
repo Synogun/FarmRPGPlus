@@ -238,6 +238,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.PARAMETER_MISMATCH,
             getListByTitle.name
         );
+        return null;
     }
 
     let $listOfTitles = $(page.container).find('div.content-block-title');
@@ -264,6 +265,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
 
     if (returnTitle) {
@@ -277,6 +279,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
     
     let $list = $card.find('.list-block ul');
@@ -294,6 +297,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
 
     return $list;

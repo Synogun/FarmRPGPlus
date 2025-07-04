@@ -10,6 +10,8 @@ const IconsUrlEnum = Object.freeze({
     
     LOVE_ICON: '/img/items/love_sm.png',
 
+    OVEN_ICON: '/img/items/oven.png',
+
     // NPC Images
     ROSALIE_IMAGE: '/img/items/a_098.png',
     HOLGER_IMAGE: '/img/items/a_028.png',

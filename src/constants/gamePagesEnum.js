@@ -1,5 +1,5 @@
 const NavBarLinks = Object.freeze({
-    INDEX: 'index-1',
+    HOME: 'index-1',
     PROFILE: 'profile',
     INVENTORY: 'inventory',
     WORKSHOP: 'workshop',
@@ -58,14 +58,18 @@ const TownPageLinks = Object.freeze({
     TOWN_HALL: 'townhall',
 });
 
+const SinglePageLinks = Object.freeze({
+    OVEN: 'oven',
+    ITEM: 'item',
+    QUEST: 'quest',
+    MAILBOX: 'mailbox',
+});
+
 const GamePagesEnum = Object.freeze({
     ...NavBarLinks,
     ...HomePageLinks,
     ...TownPageLinks,
-
-    ITEM: 'item',
-    QUEST: 'quest',
-    MAILBOX: 'mailbox',
+    ...SinglePageLinks,
 });
 
 export default GamePagesEnum;

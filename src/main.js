@@ -6,19 +6,17 @@ import Pages from './pages/index';
 import { isResetTime } from './utils/utils';
 
 // Registering page handlers
-RouterPlus.register(RouterPlus.Pages.INDEX, Pages.home.apply);
-RouterPlus.register(RouterPlus.Pages.QUESTS, Pages.quests.apply);
-RouterPlus.register(RouterPlus.Pages.NPCS, Pages.npcs.apply);
-
-RouterPlus.register(RouterPlus.Pages.ITEM, Pages.item.apply);
-RouterPlus.register(RouterPlus.Pages.QUEST, Pages.quest.apply);
-
-// Town pages
-RouterPlus.register(RouterPlus.Pages.WELL, Pages.well.apply);
+RouterPlus.registerHandles(Pages);
 
 (function () {
     'use strict';
     $(function () {
+        
+        if (isResetTime()) {
+            ConsolePlus.warn('It is reset time, not loading the app.');
+            return;
+        }
+        
         ConsolePlus.log('FarmRPGPlus app initialized.');
 
         if (DebugPlus.isDevelopmentMode()) {
@@ -26,22 +24,19 @@ RouterPlus.register(RouterPlus.Pages.WELL, Pages.well.apply);
             DebugPlus.applyDebugFeatures();
         }
 
-        if (isResetTime()) {
-            ConsolePlus.warn('It is reset time, not loading the app.');
+        if (RouterPlus.fixUrlHash()) {
             return;
         }
 
-        RouterPlus.fixUrlHash();
-
         if (window.mainView && mainView.container) {
             $(mainView.container).on('page:init', function () {
-                RouterPlus.fixUrlHash();
+                if (RouterPlus.fixUrlHash()) {
+                    return;
+                }
 
                 const page = myApp.getCurrentView().activePage || mainView.activePage;
-                // const page = mainView;
 
                 RouterPlus.handlePageChange(page);
-                // RouterPlus.fixBackButton(page);
             });
         }
     });

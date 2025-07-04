@@ -1,4 +1,5 @@
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
+import $ from 'jquery';
+import { getListByTitle } from '../utils/utils';
 import RouterPlus from './routerPlus';
 
 class DebugPlus {
@@ -7,29 +8,18 @@ class DebugPlus {
         return process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
     };
 
-    goto = (hash) => {
-        if (typeof hash !== 'string' || hash.trim() === '') {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.INVALID_URL,
-                this.goto.name,
-            );
-            return;
-        }
-    
-        if (!RouterPlus.isHashValid(hash)) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.INVALID_URL,
-                this.goto.name,
-            );
-            return;
-        }
-
-        window.location.replace(`${window.location.origin}/${hash}`);
-        window.location.reload();
+    static goto = (hash) => {
+        RouterPlus.goto(hash);
     };
 
     applyDebugFeatures = () => {
-        window.goto = this.goto;
+        $(mainView.container).on('page:init', function () {
+            window.page = myApp.getCurrentView().activePage || mainView.activePage;
+        });
+
+        window.RouterPlus = RouterPlus;
+        window.goto = DebugPlus.goto;
+        window.getListByTitle = getListByTitle;
     };
 
 }

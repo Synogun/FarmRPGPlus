@@ -141,21 +141,12 @@ class ItemPage {
 
         const capitalizeWords = name => name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
         const itemName = this.getItemNameOnNavbar(page);
-        console.log('Item name:', itemName);
         
 
         for (const [giftPower, npcList] of Object.entries(ItemGiftsEnum[itemName] || {})) {
             if (!npcList || npcList.length === 0) {
                 continue;
             }
-
-            // const $afterIcon = () => $('<div>')
-            //     .addClass('item-media')
-            //     .append(
-            //         $('<img>')
-            //             .addClass('itemimg')
-            //             .attr('src', IconsUrlEnum[`NPC_${giftPower}_GIFT`] || IconsUrlEnum.NPC_NEUTRAL_GIFT)
-            //     );
 
             let XPValue = '';
 
