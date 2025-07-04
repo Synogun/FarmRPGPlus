@@ -27,116 +27,18 @@ const RouterPlus = {
      */
     handlers: {},
 
-    /**
-     * Fixes the URL hash if needed.
-     */
-    fixUrlHash: function () {
 
-        const { location } = window;
-        const baseUrl = 'https://farmrpg.com/';
-        const phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
-        // const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
-
-        // Case 0: https://farmrpg.com/
-        if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
-            location.replace(`${baseUrl}#!/index.php`);
-            return true;
-            // location.reload();
-        }
-
-        // Case 1: https://farmrpg.com/<page-name>.php
-        if (phpPageRegex.test(location.href) && !location.hash) {
-            const match = location.href.match(phpPageRegex);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
-            return true;
-            // location.reload();
-
-        }
-
-        // Case 2: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
-        if (location.href.startsWith(`${baseUrl}#!/${baseUrl}`)) {
-            const page = location.href.replace(`#!/${baseUrl}`, '');
-            ConsolePlus.log(page);
-            if (phpPageRegex.test(page)) {
-                location.replace(page);
-                return true;
-            }
-        }
-
-        // // Case 3: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
-        // const doubleHrefRegex = /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)?(\?.*)?$/;
-        // if (
-        //     location.hash &&
-        //     doubleHrefRegex.test(location.hash)
-        // ) {
-        //     const match = location.hash.match(doubleHrefRegex);
-        //     const page = (match[1] || '') + (match[2] || '');
-        //     location.replace(`${baseUrl}#!/${page || 'index.php'}`);
-        //     location.reload();
-
-        // }
-
-        if (this.isFarmUrlValid(location.href)) {
-            ConsolePlus.debug('URL is valid, no changes needed.', location.href);
-            return false;
-        }
-
-        // location.reload();
-    },
-
-    // TODO: Convert this to a more generic function that can update the back button for any page.
-    fixBackButton: function (page) {
-        if (!page?.navbarInnerContainer) {
-            ConsolePlus.warn('No back button to fix, page does not have a navbar.');
+    registerHandlers: function (pages) {
+        if (!pages || typeof pages !== 'object') {
+            ConsolePlus.warn('No valid pages object found.');
             return;
         }
 
-        const previousPage = this.getPreviousPage(page);
-
-        if (!previousPage || !this.getPageName(previousPage)) {
-            ConsolePlus.warn('No valid previous page found to fix back button.');
-            return;
-        }
-
-        const $backButton = $(page.navbarInnerContainer).find('a.back[href="x"]');
-        
-        if (!$backButton.length) {
-            return;
-        }
-
-        const previousPageUrl = this.getPageName(previousPage) === this.Pages.INDEX
-            ? 'index.php'
-            : this.getPageUrl(previousPage);
-
-        if (!previousPageUrl) {
-            return;
-        }
-
-        $backButton.attr('href', previousPageUrl);
-
-        $backButton.removeClass('back');
-        $backButton.addClass('no-animation');
-
-        ConsolePlus.log(`Back button fixed to: ${previousPageUrl}`);
-    },
-
-    /**
-     * Register page handlers.
-     *
-     * @param {Object<string, Function>} handlers - Page handlers to register.
-     */
-    registerHandlers: function (handlers) {
-        if (!handlers || typeof handlers !== 'object') {
-            ConsolePlus.warn('No valid handlers found.');
-            return;
-        }
-
-        for (const [page, handler] of Object.entries(handlers)) {
-            if (typeof handler === 'function') {
-                this.bindPageHandler(page, handler);
+        for (const [page, pageInstance] of Object.entries(pages)) {
+            if (pageInstance && typeof pageInstance.applyHandler === 'function') {
+                this.bindPageHandler(page, pageInstance.applyHandler);
             } else {
-                ConsolePlus.warn(`Handler for page ${page} is not a function.`);
+                ConsolePlus.warn(`Page instance for ${page} does not have an applyHandler function.`);
             }
         }
     },
@@ -156,6 +58,7 @@ const RouterPlus = {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.bindPageHandler.name,
             );
+            return;
         }
 
         this.handlers[page] = handler;
@@ -265,6 +168,11 @@ const RouterPlus = {
         return history;
     },
 
+    /**
+     * Navigate to a specific page using its hash.
+     * @param {string} hash - The hash to navigate to, e.g., '#!/index.php'.
+     * @throws {FarmRPGPlusError} If the hash is invalid or empty.
+     */
     goto: function (hash) {
         if (typeof hash !== 'string' || hash.trim() === '') {
             new FarmRPGPlusError(
@@ -283,17 +191,104 @@ const RouterPlus = {
         }
 
         hash = hash.replace(/^#!\//, ''); // Remove leading #!/
-        // ConsolePlus.debug('Hash:', hash);
         mainView.router.loadPage(hash);
     },
 
+    /**
+     * Check if the given URL is a valid FarmRPG URL.
+     * @param {string} url - The URL to validate.
+     * @returns {boolean} True if the URL is valid, false otherwise.
+     */
     isFarmUrlValid: function (url) {
         return isUrlValid(url) && /^https:\/\/farmrpg\.com\/#!\/[^/]+\.php(\?.*)?$/.test(url);
     },
 
+    /**
+     * Check if the given hash is a valid FarmRPG URL hash.
+     * @param {string} hash - The hash to validate.
+     * @returns {boolean} True if the hash is valid, false otherwise.
+     */
     isHashValid: function (hash) {
         return /^(#!\/)?[^/]+\.php(\?.*)?$/.test(hash);
-    }
+    },
+
+    /**
+     * Fixes the URL hash if needed.
+     */
+    fixUrlHash: function () {
+        const { location } = window;
+        const baseUrl = 'https://farmrpg.com/';
+        const phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
+        // const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
+
+        // Case 0: https://farmrpg.com/
+        if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
+            location.replace(`${baseUrl}#!/index.php`);
+            return true;
+        }
+
+        // Case 1: https://farmrpg.com/<page-name>.php
+        if (phpPageRegex.test(location.href) && !location.hash) {
+            const match = location.href.match(phpPageRegex);
+            const page = match[1] + (match[2] || '');
+            location.replace(`${baseUrl}#!/${page}`);
+            return true;
+        }
+
+        // Case 2: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+        if (location.href.includes(`#!/${baseUrl}`)) {
+            const page = location.href.replace(`#!/${baseUrl}`, '');
+            ConsolePlus.log('ed');
+            if (phpPageRegex.test(page)) {
+                location.replace(page);
+                return true;
+            } else {
+                location.replace(`${baseUrl}#!/index.php`);
+                return true;
+            }
+        }
+
+        if (this.isFarmUrlValid(location.href)) {
+            ConsolePlus.debug('URL is valid, no changes needed.', location.href);
+            return false;
+        }
+    },
+
+    // TODO: Convert this to a more generic function that can update the back button for any page.
+    fixBackButton: function (page) {
+        if (!page?.navbarInnerContainer) {
+            ConsolePlus.warn('No back button to fix, page does not have a navbar.');
+            return;
+        }
+
+        const previousPage = this.getPreviousPage(page);
+
+        if (!previousPage || !this.getPageName(previousPage)) {
+            ConsolePlus.warn('No valid previous page found to fix back button.');
+            return;
+        }
+
+        const $backButton = $(page.navbarInnerContainer).find('a.back[href="x"]');
+
+        if (!$backButton.length) {
+            return;
+        }
+
+        const previousPageUrl = this.getPageName(previousPage) === this.Pages.INDEX
+            ? 'index.php'
+            : this.getPageUrl(previousPage);
+
+        if (!previousPageUrl) {
+            return;
+        }
+
+        $backButton.attr('href', previousPageUrl);
+
+        $backButton.removeClass('back');
+        $backButton.addClass('no-animation');
+
+        ConsolePlus.log(`Back button fixed to: ${previousPageUrl}`);
+    },
 };
 
 export default RouterPlus;

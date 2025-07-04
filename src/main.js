@@ -6,7 +6,7 @@ import Pages from './pages/index';
 import { isResetTime } from './utils/utils';
 
 // Registering page handlers
-RouterPlus.registerHandles(Pages);
+RouterPlus.registerHandlers(Pages);
 
 (function () {
     'use strict';
@@ -24,15 +24,11 @@ RouterPlus.registerHandles(Pages);
             DebugPlus.applyDebugFeatures();
         }
 
-        if (RouterPlus.fixUrlHash()) {
-            return;
-        }
+        RouterPlus.fixUrlHash();
 
         if (window.mainView && mainView.container) {
             $(mainView.container).on('page:init', function () {
-                if (RouterPlus.fixUrlHash()) {
-                    return;
-                }
+                RouterPlus.fixUrlHash();
 
                 const page = myApp.getCurrentView().activePage || mainView.activePage;
 

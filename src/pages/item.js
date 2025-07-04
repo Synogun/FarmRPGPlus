@@ -59,6 +59,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.doesItemHaveMastery.name,
             );
+            return;
         }
 
         const $mastery = $(page.container).find('img[src="/img/items/icon_mastery2.png?1"]');
@@ -79,6 +80,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
             );
+            return;
         }
 
         const itemName = $(page.navbarInnerContainer).find('a.sharelink').text();
@@ -88,6 +90,7 @@ class ItemPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
             );
+            return;
         }
 
         return itemName.trim();
@@ -107,6 +110,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addBuddyFarmButton.name,
             );
+            return;
         }
 
         const $li = createRow({
@@ -137,6 +141,7 @@ class ItemPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addNpcLikingsCards.name,
             );
+            return;
         }
 
         const capitalizeWords = name => name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
@@ -187,16 +192,12 @@ class ItemPage {
             
             const itExists = $(page.container).find(cardId);
 
-            if (itExists.length > 0) {
-                itExists.remove();
-            }
-
-            if (this.doesItemHaveMastery(page)) {
+            if (this.doesItemHaveMastery(page) && !itExists.length) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .next() // Card -> Track Mastery Button
                     .after($card);
-            } else {
+            } else if (!itExists.length) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .after($card);
@@ -204,12 +205,13 @@ class ItemPage {
         }
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Item page initialized:', page);

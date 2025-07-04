@@ -40,6 +40,7 @@ class OvenPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addOvenNavigationButtons.name,
             );
+            return;
         }
 
         const playerOvens = StoragePlus.get('player_oven_amount') || 1;
@@ -90,12 +91,13 @@ class OvenPage {
         }
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Oven page initialized', page);

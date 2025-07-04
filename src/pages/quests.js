@@ -20,6 +20,7 @@ class QuestsPage {
                 'PAGE_NOT_FOUND',
                 this.addBuddyFarmCard.name,
             );
+            return;
         }
 
         const $bfRow = createRow({
@@ -38,12 +39,13 @@ class QuestsPage {
         $(page.container).find('.card').last().prev().prev().after($bfCard);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Quests page initialized:', page);

@@ -32,6 +32,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTitleText.name,
             );
+            return;
         }
 
         this.options.title.push({ title, bold });
@@ -44,6 +45,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addSubtitle.name,
             );
+            return;
         }
 
         this.options.subtitle.push({ subtitle, bold, newLine });
@@ -56,6 +58,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTitleIcon.name,
             );
+            return;
         }
 
         this.options.title.push({ iconUrl, iconName });
@@ -68,6 +71,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addRowIcon.name,
             );
+            return;
         }
 
         this.options.rowIconSourceUrl = sourceUrl;
@@ -81,6 +85,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowId.name,
             );
+            return;
         }
 
         this.options.rowId = id;
@@ -93,6 +98,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowClass.name,
             );
+            return;
         }
 
         if (this.options.rowClass === undefined) {
@@ -115,6 +121,7 @@ class RowFactory {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowTarget.name,
             );
+            return;
         }
 
         if (!isUrlValid(url)) {
@@ -122,6 +129,7 @@ class RowFactory {
                 ErrorTypesEnum.INVALID_URL,
                 this.setRowTarget.name,
             );
+            return;
         }
 
         this.options.rowTargetUrl = url;

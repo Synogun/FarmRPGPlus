@@ -16,6 +16,7 @@ class WellPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addLibraryCard.name,
             );
+            return;
         }
 
         const $wwTipsRow = createRow({
@@ -55,19 +56,18 @@ class WellPage {
         );
 
         const itExists = $(page.container).find('#frpgp-wishing-well-library-card');
-        if (itExists.length > 0) {
-            itExists.remove();
+        if (!itExists.length) {
+            $lastTitle.next('.card').after($libraryCard);
         }
-
-        $lastTitle.next('.card').after($libraryCard);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Well page initialized:', page);

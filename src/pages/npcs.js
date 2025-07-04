@@ -17,6 +17,7 @@ class NPCSPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTownsfolkInfoCard.name,
             );
+            return;
         }
 
         const $townsfolkFriendshipRow = createRow({
@@ -57,12 +58,13 @@ class NPCSPage {
         $(page.container).find('.card').last().after($townsfolkInfoCard);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('NPCs page initialized:', page);

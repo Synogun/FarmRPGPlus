@@ -43,20 +43,20 @@ class HomePage {
         });
 
         const itExists = $(page.container).find('#frpgp-buddy-farm-row');
-        if (itExists.length > 0) {
-            itExists.remove();
+        if (!itExists.length) {
+            const $list = getListByTitle(page, HomePage.titles.HOME);
+            $list.append($li);
         }
         
-        const $list = getListByTitle(page, HomePage.titles.HOME);
-        $list.append($li);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Index page initialized:', page);

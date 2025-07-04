@@ -180,6 +180,7 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
             ErrorTypesEnum.PARAMETER_MISMATCH,
             createCardList.name
         );
+        return;
     }
 
     const content = [];

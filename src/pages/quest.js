@@ -19,6 +19,7 @@ class QuestPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.checkIfNextQuestExists.name,
             );
+            return;
         }
 
         const currentQuestNumber = questName.split(' ').at(-1);
@@ -78,6 +79,7 @@ class QuestPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.getPreviousAndNextQuestNumbers.name,
             );
+            return;
         }
 
         const currentQuestNumber = questName.split(' ').at(-1);
@@ -107,6 +109,7 @@ class QuestPage {
             ErrorTypesEnum.INVALID_QUEST_NUMBER,
             this.getPreviousAndNextQuestNumbers.name,
         );
+        return;
     };
 
     addBuddyFarmCard = (page) => {
@@ -115,6 +118,7 @@ class QuestPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addBuddyFarmCard.name,
             );
+            return;
         }
 
         const $questTitle = $(page.container).find('.item-title[style=\'font-weight: bold\']');
@@ -124,6 +128,7 @@ class QuestPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addBuddyFarmCard.name,
             );
+            return;
         }
         
         const pageIsPhr = this.isPhrQuestPage(page);
@@ -137,6 +142,7 @@ class QuestPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addBuddyFarmCard.name,
             );
+            return;
         }
 
         let overrideData = {
@@ -187,6 +193,7 @@ class QuestPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addExtraBuddyFarmButtons.name,
             );
+            return;
         }
 
         const pageIsPhr = this.isPhrQuestPage(page);
@@ -202,6 +209,7 @@ class QuestPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addExtraBuddyFarmButtons.name,
             );
+            return;
         }
 
         const questName = $questTitle.children().length >= 1 // Check if it title its multi-row
@@ -213,6 +221,7 @@ class QuestPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addExtraBuddyFarmButtons.name,
             );
+            return;
         }
 
 
@@ -265,12 +274,13 @@ class QuestPage {
         ).catch(() => false);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Quest page initialized:', page);

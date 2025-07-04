@@ -6,10 +6,11 @@ class KitchenPage {
 
     cachePlayerOvenAmount = (page) => {
         if (!page?.container) {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.cachePlayerOvenAmount.name,
             );
+            return;
         }
 
         const $ovenAmount = $(page.container).find('a[href^="oven.php?num="]').last();
@@ -18,6 +19,7 @@ class KitchenPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.cachePlayerOvenAmount.name,
             );
+            return;
         }
 
         const ovenAmountText = $ovenAmount.attr('href')?.match(/num=(\d+)/)[1];
@@ -30,12 +32,13 @@ class KitchenPage {
         StoragePlus.set('player_oven_amount', ovenAmount);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Kitchen page initialized', page);
