@@ -58,6 +58,10 @@ const TownPageLinks = Object.freeze({
     TOWN_HALL: 'townhall',
 });
 
+const EventPageLinks = Object.freeze({
+    BOTTLE_ROCKET: 'Bottle-Rocket-Brawl'
+});
+
 const SinglePageLinks = Object.freeze({
     OVEN: 'oven',
     ITEM: 'item',
@@ -69,6 +73,7 @@ const GamePagesEnum = Object.freeze({
     ...NavBarLinks,
     ...HomePageLinks,
     ...TownPageLinks,
+    ...EventPageLinks,
     ...SinglePageLinks,
 });
 

@@ -1,10 +1,11 @@
+import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import { createRow, isUrlValid } from '../utils/utils';
 
 /**
  * RowFactory class for creating jQuery <li> elements representing rows with optional media, title, subtitle, button, and link.
  */
-class RowFactory {
+class RowFactory { //TODO: Finish the implementation
     constructor() {
         this.reset();
     }

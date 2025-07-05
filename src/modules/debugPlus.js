@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { getListByTitle } from '../utils/utils';
 import RouterPlus from './routerPlus';
-
+import StoragePlus from './storagePlus';
 class DebugPlus {
 
     isDevelopmentMode = () => {
@@ -20,6 +20,7 @@ class DebugPlus {
         window.RouterPlus = RouterPlus;
         window.goto = DebugPlus.goto;
         window.getListByTitle = getListByTitle;
+        window.StoragePlus = StoragePlus;
     };
 
 }

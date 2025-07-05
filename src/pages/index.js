@@ -1,4 +1,5 @@
 import GamePagesEnum from '../constants/gamePagesEnum';
+import BottleRocketPage from './events/bottleRocket';
 import HomePage from './home';
 import ItemPage from './item';
 import KitchenPage from './kitchen';
@@ -21,6 +22,8 @@ const Pages = {
 
     [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
     [GamePagesEnum.WELL]: new WellPage,
+
+    [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,
 };
 
 export default Pages;

@@ -15,6 +15,7 @@ export default [
                 myApp: 'readonly',
                 Dom7: 'readonly',
                 process: 'readonly',
+                MutationObserver: 'readonly',
             },
         },
     },

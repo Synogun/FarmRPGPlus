@@ -3,7 +3,7 @@ import ConsolePlus from './modules/consolePlus';
 import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
 import Pages from './pages/index';
-import { isResetTime } from './utils/utils';
+import TimeControl from './utils/timeControl';
 
 // Registering page handlers
 RouterPlus.registerHandlers(Pages);
@@ -11,8 +11,8 @@ RouterPlus.registerHandlers(Pages);
 (function () {
     'use strict';
     $(function () {
-        
-        const isReset = isResetTime();
+
+        const isReset = TimeControl.isResetTime();
         if (isReset === 1) {
             ConsolePlus.warn('It is backup time, not loading the app.');
             return;
