@@ -327,7 +327,7 @@ function isUrlValid(url) {
  * 1. Between 11:30 and 11:35 PM CT (inclusive).
  * 2. Between 12:00 and 12:04 AM CT (inclusive).
  *
- * @returns {boolean} Returns true if the current time is within a reset period, otherwise false.
+ * @returns {number} Returns 1 if the current time is within backup period, 2 if is within reset period, otherwise 0.
  */
 function isResetTime() {
     const nowOnCT = new Date((new Date).getTime() + ((new Date).getTimezoneOffset() * 60000) + (3600000 * -5));
@@ -336,7 +336,7 @@ function isResetTime() {
         nowOnCT.getHours() === 23 &&
         nowOnCT.getMinutes() >= 30 &&
         nowOnCT.getMinutes() <= 35) {
-        return true;
+        return 1;
     }
 
     if (
@@ -344,7 +344,7 @@ function isResetTime() {
         nowOnCT.getMinutes() >= 0 &&
         nowOnCT.getMinutes() < 5
     ) {
-        return true;
+        return 2;
     }
 
     return false;

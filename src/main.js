@@ -12,7 +12,11 @@ RouterPlus.registerHandlers(Pages);
     'use strict';
     $(function () {
         
-        if (isResetTime()) {
+        const isReset = isResetTime();
+        if (isReset === 1) {
+            ConsolePlus.warn('It is backup time, not loading the app.');
+            return;
+        } else if (isReset === 2) {
             ConsolePlus.warn('It is reset time, not loading the app.');
             return;
         }
@@ -27,12 +31,18 @@ RouterPlus.registerHandlers(Pages);
         RouterPlus.fixUrlHash();
 
         if (window.mainView && mainView.container) {
-            $(mainView.container).on('page:init', function () {
+            $(mainView.container).on('page:init page:reinit', function () {
                 RouterPlus.fixUrlHash();
 
                 const page = myApp.getCurrentView().activePage || mainView.activePage;
 
-                RouterPlus.handlePageChange(page);
+                const callback = RouterPlus.handlePageChange(page);
+
+                if (callback && typeof callback === 'function') {
+                    callback(page);
+                } else {
+                    ConsolePlus.debug('No callback found for the current page:', page.name);
+                }
             });
         }
     });

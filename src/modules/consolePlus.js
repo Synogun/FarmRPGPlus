@@ -27,7 +27,7 @@ class ConsolePlus {
         if (process.env.NODE_ENV === 'production') {
             return; // Skip debug logs in production
         }
-        console.debug(`${this.prefix()}`, ...args);
+        console.debug(`${this.prefix()} [DEBUG]`, ...args);
     }
 
     /**

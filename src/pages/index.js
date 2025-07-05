@@ -6,6 +6,7 @@ import NPCSPage from './npcs';
 import OvenPage from './oven';
 import QuestPage from './quest';
 import QuestsPage from './quests';
+import FarmSupplyPage from './town/supply';
 import WellPage from './town/well';
 
 const Pages = {
@@ -18,6 +19,7 @@ const Pages = {
     [GamePagesEnum.ITEM]: new ItemPage,
     [GamePagesEnum.QUEST]: new QuestPage,
 
+    [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
     [GamePagesEnum.WELL]: new WellPage,
 };
 

@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import IconsUrlEnum from '../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
@@ -36,7 +37,10 @@ class QuestsPage {
             children: [$bfRow],
         });
 
-        $(page.container).find('.card').last().prev().prev().after($bfCard);
+        const itExists = $(page.container).find('#frpgp-buddy-farm-row').length > 0;
+        if (!itExists) {
+            $(page.container).find('.card').last().prev().prev().after($bfCard);
+        }
     };
 
     applyHandler = (page) => {

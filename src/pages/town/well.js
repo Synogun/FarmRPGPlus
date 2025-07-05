@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
@@ -55,8 +56,8 @@ class WellPage {
             { returnTitle: true },
         );
 
-        const itExists = $(page.container).find('#frpgp-wishing-well-library-card');
-        if (!itExists.length) {
+        const itExists = $(page.container).find('#frpgp-wishing-well-library-card').length > 0;
+        if (!itExists) {
             $lastTitle.next('.card').after($libraryCard);
         }
     };

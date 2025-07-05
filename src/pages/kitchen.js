@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
 import StoragePlus from '../modules/storagePlus';

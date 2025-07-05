@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import fetch from 'node-fetch';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
@@ -244,7 +245,10 @@ class QuestPage {
                 rowLink: `https://buddy.farm/q/${parseNameForUrl(previousQuestName)}`,
             });
 
-            $(page.container).find('#frpgp-buddy-farm-current-quest').parent().before($previousQuestRow);
+            const itExists = $(page.container).find('#frpgp-buddy-farm-previous-quest').length > 0;
+            if (!itExists) {
+                $(page.container).find('#frpgp-buddy-farm-current-quest').parent().before($previousQuestRow);
+            }
         }
 
 
@@ -267,7 +271,10 @@ class QuestPage {
                     rowLink: `https://buddy.farm/q/${parseNameForUrl(nextQuestName)}`,
                 });
 
-                $(page.container).find('#frpgp-buddy-farm-current-quest').parent().after($nextQuestRow);
+                const itExists = $(page.container).find('#frpgp-buddy-farm-next-quest');
+                if (!itExists.length) {
+                    $(page.container).find('#frpgp-buddy-farm-current-quest').parent().after($nextQuestRow);
+                }
 
                 return true;
             }, () => false,

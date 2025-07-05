@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import IconsUrlEnum from '../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
@@ -74,15 +75,15 @@ class OvenPage {
             title: 'Oven Navigation',
             children: [$navRow],
         });
-        const exists = $(page.container).find('#frpg-oven-navigation-card').length > 0;
+        const itExists = $(page.container).find('#frpg-oven-navigation-card').length > 0;
         
-        if (!this.isCurrentlyCooking(page) && !exists) {
+        if (!this.isCurrentlyCooking(page) && !itExists) {
             getListByTitle(
                 page,
                 OvenPage.titles.LEARNED_RECIPES,
                 { returnTitle: true }
             ).before($navCard);
-        } else if (!exists) {
+        } else if (!itExists) {
             getListByTitle(
                 page,
                 OvenPage.titles.CURRENTLY_COOKING,

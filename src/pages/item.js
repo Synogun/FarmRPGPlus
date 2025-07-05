@@ -126,13 +126,10 @@ class ItemPage {
             },
         });
 
-        const itExists = $(page.container).find('#frpgp-item-buddy-farm-row');
-        if (itExists.length > 0) {
-            itExists.remove();
+        const itExists = $(page.container).find('#frpgp-item-buddy-farm-row').length > 0;
+        if (!itExists) {
+            getListByTitle(page, ItemPage.titles.ITEM_DETAILS).prepend($li);
         }
-
-        const $list = getListByTitle(page, ItemPage.titles.ITEM_DETAILS);
-        $list.prepend($li);
     };
 
     addNpcLikingsCards = (page) => {
@@ -190,14 +187,14 @@ class ItemPage {
                 children: npcRows,
             });
             
-            const itExists = $(page.container).find(cardId);
+            const itExists = $(page.container).find(cardId).length > 0;
 
-            if (this.doesItemHaveMastery(page) && !itExists.length) {
+            if (this.doesItemHaveMastery(page) && !itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .next() // Card -> Track Mastery Button
                     .after($card);
-            } else if (!itExists.length) {
+            } else if (!itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .after($card);

@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import IconsUrlEnum from '../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
@@ -42,8 +43,8 @@ class HomePage {
             rowId: 'frpgp-buddy-farm-row',
         });
 
-        const itExists = $(page.container).find('#frpgp-buddy-farm-row');
-        if (!itExists.length) {
+        const itExists = $(page.container).find('#frpgp-buddy-farm-row').length > 0;
+        if (!itExists) {
             const $list = getListByTitle(page, HomePage.titles.HOME);
             $list.append($li);
         }
