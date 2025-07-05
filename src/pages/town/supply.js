@@ -51,12 +51,13 @@ class FarmSupplyPage {
 
             const discountFactor = 100 - ((100 * discountedPrice) / originalPrice);
 
-            const itExists = $(page.container).find('.frpgp-discount-after').length > 0;
+            const itExists = $(page.container).find(`.frpgp-discount-after-${index}`).length > 0;
             if (!itExists && !isNaN(discountFactor) && discountFactor >= 0) {
                 $discountedPrice.prepend('&nbsp;');
-                $discountedPrice.prepend(
-                    `<span style="color: teal; font-weight: bold;" class='frpgp-discount-after'>${discountFactor.toFixed(2)}% Off</span>`
-                );
+                $discountedPrice
+                    .prepend(
+                        `<span style="color: teal; font-weight: bold;" class='frpgp-discount-after-${index}'>${discountFactor.toFixed(2)}% Off</span>`
+                    );
             }
         });
 
