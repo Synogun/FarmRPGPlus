@@ -61,12 +61,6 @@ class BottleRocketPage {
             BottleRocketPage.defaultStorageObject()
         );
 
-        const $totalAttacksRow = createRow({
-            title: ['<i class="fa fa-fw fa-rocket"></i>', ' Total Attacks Made'],
-            rowId: 'frpgp-total-attacks-history-row',
-            afterLabel: Object.values(history.total_attacks).reduce((a, b) => a + b, 0).toLocaleString(),
-        });
-
         const $totalAttackTypeRows = Object.entries(history.total_attacks).map(
             ([color, count]) =>
                 createRow({
@@ -75,6 +69,12 @@ class BottleRocketPage {
                     afterLabel: count.toLocaleString(),
                 })
         );
+
+        const $totalAttacksRow = createRow({
+            title: ['<i class="fa fa-fw fa-rocket"></i>', ' Total Attacks Made'],
+            rowId: 'frpgp-total-attacks-history-row',
+            afterLabel: Object.values(history.total_attacks).reduce((a, b) => a + b, 0).toLocaleString(),
+        });
 
         const $totalHitsRow = createRow({
             title: ['<i class="fa fa-fw fa-bullseye"></i>', ' Total Hits'],
@@ -112,8 +112,8 @@ class BottleRocketPage {
             cardId: 'frpgp-bottle-rocket-stats-card',
             title: 'Bottle Rocket Stats',
             children: [
-                $totalAttacksRow,
                 ...$totalAttackTypeRows,
+                $totalAttacksRow,
                 $totalHitsRow,
                 $totalMissesRow,
                 $totalTokensRow,
@@ -169,7 +169,7 @@ class BottleRocketPage {
                         ` ${attackType} Shot`,
                     ],
                     rowId: `frpgp-attack-history-row-${hits}-${misses}-${attackType}`,
-                    afterLabel: `Hits: ${hits} | Misses: ${misses}`,
+                    afterLabel: `Hits: ${hits} | Misses: ${misses} | Players Attacked: ${hits + misses}`,
                 });
             });
 
@@ -455,7 +455,6 @@ class BottleRocketPage {
 }
 
 export default BottleRocketPage;
-
 
 // Attack Result Modal:
 /**
