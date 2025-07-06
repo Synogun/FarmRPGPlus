@@ -38,7 +38,7 @@ To enhance your FarmRPG experience on desktop, follow these steps:
   Add an extension like **Violentmonkey**, or if you're on iOS, try **Userscripts**.
 
 - **Step 3: Add the FarmRPGPlus script**  
-  Head over to [Greasy Fork](https://greasyfork.org) or the official repository and install **FarmRPGPlus**.
+  Install from the [script file](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/main/dist/FarmRPGPlus.user.js).
 
 - **Optional: Create an app-like shortcut**  
   On mobile browsers, you can add [https://farmrpg.com](https://farmrpg.com) to your home screen for a smoother, app-like feel.
@@ -56,7 +56,6 @@ Mobile setup is slightly different but just as easy:
 - **Step 3: Pin FarmRPG to your home screen**  
   Open [https://farmrpg.com](https://farmrpg.com) in your browser, then use the browser menu to add it to your home screen — making it launch like a native app. -->
 
-> Section Written by GPT-4o and Revised by Repo Author
 ---
 
 ## ✨ Features
