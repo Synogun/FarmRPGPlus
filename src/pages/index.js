@@ -8,6 +8,7 @@ import OvenPage from './oven';
 import QuestPage from './quest';
 import QuestsPage from './quests';
 import FarmSupplyPage from './town/supply';
+import VaultPage from './town/vault';
 import WellPage from './town/well';
 
 const Pages = {
@@ -21,6 +22,7 @@ const Pages = {
     [GamePagesEnum.QUEST]: new QuestPage,
 
     [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
+    [GamePagesEnum.VAULT]: new VaultPage,
     [GamePagesEnum.WELL]: new WellPage,
 
     [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,

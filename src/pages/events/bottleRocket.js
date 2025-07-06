@@ -403,6 +403,10 @@ class BottleRocketPage {
                     BottleRocketPage.defaultStorageObject().attack_history
                 );
 
+                if (currentAttackHistory.length > 10) {
+                    currentAttackHistory.shift(); // Remove the oldest entry
+                }
+
                 currentAttackHistory.push({
                     attack_type: attackType,
                     hits: attackResultObject.hits,

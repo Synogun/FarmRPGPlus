@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import { isUrlValid } from '../utils/utils';
 import ConsolePlus from './consolePlus';
