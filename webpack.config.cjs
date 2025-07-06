@@ -21,6 +21,7 @@ module.exports = {
                 namespace: pkg.userscript.namespace,
                 match: pkg.userscript.match,
                 grant: pkg.userscript.grant,
+                license: pkg.license,
                 version: pkg.version,
                 author: pkg.author,
                 description: pkg.description,
