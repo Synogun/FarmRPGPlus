@@ -1,7 +1,7 @@
+import $ from 'jquery';
 import IconsUrlEnum from '../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
-import RouterPlus from '../modules/routerPlus';
 import { createRow } from '../modules/rowFactory';
 import { getListByTitle } from '../utils/utils';
 
@@ -14,12 +14,6 @@ class HomePage {
         UPDATE: 'Most Recent Update',
         OTHER_STUFF: 'Other Stuff'
     });
-
-    refreshIfNeeded = (page) => {
-        if (page.fromPage?.name !== RouterPlus.Pages.INDEX || false) {
-            window.location.reload();
-        }
-    };
 
     addBuddyFarmButton = (page) => {
         // Example item row
@@ -49,22 +43,21 @@ class HomePage {
             rowId: 'frpgp-buddy-farm-row',
         });
 
-        const itExists = $(page.container).find('#frpgp-buddy-farm-row');
-        if (itExists.length > 0) {
-            ConsolePlus.warn('Buddy Farm row already exists, removing old one.');
-            itExists.remove();
+        const itExists = $(page.container).find('#frpgp-buddy-farm-row').length > 0;
+        if (!itExists) {
+            const $list = getListByTitle(page, HomePage.titles.HOME);
+            $list.append($li);
         }
         
-        const $list = getListByTitle(page, HomePage.titles.HOME);
-        $list.append($li);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Index page initialized:', page);

@@ -1,5 +1,4 @@
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import GamePagesEnum from '../constants/gamePagesEnum';
 import { isUrlValid } from '../utils/utils';
 import ConsolePlus from './consolePlus';
 
@@ -20,12 +19,6 @@ import ConsolePlus from './consolePlus';
  * @property {function} getPageHistory - Get navigation history from a page.
  */
 const RouterPlus = {
-    /**
-     * Predefined page names.
-     * @readonly
-     * @enum {string}
-     */
-    Pages: Object.freeze({ ...GamePagesEnum }),
 
     /**
      * Stores registered page handlers.
@@ -34,102 +27,28 @@ const RouterPlus = {
      */
     handlers: {},
 
-    /**
-     * Fixes the URL hash if needed.
-     */
-    fixUrlHash: function () {
-        // common mistakes in URL structure
-        // https://farmrpg.com/
-        // https://farmrpg.com/<page-name>.php
-        // https://farmrpg.com/<page-name>.php#!/<page-name>.php
-        // https://farmrpg.com/<page-name>.php
-        // https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
 
-        const { location } = window;
-        const baseUrl = 'https://farmrpg.com/';
-        const phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
-        const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
-
-        // Case 0: https://farmrpg.com/
-        if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
-            location.replace(`${baseUrl}#!/index.php`);
+    registerHandlers: function (pages) {
+        if (!pages || typeof pages !== 'object') {
+            ConsolePlus.warn('No valid pages object found.');
             return;
         }
 
-        // Case 1: https://farmrpg.com/<page-name>.php
-        if (phpPageRegex.test(location.href) && !location.hash) {
-            const match = location.href.match(phpPageRegex);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
-            return;
-        }
-
-        // Case 2: https://farmrpg.com/<page-name>.php#!/<page-name>.php
-        if (phpPageRegex.test(location.href) && location.hash && hashPhpRegex.test(location.hash)) {
-            const match = location.hash.match(hashPhpRegex);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
-            return;
-        }
-
-        // Case 3: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
-        if (
-            location.hash &&
-            /^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/.test(location.hash)
-        ) {
-            const match = location.hash.match(/^#!\/https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/);
-            const page = match[1] + (match[2] || '');
-            location.replace(`${baseUrl}#!/${page}`);
-            return;
-        }
-
-        if (this.isFarmUrlValid(location.href)) {
-            ConsolePlus.debug('URL is valid, no changes needed.');
-            return;
+        for (const [page, pageInstance] of Object.entries(pages)) {
+            if (pageInstance && typeof pageInstance.applyHandler === 'function') {
+                this.bindPageHandler(page, pageInstance.applyHandler);
+            } else {
+                ConsolePlus.warn(`Page instance for ${page} does not have an applyHandler function.`);
+            }
         }
     },
 
-    fixBackButton: function (page) {
-        if (!page?.navbarInnerContainer) {
-            ConsolePlus.warn('No back button to fix, page does not have a navbar.');
-            return;
-        }
-
-        const previousPage = this.getPreviousPage(page);
-
-        if (!previousPage || !this.getPageName(previousPage)) {
-            ConsolePlus.warn('No valid previous page found to fix back button.');
-            return;
-        }
-
-        const $backButton = $(page.navbarInnerContainer).find('a.back[href="x"]');
-        
-        if (!$backButton.length) {
-            return;
-        }
-
-        const previousPageUrl = this.getPageName(previousPage) === this.Pages.INDEX
-            ? 'index.php'
-            : this.getPageUrl(previousPage);
-
-        if (!previousPageUrl) {
-            return;
-        }
-
-        $backButton.attr('href', previousPageUrl);
-
-        $backButton.removeClass('back');
-        $backButton.addClass('no-animation');
-
-        ConsolePlus.log(`Back button fixed to: ${previousPageUrl}`);
-    },
-    
     /**
      * Register a handler for a page.
      * @param {string} page - Page name.
      * @param {Function} handler - Handler for navigation.
      */
-    register: function (page, handler) {
+    bindPageHandler: function (page, handler) {
         if (
             typeof page !== 'string' ||
             !page.trim() ||
@@ -137,8 +56,9 @@ const RouterPlus = {
         ) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
-                this.register.name,
+                this.bindPageHandler.name,
             );
+            return;
         }
 
         this.handlers[page] = handler;
@@ -248,14 +168,127 @@ const RouterPlus = {
         return history;
     },
 
+    /**
+     * Navigate to a specific page using its hash.
+     * @param {string} hash - The hash to navigate to, e.g., '#!/index.php'.
+     * @throws {FarmRPGPlusError} If the hash is invalid or empty.
+     */
+    goto: function (hash) {
+        if (typeof hash !== 'string' || hash.trim() === '') {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_URL,
+                this.goto.name,
+            );
+            return;
+        }
+
+        if (!this.isHashValid(hash)) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_URL,
+                this.goto.name,
+            );
+            return;
+        }
+
+        hash = hash.replace(/^#!\//, ''); // Remove leading #!/
+        mainView.router.loadPage(hash);
+    },
+
+    /**
+     * Check if the given URL is a valid FarmRPG URL.
+     * @param {string} url - The URL to validate.
+     * @returns {boolean} True if the URL is valid, false otherwise.
+     */
     isFarmUrlValid: function (url) {
         return isUrlValid(url) && /^https:\/\/farmrpg\.com\/#!\/[^/]+\.php(\?.*)?$/.test(url);
     },
 
+    /**
+     * Check if the given hash is a valid FarmRPG URL hash.
+     * @param {string} hash - The hash to validate.
+     * @returns {boolean} True if the hash is valid, false otherwise.
+     */
     isHashValid: function (hash) {
-        const isHashValid = hash => /^#!\/[^/]+\.php(\?.*)?$/.test(hash);
-        return isHashValid(hash);
-    }
+        return /^(#!\/)?[^/]+\.php(\?.*)?$/.test(hash);
+    },
+
+    /**
+     * Fixes the URL hash if needed.
+     */
+    fixUrlHash: function () {
+        const { location } = window;
+        const baseUrl = 'https://farmrpg.com/';
+        const phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
+        // const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
+
+        // Case 0: https://farmrpg.com/
+        if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
+            location.replace(`${baseUrl}#!/index.php`);
+            return true;
+        }
+
+        // Case 1: https://farmrpg.com/<page-name>.php
+        if (phpPageRegex.test(location.href) && !location.hash) {
+            const match = location.href.match(phpPageRegex);
+            const page = match[1] + (match[2] || '');
+            location.replace(`${baseUrl}#!/${page}`);
+            return true;
+        }
+
+        // Case 2: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+        if (location.href.includes(`#!/${baseUrl}`)) {
+            const page = location.href.replace(`#!/${baseUrl}`, '');
+            ConsolePlus.log('ed');
+            if (phpPageRegex.test(page)) {
+                location.replace(page);
+                return true;
+            } else {
+                location.replace(`${baseUrl}#!/index.php`);
+                return true;
+            }
+        }
+
+        if (this.isFarmUrlValid(location.href)) {
+            ConsolePlus.debug('URL is valid, no changes needed.', location.href);
+            return false;
+        }
+    },
+
+    // TODO: Convert this to a more generic function that can update the back button for any page.
+    fixBackButton: function (page) {
+        if (!page?.navbarInnerContainer) {
+            ConsolePlus.warn('No back button to fix, page does not have a navbar.');
+            return;
+        }
+
+        const previousPage = this.getPreviousPage(page);
+
+        if (!previousPage || !this.getPageName(previousPage)) {
+            ConsolePlus.warn('No valid previous page found to fix back button.');
+            return;
+        }
+
+        const $backButton = $(page.navbarInnerContainer).find('a.back[href="x"]');
+
+        if (!$backButton.length) {
+            return;
+        }
+
+        const previousPageUrl = this.getPageName(previousPage) === this.Pages.INDEX
+            ? 'index.php'
+            : this.getPageUrl(previousPage);
+
+        if (!previousPageUrl) {
+            return;
+        }
+
+        $backButton.attr('href', previousPageUrl);
+
+        $backButton.removeClass('back');
+        $backButton.addClass('no-animation');
+
+        ConsolePlus.log(`Back button fixed to: ${previousPageUrl}`);
+    },
 };
 
 export default RouterPlus;

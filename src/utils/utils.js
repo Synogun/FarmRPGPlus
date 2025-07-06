@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
+import ConsolePlus from '../modules/consolePlus';
 
 /**
  * Creates a jQuery <li> element representing a row with optional media, title, subtitle, button, and link.
@@ -56,7 +57,7 @@ function createRow({
                 .append($mediaContent),
         );
     } else {
-        $itemMedia = $('<div class="item-media">').append($mediaContent);
+        $itemMedia = $mediaContent ? $('<div class="item-media">').append($mediaContent) : null;
     }
 
     const $itemTitle = $('<div class="item-title">');
@@ -174,12 +175,13 @@ function createRow({
  * @param {Array} [params.children=[]] - Array of child elements (typically jQuery elements) to include in the list.
  * @returns {Array} An array of jQuery elements representing the card list, optionally including a title.
  */
-function createCardList({ cardId = '', cardClass = '', title = '', children = [] }) {
+function createCardList({ cardId = '', cardClass = '', title = '', children = [], cardContentOnly = false }) {
     if (typeof cardClass !== 'string' || !Array.isArray(children)) {
         new FarmRPGPlusError(
             ErrorTypesEnum.PARAMETER_MISMATCH,
             createCardList.name
         );
+        return;
     }
 
     const content = [];
@@ -193,11 +195,15 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
                 $('<div>')
                     .addClass('card-content')
                     .append(
-                        $('<div>')
-                            .addClass('list-block')
-                            .append(
-                                $('<ul>').append(children),
-                            ),
+                        cardContentOnly
+                            ? $('<div>')
+                                .addClass('card-content-inner')
+                                .append(children)
+                            : $('<div>')
+                                .addClass('list-block')
+                                .append(
+                                    $('<ul>').append(children),
+                                ),
                     ),
             ),
     );
@@ -214,17 +220,54 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
     return content;
 }
 
+function watchForElement(selector, callback) {
+    let observer = null;
+
+    // Verifica se o elemento já está presente
+    const $existing = $(selector);
+    if ($existing.length) {
+        callback($existing.first());
+        return () => { }; // nada a desconectar
+    }
+
+    observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            $(mutation.addedNodes).each((_, node) => {
+                if (node.nodeType === 1) {
+                    const $matched = $(node).is(selector)
+                        ? $(node)
+                        : $(node).find(selector);
+
+                    if ($matched.length) {
+                        ConsolePlus.debug(`Element matched: ${selector}`, $matched.first());
+                        callback($matched.first());
+                        observer.disconnect(); // parar após encontrar
+                        return;
+                    }
+                }
+            });
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Retorna função para parar manualmente
+    return () => {
+        if (observer) observer.disconnect();
+    };
+}
+
 /**
  * Retrieves a list element associated with a given title from a page container.
  *
  * @param {Object} page - The page object containing the container to search within.
- * @param {string} title - The title to match against content-block-title elements.
+ * @param {string} title - The title to search for. Can be matched exactly or via regex.
  * @param {Object} [options] - Optional parameters.
- * @param {boolean} [options.returnTitle=false] - If true, returns the title element instead of the list.
- * @param {boolean} [options.regex=false] - If true, treats the title as a regular expression.
- * @param {number} [options.offset=0] - Offset from the found title. If negative, searches in reverse order.
- * @returns {jQuery} The jQuery object representing the found list element (`ul`).
- * @throws {FarmRPGPlusError} Throws if parameters are invalid or if the required elements are not found.
+ * @param {boolean} [options.returnTitle=false] - If true, returns the matching title element instead of the list.
+ * @param {boolean} [options.regex=false] - If true, uses a regular expression to match the title.
+ * @param {number} [options.offset=0] - Offset from the found title. Can be negative to search backwards.
+ * @returns {jQuery} The jQuery object representing the found list or title element.
+ * @throws {FarmRPGPlusError} Throws if parameters are invalid or elements are not found.
  */
 function getListByTitle(page, title, { returnTitle = false, regex = false, offset = 0 } = {}) {
     if (
@@ -238,6 +281,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.PARAMETER_MISMATCH,
             getListByTitle.name
         );
+        return null;
     }
 
     let $listOfTitles = $(page.container).find('div.content-block-title');
@@ -264,6 +308,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
 
     if (returnTitle) {
@@ -277,6 +322,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
     
     let $list = $card.find('.list-block ul');
@@ -286,7 +332,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
     }
 
     if ($card.next('.list-block')) {
-        $list = $card.next('.list-block').find('ul');
+        $list = $card.next('.list-block').find('ul').eq(0);
     }
 
     if ($list.length === 0) {
@@ -294,6 +340,7 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
         );
+        return null;
     }
 
     return $list;
@@ -316,36 +363,6 @@ function isUrlValid(url) {
 }
 
 /**
- * Determines if the current time (in Central Time, UTC-5) falls within specific reset periods.
- *
- * The function checks two reset windows:
- * 1. Between 11:30 and 11:35 PM CT (inclusive).
- * 2. Between 12:00 and 12:04 AM CT (inclusive).
- *
- * @returns {boolean} Returns true if the current time is within a reset period, otherwise false.
- */
-function isResetTime() {
-    const nowOnCT = new Date((new Date).getTime() + ((new Date).getTimezoneOffset() * 60000) + (3600000 * -5));
-
-    if (
-        nowOnCT.getHours() === 23 &&
-        nowOnCT.getMinutes() >= 30 &&
-        nowOnCT.getMinutes() <= 35) {
-        return true;
-    }
-
-    if (
-        nowOnCT.getHours() === 0 &&
-        nowOnCT.getMinutes() >= 0 &&
-        nowOnCT.getMinutes() < 5
-    ) {
-        return true;
-    }
-
-    return false;
-}
-
-/**
  * Converts a name into a URL-friendly string by:
  * - Trimming whitespace
  * - Replacing spaces and special characters with hyphens
@@ -356,21 +373,30 @@ function isResetTime() {
  * @param {string} name - The original name to be converted.
  * @returns {string} The URL-friendly version of the name.
  */
-function parseNameForUrl(name) {
-    return name
+function parseNameForUrl(name, { separator = '-', lowercase = true } = {}) {
+    let processedName = name
         .trim()
         .replace(/[ _!@#$%^&*()+=[\]{};':"\\|,.<>/?]+/g, '-') // Replace spaces and special characters with hyphens
         .replace(/[\u00C0-\u00FF]/g, '-') // Replace accented characters with hyphens
-        .replace(/-+/g, '-') // Replace multiple hyphens with a single hyphen
-        .toLowerCase();
+        .replace(/-+/g, '-'); // Replace multiple hyphens with a single hyphen
+
+    if (lowercase) {
+        processedName = processedName.toLowerCase();
+    }
+
+    if (separator !== '-') {
+        processedName = processedName.replace(/-/g, separator);
+    }
+
+    return processedName;
 }
 
 export {
     createCardList,
     createRow,
     getListByTitle,
-    isResetTime,
     isUrlValid,
-    parseNameForUrl
+    parseNameForUrl,
+    watchForElement
 };
 

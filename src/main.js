@@ -1,39 +1,48 @@
 import $ from 'jquery';
 import ConsolePlus from './modules/consolePlus';
+import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
 import Pages from './pages/index';
-import { isResetTime } from './utils/utils';
+import TimeControl from './utils/timeControl';
 
 // Registering page handlers
-RouterPlus.register(RouterPlus.Pages.INDEX, Pages.home.apply);
-RouterPlus.register(RouterPlus.Pages.QUESTS, Pages.quests.apply);
-RouterPlus.register(RouterPlus.Pages.NPCS, Pages.npcs.apply);
-
-RouterPlus.register(RouterPlus.Pages.ITEM, Pages.item.apply);
-RouterPlus.register(RouterPlus.Pages.QUEST, Pages.quest.apply);
-
-// Town pages
-RouterPlus.register(RouterPlus.Pages.WELL, Pages.well.apply);
+RouterPlus.registerHandlers(Pages);
 
 (function () {
     'use strict';
     $(function () {
-        if (isResetTime()) {
+
+        const isReset = TimeControl.isResetTime();
+        if (isReset === 1) {
+            ConsolePlus.warn('It is backup time, not loading the app.');
+            return;
+        } else if (isReset === 2) {
             ConsolePlus.warn('It is reset time, not loading the app.');
             return;
+        }
+        
+        ConsolePlus.log('FarmRPGPlus app initialized.');
+
+        if (DebugPlus.isDevelopmentMode()) {
+            ConsolePlus.warn('Development mode is enabled, debugging features are active.');
+            DebugPlus.applyDebugFeatures();
         }
 
         RouterPlus.fixUrlHash();
 
         if (window.mainView && mainView.container) {
-            $(mainView.container).on('page:init', function () {
+            $(mainView.container).on('page:init page:reinit', function () {
                 RouterPlus.fixUrlHash();
 
                 const page = myApp.getCurrentView().activePage || mainView.activePage;
-                // const page = mainView;
 
-                RouterPlus.handlePageChange(page);
-                // RouterPlus.fixBackButton(page);
+                const callback = RouterPlus.handlePageChange(page);
+
+                if (callback && typeof callback === 'function') {
+                    callback(page);
+                } else {
+                    ConsolePlus.debug('No callback found for the current page:', page.name);
+                }
             });
         }
     });

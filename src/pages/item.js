@@ -59,6 +59,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.doesItemHaveMastery.name,
             );
+            return;
         }
 
         const $mastery = $(page.container).find('img[src="/img/items/icon_mastery2.png?1"]');
@@ -79,6 +80,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
             );
+            return;
         }
 
         const itemName = $(page.navbarInnerContainer).find('a.sharelink').text();
@@ -88,6 +90,7 @@ class ItemPage {
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
             );
+            return;
         }
 
         return itemName.trim();
@@ -107,6 +110,7 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addBuddyFarmButton.name,
             );
+            return;
         }
 
         const $li = createRow({
@@ -122,13 +126,10 @@ class ItemPage {
             },
         });
 
-        const itExists = $(page.container).find('#frpgp-item-buddy-farm-row');
-        if (itExists.length > 0) {
-            itExists.remove();
+        const itExists = $(page.container).find('#frpgp-item-buddy-farm-row').length > 0;
+        if (!itExists) {
+            getListByTitle(page, ItemPage.titles.ITEM_DETAILS).prepend($li);
         }
-
-        const $list = getListByTitle(page, ItemPage.titles.ITEM_DETAILS);
-        $list.prepend($li);
     };
 
     addNpcLikingsCards = (page) => {
@@ -137,25 +138,17 @@ class ItemPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addNpcLikingsCards.name,
             );
+            return;
         }
 
         const capitalizeWords = name => name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
         const itemName = this.getItemNameOnNavbar(page);
-        console.log('Item name:', itemName);
         
 
         for (const [giftPower, npcList] of Object.entries(ItemGiftsEnum[itemName] || {})) {
             if (!npcList || npcList.length === 0) {
                 continue;
             }
-
-            // const $afterIcon = () => $('<div>')
-            //     .addClass('item-media')
-            //     .append(
-            //         $('<img>')
-            //             .addClass('itemimg')
-            //             .attr('src', IconsUrlEnum[`NPC_${giftPower}_GIFT`] || IconsUrlEnum.NPC_NEUTRAL_GIFT)
-            //     );
 
             let XPValue = '';
 
@@ -194,18 +187,14 @@ class ItemPage {
                 children: npcRows,
             });
             
-            const itExists = $(page.container).find(cardId);
+            const itExists = $(page.container).find(cardId).length > 0;
 
-            if (itExists.length > 0) {
-                itExists.remove();
-            }
-
-            if (this.doesItemHaveMastery(page)) {
+            if (this.doesItemHaveMastery(page) && !itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .next() // Card -> Track Mastery Button
                     .after($card);
-            } else {
+            } else if (!itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .after($card);
@@ -213,12 +202,13 @@ class ItemPage {
         }
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('Item page initialized:', page);

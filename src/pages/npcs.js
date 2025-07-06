@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import NPCUrlsEnum from '../constants/npcUrlsEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
@@ -17,6 +18,7 @@ class NPCSPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTownsfolkInfoCard.name,
             );
+            return;
         }
 
         const $townsfolkFriendshipRow = createRow({
@@ -49,20 +51,20 @@ class NPCSPage {
             children: [$townsfolkFriendshipRow, $giftsRow, $bfTownsfolkRow],
         });
 
-        const itExists = $(page.container).find('#frpgp-townsfolk-info-card');
-        if (itExists.length > 0) {
-            itExists.remove();
+        const itExists = $(page.container).find('#frpgp-townsfolk-info-card').length > 0;
+        if (!itExists) {
+            $(page.container).find('.card').last().after($townsfolkInfoCard);
         }
         
-        $(page.container).find('.card').last().after($townsfolkInfoCard);
     };
 
-    apply = (page) => {
+    applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.apply.name,
+                this.applyHandler.name,
             );
+            return;
         }
 
         ConsolePlus.log('NPCs page initialized:', page);

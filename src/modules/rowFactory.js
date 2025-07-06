@@ -1,10 +1,11 @@
+import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import { createRow, isUrlValid } from '../utils/utils';
 
 /**
  * RowFactory class for creating jQuery <li> elements representing rows with optional media, title, subtitle, button, and link.
  */
-class RowFactory {
+class RowFactory { //TODO: Finish the implementation
     constructor() {
         this.reset();
     }
@@ -28,10 +29,11 @@ class RowFactory {
 
     addTitleText({ title, bold = false }) {
         if (!title && title !== '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTitleText.name,
             );
+            return;
         }
 
         this.options.title.push({ title, bold });
@@ -40,10 +42,11 @@ class RowFactory {
 
     addSubtitle({ subtitle, bold = false, newLine = true }) {
         if (!subtitle && subtitle !== '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addSubtitle.name,
             );
+            return;
         }
 
         this.options.subtitle.push({ subtitle, bold, newLine });
@@ -52,10 +55,11 @@ class RowFactory {
 
     addTitleIcon({ iconUrl, iconName }) {
         if (iconUrl?.trim() === '' && iconName?.trim() === '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTitleIcon.name,
             );
+            return;
         }
 
         this.options.title.push({ iconUrl, iconName });
@@ -64,10 +68,11 @@ class RowFactory {
 
     addRowIcon({ sourceUrl, targetUrl = undefined }) {
         if (sourceUrl?.trim() === '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addRowIcon.name,
             );
+            return;
         }
 
         this.options.rowIconSourceUrl = sourceUrl;
@@ -77,10 +82,11 @@ class RowFactory {
 
     setRowId(id) {
         if (id?.trim() === '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowId.name,
             );
+            return;
         }
 
         this.options.rowId = id;
@@ -89,10 +95,11 @@ class RowFactory {
 
     setRowClass(cls) {
         if (cls?.trim() === '' || cls?.length === 0) {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowClass.name,
             );
+            return;
         }
 
         if (this.options.rowClass === undefined) {
@@ -111,17 +118,19 @@ class RowFactory {
 
     setRowTarget(url) {
         if (url?.trim() === '') {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.setRowTarget.name,
             );
+            return;
         }
 
         if (!isUrlValid(url)) {
-            throw new FarmRPGPlusError(
+            new FarmRPGPlusError(
                 ErrorTypesEnum.INVALID_URL,
                 this.setRowTarget.name,
             );
+            return;
         }
 
         this.options.rowTargetUrl = url;
