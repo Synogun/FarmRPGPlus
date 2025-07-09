@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]()
 
 ### Added
+- `MuseumPage` - Added collected indicator cache syncronization to the Museum page.
+- `InventoryPage` - Added collected indicator cache syncronization to the Inventory page.
 - `VaultPage` - Added really basic code suggester to the Vault page.
 - `VaultPage` - Added library button to the Vault page.
 - `ItemPage` - Added collected indicator to item pages, showing if the item is collected.

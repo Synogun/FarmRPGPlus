@@ -1996,16 +1996,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
 /* harmony import */ var _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/bottleRocket */ "./src/pages/events/bottleRocket.js");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./src/pages/home.js");
-/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item */ "./src/pages/item.js");
-/* harmony import */ var _kitchen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./kitchen */ "./src/pages/kitchen.js");
-/* harmony import */ var _npcs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./npcs */ "./src/pages/npcs.js");
-/* harmony import */ var _oven__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./oven */ "./src/pages/oven.js");
-/* harmony import */ var _quest__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./quest */ "./src/pages/quest.js");
-/* harmony import */ var _quests__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./quests */ "./src/pages/quests.js");
-/* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
-/* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
-/* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
-/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
+/* harmony import */ var _inventory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inventory */ "./src/pages/inventory.js");
+/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item */ "./src/pages/item.js");
+/* harmony import */ var _kitchen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./kitchen */ "./src/pages/kitchen.js");
+/* harmony import */ var _npcs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./npcs */ "./src/pages/npcs.js");
+/* harmony import */ var _oven__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./oven */ "./src/pages/oven.js");
+/* harmony import */ var _quest__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./quest */ "./src/pages/quest.js");
+/* harmony import */ var _quests__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./quests */ "./src/pages/quests.js");
+/* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
+/* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
+/* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
+/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
 var _Pages;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -2024,8 +2025,68 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
-var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _quests__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _oven__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _item__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _quest__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_11__["default"]()), _defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
+
+var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _quests__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _npcs__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _oven__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _quest__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_11__["default"]()), _defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_13__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
+
+/***/ }),
+
+/***/ "./src/pages/inventory.js":
+/*!********************************!*\
+  !*** ./src/pages/inventory.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+var InventoryPage = /*#__PURE__*/_createClass(function InventoryPage() {
+  var _this = this;
+  _classCallCheck(this, InventoryPage);
+  _defineProperty(this, "syncCollectionProgress", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
+      return;
+    }
+    var $itemNames = $(page.container).find(".item-title strong");
+    if ($itemNames.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('No collection progress found on the Museum page.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get('items_collected_cache', {});
+    $itemNames.each(function (_, element) {
+      var itemName = $(element).text().trim();
+      if (!itemName || itemName === '-') {
+        return;
+      }
+      cache[itemName] = cache[itemName] || true;
+    });
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set('items_collected_cache', cache);
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Collection progress cache updated');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Inventory page initialized:', page);
+    _this.syncCollectionProgress(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InventoryPage);
 
 /***/ }),
 

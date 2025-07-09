@@ -200,7 +200,7 @@ class ItemPage {
 
         const entries = Object.entries(ItemGiftsEnum[itemName] || {})
             .sort((a, b) => {
-                const powerOrder = { SUPER_LOVES: 3, LOVES: 2, LIKES: 1 };
+                const powerOrder = { SUPER_LOVES: 1, LOVES: 2, LIKES: 3, HATES: 4 };
                 return (powerOrder[b[0]] || 0) - (powerOrder[a[0]] || 0);
             });
 
@@ -246,8 +246,11 @@ class ItemPage {
             });
             
             const itExists = $(page.container).find(cardId).length > 0;
+            const doesTrackMasteryButtonExists = $(page.container).find('.activemsbtn').length > 0 ||
+                $(page.container).find('.deactivemsbtn').length > 0;
 
-            if (this.doesItemHaveMastery(page) && !itExists) {
+
+            if (doesTrackMasteryButtonExists && !itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .next() // Card -> Track Mastery Button
@@ -269,9 +272,10 @@ class ItemPage {
             return;
         }
 
-        const cache = StoragePlus.get('items_collected_cache', {});
-        if (!Object.keys(cache).length || typeof cache !== 'object') {
+        let cache = StoragePlus.get('items_collected_cache');
+        if (!cache || typeof cache !== 'object') {
             StoragePlus.set('items_collected_cache', {});
+            cache = {};
         }
 
         const itemName = this.getItemNameOnNavbar(page);
@@ -290,13 +294,20 @@ class ItemPage {
             $collectedIndicator
                 .css('color', 'green')
                 .text('Collected!');
+
+            cache[itemName] = true;
         } else {
             $collectedIndicator
-                .css('color', 'red')
-                .text('Not Collected');
+            .css('color', 'red')
+            .text('Not Collected');
         }
-            
-        $(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+        
+        StoragePlus.set('items_collected_cache', cache);
+        const itExists = $(page.container).find('#frpgp-collected-indicator').length > 0;
+        
+        if (!itExists) {
+            $(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+        }
     };
 
     applyHandler = (page) => {
