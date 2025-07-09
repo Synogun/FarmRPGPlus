@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ItemPage` - Sort Npc likings cards by Super Loves, Loves, Likes and Hates.
 
 ### Changed
+- `StoragePlus` - Made StoragePlus static, removing the need to instantiate it.
 
 ### Fixed
 - `FarmRPGPlusError` - Fixes error messages not displaying correctly.

@@ -1398,10 +1398,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -1409,56 +1409,64 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 /**
  * StoragePlus is a wrapper class for managing a custom localStorage namespace (`frpg_plus`).
- * It provides methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
+ * It provides static methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
  *
  * @class
  */
 var StoragePlus = /*#__PURE__*/function () {
-  /**
-   * Initializes the StoragePlus module.
-   * Ensures that a 'frpg_plus' key exists in localStorage and parses its value into the instance's storage property.
-   * If the key does not exist, it is created and initialized as an empty object.
-   */
   function StoragePlus() {
-    var _window$localStorage;
     _classCallCheck(this, StoragePlus);
-    if (!((_window$localStorage = window.localStorage) !== null && _window$localStorage !== void 0 && _window$localStorage.frpg_plus)) {
-      window.localStorage.setItem('frpg_plus', JSON.stringify({}));
-    }
-    this.storage = window.localStorage.frpg_plus ? JSON.parse(window.localStorage.frpg_plus) : {};
   }
+  return _createClass(StoragePlus, null, [{
+    key: "_getStorage",
+    value:
+    /**
+     * Ensures that a 'frpg_plus' key exists in localStorage and returns the parsed object.
+     * If the key does not exist, it is created and initialized as an empty object.
+     * @returns {Object} The parsed storage object.
+     */
+    function _getStorage() {
+      var _window$localStorage;
+      if (!((_window$localStorage = window.localStorage) !== null && _window$localStorage !== void 0 && _window$localStorage.frpg_plus)) {
+        window.localStorage.setItem('frpg_plus', JSON.stringify({}));
+      }
+      return window.localStorage.frpg_plus ? JSON.parse(window.localStorage.frpg_plus) : {};
+    }
 
-  /**
-   * Sets a value for the specified key in the storage object and persists the updated storage to localStorage
-   *
-   * @param {string} key - The key under which the value will be stored, using dot notation for nested properties.
-   * @param {*} value - The value to store. Can be of any type that is serializable to JSON.
-   */
-  return _createClass(StoragePlus, [{
+    /**
+     * Persists the given storage object to localStorage.
+     * @param {Object} storage - The storage object to persist.
+     */
+  }, {
+    key: "_setStorage",
+    value: function _setStorage(storage) {
+      window.localStorage.setItem('frpg_plus', JSON.stringify(storage));
+    }
+
+    /**
+     * Sets a value for the specified key in the storage object and persists the updated storage to localStorage
+     *
+     * @param {string} key - The key under which the value will be stored, using dot notation for nested properties.
+     * @param {*} value - The value to store. Can be of any type that is serializable to JSON.
+     */
+  }, {
     key: "set",
     value: function set(key, value) {
       var keys = key.split('.');
-      var current = this.storage;
-      var _iterator = _createForOfIteratorHelper(keys),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var k = _step.value;
-          if (!current[k] && k !== keys[keys.length - 1]) {
+      var storage = StoragePlus._getStorage();
+      var current = storage;
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (i === keys.length - 1) {
+          current[k] = value;
+        } else {
+          if (!current[k] || _typeof(current[k]) !== 'object') {
             current[k] = {};
-          } else if (k === keys[keys.length - 1]) {
-            // If it's the last key, we set the value directly
-            current[k] = value;
-            break;
           }
           current = current[k];
         }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
       }
-      window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+      StoragePlus._setStorage(storage);
     }
 
     /**
@@ -1466,27 +1474,28 @@ var StoragePlus = /*#__PURE__*/function () {
      *
      * @param {string} key - The key of the item to retrieve using dot notation for nested properties.
      * @param {*} [defaultValue=undefined] - The default value to return if the key does not exist in storage.
-     * @returns {*} The value associated with the key, or null if the key does not exist.
+     * @returns {*} The value associated with the key, or defaultValue if the key does not exist.
      */
   }, {
     key: "get",
     value: function get(key, defaultValue) {
       var keys = key.split('.');
-      var value = this.storage;
-      var _iterator2 = _createForOfIteratorHelper(keys),
-        _step2;
+      var value = StoragePlus._getStorage();
+      var _iterator = _createForOfIteratorHelper(keys),
+        _step;
       try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var k = _step2.value;
-          value = value[k];
-          if (value === undefined) {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var k = _step.value;
+          if (value && Object.prototype.hasOwnProperty.call(value, k)) {
+            value = value[k];
+          } else {
             return defaultValue;
           }
         }
       } catch (err) {
-        _iterator2.e(err);
+        _iterator.e(err);
       } finally {
-        _iterator2.f();
+        _iterator.f();
       }
       return value;
     }
@@ -1501,25 +1510,17 @@ var StoragePlus = /*#__PURE__*/function () {
     key: "remove",
     value: function remove(key) {
       var keys = key.split('.');
-      var current = this.storage;
-      var _iterator3 = _createForOfIteratorHelper(keys),
-        _step3;
-      try {
-        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-          var k = _step3.value;
-          if (current[k]) {
-            current = current[k];
-          } else {
-            return;
-          }
+      var storage = StoragePlus._getStorage();
+      var current = storage;
+      for (var i = 0; i < keys.length - 1; i++) {
+        var k = keys[i];
+        if (!current[k] || _typeof(current[k]) !== 'object') {
+          return;
         }
-      } catch (err) {
-        _iterator3.e(err);
-      } finally {
-        _iterator3.f();
+        current = current[k];
       }
-      delete current.value;
-      window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+      delete current[keys[keys.length - 1]];
+      StoragePlus._setStorage(storage);
     }
 
     /**
@@ -1529,12 +1530,11 @@ var StoragePlus = /*#__PURE__*/function () {
   }, {
     key: "clear",
     value: function clear() {
-      this.storage = {};
-      window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+      StoragePlus._setStorage({});
     }
   }]);
 }();
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new StoragePlus());
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StoragePlus);
 
 /***/ }),
 
@@ -2005,6 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
 /* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
 /* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
+/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
 var _Pages;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -2022,7 +2023,8 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
-var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _quests__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _oven__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _item__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _quest__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_11__["default"]()), _defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
+
+var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _quests__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _oven__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _item__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _quest__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_11__["default"]()), _defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
 
 /***/ }),
@@ -2208,9 +2210,10 @@ var ItemPage = /*#__PURE__*/_createClass(function ItemPage() {
     var itemName = _this.getItemNameOnNavbar(page);
     var entries = Object.entries(_constants_npcGiftsEnum__WEBPACK_IMPORTED_MODULE_2__.ItemGiftsEnum[itemName] || {}).sort(function (a, b) {
       var powerOrder = {
-        SUPER_LOVES: 3,
+        SUPER_LOVES: 1,
         LOVES: 2,
-        LIKES: 1
+        LIKES: 3,
+        HATES: 4
       };
       return (powerOrder[b[0]] || 0) - (powerOrder[a[0]] || 0);
     });
@@ -2258,7 +2261,8 @@ var ItemPage = /*#__PURE__*/_createClass(function ItemPage() {
           children: npcRows
         });
         var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find(cardId).length > 0;
-        if (_this.doesItemHaveMastery(page) && !itExists) {
+        var doesTrackMasteryButtonExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.activemsbtn').length > 0 || jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.deactivemsbtn').length > 0;
+        if (doesTrackMasteryButtonExists && !itExists) {
           (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, ItemPage.titles.ITEM_DETAILS, {
             returnTitle: true
           }).next() // Title -> Card
@@ -2285,9 +2289,10 @@ var ItemPage = /*#__PURE__*/_createClass(function ItemPage() {
       new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_4__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_4__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addCollectedIndicator.name);
       return;
     }
-    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].get('items_collected_cache', {});
-    if (!Object.keys(cache).length || _typeof(cache) !== 'object') {
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].get('items_collected_cache');
+    if (!cache || _typeof(cache) !== 'object') {
       _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].set('items_collected_cache', {});
+      cache = {};
     }
     var itemName = _this.getItemNameOnNavbar(page);
     var isCollected = cache[itemName] || _this.getItemQuantity(page) > 0 || _this.getItemQuantity(page, {
@@ -2296,10 +2301,15 @@ var ItemPage = /*#__PURE__*/_createClass(function ItemPage() {
     var $collectedIndicator = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr('id', 'frpgp-collected-indicator').css('font-weight', 'bold').css('font-size', '11px');
     if (isCollected) {
       $collectedIndicator.css('color', 'green').text('Collected!');
+      cache[itemName] = true;
     } else {
       $collectedIndicator.css('color', 'red').text('Not Collected');
     }
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].set('items_collected_cache', cache);
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-collected-indicator').length > 0;
+    if (!itExists) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+    }
   });
   _defineProperty(this, "applyHandler", function (page) {
     if (!(page !== null && page !== void 0 && page.container)) {
@@ -2906,6 +2916,76 @@ _defineProperty(QuestsPage, "titles", Object.freeze({
 
 /***/ }),
 
+/***/ "./src/pages/town/museum.js":
+/*!**********************************!*\
+  !*** ./src/pages/town/museum.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+var MuseumPage = /*#__PURE__*/_createClass(function MuseumPage() {
+  var _this = this;
+  _classCallCheck(this, MuseumPage);
+  _defineProperty(this, "syncCollectionProgress", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
+      return;
+    }
+    var $itemBlocks = $(page.container).find(".col-25");
+    if ($itemBlocks.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('No collection progress found on the Museum page.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get('items_collected_cache', {});
+    $itemBlocks.each(function (_, element) {
+      var itemName = $(element).text().trim();
+      if (!itemName || itemName === '-') {
+        return;
+      }
+      cache[itemName] = cache[itemName] || true;
+    });
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set('items_collected_cache', cache);
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Collection progress cache updated');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Museum page initialized:', page);
+    _this.syncCollectionProgress(page);
+  });
+});
+_defineProperty(MuseumPage, "titles", Object.freeze({
+  COLLECTION_PROGRESS: 'Collection Progress',
+  CROPS: 'Crops',
+  FISH: 'Fish',
+  ITEMS: 'Items',
+  SEEDS: 'Seeds',
+  BAIT: 'Bait',
+  MEALS: 'Meals',
+  CARDS: 'Cards',
+  EVENT: 'Event'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MuseumPage);
+
+/***/ }),
+
 /***/ "./src/pages/town/supply.js":
 /*!**********************************!*\
   !*** ./src/pages/town/supply.js ***!
@@ -3063,7 +3143,7 @@ var VaultPage = /*#__PURE__*/_createClass(function VaultPage() {
     Blue means you guessed a correct digit in the correct position.
     Yellow means you guessed a correct digit in the wrong position.
     Code is 4-digit (0001-9999). You have 4 tries left.
-      IMPORTANT! 0 is a valid number and potentially part of the code.
+     IMPORTANT! 0 is a valid number and potentially part of the code.
     Also, the same number could be in the code more than once.
     */
 
