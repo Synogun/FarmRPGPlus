@@ -5,6 +5,7 @@ import NPCUrlsEnum from '../constants/npcUrlsEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
 import ConsolePlus from '../modules/consolePlus';
 import { createRow } from '../modules/rowFactory';
+import StoragePlus from '../modules/storagePlus';
 import { createCardList, getListByTitle, parseNameForUrl } from '../utils/utils';
 
 class ItemPage {
@@ -95,7 +96,49 @@ class ItemPage {
 
         return itemName.trim();
     };
-    
+
+    /**
+     * Retrieves the quantity of a specific item based on its name.
+     *
+     * @param {string} itemName - The name of the item to check.
+     * @returns {number} The quantity of the item, or 0 if the item is not found.
+     * @throws {FarmRPGPlusError} If the item name is not provided or is empty.
+     */
+    getItemQuantity = (page, { storehouse = false } = {}) => {
+        if (!page || !page.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_PARAMETER,
+                this.getItemQuantity.name,
+            );
+            return 0;
+        }
+
+        const [whole, onHand, inStorehouse] = $(page.container)
+            .find('.item-title:contains(\'My Inventory\')')
+            .children('span')
+            .text()
+            .match(/([0-9,]+ on hand)([0-9,]+ in Storehouse)?/);
+
+        if (!whole || !onHand) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.getItemQuantity.name,
+            );
+            return 0;
+        
+        } else if (storehouse && !inStorehouse) {
+            return 0;
+        }
+
+        let quantity = parseInt(onHand.replace(/[^0-9]/g, ''), 10) || 0;
+        
+        if (storehouse) {
+            quantity = parseInt(inStorehouse.replace(/[^0-9]/g, ''), 10) || 0;
+        }
+
+        return quantity;
+    };
+
     /**
      * Adds a "Buddy Farm" button to the item details page.
      *
@@ -132,6 +175,17 @@ class ItemPage {
         }
     };
 
+    /**
+     * Adds NPC likings cards to the given page, displaying which NPCs like, love, or super love the current item,
+     * along with the XP values for gifting. Cards are dynamically created and inserted after the item details section.
+     *
+     * @param {Object} page - The page object to which the NPC likings cards will be added.
+     * @param {HTMLElement} page.container - The container element where cards will be inserted.
+     *
+     * @throws {FarmRPGPlusError} If the page or its container is not provided.
+     *
+     * @returns {void}
+     */
     addNpcLikingsCards = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
@@ -143,9 +197,14 @@ class ItemPage {
 
         const capitalizeWords = name => name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
         const itemName = this.getItemNameOnNavbar(page);
-        
 
-        for (const [giftPower, npcList] of Object.entries(ItemGiftsEnum[itemName] || {})) {
+        const entries = Object.entries(ItemGiftsEnum[itemName] || {})
+            .sort((a, b) => {
+                const powerOrder = { SUPER_LOVES: 3, LOVES: 2, LIKES: 1 };
+                return (powerOrder[b[0]] || 0) - (powerOrder[a[0]] || 0);
+            });
+
+        for (const [giftPower, npcList] of entries) {
             if (!npcList || npcList.length === 0) {
                 continue;
             }
@@ -168,17 +227,16 @@ class ItemPage {
                 }
             }
 
-            const npcRows = npcList.map((npcName) => {
-                return createRow({
+            const npcRows = npcList.map(
+                npcName => createRow({
                     iconImageUrl: NPCUrlsEnum[npcName]?.IMAGE || '',
                     iconUrl: IconsUrlEnum[`NPC_${giftPower}_GIFT`] || '',
                     iconOnTitleEnd: true,
                     title: capitalizeWords(npcName),
                     subtitle: `Gives: ${XPValue} XP | TFOD: ${XPValue * 2} XP`,
                     rowLink: NPCUrlsEnum[npcName]?.MAILBOX,
-                    // afterLabel: $afterIcon(),
-                });
-            });
+                })
+            );
 
             const cardId = `frpg-${giftPower.toLowerCase().replace('_', '-')}-npc-likings-card`;
             const $card = createCardList({
@@ -202,6 +260,45 @@ class ItemPage {
         }
     };
 
+    addCollectedIndicator = (page) => {
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addCollectedIndicator.name,
+            );
+            return;
+        }
+
+        const cache = StoragePlus.get('items_collected_cache', {});
+        if (!Object.keys(cache).length || typeof cache !== 'object') {
+            StoragePlus.set('items_collected_cache', {});
+        }
+
+        const itemName = this.getItemNameOnNavbar(page);
+
+        let isCollected = cache[itemName] ||
+            this.getItemQuantity(page) > 0 ||
+            this.getItemQuantity(page, { storehouse: true }) > 0;
+
+
+        const $collectedIndicator = $('<span>')
+            .attr('id', 'frpgp-collected-indicator')
+            .css('font-weight', 'bold')
+            .css('font-size', '11px');
+        
+        if (isCollected) {
+            $collectedIndicator
+                .css('color', 'green')
+                .text('Collected!');
+        } else {
+            $collectedIndicator
+                .css('color', 'red')
+                .text('Not Collected');
+        }
+            
+        $(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+    };
+
     applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
@@ -214,6 +311,7 @@ class ItemPage {
         ConsolePlus.log('Item page initialized:', page);
         this.addBuddyFarmButton(page);
         this.addNpcLikingsCards(page);
+        this.addCollectedIndicator(page);
     };
 }
 

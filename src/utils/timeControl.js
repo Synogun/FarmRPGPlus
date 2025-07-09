@@ -38,7 +38,7 @@ class TimeControl {
 
         if (
             nowOnCT.getHours() === 23 &&
-            nowOnCT.getMinutes() >= 30 &&
+            nowOnCT.getMinutes() >= 29 &&
             nowOnCT.getMinutes() <= 36
         ) {
             return 1;
@@ -47,7 +47,7 @@ class TimeControl {
         if (
             nowOnCT.getHours() === 0 &&
             nowOnCT.getMinutes() >= 0 &&
-            nowOnCT.getMinutes() < 5
+            nowOnCT.getMinutes() <= 6
         ) {
             return 2;
         }

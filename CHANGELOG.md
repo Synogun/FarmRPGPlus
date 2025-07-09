@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]()
 
 ### Added
+- `VaultPage` - Added really basic code suggester to the Vault page.
+- `VaultPage` - Added library button to the Vault page.
+- `ItemPage` - Added collected indicator to item pages, showing if the item is collected.
+- `ItemPage` - Sort Npc likings cards by Super Loves, Loves, Likes and Hates.
 
 ### Changed
 
