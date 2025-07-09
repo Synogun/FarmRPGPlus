@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 ### Fixed
+- `FarmRPGPlusError` - Fixes error messages not displaying correctly.
 - `BottleRocketPage` - Fixes attack history being limited.
 - `TimeControl` - Fixes reset time function counting 1 minute too short.
 

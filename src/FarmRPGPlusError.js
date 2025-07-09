@@ -1,17 +1,13 @@
+import ConsolePlus from './modules/consolePlus';
 
 class FarmRPGPlusError extends Error {
-    constructor(type, context = '') {
-        super(ErrorTypes[type] || ErrorTypes.UNKNOWN);
-        this.name = 'FarmRPGPlusError';
-        this.context = ` - ${context}`;
-        this.timestamp = (new Date).toLocaleString();
-        this.type = type;
+    constructor(type, context = '', extraMessage = '') {
+        super(type || ErrorTypes.UNKNOWN);
+        this.context = context ? ` | ${context}` : '';
+        this.extraMessage = extraMessage ? ` | ${extraMessage}` : '';
 
-        console.error(this.toString());
+        ConsolePlus.error(`Error: ${this.message}${this.context}${this.extraMessage}`);
     }
-
-    toString = () =>
-        `[${this.timestamp}] ${this.name}${this.context}: ${this.message}`;
 }
 
 const ErrorTypes = Object.freeze({
