@@ -1,3 +1,5 @@
+import DebugPlus from "./debugPlus";
+
 /**
  * StoragePlus is a wrapper class for managing a custom localStorage namespace (`frpg_plus`).
  * It provides static methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
@@ -5,17 +7,19 @@
  * @class
  */
 class StoragePlus {
+    static _configKey = !DebugPlus.isDevelopmentMode() ? 'frpg_plus' : 'frpg_plus_dev';
+
     /**
      * Ensures that a 'frpg_plus' key exists in localStorage and returns the parsed object.
      * If the key does not exist, it is created and initialized as an empty object.
      * @returns {Object} The parsed storage object.
      */
     static _getStorage() {
-        if (!window.localStorage?.frpg_plus) {
-            window.localStorage.setItem('frpg_plus', JSON.stringify({}));
+        if (!window.localStorage?.[StoragePlus._configKey]) {
+            StoragePlus._setStorage({});
         }
-        return window.localStorage.frpg_plus
-            ? JSON.parse(window.localStorage.frpg_plus)
+        return window.localStorage[StoragePlus._configKey]
+            ? JSON.parse(window.localStorage[StoragePlus._configKey])
             : {};
     }
 
@@ -24,7 +28,7 @@ class StoragePlus {
      * @param {Object} storage - The storage object to persist.
      */
     static _setStorage(storage) {
-        window.localStorage.setItem('frpg_plus', JSON.stringify(storage));
+        window.localStorage.setItem(StoragePlus._configKey, JSON.stringify(storage));
     }
 
     /**

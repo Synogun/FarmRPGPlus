@@ -798,7 +798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
 /* harmony import */ var _routerPlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routerPlus */ "./src/modules/routerPlus.js");
-/* harmony import */ var _storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storagePlus */ "./src/modules/storagePlus.js");
+var _DebugPlus;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -809,26 +809,25 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
-
 var DebugPlus = /*#__PURE__*/_createClass(function DebugPlus() {
   _classCallCheck(this, DebugPlus);
-  _defineProperty(this, "isDevelopmentMode", function () {
-    return  true || 0;
-  });
-  _defineProperty(this, "applyDebugFeatures", function () {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(mainView.container).on('page:init', function () {
-      window.page = myApp.getCurrentView().activePage || mainView.activePage;
-    });
-    window.RouterPlus = _routerPlus__WEBPACK_IMPORTED_MODULE_2__["default"];
-    window["goto"] = DebugPlus["goto"];
-    window.getListByTitle = _utils_utils__WEBPACK_IMPORTED_MODULE_1__.getListByTitle;
-    window.StoragePlus = _storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"];
-  });
+});
+_DebugPlus = DebugPlus;
+_defineProperty(DebugPlus, "isDevelopmentMode", function () {
+  return  true || 0;
 });
 _defineProperty(DebugPlus, "goto", function (hash) {
   _routerPlus__WEBPACK_IMPORTED_MODULE_2__["default"]["goto"](hash);
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new DebugPlus());
+_defineProperty(DebugPlus, "applyDebugFeatures", function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(mainView.container).on('page:init', function () {
+    window.page = myApp.getCurrentView().activePage || mainView.activePage;
+  });
+  window.RouterPlus = _routerPlus__WEBPACK_IMPORTED_MODULE_2__["default"];
+  window["goto"] = _DebugPlus["goto"];
+  window.getListByTitle = _utils_utils__WEBPACK_IMPORTED_MODULE_1__.getListByTitle;
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DebugPlus);
 
 /***/ }),
 
@@ -1391,6 +1390,311 @@ var RowFactory = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/modules/settingsPlus.js":
+/*!*************************************!*\
+  !*** ./src/modules/settingsPlus.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _storagePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+var SettingsPlus = /*#__PURE__*/function () {
+  function SettingsPlus() {
+    _classCallCheck(this, SettingsPlus);
+  }
+  return _createClass(SettingsPlus, null, [{
+    key: "registerFeature",
+    value:
+    /**
+     * Register a feature config for a specific page
+     *
+     * @param {string} pageId - The ID of the page to register the config on
+     * @param {string} configId - The ID of the config to register
+     * @param {Object} config - Configuration object for the config
+     * @returns {void}
+     * @throws {Error} If the featureObject is invalid
+     */
+    function registerFeature(featureObject) {
+      if (!featureObject || !featureObject.pageId || !featureObject.configId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid config registration:', {
+          pageId: pageId,
+          configId: configId
+        });
+        return;
+      }
+      /* featureObject template 
+          {
+              pageId: String,
+              order: Number,
+              configId: String,
+              title: String,
+              subtitle: String,
+              isEnabled: Boolean,
+              configs: {}, // Additional configurations if needed
+          }
+       extra config template:
+          configs: {
+              subConfigId: {
+                  subConfigId: String,
+                  title: String,
+                  subtitle: String,
+                  type: 'checkbox' | 'select' | 'numeric', // Type of the config
+                  typeData: { // Additional data for the type
+                      options: Array, // For select type
+                      value: any, // Current value for input or checkbox or selected option
+                      max: Number, // For numeric type
+                      min: Number,  // For numeric type
+                  }
+              }
+          }
+      */
+
+      var key = "".concat(SettingsPlus._configKey, ".").concat(featureObject.pageId);
+      if (!_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get("".concat(key), null)) {
+        _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set("".concat(key), {
+          order: featureObject.order || 100,
+          configs: {}
+        });
+      }
+      key += ".configs.".concat(featureObject.configId);
+      var itExists = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, null);
+      if (!itExists) {
+        var _featureObject$isEnab;
+        delete featureObject.pageId;
+        delete featureObject.order;
+        featureObject.isEnabled = (_featureObject$isEnab = featureObject.isEnabled) !== null && _featureObject$isEnab !== void 0 ? _featureObject$isEnab : true;
+        _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(key, featureObject);
+      }
+      return;
+    }
+
+    /**
+     * Get all registered pages with their configurations
+     * 
+     * @returns {Array} - Array of page configurations
+     */
+  }, {
+    key: "getAllFeatures",
+    value: function getAllFeatures() {
+      var settings = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(SettingsPlus._configKey, {});
+      _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].debug('All registered features:', settings);
+      var result = Object.entries(settings).filter(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+          _ = _ref2[0],
+          pageDef = _ref2[1];
+        return Object.entries(pageDef.configs).length > 0;
+      }).sort(function (_ref3, _ref4) {
+        var _ref5 = _slicedToArray(_ref3, 2),
+          _a = _ref5[0],
+          aPageDef = _ref5[1];
+        var _ref6 = _slicedToArray(_ref4, 2),
+          _b = _ref6[0],
+          bPageDef = _ref6[1];
+        return aPageDef.order - bPageDef.order;
+      }).map(function (_ref7) {
+        var _ref8 = _slicedToArray(_ref7, 2),
+          pageId = _ref8[0],
+          pageDef = _ref8[1];
+        return _objectSpread({
+          pageId: pageId
+        }, pageDef);
+      });
+      _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].debug('Filtered and sorted features:', result);
+      return result;
+    }
+
+    /**
+     * Check if a feature is enabled
+     * 
+     * @param {string} pageId - The ID of the page
+     * @param {string} configId - The ID of the configuration to check
+     * @returns {boolean} - True if the feature is enabled, false otherwise
+     */
+  }, {
+    key: "isEnabled",
+    value: function isEnabled(pageId, configId) {
+      if (!pageId || !configId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for isEnabled:', {
+          pageId: pageId,
+          configId: configId
+        });
+        return false;
+      }
+      var config = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(SettingsPlus._configKey + ".".concat(pageId, ".configs.").concat(configId), {
+        isEnabled: true
+      });
+      return config.isEnabled;
+    }
+
+    /**
+     * Sets configuration value.
+     * This can be used to enable/disable a feature or set a value for a sub-configuration.
+     * 
+     * @param {string} pageId - The ID of the page
+     * @param {string} configId - The ID of the configuration
+     * @param {string} subconfigId - Optional sub-configuration ID
+     * @param {*} value - The value to set for the configuration
+     * @returns {boolean} - True if the value was set successfully, false otherwise
+     */
+  }, {
+    key: "setValue",
+    value: function setValue(pageId, configId) {
+      var subconfigId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+      var value = arguments.length > 3 ? arguments[3] : undefined;
+      if (!pageId || !configId || value === undefined) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for setValue:', {
+          pageId: pageId,
+          configId: configId,
+          value: value
+        });
+        return false;
+      }
+      var key = "".concat(SettingsPlus._configKey, ".").concat(pageId, ".configs.").concat(configId);
+      var settings = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, {});
+      if (!settings) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Settings not found for:', {
+          pageId: pageId,
+          configId: configId
+        });
+        return false;
+      }
+      if (subconfigId) {
+        if (!settings.configs || !settings.configs[subconfigId]) {
+          _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Subconfig not found:', {
+            pageId: pageId,
+            configId: configId,
+            subconfigId: subconfigId
+          });
+          return false;
+        }
+        settings.configs[subconfigId].typeData.value = value;
+      } else {
+        settings.isEnabled = value;
+      }
+      _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(key, settings);
+      return true;
+    }
+
+    /**
+     * Get configuration value.
+     * This can be used to retrieve the value of a feature or a sub-configuration.
+     * 
+     * @param {string} pageId - The ID of the page
+     * @param {string} configId - The ID of the configuration
+     * @param {string} subconfigId - Optional sub-configuration ID
+     * @param {*} defaultValue - Default value to return if not found
+     * @returns {*} - The value of the configuration, or null if not found
+     */
+  }, {
+    key: "getValue",
+    value: function getValue(pageId, configId) {
+      var subconfigId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+      var defaultValue = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+      if (!pageId || !configId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for getValue:', {
+          pageId: pageId,
+          configId: configId
+        });
+        return null;
+      }
+      var key = "".concat(SettingsPlus._configKey, ".").concat(pageId, ".configs.").concat(configId);
+      if (subconfigId) {
+        key += ".".concat(subconfigId, ".typeData.value");
+      } else {
+        key += '.isEnabled';
+      }
+      var value = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, defaultValue);
+      if (!value) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Settings not found for:', {
+          pageId: pageId,
+          configId: configId
+        });
+        return null;
+      }
+      return value;
+    }
+  }]);
+}();
+_defineProperty(SettingsPlus, "_configKey", 'feature_configs');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsPlus);
+
+/* Example config with no additional options
+  <li>
+    <div class="item-content">
+      <div class="item-inner" role="checkbox" id="subconfigId-aria" aria-labelledby="subconfigId-label" aria-checked="false">
+        <div class="item-title label" style="width:60%">
+          <label id="subconfigId-label" for="subconfigId-input">subconfig title goes here</label>
+          <br>
+          <span style="font-size: 11px">subconfig subtitle goes here</span>
+        </div>
+        <label class="label-switch">
+          <input type="checkbox" class="frpgp-options" id="subconfigId-input" name="subconfigId-name" value="1">
+          <div class="checkbox"></div>
+        </label>
+      </div>
+    </div>
+  </li>
+*/
+
+/* Example config with additional options
+<li class="accordion-item">
+  <a href="#" class="item-content item-link">
+    <div class="item-inner">
+      <div class="item-title">
+        config title goes here
+        <br>
+        <span style="font-size: 11px">config subtitle goes here</span>
+      </div>
+    </div>
+  </a>
+  <div class="accordion-item-content" style="">
+    <div style="" class="list-block">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner" role="checkbox" id="subconfigId-aria" aria-labelledby="subconfigId-label" aria-checked="false">
+              <div class="item-title label" style="width:60%">
+                <label id="subconfigId-label" for="subconfigId-input">subconfig title goes here</label>
+                <br>
+                <span style="font-size: 11px">subconfig subtitle goes here</span>
+              </div>
+              <label class="label-switch">
+                <input type="checkbox" class="frpgp-options" id="subconfigId-input" name="subconfigId-name" value="1">
+                <div class="checkbox"></div>
+              </label>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</li>
+*/
+
+/***/ }),
+
 /***/ "./src/modules/storagePlus.js":
 /*!************************************!*\
   !*** ./src/modules/storagePlus.js ***!
@@ -1402,6 +1706,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _debugPlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./debugPlus */ "./src/modules/debugPlus.js");
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
@@ -1409,8 +1714,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
 /**
  * StoragePlus is a wrapper class for managing a custom localStorage namespace (`frpg_plus`).
  * It provides static methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
@@ -1431,10 +1739,10 @@ var StoragePlus = /*#__PURE__*/function () {
      */
     function _getStorage() {
       var _window$localStorage;
-      if (!((_window$localStorage = window.localStorage) !== null && _window$localStorage !== void 0 && _window$localStorage.frpg_plus)) {
-        window.localStorage.setItem('frpg_plus', JSON.stringify({}));
+      if (!((_window$localStorage = window.localStorage) !== null && _window$localStorage !== void 0 && _window$localStorage[StoragePlus._configKey])) {
+        StoragePlus._setStorage({});
       }
-      return window.localStorage.frpg_plus ? JSON.parse(window.localStorage.frpg_plus) : {};
+      return window.localStorage[StoragePlus._configKey] ? JSON.parse(window.localStorage[StoragePlus._configKey]) : {};
     }
 
     /**
@@ -1444,7 +1752,7 @@ var StoragePlus = /*#__PURE__*/function () {
   }, {
     key: "_setStorage",
     value: function _setStorage(storage) {
-      window.localStorage.setItem('frpg_plus', JSON.stringify(storage));
+      window.localStorage.setItem(StoragePlus._configKey, JSON.stringify(storage));
     }
 
     /**
@@ -1538,6 +1846,7 @@ var StoragePlus = /*#__PURE__*/function () {
     }
   }]);
 }();
+_defineProperty(StoragePlus, "_configKey", !_debugPlus__WEBPACK_IMPORTED_MODULE_0__["default"].isDevelopmentMode() ? 'frpg_plus' : 'frpg_plus_dev');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StoragePlus);
 
 /***/ }),
@@ -1917,6 +2226,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
 /* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -1930,10 +2241,21 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
+
+
 var HomePage = /*#__PURE__*/_createClass(function HomePage() {
   var _this = this;
   _classCallCheck(this, HomePage);
   _defineProperty(this, "addBuddyFarmButton", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addBuddyFarmButton.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_7__["default"].HOME, 'addBuddyFarmButton')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Buddy Farm button is disabled in settings.');
+      return;
+    }
+
     // Example item row
     /**
     <div class="item-content">
@@ -1973,6 +2295,14 @@ var HomePage = /*#__PURE__*/_createClass(function HomePage() {
     }
     _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Index page initialized:', page);
     _this.addBuddyFarmButton(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature({
+    pageId: _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_7__["default"].HOME,
+    configId: 'addBuddyFarmButton',
+    title: 'Add Buddy Farm Button?',
+    subtitle: 'Adds a button to the home page that links to Buddy Farm homepage.',
+    isEnabled: true,
+    configs: {}
   });
 });
 _defineProperty(HomePage, "titles", Object.freeze({
@@ -2767,6 +3097,101 @@ _defineProperty(QuestsPage, "titles", Object.freeze({
 
 /***/ }),
 
+/***/ "./src/pages/home/workshop.js":
+/*!************************************!*\
+  !*** ./src/pages/home/workshop.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+var WorkshopPage = /*#__PURE__*/_createClass(function WorkshopPage() {
+  var _this = this;
+  _classCallCheck(this, WorkshopPage);
+  _defineProperty(this, "getResourceSaverFactor", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.getResourceSaverFactor.name);
+      return 1;
+    }
+    var $firstCardContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.progressbar').next('.card');
+    if ($firstCardContent.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addCraftingBonusIndicator.name);
+    }
+  });
+  _defineProperty(this, "addCraftingBonusIndicator", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addCraftingBonusIndicator.name);
+      return;
+    }
+    var $itemRowTitles = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title');
+    if ($itemRowTitles.length <= 3) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('No item titles found in the workshop page.');
+      return;
+    } else {
+      $itemRowTitles = $itemRowTitles.slice(3); // Skip the first 3 titles
+    }
+    var resourceSaver = _this.getResourceSaverFactor(page);
+    $itemRowTitles.each(function (index, element) {
+      var $input = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).find('input');
+      if ($input.length === 0) {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('No input found in item title:', element);
+        return;
+      }
+      if ($input.val() === '0') {
+        return; // Skip if the input value is 0
+      }
+      var parsedValue = parseInt($input.val(), 10);
+      if (isNaN(parsedValue) || parsedValue <= 0) {
+        return;
+      }
+      var $indicator = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').addClass('frpgp-crafting-bonus-indicator').text("+ ".concat(parsedValue)).css({
+        'color': 'green',
+        'margin-left': '5px',
+        'font-weight': 'bold',
+        'font-size': '14px'
+      });
+      var itExistsInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).find('.frpgp-crafting-bonus-indicator').length > 0;
+      if (!itExistsInput) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).append($indicator);
+      }
+
+      // const $finalQtyIndicator = $(span)
+    });
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Workshop page initialized:', page);
+    _this.addCraftingBonusIndicator(page);
+  });
+});
+_defineProperty(WorkshopPage, "titles", Object.freeze({
+  FAVORITE_ITEMS: 'Workshop',
+  CRAFTING: 'Crafting'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WorkshopPage);
+
+/***/ }),
+
 /***/ "./src/pages/index.js":
 /*!****************************!*\
   !*** ./src/pages/index.js ***!
@@ -2793,6 +3218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
 /* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
 /* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
+/* harmony import */ var _home_workshop__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/workshop */ "./src/pages/home/workshop.js");
 var _Pages;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -2813,7 +3239,8 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
-var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home_home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _home_inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _home_quests__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _home_npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _kitchen_oven__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _home_item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _home_quest__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_13__["default"]()), _defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_14__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_11__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].SETTINGS_OPTIONS, new _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
+
+var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home_home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _home_inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WORKSHOP, new _home_workshop__WEBPACK_IMPORTED_MODULE_15__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _home_quests__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _home_npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _kitchen_oven__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _home_item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _home_quest__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_12__["default"]()), _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_13__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_14__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_11__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].SETTINGS_OPTIONS, new _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
 
 /***/ }),
@@ -3005,13 +3432,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
 /* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
 /* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 
@@ -3027,15 +3459,46 @@ var SettingsOptionsPage = /*#__PURE__*/_createClass(function SettingsOptionsPage
       new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addUserscriptConfiguration.name);
       return;
     }
-    var $frpgpTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').attr('id', 'frpgp-userscript-configuration-title').addClass('list-group-title').addClass('item-divider').text('FarmRPGPlus Options');
-    var $lastRow = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-content').parent().last();
-    if ($lastRow.length === 0) {
+    var $saveGameOptionsButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.content-block').last();
+    if ($saveGameOptionsButton.length === 0) {
       new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addUserscriptConfiguration.name);
       return;
     }
-    var titleExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-userscript-configuration-title').length > 0;
-    if (!titleExists) {
-      $lastRow.append($frpgpTitle);
+    var settings = _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getAllFeatures();
+    if (!settings || Object.keys(settings).length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('No settings available to display.');
+      return;
+    }
+    var $listContent = [];
+    var _iterator = _createForOfIteratorHelper(settings),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var _page = _step.value;
+        var $pageTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<li>").addClass('list-group-title').addClass('item-divider').text(_page.title);
+        $listContent.push($pageTitle);
+        var _iterator2 = _createForOfIteratorHelper(pageDef.configs),
+          _step2;
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var config = _step2.value;
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    var $listBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>").addClass('list-block').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<ul>").append($listContent));
+    var $contentBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>").attr('id', 'frpgp-userscript-configuration').addClass('content-block').append("<div class='content-block-title' id='frpgp-userscript-configuration-title'>FRPGP Configuration</div>", $listBlock);
+    var frpgpConfigs = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-userscript-configuration').length > 0;
+    if (!frpgpConfigs) {
+      $saveGameOptionsButton.after($contentBlock);
     }
   });
   _defineProperty(this, "applyHandler", function (page) {
@@ -3278,7 +3741,7 @@ var VaultPage = /*#__PURE__*/_createClass(function VaultPage() {
     Blue means you guessed a correct digit in the correct position.
     Yellow means you guessed a correct digit in the wrong position.
     Code is 4-digit (0001-9999). You have 4 tries left.
-      IMPORTANT! 0 is a valid number and potentially part of the code.
+     IMPORTANT! 0 is a valid number and potentially part of the code.
     Also, the same number could be in the code more than once.
     */
 

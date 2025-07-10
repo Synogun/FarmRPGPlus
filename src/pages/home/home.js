@@ -4,8 +4,20 @@ import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import { getListByTitle } from '../../utils/utils';
+import SettingsPlus from '../../modules/settingsPlus';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 
 class HomePage {
+    constructor() {
+        SettingsPlus.registerFeature({
+            pageId: GamePagesEnum.HOME,
+            configId: 'addBuddyFarmButton',
+            title: 'Add Buddy Farm Button?',
+            subtitle: 'Adds a button to the home page that links to Buddy Farm homepage.',
+            isEnabled: true,
+            configs: {}
+        });
+    }
 
     static titles = Object.freeze({
         HOME: 'Where do you want to go?',
@@ -16,6 +28,19 @@ class HomePage {
     });
 
     addBuddyFarmButton = (page) => {
+        if(!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addBuddyFarmButton.name,
+            );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'addBuddyFarmButton')) {
+            ConsolePlus.log('Buddy Farm button is disabled in settings.');
+            return;
+        }
+
         // Example item row
         /**
         <div class="item-content">

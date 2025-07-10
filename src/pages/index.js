@@ -13,11 +13,12 @@ import MuseumPage from './town/museum';
 import FarmSupplyPage from './town/supply';
 import VaultPage from './town/vault';
 import WellPage from './town/well';
-import MuseumPage from './town/museum';
+import WorkshopPage from './home/workshop';
 
 const Pages = {
     [GamePagesEnum.HOME]: new HomePage,
     [GamePagesEnum.INVENTORY]: new InventoryPage,
+    [GamePagesEnum.WORKSHOP]: new WorkshopPage,
     [GamePagesEnum.KITCHEN]: new KitchenPage,
     [GamePagesEnum.QUESTS]: new QuestsPage,
     [GamePagesEnum.NPCS]: new NPCSPage,
@@ -31,6 +32,9 @@ const Pages = {
     [GamePagesEnum.WELL]: new WellPage,
     [GamePagesEnum.MUSEUM]: new MuseumPage,
 
+    [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,
+
+    // Events
     [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,
 };
 
