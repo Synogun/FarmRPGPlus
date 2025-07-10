@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import NPCUrlsEnum from '../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import { createCardList } from '../utils/utils';
+import NPCUrlsEnum from '../../constants/npcUrlsEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import { createCardList } from '../../utils/utils';
 
 class NPCSPage {
 

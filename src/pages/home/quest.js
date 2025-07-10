@@ -1,11 +1,11 @@
 import $ from 'jquery';
 import fetch from 'node-fetch';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import StoragePlus from '../modules/storagePlus';
-import Roman from '../utils/roman';
-import { createCardList, getListByTitle, parseNameForUrl } from '../utils/utils';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import StoragePlus from '../../modules/storagePlus';
+import Roman from '../../utils/roman';
+import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
 
 class QuestPage {
     static titles = {

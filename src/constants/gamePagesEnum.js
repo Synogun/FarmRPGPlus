@@ -134,6 +134,11 @@ const SinglePageLinks = Object.freeze({
     MAILBOX: 'mailbox',
 });
 
+const MiscPageLinks = Object.freeze({
+    SETTINGS: 'settings',
+    SETTINGS_OPTIONS: 'settings_options'
+});
+
 const GamePagesEnum = Object.freeze({
     ...NavBarLinks,
     ...HomePageLinks,
@@ -144,6 +149,7 @@ const GamePagesEnum = Object.freeze({
     ...FishingInfoPageLinks,
     ...EventPageLinks,
     ...SinglePageLinks,
+    ...MiscPageLinks,
 });
 
 export default GamePagesEnum;

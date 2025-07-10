@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import IconsUrlEnum from '../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import RouterPlus from '../modules/routerPlus';
-import StoragePlus from '../modules/storagePlus';
-import { createCardList, createRow, getListByTitle } from '../utils/utils';
+import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import RouterPlus from '../../modules/routerPlus';
+import StoragePlus from '../../modules/storagePlus';
+import { createCardList, createRow, getListByTitle } from '../../utils/utils';
 
 class OvenPage {
 

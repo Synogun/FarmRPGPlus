@@ -223,7 +223,11 @@ var SinglePageLinks = Object.freeze({
   QUEST: 'quest',
   MAILBOX: 'mailbox'
 });
-var GamePagesEnum = Object.freeze(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, NavBarLinks), HomePageLinks), TownPageLinks), ExplorePageLinks), ExploreInfoPageLinks), FishingPageLinks), FishingInfoPageLinks), EventPageLinks), SinglePageLinks));
+var MiscPageLinks = Object.freeze({
+  SETTINGS: 'settings',
+  SETTINGS_OPTIONS: 'settings_options'
+});
+var GamePagesEnum = Object.freeze(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, NavBarLinks), HomePageLinks), TownPageLinks), ExplorePageLinks), ExploreInfoPageLinks), FishingPageLinks), FishingInfoPageLinks), EventPageLinks), SinglePageLinks), MiscPageLinks));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GamePagesEnum);
 
 
@@ -1895,10 +1899,10 @@ _defineProperty(BottleRocketPage, "defaultStorageObject", function () {
 
 /***/ }),
 
-/***/ "./src/pages/home.js":
-/*!***************************!*\
-  !*** ./src/pages/home.js ***!
-  \***************************/
+/***/ "./src/pages/home/home.js":
+/*!********************************!*\
+  !*** ./src/pages/home/home.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1908,11 +1912,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/rowFactory */ "./src/modules/rowFactory.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -1982,118 +1986,10 @@ _defineProperty(HomePage, "titles", Object.freeze({
 
 /***/ }),
 
-/***/ "./src/pages/index.js":
-/*!****************************!*\
-  !*** ./src/pages/index.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
-/* harmony import */ var _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/bottleRocket */ "./src/pages/events/bottleRocket.js");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./src/pages/home.js");
-/* harmony import */ var _inventory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inventory */ "./src/pages/inventory.js");
-/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item */ "./src/pages/item.js");
-/* harmony import */ var _kitchen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./kitchen */ "./src/pages/kitchen.js");
-/* harmony import */ var _npcs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./npcs */ "./src/pages/npcs.js");
-/* harmony import */ var _oven__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./oven */ "./src/pages/oven.js");
-/* harmony import */ var _quest__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./quest */ "./src/pages/quest.js");
-/* harmony import */ var _quests__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./quests */ "./src/pages/quests.js");
-/* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
-/* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
-/* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
-/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
-var _Pages;
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _quests__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _npcs__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _oven__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _quest__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_11__["default"]()), _defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_13__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
-
-/***/ }),
-
-/***/ "./src/pages/inventory.js":
-/*!********************************!*\
-  !*** ./src/pages/inventory.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-
-var InventoryPage = /*#__PURE__*/_createClass(function InventoryPage() {
-  var _this = this;
-  _classCallCheck(this, InventoryPage);
-  _defineProperty(this, "syncCollectionProgress", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
-      return;
-    }
-    var $itemNames = $(page.container).find(".item-title strong");
-    if ($itemNames.length === 0) {
-      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('No collection progress found on the Museum page.');
-      return;
-    }
-    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get('items_collected_cache', {});
-    $itemNames.each(function (_, element) {
-      var itemName = $(element).text().trim();
-      if (!itemName || itemName === '-') {
-        return;
-      }
-      cache[itemName] = cache[itemName] || true;
-    });
-    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set('items_collected_cache', cache);
-    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Collection progress cache updated');
-  });
-  _defineProperty(this, "applyHandler", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new FarmRPGPlusError(ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
-      return;
-    }
-    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('Inventory page initialized:', page);
-    _this.syncCollectionProgress(page);
-  });
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InventoryPage);
-
-/***/ }),
-
-/***/ "./src/pages/item.js":
-/*!***************************!*\
-  !*** ./src/pages/item.js ***!
-  \***************************/
+/***/ "./src/pages/home/inventory.js":
+/*!*************************************!*\
+  !*** ./src/pages/home/inventory.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2103,14 +1999,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
-/* harmony import */ var _constants_npcGiftsEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants/npcGiftsEnum */ "./src/constants/npcGiftsEnum.js");
-/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/rowFactory */ "./src/modules/rowFactory.js");
-/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var InventoryPage = /*#__PURE__*/_createClass(function InventoryPage() {
+  var _this = this;
+  _classCallCheck(this, InventoryPage);
+  _defineProperty(this, "syncCollectionProgress", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
+      return;
+    }
+    var $itemNames = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title strong');
+    if ($itemNames.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('No collection progress found on the Museum page.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].get('items_collected_cache', {});
+    $itemNames.each(function (_, element) {
+      var itemName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).text().trim();
+      if (!itemName || itemName === '-') {
+        return;
+      }
+      cache[itemName] = cache[itemName] || true;
+    });
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('items_collected_cache', cache);
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Collection progress cache updated');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Inventory page initialized:', page);
+    _this.syncCollectionProgress(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InventoryPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/item.js":
+/*!********************************!*\
+  !*** ./src/pages/home/item.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _constants_npcGiftsEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/npcGiftsEnum */ "./src/constants/npcGiftsEnum.js");
+/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -2408,10 +2368,10 @@ _defineProperty(ItemPage, "titles", Object.freeze({
 
 /***/ }),
 
-/***/ "./src/pages/kitchen.js":
-/*!******************************!*\
-  !*** ./src/pages/kitchen.js ***!
-  \******************************/
+/***/ "./src/pages/home/npcs.js":
+/*!********************************!*\
+  !*** ./src/pages/home/npcs.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2421,73 +2381,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-
-
-
-var KitchenPage = /*#__PURE__*/_createClass(function KitchenPage() {
-  var _this = this;
-  _classCallCheck(this, KitchenPage);
-  _defineProperty(this, "cachePlayerOvenAmount", function (page) {
-    var _$ovenAmount$attr;
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.cachePlayerOvenAmount.name);
-      return;
-    }
-    var $ovenAmount = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a[href^="oven.php?num="]').last();
-    if ($ovenAmount.length === 0) {
-      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.cachePlayerOvenAmount.name);
-      return;
-    }
-    var ovenAmountText = (_$ovenAmount$attr = $ovenAmount.attr('href')) === null || _$ovenAmount$attr === void 0 ? void 0 : _$ovenAmount$attr.match(/num=(\d+)/)[1];
-    var ovenAmount = parseInt(ovenAmountText, 10);
-    if (isNaN(ovenAmount)) {
-      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid oven amount found:', ovenAmountText);
-      return;
-    }
-    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('player_oven_amount', ovenAmount);
-  });
-  _defineProperty(this, "applyHandler", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
-      return;
-    }
-    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Kitchen page initialized', page);
-    _this.cachePlayerOvenAmount(page);
-  });
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (KitchenPage);
-
-/***/ }),
-
-/***/ "./src/pages/npcs.js":
-/*!***************************!*\
-  !*** ./src/pages/npcs.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/rowFactory */ "./src/modules/rowFactory.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -2557,118 +2455,10 @@ _defineProperty(NPCSPage, "titles", Object.freeze({
 
 /***/ }),
 
-/***/ "./src/pages/oven.js":
-/*!***************************!*\
-  !*** ./src/pages/oven.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/routerPlus */ "./src/modules/routerPlus.js");
-/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-
-
-
-
-
-
-
-var OvenPage = /*#__PURE__*/_createClass(function OvenPage() {
-  var _this = this;
-  _classCallCheck(this, OvenPage);
-  _defineProperty(this, "isCurrentlyCooking", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      return false;
-    }
-    var $currentlyCookingTitle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING);
-    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
-    return $currentlyCookingTitle && $collectMealButton.length === 0;
-  });
-  _defineProperty(this, "isCookingComplete", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      return false;
-    }
-    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
-    return $collectMealButton.length === 1;
-  });
-  _defineProperty(this, "addOvenNavigationButtons", function (page) {
-    var _page$query;
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addOvenNavigationButtons.name);
-      return;
-    }
-    var playerOvens = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__["default"].get('player_oven_amount') || 1;
-    var currentOven = parseInt((page === null || page === void 0 || (_page$query = page.query) === null || _page$query === void 0 ? void 0 : _page$query.num) || 1, 10);
-    var $previousButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('Previous').on('click', function () {
-      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === 1 ? playerOvens : currentOven - 1));
-    });
-    var $nextButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('  Next  ').on('click', function (e) {
-      e.preventDefault();
-      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === playerOvens ? 1 : currentOven + 1));
-    });
-    var $navRow = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createRow)({
-      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__["default"].OVEN_ICON,
-      title: 'Oven Navigation',
-      subtitle: 'Navigate to next or previous oven page',
-      rowId: 'frpg-oven-navigation-row',
-      afterLabel: [$previousButton, '<p>&nbsp;</p>', $nextButton]
-    });
-    var $navCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createCardList)({
-      cardId: 'frpg-oven-navigation-card',
-      title: 'Oven Navigation',
-      children: [$navRow]
-    });
-    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpg-oven-navigation-card').length > 0;
-    if (!_this.isCurrentlyCooking(page) && !itExists) {
-      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.LEARNED_RECIPES, {
-        returnTitle: true
-      }).before($navCard);
-    } else if (!itExists) {
-      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING, {
-        returnTitle: true
-      }).before($navCard);
-    }
-  });
-  _defineProperty(this, "applyHandler", function (page) {
-    if (!(page !== null && page !== void 0 && page.container)) {
-      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
-      return;
-    }
-    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Oven page initialized', page);
-    _this.addOvenNavigationButtons(page);
-  });
-});
-_defineProperty(OvenPage, "titles", Object.freeze({
-  LEARNED_RECIPES: 'Learned Recipes',
-  CURRENTLY_COOKING: 'Currently Cooking',
-  COOKING_OPTIONS: 'Cooking Options',
-  OTHER_OPTIONS: 'Other Options'
-}));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OvenPage);
-
-/***/ }),
-
-/***/ "./src/pages/quest.js":
-/*!****************************!*\
-  !*** ./src/pages/quest.js ***!
-  \****************************/
+/***/ "./src/pages/home/quest.js":
+/*!*********************************!*\
+  !*** ./src/pages/home/quest.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2680,12 +2470,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! node-fetch */ "./node_modules/node-fetch/browser.js");
 /* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/rowFactory */ "./src/modules/rowFactory.js");
-/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/storagePlus */ "./src/modules/storagePlus.js");
-/* harmony import */ var _utils_roman__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/roman */ "./src/utils/roman.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_roman__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/roman */ "./src/utils/roman.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2902,10 +2692,10 @@ _defineProperty(QuestPage, "titles", {
 
 /***/ }),
 
-/***/ "./src/pages/quests.js":
-/*!*****************************!*\
-  !*** ./src/pages/quests.js ***!
-  \*****************************/
+/***/ "./src/pages/home/quests.js":
+/*!**********************************!*\
+  !*** ./src/pages/home/quests.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2915,11 +2705,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
-/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
-/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/consolePlus */ "./src/modules/consolePlus.js");
-/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/rowFactory */ "./src/modules/rowFactory.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -2974,6 +2764,290 @@ _defineProperty(QuestsPage, "titles", Object.freeze({
   REQUEST_TOTALS: 'Request Totals'
 }));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestsPage);
+
+/***/ }),
+
+/***/ "./src/pages/index.js":
+/*!****************************!*\
+  !*** ./src/pages/index.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/bottleRocket */ "./src/pages/events/bottleRocket.js");
+/* harmony import */ var _home_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home */ "./src/pages/home/home.js");
+/* harmony import */ var _home_inventory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/inventory */ "./src/pages/home/inventory.js");
+/* harmony import */ var _home_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/item */ "./src/pages/home/item.js");
+/* harmony import */ var _home_npcs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/npcs */ "./src/pages/home/npcs.js");
+/* harmony import */ var _home_quest__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home/quest */ "./src/pages/home/quest.js");
+/* harmony import */ var _home_quests__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/quests */ "./src/pages/home/quests.js");
+/* harmony import */ var _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./kitchen/kitchen */ "./src/pages/kitchen/kitchen.js");
+/* harmony import */ var _kitchen_oven__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./kitchen/oven */ "./src/pages/kitchen/oven.js");
+/* harmony import */ var _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./misc/settingsOptions */ "./src/pages/misc/settingsOptions.js");
+/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
+/* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
+/* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
+/* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
+var _Pages;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home_home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _home_inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _home_quests__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _home_npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _kitchen_oven__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _home_item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _home_quest__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_13__["default"]()), _defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_14__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_11__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].SETTINGS_OPTIONS, new _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
+
+/***/ }),
+
+/***/ "./src/pages/kitchen/kitchen.js":
+/*!**************************************!*\
+  !*** ./src/pages/kitchen/kitchen.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var KitchenPage = /*#__PURE__*/_createClass(function KitchenPage() {
+  var _this = this;
+  _classCallCheck(this, KitchenPage);
+  _defineProperty(this, "cachePlayerOvenAmount", function (page) {
+    var _$ovenAmount$attr;
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.cachePlayerOvenAmount.name);
+      return;
+    }
+    var $ovenAmount = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a[href^="oven.php?num="]').last();
+    if ($ovenAmount.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.cachePlayerOvenAmount.name);
+      return;
+    }
+    var ovenAmountText = (_$ovenAmount$attr = $ovenAmount.attr('href')) === null || _$ovenAmount$attr === void 0 ? void 0 : _$ovenAmount$attr.match(/num=(\d+)/)[1];
+    var ovenAmount = parseInt(ovenAmountText, 10);
+    if (isNaN(ovenAmount)) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid oven amount found:', ovenAmountText);
+      return;
+    }
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('player_oven_amount', ovenAmount);
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Kitchen page initialized', page);
+    _this.cachePlayerOvenAmount(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (KitchenPage);
+
+/***/ }),
+
+/***/ "./src/pages/kitchen/oven.js":
+/*!***********************************!*\
+  !*** ./src/pages/kitchen/oven.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/routerPlus */ "./src/modules/routerPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+var OvenPage = /*#__PURE__*/_createClass(function OvenPage() {
+  var _this = this;
+  _classCallCheck(this, OvenPage);
+  _defineProperty(this, "isCurrentlyCooking", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      return false;
+    }
+    var $currentlyCookingTitle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING);
+    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
+    return $currentlyCookingTitle && $collectMealButton.length === 0;
+  });
+  _defineProperty(this, "isCookingComplete", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      return false;
+    }
+    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
+    return $collectMealButton.length === 1;
+  });
+  _defineProperty(this, "addOvenNavigationButtons", function (page) {
+    var _page$query;
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addOvenNavigationButtons.name);
+      return;
+    }
+    var playerOvens = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__["default"].get('player_oven_amount') || 1;
+    var currentOven = parseInt((page === null || page === void 0 || (_page$query = page.query) === null || _page$query === void 0 ? void 0 : _page$query.num) || 1, 10);
+    var $previousButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('Previous').on('click', function () {
+      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === 1 ? playerOvens : currentOven - 1));
+    });
+    var $nextButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('  Next  ').on('click', function (e) {
+      e.preventDefault();
+      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_4__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === playerOvens ? 1 : currentOven + 1));
+    });
+    var $navRow = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createRow)({
+      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_1__["default"].OVEN_ICON,
+      title: 'Oven Navigation',
+      subtitle: 'Navigate to next or previous oven page',
+      rowId: 'frpg-oven-navigation-row',
+      afterLabel: [$previousButton, '<p>&nbsp;</p>', $nextButton]
+    });
+    var $navCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createCardList)({
+      cardId: 'frpg-oven-navigation-card',
+      title: 'Oven Navigation',
+      children: [$navRow]
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpg-oven-navigation-card').length > 0;
+    if (!_this.isCurrentlyCooking(page) && !itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.LEARNED_RECIPES, {
+        returnTitle: true
+      }).before($navCard);
+    } else if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING, {
+        returnTitle: true
+      }).before($navCard);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Oven page initialized', page);
+    _this.addOvenNavigationButtons(page);
+  });
+});
+_defineProperty(OvenPage, "titles", Object.freeze({
+  LEARNED_RECIPES: 'Learned Recipes',
+  CURRENTLY_COOKING: 'Currently Cooking',
+  COOKING_OPTIONS: 'Cooking Options',
+  OTHER_OPTIONS: 'Other Options'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OvenPage);
+
+/***/ }),
+
+/***/ "./src/pages/misc/settingsOptions.js":
+/*!*******************************************!*\
+  !*** ./src/pages/misc/settingsOptions.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+_modules_storagePlus__WEBPACK_IMPORTED_MODULE_4__["default"];
+_modules_rowFactory__WEBPACK_IMPORTED_MODULE_3__.createRow;
+var SettingsOptionsPage = /*#__PURE__*/_createClass(function SettingsOptionsPage() {
+  var _this = this;
+  _classCallCheck(this, SettingsOptionsPage);
+  _defineProperty(this, "addUserscriptConfiguration", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addUserscriptConfiguration.name);
+      return;
+    }
+    var $frpgpTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').attr('id', 'frpgp-userscript-configuration-title').addClass('list-group-title').addClass('item-divider').text('FarmRPGPlus Options');
+    var $lastRow = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-content').parent().last();
+    if ($lastRow.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addUserscriptConfiguration.name);
+      return;
+    }
+    var titleExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-userscript-configuration-title').length > 0;
+    if (!titleExists) {
+      $lastRow.append($frpgpTitle);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Settings Options page initialized:', page);
+    _this.addUserscriptConfiguration(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsOptionsPage);
 
 /***/ }),
 
@@ -3204,7 +3278,7 @@ var VaultPage = /*#__PURE__*/_createClass(function VaultPage() {
     Blue means you guessed a correct digit in the correct position.
     Yellow means you guessed a correct digit in the wrong position.
     Code is 4-digit (0001-9999). You have 4 tries left.
-     IMPORTANT! 0 is a valid number and potentially part of the code.
+      IMPORTANT! 0 is a valid number and potentially part of the code.
     Also, the same number could be in the code more than once.
     */
 

@@ -1,5 +1,7 @@
-import ConsolePlus from "../modules/consolePlus";
-import StoragePlus from "../modules/storagePlus";
+import $ from 'jquery';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import StoragePlus from '../../modules/storagePlus';
 
 class InventoryPage {
 
@@ -12,7 +14,7 @@ class InventoryPage {
             return;
         }
 
-        const $itemNames = $(page.container).find(".item-title strong");
+        const $itemNames = $(page.container).find('.item-title strong');
 
         if ($itemNames.length === 0) {
             ConsolePlus.log('No collection progress found on the Museum page.');
@@ -48,7 +50,7 @@ class InventoryPage {
         ConsolePlus.log('Inventory page initialized:', page);
 
         this.syncCollectionProgress(page);
-    }
+    };
 }
 
 export default InventoryPage;

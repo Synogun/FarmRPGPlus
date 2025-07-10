@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import IconsUrlEnum from '../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import { getListByTitle } from '../utils/utils';
+import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import { getListByTitle } from '../../utils/utils';
 
 class HomePage {
 

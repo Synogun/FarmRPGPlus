@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import IconsUrlEnum from '../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import { createCardList } from '../utils/utils';
+import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import { createCardList } from '../../utils/utils';
 
 class QuestsPage {
 

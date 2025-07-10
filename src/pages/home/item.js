@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import IconsUrlEnum from '../constants/iconsUrlEnum';
-import { ItemGiftsEnum } from '../constants/npcGiftsEnum';
-import NPCUrlsEnum from '../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import StoragePlus from '../modules/storagePlus';
-import { createCardList, getListByTitle, parseNameForUrl } from '../utils/utils';
+import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
+import NPCUrlsEnum from '../../constants/npcUrlsEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import StoragePlus from '../../modules/storagePlus';
+import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
 
 class ItemPage {
 
@@ -298,8 +298,8 @@ class ItemPage {
             cache[itemName] = true;
         } else {
             $collectedIndicator
-            .css('color', 'red')
-            .text('Not Collected');
+                .css('color', 'red')
+                .text('Not Collected');
         }
         
         StoragePlus.set('items_collected_cache', cache);
