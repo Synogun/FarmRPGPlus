@@ -1,10 +1,41 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
 import { createCardList, getListByTitle } from '../../utils/utils';
 
 class VaultPage {
+
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.VAULT, {
+            displayName: 'Vault',
+            order: 100,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.VAULT,
+            'addLibraryCard',
+            {
+                title: 'Add Library Card?',
+                subtitle: 'Adds a card with a link to the Vault Library page.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.VAULT,
+            'addGuessVaultCode',
+            {
+                title: 'Add Guess Vault Code Button?',
+                subtitle: 'Enables the Guess Vault Code button.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         VAULT_STATS: 'Vault Stats',
@@ -18,6 +49,11 @@ class VaultPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addLibraryCard.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addLibraryCard')) {
+            ConsolePlus.log('Vault Library card is disabled in settings.');
             return;
         }
 
@@ -51,6 +87,11 @@ class VaultPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addGuessVaultCode.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addGuessVaultCode')) {
+            ConsolePlus.log('Vault Guess Code button is disabled in settings.');
             return;
         }
 

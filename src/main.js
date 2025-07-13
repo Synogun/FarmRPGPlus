@@ -2,6 +2,7 @@ import $ from 'jquery';
 import ConsolePlus from './modules/consolePlus';
 import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
+import StoragePlus from './modules/storagePlus';
 import Pages from './pages/index';
 import TimeControl from './utils/timeControl';
 
@@ -15,7 +16,8 @@ import TimeControl from './utils/timeControl';
             return;
         }
         
-        ConsolePlus.log('FarmRPGPlus app initialized.');
+        ConsolePlus.log('FarmRPG Plus app initialized.');
+        StoragePlus.initStorage();
 
         if (DebugPlus.isDevelopmentMode()) {
             ConsolePlus.warn('Development mode is enabled, debugging features are active.');
@@ -33,9 +35,8 @@ import TimeControl from './utils/timeControl';
                 const callback = RouterPlus.handlePageChange(page);
 
                 if (callback && typeof callback === 'function') {
+                    ConsolePlus.debug(`Running callback for page: ${page.name}`);
                     callback(page);
-                } else {
-                    ConsolePlus.debug('No callback found for the current page:', page.name);
                 }
             });
         }

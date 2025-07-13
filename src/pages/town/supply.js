@@ -1,8 +1,28 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
+import SettingsPlus from '../../modules/settingsPlus';
 
 class FarmSupplyPage {
+
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.FARM_SUPPLY, {
+            displayName: 'Farm Supply',
+            order: 100,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.FARM_SUPPLY,
+            'addDisplayDiscounts',
+            {
+                title: 'Add discount indicators for on SALE items?',
+                subtitle: 'Adds a discount percentage next to items that are on sale.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         CAP_UPGRADES: 'Cap Upgrades',
@@ -22,12 +42,17 @@ class FarmSupplyPage {
         ARTIFACT_UPGRADES: 'Artifact Upgrades'
     });
 
-    displayDiscounts = (page) => {
+    addDisplayDiscounts = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.displayDiscounts.name,
+                this.addDisplayDiscounts.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.FARM_SUPPLY, 'addDisplayDiscounts')) {
+            ConsolePlus.log('Discount display is disabled in settings.');
             return;
         }
 
@@ -74,7 +99,7 @@ class FarmSupplyPage {
 
         ConsolePlus.log('Farm Supply page initialized:', page);
         
-        this.displayDiscounts(page);
+        this.addDisplayDiscounts(page);
     };
 }
 

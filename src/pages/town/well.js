@@ -1,10 +1,30 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
 import { createCardList, getListByTitle } from '../../utils/utils';
 
 class WellPage {
+
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.WELL, {
+            displayName: 'Wishing Well',
+            order: 100,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.WELL,
+            'addLibraryCard',
+            {
+                title: 'Add Library Card?',
+                subtitle: 'Adds a card with links to helpful Wishing Well Library pages.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         ABOUT_THE_WISHING_WELL: 'About the Wishing Well',
@@ -17,6 +37,11 @@ class WellPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addLibraryCard.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.WELL, 'addLibraryCard')) {
+            ConsolePlus.log('Wishing Well Library card is disabled in settings.');
             return;
         }
 

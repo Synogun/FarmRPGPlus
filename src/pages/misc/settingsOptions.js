@@ -34,11 +34,11 @@ class SettingsOptionsPage {
                 $('<label>')
                     .attr('id', `${featureObject.id}-label`)
                     .attr('for', `${featureObject.id}-input`)
-                    .text(featureObject.title),
+                    .append(featureObject.title),
                 '<br>',
                 $('<span>')
                     .css('font-size', '11px')
-                    .text(featureObject.subtitle)
+                    .append(featureObject.subtitle)
             );
 
         const $labelSwitch = $('<label>')
@@ -67,12 +67,6 @@ class SettingsOptionsPage {
                             'aria-checked',
                             isChecked ? 'false' : 'true'
                         );
-
-                        ConsolePlus.debug(`Feature ${featureObject.id} is now ${$itemInner.attr('aria-checked') === 'true' ? 'enabled' : 'disabled'}.`, {
-                            pageId: page.pageId,
-                            featureId: featureObject.featureId,
-                            id: featureObject.id,
-                        });
                     }),
                 $('<div>').addClass('checkbox')
             );
@@ -96,7 +90,9 @@ class SettingsOptionsPage {
             .append(
                 featureObject.title,
                 '<br>',
-                $('<span>').css('font-size', '11px').append(featureObject.subtitle)
+                $('<span>')
+                    .css('font-size', '11px')
+                    .append(featureObject.subtitle)
             );
 
         const $itemAfter = $('<div>')
@@ -140,12 +136,6 @@ class SettingsOptionsPage {
                             isConfig ? featureObject.id : undefined,
                             value
                         );
-                        ConsolePlus.debug(`Feature ${featureObject.id} set to ${value}.`, {
-                            pageId: page.pageId,
-                            featureId: featureObject.featureId,
-                            id: featureObject.id,
-                            storage: SettingsPlus.getValue(page.pageId, featureObject.featureId, featureObject.id),
-                        });
                     })
             );
 
@@ -194,7 +184,9 @@ class SettingsOptionsPage {
             .append(
                 featureObject.title,
                 '<br>',
-                $('<span>').css('font-size', '11px').append(featureObject.subtitle)
+                $('<span>')
+                    .css('font-size', '11px')
+                    .append(featureObject.subtitle)
             );
 
         const selectOptions = [];
@@ -227,12 +219,6 @@ class SettingsOptionsPage {
                             isConfig ? featureObject.id : undefined,
                             value
                         );
-                        ConsolePlus.debug(`Feature ${featureObject.id} set to ${value}.`, {
-                            pageId: page.pageId,
-                            featureId: featureObject.featureId,
-                            id: featureObject.id,
-                            storage: SettingsPlus.getValue(page.pageId, featureObject.featureId, featureObject.id),
-                        });
                     })
                     .append(selectOptions)
             );
@@ -313,7 +299,9 @@ class SettingsOptionsPage {
                     $('<div>').addClass('item-title').append(
                         feature.title,
                         $('<br>'),
-                        $('<span>').css('font-size', '11px').text(feature.subtitle)
+                        $('<span>')
+                            .css('font-size', '11px')
+                            .append(feature.subtitle)
                     ),
                 )
             );
@@ -402,12 +390,24 @@ class SettingsOptionsPage {
             .append(
                 $('<ul>').append($listContent)
             );
-        
+
+        const $contentTitle = $('<div>')
+            .addClass('content-block-title')
+            .attr('id', 'frpgp-userscript-configuration-title')
+            .append(
+                $('<span>')
+                    .css({ 'font-size': '11px', 'float': 'right' })
+                    .append(
+                        'Settings are saved automatically when changed'
+                    ),
+                'FarmRPG Plus Configuration'
+            );
+
         const $contentBlock = $('<div>')
             .attr('id', 'frpgp-userscript-configuration')
             .addClass('content-block')
             .append(
-                '<div class=\'content-block-title\' id=\'frpgp-userscript-configuration-title\'>FRPGP Configuration</div>',
+                $contentTitle,
                 $listBlock,
             );
         
@@ -416,6 +416,57 @@ class SettingsOptionsPage {
             $saveGameOptionsButton.after(
                 '<p>&nbsp;</p>',
                 $contentBlock
+            );
+        }
+    };
+
+    addResetEverythingButton = (page) => {
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addResetEverythingButton.name,
+            );
+            return;
+        }
+    
+        const $saveGameOptionsButton = $(page.container).find('.content-block').last();
+        const $configListBlock = $(page.container).find('#frpgp-userscript-configuration');
+
+        const $resetEverythingButton = $('<a>')
+            .attr('id', 'frpgp-reset-everything-button')
+            .addClass('button btn btnred')
+            .text('Reset all settings to default')
+            .on('click', (evt) => {
+                evt.preventDefault();
+                if (!confirm(
+                    'Are you sure you want to reset everything from FRPGP?\n\n' +
+                    'This will remove all cached data and reset all configurations.\n' +
+                    'This action cannot be undone.'
+                )) {
+                    return;
+                }
+
+                myApp.alert('All FarmRPG Plus settings have been reset to default.', 'Success', () => {
+                    ConsolePlus.log('Resetting all settings to default.');
+                    StoragePlus.clear();
+                    window.location.reload();
+                });
+            });
+
+        if (!$configListBlock.length) {
+            $saveGameOptionsButton.after(
+                '<p>&nbsp;</p>',
+                $('<div>')
+                    .addClass('content-block')
+                    .append(
+                        $resetEverythingButton
+                    )
+            );
+        } else {
+            $configListBlock.after(
+                $('<div>')
+                    .addClass('content-block')
+                    .append($resetEverythingButton)
             );
         }
     };
@@ -431,6 +482,7 @@ class SettingsOptionsPage {
 
         ConsolePlus.log('Settings Options page initialized:', page);
         this.addUserscriptConfiguration(page);
+        this.addResetEverythingButton(page);
     };
 
 }

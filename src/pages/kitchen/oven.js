@@ -1,12 +1,32 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import RouterPlus from '../../modules/routerPlus';
+import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import { createCardList, createRow, getListByTitle } from '../../utils/utils';
 
 class OvenPage {
+
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.OVEN, {
+            displayName: 'Oven Page',
+            order: 100,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.OVEN,
+            'addOvenNavigationButtons',
+            {
+                title: 'Add Oven Navigation Buttons?',
+                subtitle: 'Adds buttons to navigate between different oven pages.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         LEARNED_RECIPES: 'Learned Recipes',
@@ -41,6 +61,11 @@ class OvenPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addOvenNavigationButtons.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.OVEN, 'addOvenNavigationButtons')) {
+            ConsolePlus.log('Oven navigation buttons are disabled in settings.');
             return;
         }
 

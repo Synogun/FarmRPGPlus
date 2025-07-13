@@ -11,7 +11,7 @@ class HomePage {
     constructor() {
         SettingsPlus.registerPage(GamePagesEnum.HOME, {
             displayName: 'Home Page',
-            order: 10,
+            order: 1,
         });
 
         SettingsPlus.registerFeature(
@@ -19,7 +19,7 @@ class HomePage {
             'addBuddyFarmButton',
             {
                 title: 'Add Buddy Farm Button?',
-                subtitle: 'Adds a button to the home page that links to Buddy Farm homepage.',
+                subtitle: 'Adds a button that links to Buddy Farm homepage.',
                 isEnabled: true,
                 configs: {}
             }

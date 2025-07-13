@@ -12,26 +12,30 @@ import { createCardList, getListByTitle, parseNameForUrl, watchForElement } from
 class BottleRocketPage {
 
     constructor() {
-        SettingsPlus.registerPage('eventFeatures', { displayName: 'Event Features' });
+        SettingsPlus.registerPage('eventFeatures', {
+            displayName: 'Event Features',
+            order: 999,
+        });
+
         SettingsPlus.registerFeature(
             'eventFeatures',
             'bottleRocket',
             {
                 title: 'Bottle Rocket Event',
-                subtitle: 'Features for the Bottle Rocket event.',
+                subtitle: 'Features for the Bottle Rocket event that usually happens in July.',
                 isEnabled: true,
-                enableTitle: 'Enable Bottle Rocket Event Features',
+                enableTitle: 'Enable Bottle Rocket Event Features?',
                 enableSubtitle: 'Enables features related to the Bottle Rocket event.',
                 configs: {
                     addStatsCards: {
-                        title: 'Add Stats Cards',
-                        subtitle: 'Enables a list containing statistics gathered along the event.',
+                        title: 'Add Stats Card?',
+                        subtitle: 'Enables a list card containing statistics gathered along the event.',
                         type: 'checkbox',
                         typeData: { value: true },
                     },
                     isAttackHistoryEnabled: {
-                        title: 'Enable Attack History',
-                        subtitle: 'Enables a log of last attacks made during the event.',
+                        title: 'Add Attack History Card?',
+                        subtitle: 'Adds a log card of last attacks made during the event.',
                         type: 'checkbox',
                         typeData: { value: true },
                     },
@@ -39,11 +43,11 @@ class BottleRocketPage {
                         title: 'Max Attack History Length',
                         subtitle: 'Maximum number of attack actions to keep in history.',
                         type: 'numeric',
-                        typeData: { value: 10, min: 1, max: 100 },
+                        typeData: { value: 5, min: 1, max: 100 },
                     },
                     isPlayerHistoryEnabled: {
-                        title: 'Enable Player History',
-                        subtitle: 'Enables a log of last players attacked during the event.',
+                        title: 'Add Player History Card?',
+                        subtitle: 'Adds a log card of last players attacked during the event.',
                         type: 'checkbox',
                         typeData: { value: true },
                     },
@@ -51,7 +55,7 @@ class BottleRocketPage {
                         title: 'Max Player History Length',
                         subtitle: 'Maximum number of players attacked to keep in history.',
                         type: 'numeric',
-                        typeData: { value: 10, min: 1, max: 100 },
+                        typeData: { value: 5, min: 1, max: 100 },
                     },
                 },
             },
@@ -347,7 +351,6 @@ class BottleRocketPage {
                 const modalTitle = $modalTitle.text().trim();
 
                 if (modalTitle !== 'Attack Results') {
-                    ConsolePlus.debug('Modal title is not "Attack Results":', modalTitle);
                     stopMutatorHandle();
                     new FarmRPGPlusError(
                         ErrorTypesEnum.ELEMENT_NOT_FOUND,
@@ -399,7 +402,6 @@ class BottleRocketPage {
                 const attackResultObject = attackResults.reduce((acc, result) => {
                     const [playerName, hitOrMiss] = result.replace('Attack Results', '').split(' was ');
                     if (!playerName || !hitOrMiss) {
-                        ConsolePlus.debug('Invalid attack result format:', result);
                         return acc;
                     }
 

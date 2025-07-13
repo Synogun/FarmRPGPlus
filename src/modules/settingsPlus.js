@@ -25,6 +25,12 @@ class SettingsPlus {
                 order,
                 features: {},
             });
+        } else {
+            const oldTitle = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}.title`, pageId);
+            const oldOrder = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}.order`, order);
+            
+            StoragePlus.set(`${SettingsPlus._configKey}.${pageId}.title`, displayName ?? oldTitle);
+            StoragePlus.set(`${SettingsPlus._configKey}.${pageId}.order`, order ?? oldOrder);
         }
     }
 
@@ -53,41 +59,6 @@ class SettingsPlus {
 
         const itExists = StoragePlus.get(key, null);
         if (!itExists) {
-            if (featureObject.configs && Object.keys(featureObject.configs).length > 0) {
-                for (const [configId, configDef] of Object.entries(featureObject.configs)) {
-                    if (configDef.enables && !Array.isArray(configDef.enables)) {
-                        ConsolePlus.warn('Invalid enables for config:', { pageId, featureId, configId });
-                        delete configDef.enables;
-                    }
-
-                    for (const enable of configDef.enables ?? []) {
-                        if (!featureObject.configs[enable]) {
-                            ConsolePlus.warn('Enable config not found:', { pageId, featureId, configId, enable });
-                            configDef.enables = configDef.enables.filter(e => e !== enable);
-                            continue;
-                        }
-
-                        if (!featureObject.configs[enable].dependencies) {
-                            featureObject.configs[enable].dependencies = [];
-                        }
-                        if (!featureObject.configs[enable].dependencies.includes(featureId)) {
-                            featureObject.configs[enable].dependencies.push(featureId);
-                        }
-                        if (!featureObject.configs[enable].dependencies.includes(configId)) {
-                            featureObject.configs[enable].dependencies.push(configId);
-                        }
-                    }
-
-                    if (configId !== featureId) {
-                        if (!featureObject.configs[configId].dependencies) {
-                            featureObject.configs[configId].dependencies = [];
-                        }
-                        if (!featureObject.configs[configId].dependencies.includes(featureId)) {
-                            featureObject.configs[configId].dependencies.push(featureId);
-                        }
-                    }
-                }
-            }
             StoragePlus.set(key, featureObject);
         }
 
@@ -101,7 +72,6 @@ class SettingsPlus {
      */
     static getAllFeatures() {
         const settings = StoragePlus.get(SettingsPlus._configKey, {});
-        ConsolePlus.debug('All registered features:', settings);
 
         const result = Object.entries(settings)
             .filter(([_, pageDef]) => Object.entries(pageDef.features).length > 0)
@@ -120,8 +90,6 @@ class SettingsPlus {
                             })),
                     })),
             }));
-
-        ConsolePlus.debug('Filtered and sorted features:', result);
         return result;
     }
 
@@ -227,6 +195,12 @@ class SettingsPlus {
         }
 
         return value;
+    }
+
+    static resetAllSettings() {
+        StoragePlus.set(SettingsPlus._configKey, {});
+        ConsolePlus.log('All settings have been reset to default.');
+        
     }
 }
 

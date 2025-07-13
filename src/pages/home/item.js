@@ -1,14 +1,59 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
 import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
 import NPCUrlsEnum from '../../constants/npcUrlsEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
 
 class ItemPage {
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.ITEM, {
+            displayName: 'Item Page',
+            order: 3
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addBuddyFarmButton',
+            {
+                title: 'Add Buddy Farm Button?',
+                subtitle: 'Adds a button that links to Buddy Farm page of the item.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addNpcLikingsCards',
+            {
+                title: 'Add NPC Likings Cards?',
+                subtitle: 'Adds cards showing which NPCs super love, love, like or hate the current item.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addCollectedIndicator',
+            {
+                title: 'Add Collected Indicator?',
+                subtitle: [
+                    'Adds an indicator showing if the item was already collected at some point of the game.',
+                    '<br>',
+                    'Synchronizes whenever entering on Inventory, Item or Museum pages.',
+                ],
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     /**
      * An immutable object containing title constants used throughout the item page.
@@ -156,6 +201,11 @@ class ItemPage {
             return;
         }
 
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addBuddyFarmButton')) {
+            ConsolePlus.log('Buddy Farm button is disabled in settings.');
+            return;
+        }
+
         const $li = createRow({
             iconImageUrl: IconsUrlEnum.BUDDY_FARM,
             title: 'Buddy Farm',
@@ -192,6 +242,11 @@ class ItemPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addNpcLikingsCards.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addNpcLikingsCards')) {
+            ConsolePlus.log('NPC likings cards are disabled in settings.');
             return;
         }
 
@@ -269,6 +324,11 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addCollectedIndicator.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addCollectedIndicator')) {
+            ConsolePlus.log('Collected indicator is disabled in settings.');
             return;
         }
 
