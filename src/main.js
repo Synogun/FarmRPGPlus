@@ -5,19 +5,13 @@ import RouterPlus from './modules/routerPlus';
 import Pages from './pages/index';
 import TimeControl from './utils/timeControl';
 
-// Registering page handlers
-RouterPlus.registerHandlers(Pages);
-
 (function () {
-    'use strict';
+    RouterPlus.registerHandlers(Pages);
     $(function () {
 
         const isReset = TimeControl.isResetTime();
-        if (isReset === 1) {
-            ConsolePlus.warn('It is backup time, not loading the app.');
-            return;
-        } else if (isReset === 2) {
-            ConsolePlus.warn('It is reset time, not loading the app.');
+        if (isReset === 1 || isReset === 2) {
+            ConsolePlus.warn(`It is ${isReset === 2 ? 'reset' : 'backup'} time, not loading the app.`);
             return;
         }
         

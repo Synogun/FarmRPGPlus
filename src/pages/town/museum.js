@@ -1,5 +1,7 @@
-import ConsolePlus from "../../modules/consolePlus";
-import StoragePlus from "../../modules/storagePlus";
+import $ from 'jquery';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import StoragePlus from '../../modules/storagePlus';
 
 class MuseumPage {
     static titles = Object.freeze({
@@ -23,7 +25,7 @@ class MuseumPage {
             return;
         }
         
-        const $itemBlocks = $(page.container).find(".col-25");
+        const $itemBlocks = $(page.container).find('.col-25');
         
         if ($itemBlocks.length === 0) {
             ConsolePlus.log('No collection progress found on the Museum page.');

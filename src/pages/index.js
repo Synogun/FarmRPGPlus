@@ -13,7 +13,6 @@ import MuseumPage from './town/museum';
 import FarmSupplyPage from './town/supply';
 import VaultPage from './town/vault';
 import WellPage from './town/well';
-import MuseumPage from './town/museum';
 
 const Pages = {
     [GamePagesEnum.HOME]: new HomePage,

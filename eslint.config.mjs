@@ -1,7 +1,8 @@
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
+import { defineConfig } from 'eslint/config';
 
-export default [
+export default defineConfig([
     {
         languageOptions: {
             ecmaVersion: 2022,
@@ -10,6 +11,8 @@ export default [
                 window: 'readonly',
                 document: 'readonly',
                 console: 'readonly',
+                setTimeout: 'readonly',
+                setInterval: 'readonly',
                 $$: 'readonly',
                 mainView: 'readonly',
                 myApp: 'readonly',
@@ -19,11 +22,32 @@ export default [
             },
         },
     },
-    js.configs.recommended,
     {
-        plugins: {
-            stylistic,
+        plugins: { js },
+        extends: ['js/recommended'],
+        rules: {
+            // https://eslint.org/docs/latest/rules/no-duplicate-imports
+            'no-duplicate-imports': ['error', { includeExports: true }],
+            // https://eslint.org/docs/latest/rules/no-template-curly-in-string
+            'no-template-curly-in-string': 'error',
+            // https://eslint.org/docs/latest/rules/no-unused-vars
+            'no-unused-vars': ['error', { argsIgnorePattern: '^_', caughtErrors: 'none' }],
+            // https://eslint.org/docs/latest/rules/no-use-before-define
+            'no-use-before-define': ['error', { functions: false }],
+            // https://eslint.org/docs/latest/rules/default-case
+            'default-case': 'error',
+            // https://eslint.org/docs/latest/rules/default-case-last
+            'default-case-last': 'error',
+            // https://eslint.org/docs/latest/rules/eqeqeq
+            'eqeqeq': 'error',
+            // https://eslint.org/docs/latest/rules/grouped-accessor-pairs
+            'grouped-accessor-pairs': ['error', 'getBeforeSet'],
+            // https://eslint.org/docs/latest/rules/strict
+            'strict': ['error', 'global']
         },
+    },
+    {
+        plugins: { stylistic },
         rules: {
             // https://eslint.style/rules/array-bracket-newline
             'stylistic/array-bracket-newline': ['error', 'consistent'],
@@ -124,10 +148,6 @@ export default [
         },
     },
     {
-        ignores: [
-            'dist',
-            'node_modules',
-            'webpack.config.cjs',
-        ],
+        ignores: ['dist', 'node_modules', 'webpack.config.cjs'],
     },
-];
+]);

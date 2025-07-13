@@ -5,18 +5,25 @@
  * @class
  */
 class StoragePlus {
+    static _configKey = process.env.NODE_ENV === 'production' ? 'frpg_plus' : 'frpg_plus_dev';
+
     /**
      * Ensures that a 'frpg_plus' key exists in localStorage and returns the parsed object.
      * If the key does not exist, it is created and initialized as an empty object.
      * @returns {Object} The parsed storage object.
      */
     static _getStorage() {
-        if (!window.localStorage?.frpg_plus) {
-            window.localStorage.setItem('frpg_plus', JSON.stringify({}));
+        const storedValue = window.localStorage.getItem(StoragePlus._configKey);
+        if (!storedValue) {
+            StoragePlus._setStorage({});
+            return {};
         }
-        return window.localStorage.frpg_plus
-            ? JSON.parse(window.localStorage.frpg_plus)
-            : {};
+        try {
+            return JSON.parse(storedValue);
+        } catch (e) {
+            console.error('Error parsing stored settings:', e);
+            return {};
+        }
     }
 
     /**
@@ -24,7 +31,7 @@ class StoragePlus {
      * @param {Object} storage - The storage object to persist.
      */
     static _setStorage(storage) {
-        window.localStorage.setItem('frpg_plus', JSON.stringify(storage));
+        window.localStorage.setItem(StoragePlus._configKey, JSON.stringify(storage));
     }
 
     /**

@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `StoragePlus` - Made StoragePlus static, removing the need to instantiate it.
 
 ### Fixed
+- `ESLint` - Fixes ESLint configuration file not recognizing recommended rules.
 - `FarmRPGPlusError` - Fixes error messages not displaying correctly.
 - `BottleRocketPage` - Fixes attack history being limited.
 - `TimeControl` - Fixes reset time function counting 1 minute too short.

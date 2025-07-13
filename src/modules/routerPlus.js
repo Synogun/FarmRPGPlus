@@ -146,6 +146,14 @@ const RouterPlus = {
     },
 
     /**
+     * Get the current page object.
+     * @returns {Object|null}
+     */
+    getCurrentPage: function () {
+        return myApp.getCurrentView().activePage || mainView.activePage || null;
+    },
+
+    /**
      * Get navigation history from a page.
      * @param {Object} page - Current page object.
      * @param {number} [maximum] - Max number of history entries.
@@ -253,6 +261,10 @@ const RouterPlus = {
             ConsolePlus.debug('URL is valid, no changes needed.', location.href);
             return false;
         }
+
+        ConsolePlus.warn('Invalid URL format, redirecting to index.php.');
+        location.replace(`${baseUrl}#!/index.php`);
+        return false;
     },
 
     // TODO: Convert this to a more generic function that can update the back button for any page.
