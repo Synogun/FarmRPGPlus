@@ -2,26 +2,22 @@ import $ from 'jquery';
 import ConsolePlus from './modules/consolePlus';
 import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
+import StoragePlus from './modules/storagePlus';
 import Pages from './pages/index';
 import TimeControl from './utils/timeControl';
 
-// Registering page handlers
-RouterPlus.registerHandlers(Pages);
-
 (function () {
-    'use strict';
+    RouterPlus.registerHandlers(Pages);
     $(function () {
 
         const isReset = TimeControl.isResetTime();
-        if (isReset === 1) {
-            ConsolePlus.warn('It is backup time, not loading the app.');
-            return;
-        } else if (isReset === 2) {
-            ConsolePlus.warn('It is reset time, not loading the app.');
+        if (isReset === 1 || isReset === 2) {
+            ConsolePlus.warn(`It is ${isReset === 2 ? 'reset' : 'backup'} time, not loading the app.`);
             return;
         }
         
-        ConsolePlus.log('FarmRPGPlus app initialized.');
+        ConsolePlus.log('FarmRPG Plus app initialized.');
+        StoragePlus.initStorage();
 
         if (DebugPlus.isDevelopmentMode()) {
             ConsolePlus.warn('Development mode is enabled, debugging features are active.');
@@ -39,9 +35,8 @@ RouterPlus.registerHandlers(Pages);
                 const callback = RouterPlus.handlePageChange(page);
 
                 if (callback && typeof callback === 'function') {
+                    ConsolePlus.debug(`Running callback for page: ${page.name}`);
                     callback(page);
-                } else {
-                    ConsolePlus.debug('No callback found for the current page:', page.name);
                 }
             });
         }

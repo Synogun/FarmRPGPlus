@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
 
 /**
  * Creates a jQuery <li> element representing a row with optional media, title, subtitle, button, and link.
@@ -239,7 +238,6 @@ function watchForElement(selector, callback) {
                         : $(node).find(selector);
 
                     if ($matched.length) {
-                        ConsolePlus.debug(`Element matched: ${selector}`, $matched.first());
                         callback($matched.first());
                         observer.disconnect(); // parar após encontrar
                         return;

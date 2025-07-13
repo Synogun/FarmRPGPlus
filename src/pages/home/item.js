@@ -1,13 +1,59 @@
 import $ from 'jquery';
-import IconsUrlEnum from '../constants/iconsUrlEnum';
-import { ItemGiftsEnum } from '../constants/npcGiftsEnum';
-import NPCUrlsEnum from '../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import { createCardList, getListByTitle, parseNameForUrl } from '../utils/utils';
+import GamePagesEnum from '../../constants/gamePagesEnum';
+import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
+import NPCUrlsEnum from '../../constants/npcUrlsEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
+import StoragePlus from '../../modules/storagePlus';
+import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
 
 class ItemPage {
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.ITEM, {
+            displayName: 'Item Page',
+            order: 3
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addBuddyFarmButton',
+            {
+                title: 'Add Buddy Farm Button?',
+                subtitle: 'Adds a button that links to Buddy Farm page of the item.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addNpcLikingsCards',
+            {
+                title: 'Add NPC Likings Cards?',
+                subtitle: 'Adds cards showing which NPCs super love, love, like or hate the current item.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addCollectedIndicator',
+            {
+                title: 'Add Collected Indicator?',
+                subtitle: [
+                    'Adds an indicator showing if the item was already collected at some point of the game.',
+                    '<br>',
+                    'Synchronizes whenever entering on Inventory, Item or Museum pages.',
+                ],
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     /**
      * An immutable object containing title constants used throughout the item page.
@@ -95,7 +141,49 @@ class ItemPage {
 
         return itemName.trim();
     };
-    
+
+    /**
+     * Retrieves the quantity of a specific item based on its name.
+     *
+     * @param {string} itemName - The name of the item to check.
+     * @returns {number} The quantity of the item, or 0 if the item is not found.
+     * @throws {FarmRPGPlusError} If the item name is not provided or is empty.
+     */
+    getItemQuantity = (page, { storehouse = false } = {}) => {
+        if (!page || !page.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.INVALID_PARAMETER,
+                this.getItemQuantity.name,
+            );
+            return 0;
+        }
+
+        const [whole, onHand, inStorehouse] = $(page.container)
+            .find('.item-title:contains(\'My Inventory\')')
+            .children('span')
+            .text()
+            .match(/([0-9,]+ on hand)([0-9,]+ in Storehouse)?/);
+
+        if (!whole || !onHand) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.getItemQuantity.name,
+            );
+            return 0;
+        
+        } else if (storehouse && !inStorehouse) {
+            return 0;
+        }
+
+        let quantity = parseInt(onHand.replace(/[^0-9]/g, ''), 10) || 0;
+        
+        if (storehouse) {
+            quantity = parseInt(inStorehouse.replace(/[^0-9]/g, ''), 10) || 0;
+        }
+
+        return quantity;
+    };
+
     /**
      * Adds a "Buddy Farm" button to the item details page.
      *
@@ -110,6 +198,11 @@ class ItemPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.addBuddyFarmButton.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addBuddyFarmButton')) {
+            ConsolePlus.log('Buddy Farm button is disabled in settings.');
             return;
         }
 
@@ -132,6 +225,17 @@ class ItemPage {
         }
     };
 
+    /**
+     * Adds NPC likings cards to the given page, displaying which NPCs like, love, or super love the current item,
+     * along with the XP values for gifting. Cards are dynamically created and inserted after the item details section.
+     *
+     * @param {Object} page - The page object to which the NPC likings cards will be added.
+     * @param {HTMLElement} page.container - The container element where cards will be inserted.
+     *
+     * @throws {FarmRPGPlusError} If the page or its container is not provided.
+     *
+     * @returns {void}
+     */
     addNpcLikingsCards = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
@@ -141,11 +245,21 @@ class ItemPage {
             return;
         }
 
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addNpcLikingsCards')) {
+            ConsolePlus.log('NPC likings cards are disabled in settings.');
+            return;
+        }
+
         const capitalizeWords = name => name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
         const itemName = this.getItemNameOnNavbar(page);
-        
 
-        for (const [giftPower, npcList] of Object.entries(ItemGiftsEnum[itemName] || {})) {
+        const entries = Object.entries(ItemGiftsEnum[itemName] || {})
+            .sort((a, b) => {
+                const powerOrder = { SUPER_LOVES: 1, LOVES: 2, LIKES: 3, HATES: 4 };
+                return (powerOrder[b[0]] || 0) - (powerOrder[a[0]] || 0);
+            });
+
+        for (const [giftPower, npcList] of entries) {
             if (!npcList || npcList.length === 0) {
                 continue;
             }
@@ -168,17 +282,16 @@ class ItemPage {
                 }
             }
 
-            const npcRows = npcList.map((npcName) => {
-                return createRow({
+            const npcRows = npcList.map(
+                npcName => createRow({
                     iconImageUrl: NPCUrlsEnum[npcName]?.IMAGE || '',
                     iconUrl: IconsUrlEnum[`NPC_${giftPower}_GIFT`] || '',
                     iconOnTitleEnd: true,
                     title: capitalizeWords(npcName),
                     subtitle: `Gives: ${XPValue} XP | TFOD: ${XPValue * 2} XP`,
                     rowLink: NPCUrlsEnum[npcName]?.MAILBOX,
-                    // afterLabel: $afterIcon(),
-                });
-            });
+                })
+            );
 
             const cardId = `frpg-${giftPower.toLowerCase().replace('_', '-')}-npc-likings-card`;
             const $card = createCardList({
@@ -188,8 +301,11 @@ class ItemPage {
             });
             
             const itExists = $(page.container).find(cardId).length > 0;
+            const doesTrackMasteryButtonExists = $(page.container).find('.activemsbtn').length > 0 ||
+                $(page.container).find('.deactivemsbtn').length > 0;
 
-            if (this.doesItemHaveMastery(page) && !itExists) {
+
+            if (doesTrackMasteryButtonExists && !itExists) {
                 getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
                     .next() // Title -> Card
                     .next() // Card -> Track Mastery Button
@@ -199,6 +315,58 @@ class ItemPage {
                     .next() // Title -> Card
                     .after($card);
             }
+        }
+    };
+
+    addCollectedIndicator = (page) => {
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addCollectedIndicator.name,
+            );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addCollectedIndicator')) {
+            ConsolePlus.log('Collected indicator is disabled in settings.');
+            return;
+        }
+
+        let cache = StoragePlus.get('items_collected_cache');
+        if (!cache || typeof cache !== 'object') {
+            StoragePlus.set('items_collected_cache', {});
+            cache = {};
+        }
+
+        const itemName = this.getItemNameOnNavbar(page);
+
+        let isCollected = cache[itemName] ||
+            this.getItemQuantity(page) > 0 ||
+            this.getItemQuantity(page, { storehouse: true }) > 0;
+
+
+        const $collectedIndicator = $('<span>')
+            .attr('id', 'frpgp-collected-indicator')
+            .css('font-weight', 'bold')
+            .css('font-size', '11px');
+        
+        if (isCollected) {
+            $collectedIndicator
+                .css('color', 'green')
+                .text('Collected!');
+
+            cache[itemName] = true;
+        } else {
+            $collectedIndicator
+                .css('color', 'red')
+                .text('Not Collected');
+        }
+        
+        StoragePlus.set('items_collected_cache', cache);
+        const itExists = $(page.container).find('#frpgp-collected-indicator').length > 0;
+        
+        if (!itExists) {
+            $(page.container).find('div#img').append([$collectedIndicator, '<br>']);
         }
     };
 
@@ -214,6 +382,7 @@ class ItemPage {
         ConsolePlus.log('Item page initialized:', page);
         this.addBuddyFarmButton(page);
         this.addNpcLikingsCards(page);
+        this.addCollectedIndicator(page);
     };
 }
 

@@ -1,11 +1,30 @@
 import $ from 'jquery';
-import NPCUrlsEnum from '../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../FarmRPGPlusError';
-import ConsolePlus from '../modules/consolePlus';
-import { createRow } from '../modules/rowFactory';
-import { createCardList } from '../utils/utils';
+import GamePagesEnum from '../../constants/gamePagesEnum';
+import NPCUrlsEnum from '../../constants/npcUrlsEnum';
+import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import ConsolePlus from '../../modules/consolePlus';
+import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
+import { createCardList } from '../../utils/utils';
 
 class NPCSPage {
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.NPCS, {
+            displayName: 'NPCs Page',
+            order: 100,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.NPCS,
+            'townsfolkInfo',
+            {
+                title: 'Add Townsfolk Info Card?',
+                subtitle: 'Adds a card with links to townsfolk information.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         CURRENT_LEVELS: 'Current Levels',
@@ -18,6 +37,11 @@ class NPCSPage {
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.addTownsfolkInfoCard.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.NPCS, 'townsfolkInfo')) {
+            ConsolePlus.log('Townsfolk Info Card is disabled, skipping creation.');
             return;
         }
 

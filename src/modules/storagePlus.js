@@ -1,23 +1,52 @@
 /**
  * StoragePlus is a wrapper class for managing a custom localStorage namespace (`frpg_plus`).
- * It provides methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
+ * It provides static methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
  *
  * @class
  */
 class StoragePlus {
-    /**
-     * Initializes the StoragePlus module.
-     * Ensures that a 'frpg_plus' key exists in localStorage and parses its value into the instance's storage property.
-     * If the key does not exist, it is created and initialized as an empty object.
-     */
-    constructor() {
-        if (!window.localStorage?.frpg_plus) {
-            window.localStorage.setItem('frpg_plus', JSON.stringify({}));
+    static _configKey = process.env.NODE_ENV === 'production' ? 'frpg_plus' : 'frpg_plus_dev';
+
+    static initStorage() {
+        const localStorage = StoragePlus._getStorage();
+
+        if (
+            !localStorage ||
+            typeof localStorage !== 'object' ||
+            localStorage?.version !== process.env.VERSION
+        ) {
+            StoragePlus._setStorage({
+                version: process.env.VERSION,
+            });
         }
 
-        this.storage = window.localStorage.frpg_plus
-            ? JSON.parse(window.localStorage.frpg_plus)
-            : {};
+        if (!localStorage?.version) {
+            localStorage.version = process.env.VERSION;
+        }
+    }
+
+    /**
+     * Ensures that a 'frpg_plus' key exists in localStorage and returns the parsed object.
+     * If the key does not exist, it is created and initialized as an empty object.
+     * @returns {Object} The parsed storage object.
+     */
+    static _getStorage() {
+        const localStorage = window.localStorage.getItem(StoragePlus._configKey);
+        
+        try {
+            return JSON.parse(localStorage);
+        } catch (e) {
+            console.error('Error parsing stored settings:', e);
+            return StoragePlus.initStorage();
+        }
+    }
+
+    /**
+     * Persists the given storage object to localStorage.
+     * @param {Object} storage - The storage object to persist.
+     */
+    static _setStorage(storage) {
+        window.localStorage.setItem(StoragePlus._configKey, JSON.stringify(storage));
     }
 
     /**
@@ -26,24 +55,22 @@ class StoragePlus {
      * @param {string} key - The key under which the value will be stored, using dot notation for nested properties.
      * @param {*} value - The value to store. Can be of any type that is serializable to JSON.
      */
-    set(key, value) {
+    static set(key, value) {
         const keys = key.split('.');
-        let current = this.storage;
-        
-
-        for (const k of keys) {
-            if (!current[k] && k !== keys[keys.length - 1]) {
-                current[k] = {};
-            } else if (k === keys[keys.length - 1]) {
-                // If it's the last key, we set the value directly
+        const storage = StoragePlus._getStorage();
+        let current = storage;
+        for (let i = 0; i < keys.length; i++) {
+            const k = keys[i];
+            if (i === keys.length - 1) {
                 current[k] = value;
-                break;
+            } else {
+                if (!current[k] || typeof current[k] !== 'object') {
+                    current[k] = {};
+                }
+                current = current[k];
             }
-
-            current = current[k];
         }
-
-        window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+        StoragePlus._setStorage(storage);
     }
 
     /**
@@ -51,19 +78,18 @@ class StoragePlus {
      *
      * @param {string} key - The key of the item to retrieve using dot notation for nested properties.
      * @param {*} [defaultValue=undefined] - The default value to return if the key does not exist in storage.
-     * @returns {*} The value associated with the key, or null if the key does not exist.
+     * @returns {*} The value associated with the key, or defaultValue if the key does not exist.
      */
-    get(key, defaultValue) {
+    static get(key, defaultValue) {
         const keys = key.split('.');
-        let value = this.storage;
-
+        let value = StoragePlus._getStorage();
         for (const k of keys) {
-            value = value[k];
-            if (value === undefined) {
+            if (value && Object.prototype.hasOwnProperty.call(value, k)) {
+                value = value[k];
+            } else {
                 return defaultValue;
             }
         }
-
         return value;
     }
 
@@ -73,30 +99,28 @@ class StoragePlus {
      * @param {string} key - The key of the item to remove from storage, using dot notation for nested properties.
      * @returns {void}
      */
-    remove(key) {
+    static remove(key) {
         const keys = key.split('.');
-        let current = this.storage;
-
-        for (const k of keys) {
-            if (current[k]) {
-                current = current[k];
-            } else {
+        const storage = StoragePlus._getStorage();
+        let current = storage;
+        for (let i = 0; i < keys.length - 1; i++) {
+            const k = keys[i];
+            if (!current[k] || typeof current[k] !== 'object') {
                 return;
             }
+            current = current[k];
         }
-
-        delete current.value;
-        window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+        delete current[keys[keys.length - 1]];
+        StoragePlus._setStorage(storage);
     }
 
     /**
      * Clears the current storage by resetting it to an empty object
      * and updates the 'frpg_plus' entry in localStorage accordingly.
      */
-    clear() {
-        this.storage = {};
-        window.localStorage.setItem('frpg_plus', JSON.stringify(this.storage));
+    static clear() {
+        StoragePlus._setStorage({});
     }
 }
 
-export default new StoragePlus;
+export default StoragePlus;

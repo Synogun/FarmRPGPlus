@@ -1,5 +1,5 @@
 
-# 👨‍🌾🚜 FarmRPGPlus
+# 👨‍🌾🚜 FarmRPG Plus
 
 This userscript its a collection of navigation, visual and informational features I thought would be a good fit for the player's experience.
 
@@ -11,8 +11,6 @@ Any feedback, ideas, requests, bugs or tips can be send to my ingame DM and Mail
 
 All changes are documented on the [Changelog](CHANGELOG.md).
 
----
-
 ## 🤔💭 Considerations
 
 > X. Cheating may be subject to an immediate ban.
@@ -21,27 +19,40 @@ All changes are documented on the [Changelog](CHANGELOG.md).
 The userscript strictly follows the game's [Code Of Conduct](https://farmrpg.com/#!/coc.php), therefore, not automating or performing any actions in place of the player.
 
 This userscript its not an official part of the Farm RPG.\
-*Magic & Wires LLC.* are not responsible in any way for the errors introduced by this userscript and along with the game staff should not be bother in any way about it, for contact refer to [section above](#-farmrpgplus).
+*Magic & Wires LLC.* are not responsible in any way for the errors introduced by this userscript and along with the game staff should not be bother in any way about it, for contact refer to [section above](#-farmrpg-plus).
 
----
+## 💾 About data saved
+
+The script saves data in the browser's local storage, which is not shared between devices or browsers.\
+This means that if you switch browsers or devices, your data will not be carried over.
+
+All data saved is related to the script's features and settings, such as:
+- Features enabled/disabled
+- Settings for each feature
+- Cached data for performance improvements
+
+Know that the script does not save any personal data, such as your FarmRPG account information or any other sensitive data.
+
+A current limitation is that the local storage is cleared when the script is updated, so you will lose your settings and data.
+
+This is a temporary solution until we implement a better data management system.
+
+Please keep this in mind when using the script and configure your settings accordingly.
 
 ## ⬇ How to Install and Use
 
 ## 💻 Setting Up on Desktop
 
-To enhance your FarmRPG experience on desktop, follow these steps:
+To install the script on desktop, follow these steps:
 
 - **Step 1: Use a compatible browser**  
   Choose a browser that allows extensions. Firefox is a great option and works on both desktop and mobile.
 
 - **Step 2: Install a userscript manager**  
-  Add an extension like **Violentmonkey**, or if you're on iOS, try **Userscripts**.
+  Add an extension like **Violentmonkey**/**Tampermonkey**, or if you're on iOS, try **Userscripts**.
 
-- **Step 3: Add the FarmRPGPlus script**  
+- **Step 3: Add the FarmRPG Plus script**  
   Install from the [script file](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/main/dist/FarmRPGPlus.user.js).
-
-- **Optional: Create an app-like shortcut**  
-  On mobile browsers, you can add [https://farmrpg.com](https://farmrpg.com) to your home screen for a smoother, app-like feel.
 
 <!-- ## 📱 Setting Up on Mobile
 
@@ -56,15 +67,13 @@ Mobile setup is slightly different but just as easy:
 - **Step 3: Pin FarmRPG to your home screen**  
   Open [https://farmrpg.com](https://farmrpg.com) in your browser, then use the browser menu to add it to your home screen — making it launch like a native app. -->
 
----
-
 ## ✨ Features
 
 ### ⚙ Modular Features
 
 All features can be turned ON/OFF independently, you can check it out in-game:
 
-> [My Settings -> Change Game Options](https://farmrpg.com/#!/settings_options.php) -> FarmRPGPlus Settings
+> [My Settings -> Change Game Options](https://farmrpg.com/#!/settings_options.php) -> FarmRPG Plus Settings (at the bottom of the page)
 
 ### 📚 Buddy Farm and Library Buttons
 
@@ -79,9 +88,13 @@ Adds a previous and next button inside the Ovens page, making cooking actions le
 
 Calculates the discount factor for perks on SALE and adds a label next to the buy button.
 
+### ✅ Items Collected Indicator
+
+Adds a small indicator on item page next to the image, indicating if the item has been collected along the game or not.
+The indicator synchronizes whenever navigating to the museum page, inventory page or item page (and quantity on hand/in storage its greater than zero).
+
 ### 📅 Event Features
 
 #### 🚀 Bottle Rocket Brawl
 
-Display statistics about the attacks made and tokens earned, also, adds two history lists, one for attack history and one for last players attacked. The size
-of player history can be set in the settings.
+Display statistics about the attacks made and tokens earned, also, adds two history lists, one for attack history and one for last players attacked. The size of history logs can be set in the settings.

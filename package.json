@@ -8,6 +8,7 @@
         "prebuild": "npm run lint",
         "build": "webpack --mode=production",
         "start:dev": "webpack --mode=development -w -d false",
+        "linux:dev": "export NODE_ENV=\"development\" && webpack --mode=development -w -d false",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix"
     },
@@ -17,6 +18,7 @@
         "jquery": "3.7.1"
     },
     "devDependencies": {
+        "@babel/core": "7.28.0",
         "@babel/preset-env": "7.27.2",
         "@eslint/js": "9.29.0",
         "@stylistic/eslint-plugin": "4.4.1",
