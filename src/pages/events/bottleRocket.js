@@ -3,12 +3,60 @@ import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import DebugPlus from '../../modules/debugPlus';
 import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import TimeControl from '../../utils/timeControl';
 import { createCardList, getListByTitle, parseNameForUrl, watchForElement } from '../../utils/utils';
 
 
 class BottleRocketPage {
+
+    constructor() {
+        SettingsPlus.registerPage('eventFeatures', { displayName: 'Event Features' });
+        SettingsPlus.registerFeature(
+            'eventFeatures',
+            'bottleRocket',
+            {
+                title: 'Bottle Rocket Event',
+                subtitle: 'Features for the Bottle Rocket event.',
+                isEnabled: true,
+                enableTitle: 'Enable Bottle Rocket Event Features',
+                enableSubtitle: 'Enables features related to the Bottle Rocket event.',
+                configs: {
+                    addStatsCards: {
+                        title: 'Add Stats Cards',
+                        subtitle: 'Enables a list containing statistics gathered along the event.',
+                        type: 'checkbox',
+                        typeData: { value: true },
+                    },
+                    isAttackHistoryEnabled: {
+                        title: 'Enable Attack History',
+                        subtitle: 'Enables a log of last attacks made during the event.',
+                        type: 'checkbox',
+                        typeData: { value: true },
+                    },
+                    maxAttackHistoryLength: {
+                        title: 'Max Attack History Length',
+                        subtitle: 'Maximum number of attack actions to keep in history.',
+                        type: 'numeric',
+                        typeData: { value: 10, min: 1, max: 100 },
+                    },
+                    isPlayerHistoryEnabled: {
+                        title: 'Enable Player History',
+                        subtitle: 'Enables a log of last players attacked during the event.',
+                        type: 'checkbox',
+                        typeData: { value: true },
+                    },
+                    maxPlayerHistoryLength: {
+                        title: 'Max Player History Length',
+                        subtitle: 'Maximum number of players attacked to keep in history.',
+                        type: 'numeric',
+                        typeData: { value: 10, min: 1, max: 100 },
+                    },
+                },
+            },
+        );
+    }
 
     static titles = Object.freeze({
         CHOOSE_YOUR_DEFENSE: 'CHOOSE YOUR DEFENSE',
@@ -34,7 +82,7 @@ class BottleRocketPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.getTokenAmount.name,
             );
-            return;
+            return 0;
         }
 
         const $tokenAmount = $(page.container).find('a[href=\'item.php?id=1097\']').next().next().text();
@@ -53,6 +101,11 @@ class BottleRocketPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.makeStats.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
+            ConsolePlus.log('Bottle Rocket stats cards are disabled in settings.');
             return;
         }
 
@@ -133,7 +186,6 @@ class BottleRocketPage {
                 $statsCard
             );
         }
-        // 'Attack Results'
     };
 
     makeAttackHistory = (page) => {
@@ -142,6 +194,11 @@ class BottleRocketPage {
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.makeAttackHistory.name,
             );
+            return;
+        }
+
+        if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isAttackHistoryEnabled')) {
+            ConsolePlus.log('Bottle Rocket attack history is disabled in settings.');
             return;
         }
 
@@ -200,6 +257,11 @@ class BottleRocketPage {
             return;
         }
 
+        if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isPlayerHistoryEnabled')) {
+            ConsolePlus.log('Bottle Rocket player history is disabled in settings.');
+            return;
+        }
+
         // profile.php?user_name=<player+name+with+spaces>
 
         const { player_history: history } = StoragePlus.get(
@@ -247,20 +309,6 @@ class BottleRocketPage {
                 $historyCard
             );
         }
-    };
-
-    addStatsCards = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addStatsCards.name,
-            );
-            return;
-        }
-
-        this.makeStats(page);
-        this.makeAttackHistory(page);
-        this.makeLastPlayersHistory(page);
     };
 
     startObserver = (page) => {
@@ -366,8 +414,9 @@ class BottleRocketPage {
                         hit_or_miss: hitOrMiss.trim(),
                     });
 
-                    if (currentPlayerHistory.length > 10) {
-                        currentPlayerHistory.shift(); // Remove the oldest entry
+                    const maxPlayerHistoryLength = SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'maxPlayerHistoryLength', 10);
+                    if (currentPlayerHistory.length > maxPlayerHistoryLength) {
+                        currentPlayerHistory.splice(0, currentPlayerHistory.length - maxPlayerHistoryLength);
                     }
 
                     StoragePlus.set('bottle_Rocket.player_history', currentPlayerHistory);
@@ -403,8 +452,9 @@ class BottleRocketPage {
                     BottleRocketPage.defaultStorageObject().attack_history
                 );
 
-                if (currentAttackHistory.length > 10) {
-                    currentAttackHistory.shift(); // Remove the oldest entry
+                const maxAttackHistoryLength = SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'maxAttackHistoryLength', 10);
+                if (currentAttackHistory.length > maxAttackHistoryLength) {
+                    currentAttackHistory.splice(0, currentAttackHistory.length - maxAttackHistoryLength);
                 }
 
                 currentAttackHistory.push({
@@ -450,11 +500,19 @@ class BottleRocketPage {
             return;
         }
 
+        if (!SettingsPlus.isEnabled('eventFeatures', 'bottleRocket')) {
+            ConsolePlus.log('Bottle Rocket event features are disabled in settings.');
+            return;
+        }
+
         ConsolePlus.log('Bottle Rocket page initialized:', page);
         
-        this.addStatsCards(page);
+        this.makeStats(page);
+        this.makeAttackHistory(page);
+        this.makeLastPlayersHistory(page);
+        const callback = this.startObserver(page);
 
-        return this.startObserver(page);
+        return callback;
     };
 }
 

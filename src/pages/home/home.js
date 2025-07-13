@@ -1,11 +1,30 @@
 import $ from 'jquery';
+import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
+import SettingsPlus from '../../modules/settingsPlus';
 import { getListByTitle } from '../../utils/utils';
 
 class HomePage {
+    constructor() {
+        SettingsPlus.registerPage(GamePagesEnum.HOME, {
+            displayName: 'Home Page',
+            order: 10,
+        });
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.HOME,
+            'addBuddyFarmButton',
+            {
+                title: 'Add Buddy Farm Button?',
+                subtitle: 'Adds a button to the home page that links to Buddy Farm homepage.',
+                isEnabled: true,
+                configs: {}
+            }
+        );
+    }
 
     static titles = Object.freeze({
         HOME: 'Where do you want to go?',
@@ -16,24 +35,18 @@ class HomePage {
     });
 
     addBuddyFarmButton = (page) => {
-        // Example item row
-        /**
-        <div class="item-content">
-            <div class="item-media">
-                <img class="itemimg" src="/img/items/map.png">
-            </div>
-            <div class="item-inner">
-                <div class="item-title">
-                    XP Value
-                    <br>
-                    <span style="font-size: 11px">XP gained to Skill</span>
-                </div>
-                <div class="item-after">
-                    5,000 XP
-                </div>
-            </div>
-        </div>
-        */
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addBuddyFarmButton.name,
+            );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'addBuddyFarmButton')) {
+            ConsolePlus.log('Buddy Farm button is disabled in settings.');
+            return;
+        }
 
         const $li = createRow({
             iconImageUrl: IconsUrlEnum.BUDDY_FARM,

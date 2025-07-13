@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]()
 
 ### Added
+- `SettingsOptionsPage` - Added SettingsOptionsPage for the user enable/disable available features.
+- `SettingsPlus` - Added SettingsPlus module for managing userscript settings.
 - `MuseumPage` - Added collected indicator cache syncronization to the Museum page.
 - `InventoryPage` - Added collected indicator cache syncronization to the Inventory page.
 - `VaultPage` - Added really basic code suggester to the Vault page.

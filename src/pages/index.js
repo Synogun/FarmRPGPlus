@@ -30,6 +30,9 @@ const Pages = {
     [GamePagesEnum.WELL]: new WellPage,
     [GamePagesEnum.MUSEUM]: new MuseumPage,
 
+    [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,
+
+    // Events
     [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,
 };
 
