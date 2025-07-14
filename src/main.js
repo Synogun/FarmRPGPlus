@@ -2,7 +2,6 @@ import $ from 'jquery';
 import ConsolePlus from './modules/consolePlus';
 import DebugPlus from './modules/debugPlus';
 import RouterPlus from './modules/routerPlus';
-import StoragePlus from './modules/storagePlus';
 import Pages from './pages/index';
 import TimeControl from './utils/timeControl';
 
@@ -17,7 +16,6 @@ import TimeControl from './utils/timeControl';
         }
         
         ConsolePlus.log('FarmRPG Plus app initialized.');
-        StoragePlus.initStorage();
 
         if (DebugPlus.isDevelopmentMode()) {
             ConsolePlus.warn('Development mode is enabled, debugging features are active.');

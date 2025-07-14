@@ -438,19 +438,21 @@ class SettingsOptionsPage {
             .text('Reset all settings to default')
             .on('click', (evt) => {
                 evt.preventDefault();
-                if (!confirm(
-                    'Are you sure you want to reset everything from FRPGP?\n\n' +
-                    'This will remove all cached data and reset all configurations.\n' +
-                    'This action cannot be undone.'
-                )) {
-                    return;
-                }
-
-                myApp.alert('All FarmRPG Plus settings have been reset to default.', 'Success', () => {
-                    ConsolePlus.log('Resetting all settings to default.');
-                    StoragePlus.clear();
-                    window.location.reload();
-                });
+                myApp.confirm(
+                    'Are you sure you want to reset all FarmRPG Plus settings?\n\n' +
+                    'This action cannot be undone.',
+                    'Reset FarmRPG Plus settings',
+                    () => {
+                        ConsolePlus.log('Resetting all settings to default.');
+                        StoragePlus.clear();
+                        myApp.alert(
+                            'All FarmRPG Plus settings have been reset to default.',
+                            'Success',
+                            () => { window.location.reload(); }
+                        );
+                    },
+                    () => {},
+                );
             });
 
         if (!$configListBlock.length) {

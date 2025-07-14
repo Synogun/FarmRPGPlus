@@ -8,7 +8,7 @@ class StoragePlus {
     static _configKey = process.env.NODE_ENV === 'production' ? 'frpg_plus' : 'frpg_plus_dev';
 
     static initStorage() {
-        const localStorage = StoragePlus._getStorage();
+        const localStorage = window.localStorage.getItem(StoragePlus._configKey);
 
         if (
             !localStorage ||
@@ -21,7 +21,7 @@ class StoragePlus {
         }
 
         if (!localStorage?.version) {
-            localStorage.version = process.env.VERSION;
+            StoragePlus.set('version', process.env.VERSION);
         }
     }
 
@@ -31,13 +31,22 @@ class StoragePlus {
      * @returns {Object} The parsed storage object.
      */
     static _getStorage() {
-        const localStorage = window.localStorage.getItem(StoragePlus._configKey);
+        let localStorage = window.localStorage.getItem(StoragePlus._configKey);
         
         try {
+            if (!localStorage) {
+                StoragePlus.initStorage();
+                localStorage = window.localStorage.getItem(StoragePlus._configKey);
+            }
+
             return JSON.parse(localStorage);
         } catch (e) {
             console.error('Error parsing stored settings:', e);
-            return StoragePlus.initStorage();
+            
+            StoragePlus.initStorage();
+            localStorage = window.localStorage.getItem(StoragePlus._configKey);
+            
+            return JSON.parse(localStorage);
         }
     }
 

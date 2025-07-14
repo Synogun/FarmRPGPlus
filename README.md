@@ -39,6 +39,8 @@ This is a temporary solution until we implement a better data management system.
 
 Please keep this in mind when using the script and configure your settings accordingly.
 
+### If something seems broken, try resetting the script's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state.
+
 ## ⬇ How to Install and Use
 
 ## 💻 Setting Up on Desktop
