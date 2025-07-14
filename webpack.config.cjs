@@ -3,11 +3,20 @@ const path = require('path');
 const pkg = require('./package.json');
 const webpack = require('webpack');
 
+const developmentEnvironment =
+    process.env.NODE_ENV &&
+    process.env.NODE_ENV === 'development' &&
+    {
+        filename: 'FarmRPGPlusDEVMODE.user.js',
+        path: path.resolve(__dirname, 'build'),
+        scriptName: `${pkg.userscript.name} DEV`,
+    };
+
 module.exports = {
     entry: './src/main.js',
     output: {
-        filename: 'FarmRPGPlus.user.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: developmentEnvironment?.filename ?? 'FarmRPGPlus.user.js',
+        path: developmentEnvironment?.path ?? path.resolve(__dirname, 'dist'),
 
     },
     plugins: [
@@ -18,7 +27,7 @@ module.exports = {
 
         new UserscriptPlugin({
             headers: {
-                name: pkg.userscript.name,
+                name: developmentEnvironment?.scriptName ?? pkg.userscript.name,
                 namespace: pkg.userscript.namespace,
                 match: pkg.userscript.match,
                 grant: pkg.userscript.grant,

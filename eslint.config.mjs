@@ -1,32 +1,27 @@
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+
 
 export default defineConfig([
     {
+        files: ['**/*.{js,mjs,cjs}'],
         languageOptions: {
             ecmaVersion: 2022,
             sourceType: 'module',
             globals: {
-                window: 'readonly',
-                document: 'readonly',
-                console: 'readonly',
-                setTimeout: 'readonly',
-                setInterval: 'readonly',
-                clearTimeout: 'readonly',
-                clearInterval: 'readonly',
-                confirm: 'readonly',
-                alert: 'readonly',
+                ...globals.browser,
                 $$: 'readonly',
                 mainView: 'readonly',
                 myApp: 'readonly',
                 Dom7: 'readonly',
                 process: 'readonly',
-                MutationObserver: 'readonly',
             },
         },
     },
     {
+        files: ['**/*.{js,mjs,cjs}'],
         plugins: { js },
         extends: ['js/recommended'],
         rules: {
@@ -51,6 +46,7 @@ export default defineConfig([
         },
     },
     {
+        files: ['**/*.{js,mjs,cjs}'],
         plugins: { stylistic },
         rules: {
             // https://eslint.style/rules/array-bracket-newline
