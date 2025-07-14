@@ -80,6 +80,10 @@ All features can be turned ON/OFF independently, you can check it out in-game:
 There's a ton of Buddy Farm and Library buttons throughout the game pages, usually at the bottom so it don't clutter the interface.
 Each button can be disabled individually and independently.
 
+### ♻ Crafting Bonus Indicator
+
+Adds a crafting bonus indicator on the items of Workshop page, showing how much bonus resources will be crafted with the resource saver perk.
+
 ### 🔥 Oven Navigation Buttons
 
 Adds a previous and next button inside the Ovens page, making cooking actions less painfull while not having the group actions buttons.
