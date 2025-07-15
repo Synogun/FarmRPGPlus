@@ -8,10 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+- `WorkshopPage` - Added crafting bonus (resource saver) indicator to the Workshop page.
 
 ### Changed
 
 ### Fixed
+- `StoragePlus` - Fixed StoragePlus not correctly handling the storage initialization.
 
 ## [1.1.0](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/1.1.0/dist/FarmRPGPlus.user.js)
 

@@ -6,6 +6,7 @@ import ItemPage from './home/item';
 import NPCSPage from './home/npcs';
 import QuestPage from './home/quest';
 import QuestsPage from './home/quests';
+import WorkshopPage from './home/workshop';
 import KitchenPage from './kitchen/kitchen';
 import OvenPage from './kitchen/oven';
 import SettingsOptionsPage from './misc/settingsOptions';
@@ -17,6 +18,7 @@ import WellPage from './town/well';
 const Pages = {
     [GamePagesEnum.HOME]: new HomePage,
     [GamePagesEnum.INVENTORY]: new InventoryPage,
+    [GamePagesEnum.WORKSHOP]: new WorkshopPage,
     [GamePagesEnum.KITCHEN]: new KitchenPage,
     [GamePagesEnum.QUESTS]: new QuestsPage,
     [GamePagesEnum.NPCS]: new NPCSPage,

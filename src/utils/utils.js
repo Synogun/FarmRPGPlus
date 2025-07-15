@@ -352,7 +352,6 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
  */
 function isUrlValid(url) {
     try {
-        // eslint-disable-next-line no-undef
         new URL(url);
         return true;
     } catch {

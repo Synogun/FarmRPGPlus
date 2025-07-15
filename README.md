@@ -39,6 +39,8 @@ This is a temporary solution until we implement a better data management system.
 
 Please keep this in mind when using the script and configure your settings accordingly.
 
+### If something seems broken, try resetting the script's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state.
+
 ## ⬇ How to Install and Use
 
 ## 💻 Setting Up on Desktop
@@ -79,6 +81,10 @@ All features can be turned ON/OFF independently, you can check it out in-game:
 
 There's a ton of Buddy Farm and Library buttons throughout the game pages, usually at the bottom so it don't clutter the interface.
 Each button can be disabled individually and independently.
+
+### ♻ Crafting Bonus Indicator
+
+Adds a crafting bonus indicator on the items of Workshop page, showing how much bonus resources will be crafted with the resource saver perk.
 
 ### 🔥 Oven Navigation Buttons
 
