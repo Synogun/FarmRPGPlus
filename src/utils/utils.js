@@ -388,12 +388,33 @@ function parseNameForUrl(name, { separator = '-', lowercase = true } = {}) {
     return processedName;
 }
 
+/**
+ * Converts a snake_case key string to a human-readable display name.
+ *
+ * Replaces underscores with spaces, converts the string to lowercase,
+ * and capitalizes the first letter of each word.
+ *
+ * @param {string} key - The key string to convert.
+ * @returns {string} The formatted display name, or an empty string if input is not a string.
+ */
+function parseKeyToDisplayName(key) {
+    if (typeof key !== 'string') {
+        return '';
+    }
+
+    return key
+        .replace(/_/g, ' ')
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase());
+}
+
 export {
     createCardList,
     createRow,
     getListByTitle,
     isUrlValid,
     parseNameForUrl,
+    parseKeyToDisplayName,
     watchForElement
 };
 

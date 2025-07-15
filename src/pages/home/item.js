@@ -9,6 +9,7 @@ import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
+import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 
 class ItemPage {
     constructor() {
@@ -49,6 +50,17 @@ class ItemPage {
                     '<br>',
                     'Synchronizes whenever entering on Inventory, Item or Museum pages.',
                 ],
+                isEnabled: true,
+                configs: {}
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.ITEM,
+            'addPJToGoalIndicator',
+            {
+                title: 'Add Pumpkin Juice Goal Indicator?',
+                subtitle: 'Adds an indicator showing the amount of Pumpkin Juice you need to reach goal.',
                 isEnabled: true,
                 configs: {}
             }
@@ -110,6 +122,36 @@ class ItemPage {
 
         const $mastery = $(page.container).find('img[src="/img/items/icon_mastery2.png?1"]');
         return $mastery.length > 0;
+    };
+
+    /**
+     * Retrieves the current mastery amount for an item from the given page object.
+     *
+     * @param {Object} page - The page object containing the item information.
+     * @returns {number} The current mastery amount for the item, or 0 if not found or on error.
+     */
+    getItemMasteryAmount = (page) => {
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.getItemMasteryAmount.name,
+            );
+            return 0;
+        }
+
+        const $mastery = $(page.container).find('.item-title span:contains(\'Progress\')');
+        if ($mastery.length === 0) {
+            return 0;
+        }
+
+        const masteryText = $mastery.text();
+        const match = masteryText.match(/([0-9,]+) \/ ([0-9,]+) Progress/);
+
+        if (match && match[1]) {
+            return parseInt(match[1].replace(/,/g, ''), 10);
+        }
+        
+        return 0;
     };
 
     /**
@@ -256,7 +298,7 @@ class ItemPage {
         const entries = Object.entries(ItemGiftsEnum[itemName] || {})
             .sort((a, b) => {
                 const powerOrder = { SUPER_LOVES: 1, LOVES: 2, LIKES: 3, HATES: 4 };
-                return (powerOrder[b[0]] || 0) - (powerOrder[a[0]] || 0);
+                return (powerOrder[a[0]] || 0) - (powerOrder[b[0]] || 0);
             });
 
         for (const [giftPower, npcList] of entries) {
@@ -301,23 +343,23 @@ class ItemPage {
             });
             
             const itExists = $(page.container).find(cardId).length > 0;
-            const doesTrackMasteryButtonExists = $(page.container).find('.activemsbtn').length > 0 ||
-                $(page.container).find('.deactivemsbtn').length > 0;
 
-
-            if (doesTrackMasteryButtonExists && !itExists) {
-                getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
-                    .next() // Title -> Card
-                    .next() // Card -> Track Mastery Button
-                    .after($card);
-            } else if (!itExists) {
-                getListByTitle(page, ItemPage.titles.ITEM_DETAILS, { returnTitle: true })
-                    .next() // Title -> Card
-                    .after($card);
+            if (!itExists) {
+                const $last = $(page.container).find('p').first().prev();
+                $last.after($card);
             }
         }
     };
 
+    /**
+     * Adds a "Collected" or "Not Collected" indicator to the item page UI.
+     *
+     * This method checks if the item has been collected by the user, either from cache or by checking the item quantity.
+     * It updates the cache accordingly and appends a colored indicator to the page if it doesn't already exist.
+     *
+     * @param {Object} page - The page object containing the container element and item information.
+     * @returns {void}
+     */
     addCollectedIndicator = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
@@ -370,6 +412,99 @@ class ItemPage {
         }
     };
 
+    /**
+     * Adds a Pumpkin Juice (PJ) goal indicator to the item page if applicable.
+     *
+     * This function checks if the current page contains the Pumpkin Juice section and button,
+     * verifies if the feature is enabled in settings, and displays the amount of Pumpkin Juice owned.
+     * It also calculates and displays the number of Pumpkin Juices needed to reach the next mastery tiers,
+     * unless the current mastery is already at or above Mega Mastery.
+     *
+     * @param {Object} page - The page object containing the DOM container and item data.
+     * @returns {void}
+     */
+    addPJToGoalIndicator = (page) => {
+        if (!page?.container) {
+            new FarmRPGPlusError(
+                ErrorTypesEnum.PAGE_NOT_FOUND,
+                this.addPJToGoalIndicator.name,
+            );
+            return;
+        }
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addPJToGoalIndicator')) {
+            ConsolePlus.log('Pumpking Juice goal indicator is disabled in settings.');
+            return;
+        }
+
+        if (!getListByTitle(page, ItemPage.titles.PUMPKING_JUICE)) {
+            ConsolePlus.debug('Pumpking Juice section not found on the page.');
+            return;
+        }
+
+        const $pumpkinJuiceButton = $(page.container).find('a.usepumpkinjuicebtn');
+
+        if (!$pumpkinJuiceButton.length) {
+            ConsolePlus.debug('Pumpkin Juice button not found.');
+            return;
+        }
+
+        const pumpkinJuiceAmount = $pumpkinJuiceButton.find('.item-after').text().trim();
+        if (!pumpkinJuiceAmount || pumpkinJuiceAmount === '0') {
+            ConsolePlus.debug('Pumpkin Juice amount is zero or not found.');
+            return;
+        }
+
+        const $ownedPJ = $('<span>')
+            .attr('id', 'frpgp-pj-owned')
+            .css('font-size', '11px')
+            .append([
+                'You own ',
+                `<strong>${pumpkinJuiceAmount}</strong>`,
+                ' Pumpkin Juices.',
+            ]);
+
+        const itExists = $(page.container).find('#frpgp-pj-owned').length > 0;
+        if (!itExists) {
+            $pumpkinJuiceButton.find('.item-title').append(['<br>', $ownedPJ]);
+        }
+
+        const currentMasteryAmount = this.getItemMasteryAmount(page);
+
+        if (currentMasteryAmount >= MasteryTiersEnum.MEGA_MASTERY) {
+            ConsolePlus.debug('Current mastery amount is already at or above Mega Mastery.');
+            return;
+        }
+
+        const goals = [];
+
+        for (const goalValue of Object.values(MasteryTiersEnum)) {
+            if (goalValue <= currentMasteryAmount) {
+                continue;
+            }
+            const pjNeeded = addCommas(Math.ceil(Math.log(goalValue / currentMasteryAmount) / Math.log(1.1)).toString());
+            ConsolePlus.debug(`Goal: ${goalValue}, PJ Needed: ${pjNeeded}, Current Mastery: ${currentMasteryAmount}`);
+
+            const goalText = `${pjNeeded} to ${MasteryTiersDisplayEnum[goalValue]}`;
+            goals.push(`${goalText}`);
+        }
+
+        if (goals.length === 0) {
+            ConsolePlus.debug('No mastery goals found for the current item.');
+            return;
+        }
+
+        const itExistsGoals = $(page.container).find('#frpgp-pj-goals').length > 0;
+
+        if (!itExistsGoals) {
+            $pumpkinJuiceButton
+                .find('.item-after')
+                .addClass('frpgp-pj-goals')
+                .text('')
+                .append(goals.join(' | '));
+        }
+    };
+
     applyHandler = (page) => {
         if (!page?.container) {
             new FarmRPGPlusError(
@@ -383,6 +518,7 @@ class ItemPage {
         this.addBuddyFarmButton(page);
         this.addNpcLikingsCards(page);
         this.addCollectedIndicator(page);
+        this.addPJToGoalIndicator(page);
     };
 }
 

@@ -150,31 +150,10 @@ class SettingsOptionsPage {
             return null;
         }
 
-        /**
-        <li>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title">
-                        Background Music
-                        <br>
-                        <span style="font-size: 11px">
-                            iOS (all players)
-                            <br>
-                            Android (IN BETA)
-                        </span>
-                    </div>
-                    <div class="item-after">
-                        <select name="music" class="inlineinputlg">
-                            <option value="none" checked="">None</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3 (Winter)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </li>
-         */
+        if (isConfig && !featureObject.typeData?.options) {
+            ConsolePlus.warn('Invalid feature configuration for select row:', featureObject);
+            return null;
+        }
 
         const $itemContent = $('<div>').addClass('item-content');
         const $itemInner = $('<div>').addClass('item-inner');
@@ -191,8 +170,8 @@ class SettingsOptionsPage {
 
         const selectOptions = [];
 
-        if (!featureObject.typeData?.options || !Array.isArray(featureObject.typeData.options)) {
-            ConsolePlus.warn('Invalid feature options:', featureObject.typeData?.options);
+        if (!featureObject.typeData.options || !Array.isArray(featureObject.typeData.options)) {
+            ConsolePlus.warn('Invalid feature options:', featureObject.typeData.options);
         }
         
         for (const option of featureObject.typeData.options) {
@@ -200,9 +179,16 @@ class SettingsOptionsPage {
                 ConsolePlus.warn('Invalid feature option:', option);
                 continue;
             }
-            selectOptions.push(
-                $('<option>').attr('value', option.value).text(option.label)
-            );
+            
+            const selectOption = $('<option>')
+                .attr('value', option.value)
+                .text(option.label);
+                
+            if (option.value === featureObject.typeData.value) {
+                selectOption.attr('selected', '');
+            }
+
+            selectOptions.push(selectOption);
         }
 
         const $itemAfter = $('<div>')
@@ -271,7 +257,7 @@ class SettingsOptionsPage {
                 break;
 
             case 'select':
-                // $itemContent = this.createSelectRow(page, featureObject, isConfig);
+                $itemContent = this.createSelectRow(page, featureObject, isConfig);
                 break;
 
             default:

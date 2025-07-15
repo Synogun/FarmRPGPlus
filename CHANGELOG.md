@@ -8,8 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+- `ItemPage` - Added Pumpkin Juice Indicator, showing how many uses its needed to reach mastery.
 
 ### Changed
+- `ItemPage` - Changed NPC likings cards positions to be the last card on the page, as it is mostly for reference.
 
 ### Fixed
 

@@ -99,6 +99,10 @@ Calculates the discount factor for perks on SALE and adds a label next to the bu
 Adds a small indicator on item page next to the image, indicating if the item has been collected along the game or not.
 The indicator synchronizes whenever navigating to the museum page, inventory page or item page (and quantity on hand/in storage its greater than zero).
 
+### 🥤🎃 Pumpkin Juice Goal Indicator
+
+Modifies the Pumpkin Juice button to show the amount of Pumpkin Juice needed to reach the next mastery tiers for the item.
+
 ### 📅 Event Features
 
 #### 🚀 Bottle Rocket Brawl
