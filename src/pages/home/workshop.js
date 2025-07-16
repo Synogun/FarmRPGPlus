@@ -18,7 +18,7 @@ class WorkshopPage {
             {
                 title: 'Add Crafting Bonus Indicator?',
                 subtitle: 'Adds a indicator to crafting items showing how much bonus resources will be crafted with resource saver.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

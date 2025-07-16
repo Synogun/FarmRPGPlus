@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `ItemPage` - Added Pumpkin Juice Indicator, showing how many uses its needed to reach mastery.
+- `SettingsPlus` - Added more robust feature registration and management, allowing better handling of feature defaults and configurations.
 
 ### Changed
 - `ItemPage` - Changed NPC likings cards positions to be the last card on the page, as it is mostly for reference.

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
 import NPCUrlsEnum from '../../constants/npcUrlsEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
@@ -9,7 +10,6 @@ import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
-import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 
 class ItemPage {
     constructor() {
@@ -24,7 +24,7 @@ class ItemPage {
             {
                 title: 'Add Buddy Farm Button?',
                 subtitle: 'Adds a button that links to Buddy Farm page of the item.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -35,7 +35,7 @@ class ItemPage {
             {
                 title: 'Add NPC Likings Cards?',
                 subtitle: 'Adds cards showing which NPCs super love, love, like or hate the current item.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -50,7 +50,7 @@ class ItemPage {
                     '<br>',
                     'Synchronizes whenever entering on Inventory, Item or Museum pages.',
                 ],
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -61,7 +61,7 @@ class ItemPage {
             {
                 title: 'Add Pumpkin Juice Goal Indicator?',
                 subtitle: 'Adds an indicator showing the amount of Pumpkin Juice you need to reach goal.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

@@ -20,7 +20,7 @@ class VaultPage {
             {
                 title: 'Add Library Card?',
                 subtitle: 'Adds a card with a link to the Vault Library page.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -31,7 +31,7 @@ class VaultPage {
             {
                 title: 'Add Guess Vault Code Button?',
                 subtitle: 'Enables the Guess Vault Code button.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

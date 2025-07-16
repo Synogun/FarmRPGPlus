@@ -20,7 +20,7 @@ class WellPage {
             {
                 title: 'Add Library Card?',
                 subtitle: 'Adds a card with links to helpful Wishing Well Library pages.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

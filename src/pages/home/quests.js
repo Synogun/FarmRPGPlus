@@ -21,7 +21,7 @@ class QuestsPage {
             {
                 title: 'Add Buddy Farm Button?',
                 subtitle: 'Adds a button that links to the Buddy Farm Quests page.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

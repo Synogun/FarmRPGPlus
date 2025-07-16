@@ -22,7 +22,7 @@ class OvenPage {
             {
                 title: 'Add Oven Navigation Buttons?',
                 subtitle: 'Adds buttons to navigate between different oven pages.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

@@ -18,7 +18,7 @@ class FarmSupplyPage {
             {
                 title: 'Add discount indicators for on SALE items?',
                 subtitle: 'Adds a discount percentage next to items that are on sale.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
