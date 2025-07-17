@@ -152,7 +152,7 @@ class BottleRocketPage {
         });
 
         const $avgTokensPerAttackRow = createRow({
-            title: ['<i class="fa fa-fw fa-coins"></i>', ' Average Tokens Per Attack'],
+            title: ['<i class="fa fa-fw fa-coins"></i>', ' Average Tokens/HITS Per Attack'],
             rowId: 'frpgp-avg-tokens-per-attack-history-row',
             afterLabel: history.avg_tokens_per_attack.toLocaleString(),
         });
