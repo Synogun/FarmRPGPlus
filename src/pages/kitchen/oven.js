@@ -30,7 +30,7 @@ class OvenPage {
                         title: 'Show Next Button',
                         subtitle: 'Display a button to navigate to the next oven page.',
                         type: 'checkbox',
-                        typeData:{ defaultValue: true }
+                        typeData: { defaultValue: true }
                     },
                     showPreviousButton: {
                         title: 'Show Previous Button',

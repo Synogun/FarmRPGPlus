@@ -125,7 +125,7 @@ The indicator synchronizes whenever navigating to the museum page, inventory pag
 
 ### 👥🎁 NPC Likings Card
 
-Adds a card on item pages showing the NPCs that super loves, loves likes or hates that item.
+Adds a card on item pages showing the NPCs that super loves, loves, likes or hates that item.
 
 - Configurations:
   - **Enable NPC Likings Card**: Enable or disable the feature.

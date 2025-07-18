@@ -170,7 +170,8 @@ class SettingsPlus {
             null
         );
 
-        if (!feature && feature.enabledByDefault !== undefined) {
+        if (!feature || (!feature.isEnabled &&
+            feature.enabledByDefault !== undefined)) {
             return feature.enabledByDefault;
         }
 
