@@ -342,7 +342,6 @@ class QuestPage {
         }
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.QUEST, 'addExtraBuddyFarmButtons')) {
-            ConsolePlus.log('Extra Buddy Farm buttons are disabled in settings.');
             return;
         }
 

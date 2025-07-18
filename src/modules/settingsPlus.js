@@ -96,6 +96,10 @@ class SettingsPlus {
         };
 
         for (const configId of Object.keys(mergedFeature.configs)) {
+            if (registeredFeature.configs[configId] && !featureObject.configs[configId]) {
+                mergedFeature.configs[configId].old = true;
+            }
+
             const regConfig = registeredFeature.configs?.[configId];
             const newConfig = featureObject.configs?.[configId];
 
@@ -238,7 +242,7 @@ class SettingsPlus {
         }
 
         if (configId) {
-            if (!feature.configs || !feature.configs[configId]) {
+            if (!feature.configs || !feature.configs[configId] || feature.configs[configId].old === true) {
                 ConsolePlus.warn('Config not found:', { pageId, featureId, configId });
                 return null;
             }

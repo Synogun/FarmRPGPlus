@@ -309,6 +309,10 @@ class SettingsOptionsPage {
                 continue;
             }
 
+            if (config.old) {
+                continue;
+            }
+
             const featureFinal = {
                 ...config,
                 featureId: feature.featureId

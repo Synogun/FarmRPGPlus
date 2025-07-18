@@ -109,7 +109,6 @@ class BottleRocketPage {
         }
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
-            ConsolePlus.log('Bottle Rocket stats cards are disabled in settings.');
             return;
         }
 
@@ -503,7 +502,6 @@ class BottleRocketPage {
         }
 
         if (!SettingsPlus.isEnabled('eventFeatures', 'bottleRocket')) {
-            ConsolePlus.log('Bottle Rocket event features are disabled in settings.');
             return;
         }
 
