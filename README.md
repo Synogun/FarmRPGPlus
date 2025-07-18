@@ -104,35 +104,6 @@ Adds a crafting bonus indicator on the items of Workshop page, showing how much 
 
 </details>
 
-### 🔥 Oven Navigation Buttons
-
-Adds a previous and next button inside the Ovens page, making cooking actions less painfull while not having the group actions buttons.
-
-- Configurations:
-  - **Enable Oven Navigation Buttons**: Enable or disable the feature.
-  - **Show Previous Button**: Show or hide the previous button.
-  - **Show Next Button**: Show or hide the next button.
-- <details>
-    <summary>Screenshots</summary>
-
-    ![Oven Navigation Buttons](screenshots/oven-navigation-buttons.png "Oven Navigation Buttons")
-
-</details>
-
-### ➗ Farm Supply Discount Indicator
-
-Calculates the discount factor for perks on SALE and adds a label next to the buy button.
-
-- Configurations:
-  - **Enable Farm Supply Discount Indicator**: Enable or disable the feature.
-
-- <details>
-    <summary>Screenshots</summary>
-
-    ![Farm Supply Discount Indicator](screenshots/farm-supply-discount-indicator.png "Farm Supply Discount Indicator")
-
-</details>
-
 ### ✅ Items Collected Indicator
 
 Adds a small indicator on item page next to the image, indicating if the item has been collected along the game or not.
@@ -140,8 +111,8 @@ The indicator synchronizes whenever navigating to the museum page, inventory pag
 
 - Configurations:
   - **Enable Items Collected Indicator**: Enable or disable the feature.
-  - **Show Only If Collected**: Show the indicator only if the item has been collected.
-  - **Show Only If Not Collected**: Show the indicator only if the item has not been collected.
+  - **Show If Collected**: Show the indicator if the item has been collected.
+  - **Show If Not Collected**: Show the indicator if the item has not been collected.
 
 - <details>
     <summary>Screenshots</summary>
@@ -152,20 +123,23 @@ The indicator synchronizes whenever navigating to the museum page, inventory pag
 
 </details>
 
-### 👥🎁 NPC Likings Indicator
+### 👥🎁 NPC Likings Card
 
-Adds an card on item pages showing the NPCs that super loves, loves likes or hates that item.
+Adds a card on item pages showing the NPCs that super loves, loves likes or hates that item.
 
 - Configurations:
-  - **Enable NPC Likings Indicator**: Enable or disable the feature.
+  - **Enable NPC Likings Card**: Enable or disable the feature.
   - **Show Super Loves**: Show or hide the NPCs that super loves the item.
   - **Show Loves**: Show or hide the NPCs that loves the item.
   - **Show Likes**: Show or hide the NPCs that likes the item.
   - **Show Hates**: Show or hide the NPCs that hates the item.
+
 - <details>
     <summary>Screenshots</summary>
 
     ![NPC Likings Indicator](screenshots/npc-likings-indicator.png "NPC Likings Indicator")
+
+</details>
 
 ### 🥤🎃 Pumpkin Juice Goal Indicator
 
@@ -184,6 +158,22 @@ Modifies the Pumpkin Juice button to show the amount of Pumpkin Juice needed to 
 
 </details>
 
+### 🔥 Oven Navigation Buttons
+
+Adds a previous and next button inside the Ovens page, making cooking actions less painfull while not having the group actions buttons.
+
+- Configurations:
+  - **Enable Oven Navigation Buttons**: Enable or disable the feature.
+  - **Show Previous Button**: Show or hide the previous button.
+  - **Show Next Button**: Show or hide the next button.
+
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Oven Navigation Buttons](screenshots/oven-navigation-buttons.png "Oven Navigation Buttons")
+
+</details>
+
 ### 🏢💰 Vault Guesser Button
 
 Adds a button to the Vault page that guesses the next code try based on the amount of tries done (Still in very early stages, but follows the general strategy: 0123 -> 4567 -> 89).
@@ -194,6 +184,20 @@ Adds a button to the Vault page that guesses the next code try based on the amou
     <summary>Screenshots</summary>
 
     ![Vault Guesser Button](screenshots/vault-guesser-button.png "Vault Guesser Button")
+
+</details>
+
+### ➗ Farm Supply Discount Indicator
+
+Calculates the discount factor for perks on SALE and adds a label next to the buy button.
+
+- Configurations:
+  - **Enable Farm Supply Discount Indicator**: Enable or disable the feature.
+
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Farm Supply Discount Indicator](screenshots/farm-supply-discount-indicator.png "Farm Supply Discount Indicator")
 
 </details>
 
