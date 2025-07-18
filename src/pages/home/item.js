@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
+import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
 import NPCUrlsEnum from '../../constants/npcUrlsEnum';
 import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
@@ -9,7 +10,6 @@ import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
-import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 
 class ItemPage {
     constructor() {
@@ -24,7 +24,7 @@ class ItemPage {
             {
                 title: 'Add Buddy Farm Button?',
                 subtitle: 'Adds a button that links to Buddy Farm page of the item.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -33,10 +33,37 @@ class ItemPage {
             GamePagesEnum.ITEM,
             'addNpcLikingsCards',
             {
-                title: 'Add NPC Likings Cards?',
-                subtitle: 'Adds cards showing which NPCs super love, love, like or hate the current item.',
-                isEnabled: true,
-                configs: {}
+                title: 'NPC Likings Cards',
+                subtitle: 'Display cards showing which NPCs super love, love, like or hate the current item.',
+                enableTitle: 'Enable NPC Likings Cards',
+                enableSubtitle: 'If enabled, shows the NPC likings cards on the item page.',
+                enabledByDefault: true,
+                configs: {
+                    showWhenSuperLoves: {
+                        title: 'Show Super Loves',
+                        subtitle: 'If enabled, shows the NPCs that super love the item.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenLoves: {
+                        title: 'Show Loves',
+                        subtitle: 'If enabled, shows the NPCs that love the item.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenLikes: {
+                        title: 'Show Likes',
+                        subtitle: 'If enabled, shows the NPCs that like the item.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenHates: {
+                        title: 'Show Hates',
+                        subtitle: 'If enabled, shows the NPCs that hate the item.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
             }
         );
 
@@ -44,14 +71,30 @@ class ItemPage {
             GamePagesEnum.ITEM,
             'addCollectedIndicator',
             {
-                title: 'Add Collected Indicator?',
+                title: 'Item Collected Indicator',
                 subtitle: [
-                    'Adds an indicator showing if the item was already collected at some point of the game.',
+                    'Shows an indicator showing if the item was already collected at some point of the game.',
                     '<br>',
                     'Synchronizes whenever entering on Inventory, Item or Museum pages.',
                 ],
-                isEnabled: true,
-                configs: {}
+                enableTitle: 'Enable Collected Indicator',
+                enableSubtitle: 'If enabled, shows the indicator next to the item image.',
+                enabledByDefault: true,
+                configs: {
+                    showWhenCollected: {
+                        title: 'Show when collected',
+                        subtitle: 'If enabled, the indicator will be shown when the item was collected at least once.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenNotCollected: {
+                        title: 'Show when not collected',
+                        subtitle: 'If enabled, the indicator will be shown when the item was never collected.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+
+                }
             }
         );
 
@@ -59,10 +102,43 @@ class ItemPage {
             GamePagesEnum.ITEM,
             'addPJToGoalIndicator',
             {
-                title: 'Add Pumpkin Juice Goal Indicator?',
-                subtitle: 'Adds an indicator showing the amount of Pumpkin Juice you need to reach goal.',
-                isEnabled: true,
-                configs: {}
+                title: 'Pumpkin Juice Goal Indicator',
+                subtitle: 'Display an indicator showing the amount of Pumpkin Juice you need to reach goal.',
+                enableTitle: 'Enable Pumpkin Juice Goal Indicator',
+                enableSubtitle: 'If enabled, shows the Pumpkin Juice goal indicator on the pumpkin juice button.',
+                enabledByDefault: true,
+                configs: {
+                    showWhenTierI: {
+                        title: 'Show when Tier I',
+                        subtitle: 'If enabled, the indicator will be shown when the item is at Tier I.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: false }
+                    },
+                    showWhenTierII: {
+                        title: 'Show when Tier II',
+                        subtitle: 'If enabled, the indicator will be shown when the item is at Tier II.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: false }
+                    },
+                    showWhenMastery: {
+                        title: 'Show when Mastery',
+                        subtitle: 'If enabled, the indicator will be shown when the item is at Mastery.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenGrandMastery: {
+                        title: 'Show when Grand Mastery',
+                        subtitle: 'If enabled, the indicator will be shown when the item is at Grand Mastery.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showWhenMegaMastery: {
+                        title: 'Show when Mega Mastery',
+                        subtitle: 'If enabled, the indicator will be shown when the item is at Mega Mastery.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
             }
         );
     }
@@ -288,7 +364,6 @@ class ItemPage {
         }
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addNpcLikingsCards')) {
-            ConsolePlus.log('NPC likings cards are disabled in settings.');
             return;
         }
 
@@ -303,6 +378,11 @@ class ItemPage {
 
         for (const [giftPower, npcList] of entries) {
             if (!npcList || npcList.length === 0) {
+                continue;
+            }
+
+            const giftPowerConfigName = capitalizeWords(giftPower).replace(' ', '');
+            if (!SettingsPlus.getValue(GamePagesEnum.ITEM, 'addNpcLikingsCards', `showWhen${giftPowerConfigName}`)) {
                 continue;
             }
 
@@ -391,14 +471,30 @@ class ItemPage {
             .attr('id', 'frpgp-collected-indicator')
             .css('font-weight', 'bold')
             .css('font-size', '11px');
-        
-        if (isCollected) {
+
+        const showWhenCollected = SettingsPlus.getValue(
+            GamePagesEnum.ITEM,
+            'addCollectedIndicator',
+            'showWhenCollected',
+            true
+        );
+
+        const showWhenNotCollected = SettingsPlus.getValue(
+            GamePagesEnum.ITEM,
+            'addCollectedIndicator',
+            'showWhenNotCollected',
+            true
+        );
+
+        if (isCollected && showWhenCollected) {
+            ConsolePlus.log('Item collected:', itemName);
             $collectedIndicator
                 .css('color', 'green')
                 .text('Collected!');
 
             cache[itemName] = true;
-        } else {
+        } else if (showWhenNotCollected) {
+            ConsolePlus.log('Item not collected:', itemName);
             $collectedIndicator
                 .css('color', 'red')
                 .text('Not Collected');
@@ -478,12 +574,24 @@ class ItemPage {
 
         const goals = [];
 
+        const configMap = {
+            [MasteryTiersEnum.TIER_I]: 'showWhenTierI',
+            [MasteryTiersEnum.TIER_II]: 'showWhenTierII',
+            [MasteryTiersEnum.MASTERY]: 'showWhenMastery',
+            [MasteryTiersEnum.GRAND_MASTERY]: 'showWhenGrandMastery',
+            [MasteryTiersEnum.MEGA_MASTERY]: 'showWhenMegaMastery',
+        };
+
         for (const goalValue of Object.values(MasteryTiersEnum)) {
             if (goalValue <= currentMasteryAmount) {
                 continue;
             }
+
+            if (!SettingsPlus.getValue(GamePagesEnum.ITEM, 'addPJToGoalIndicator', configMap[goalValue])) {
+                continue;
+            }
+
             const pjNeeded = addCommas(Math.ceil(Math.log(goalValue / currentMasteryAmount) / Math.log(1.1)).toString());
-            ConsolePlus.debug(`Goal: ${goalValue}, PJ Needed: ${pjNeeded}, Current Mastery: ${currentMasteryAmount}`);
 
             const goalText = `${pjNeeded} to ${MasteryTiersDisplayEnum[goalValue]}`;
             goals.push(`${goalText}`);

@@ -23,7 +23,7 @@ class BottleRocketPage {
             {
                 title: 'Bottle Rocket Event',
                 subtitle: 'Features for the Bottle Rocket event that usually happens in July.',
-                isEnabled: true,
+                enabledByDefault: true,
                 enableTitle: 'Enable Bottle Rocket Event Features?',
                 enableSubtitle: 'Enables features related to the Bottle Rocket event.',
                 configs: {
@@ -31,31 +31,31 @@ class BottleRocketPage {
                         title: 'Add Stats Card?',
                         subtitle: 'Enables a list card containing statistics gathered along the event.',
                         type: 'checkbox',
-                        typeData: { value: true },
+                        typeData: { defaultValue: true },
                     },
                     isAttackHistoryEnabled: {
                         title: 'Add Attack History Card?',
                         subtitle: 'Adds a log card of last attacks made during the event.',
                         type: 'checkbox',
-                        typeData: { value: true },
+                        typeData: { defaultValue: true },
                     },
                     maxAttackHistoryLength: {
                         title: 'Max Attack History Length',
                         subtitle: 'Maximum number of attack actions to keep in history.',
                         type: 'numeric',
-                        typeData: { value: 5, min: 1, max: 100 },
+                        typeData: { defaultValue: 5, min: 1, max: 100 },
                     },
                     isPlayerHistoryEnabled: {
                         title: 'Add Player History Card?',
                         subtitle: 'Adds a log card of last players attacked during the event.',
                         type: 'checkbox',
-                        typeData: { value: true },
+                        typeData: { defaultValue: true },
                     },
                     maxPlayerHistoryLength: {
                         title: 'Max Player History Length',
                         subtitle: 'Maximum number of players attacked to keep in history.',
                         type: 'numeric',
-                        typeData: { value: 5, min: 1, max: 100 },
+                        typeData: { defaultValue: 5, min: 1, max: 100 },
                     },
                 },
             },
@@ -109,7 +109,6 @@ class BottleRocketPage {
         }
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
-            ConsolePlus.log('Bottle Rocket stats cards are disabled in settings.');
             return;
         }
 
@@ -152,7 +151,7 @@ class BottleRocketPage {
         });
 
         const $avgTokensPerAttackRow = createRow({
-            title: ['<i class="fa fa-fw fa-coins"></i>', ' Average Tokens Per Attack'],
+            title: ['<i class="fa fa-fw fa-coins"></i>', ' Average Tokens/HITS Per Attack'],
             rowId: 'frpgp-avg-tokens-per-attack-history-row',
             afterLabel: history.avg_tokens_per_attack.toLocaleString(),
         });
@@ -503,7 +502,6 @@ class BottleRocketPage {
         }
 
         if (!SettingsPlus.isEnabled('eventFeatures', 'bottleRocket')) {
-            ConsolePlus.log('Bottle Rocket event features are disabled in settings.');
             return;
         }
 

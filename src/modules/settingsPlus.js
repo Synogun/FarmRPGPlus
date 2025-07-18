@@ -18,20 +18,22 @@ class SettingsPlus {
             return;
         }
 
-        const itExists = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}`, null);
-        if (!itExists) {
+        const registeredPage = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}`, null);
+        
+        if (!registeredPage) {
             StoragePlus.set(`${SettingsPlus._configKey}.${pageId}`, {
                 title: displayName ?? pageId,
                 order,
                 features: {},
             });
-        } else {
-            const oldTitle = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}.title`, pageId);
-            const oldOrder = StoragePlus.get(`${SettingsPlus._configKey}.${pageId}.order`, order);
-            
-            StoragePlus.set(`${SettingsPlus._configKey}.${pageId}.title`, displayName ?? oldTitle);
-            StoragePlus.set(`${SettingsPlus._configKey}.${pageId}.order`, order ?? oldOrder);
+            return;
         }
+
+        StoragePlus.set(`${SettingsPlus._configKey}.${pageId}`, {
+            ...registeredPage,
+            ...displayName ? { title: displayName } : {},
+            ...order ? { order } : {},
+        });
     }
 
     /**
@@ -43,8 +45,8 @@ class SettingsPlus {
      *  @returns {void}
      */
     static registerFeature(pageId, featureId, featureObject) {
-        if (!featureObject || !pageId || !featureId) {
-            ConsolePlus.warn('Invalid config registration:', { pageId, configId: featureId });
+        if (!pageId || !featureId || !featureObject) {
+            ConsolePlus.warn('Invalid config registration:', { pageId, featureId });
             return;
         }
 
@@ -57,10 +59,67 @@ class SettingsPlus {
 
         key += `.features.${featureId}`;
 
-        const itExists = StoragePlus.get(key, null);
-        if (!itExists) {
+        const registeredFeature = StoragePlus.get(key, null);
+        if (!registeredFeature) {
+            if (!featureObject.isEnabled &&
+                featureObject.enabledByDefault !== undefined) {
+                featureObject.isEnabled = featureObject.enabledByDefault;
+            }
+            
+            if (featureObject.configs) {
+                Object.values(featureObject.configs).forEach((config) => {
+                    if (config?.typeData?.value === undefined &&
+                        config?.typeData?.defaultValue !== undefined) {
+                        config.typeData.value = config.typeData.defaultValue;
+                    }
+                });
+            }
+
             StoragePlus.set(key, featureObject);
+            return;
         }
+
+        const mergedFeature = {
+            ...registeredFeature,
+            ...featureObject,
+        };
+
+        if (registeredFeature.isEnabled !== undefined) {
+            mergedFeature.isEnabled = registeredFeature.isEnabled;
+        } else if (featureObject.enabledByDefault !== undefined) {
+            mergedFeature.isEnabled = featureObject.enabledByDefault;
+        }
+
+        mergedFeature.configs = {
+            ...registeredFeature.configs,
+            ...featureObject.configs
+        };
+
+        for (const configId of Object.keys(mergedFeature.configs)) {
+            if (registeredFeature.configs[configId] && !featureObject.configs[configId]) {
+                mergedFeature.configs[configId].old = true;
+            }
+
+            const regConfig = registeredFeature.configs?.[configId];
+            const newConfig = featureObject.configs?.[configId];
+
+            if (!regConfig) {
+                if (newConfig?.typeData?.value === undefined &&
+                    newConfig?.typeData?.defaultValue !== undefined) {
+                    mergedFeature.configs[configId].typeData.value = newConfig.typeData.defaultValue;
+                }
+            } else if (newConfig) {
+                if (regConfig.type !== newConfig.type) {
+                    if (newConfig.typeData?.defaultValue !== undefined) {
+                        mergedFeature.configs[configId].typeData.value = newConfig.typeData.defaultValue;
+                    }
+                } else if (regConfig.typeData?.value !== undefined) {
+                    mergedFeature.configs[configId].typeData.value = regConfig.typeData.value;
+                }
+            }
+        }
+
+        StoragePlus.set(key, mergedFeature);
 
         return;
     }
@@ -71,9 +130,9 @@ class SettingsPlus {
      * @returns {Array} - Array of page configurations
      */
     static getAllFeatures() {
-        const settings = StoragePlus.get(SettingsPlus._configKey, {});
+        const features = StoragePlus.get(SettingsPlus._configKey, {});
 
-        const result = Object.entries(settings)
+        return Object.entries(features)
             .filter(([_, pageDef]) => Object.entries(pageDef.features).length > 0)
             .sort(([_a, aPageDef], [_b, bPageDef]) => aPageDef.order - bPageDef.order)
             .map(([pageId, pageDef]) => ({
@@ -83,14 +142,13 @@ class SettingsPlus {
                     .map(([featureId, featureDef]) => ({
                         featureId,
                         ...featureDef,
-                        configs: Object.entries(featureDef.configs)
+                        configs: Object.entries(featureDef?.configs ?? {})
                             .map(([configId, configDef]) => ({
                                 configId,
                                 ...configDef,
                             })),
                     })),
             }));
-        return result;
     }
 
     /**
@@ -109,8 +167,13 @@ class SettingsPlus {
         const feature = StoragePlus.get(
             SettingsPlus._configKey +
             `.${pageId}.features.${featureId}`,
-            { isEnabled: true }
+            null
         );
+
+        if (!feature || (!feature.isEnabled &&
+            feature.enabledByDefault !== undefined)) {
+            return feature.enabledByDefault;
+        }
 
         return feature.isEnabled;
     }
@@ -180,7 +243,7 @@ class SettingsPlus {
         }
 
         if (configId) {
-            if (!feature.configs || !feature.configs[configId]) {
+            if (!feature.configs || !feature.configs[configId] || feature.configs[configId].old === true) {
                 ConsolePlus.warn('Config not found:', { pageId, featureId, configId });
                 return null;
             }

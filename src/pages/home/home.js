@@ -20,7 +20,7 @@ class HomePage {
             {
                 title: 'Add Buddy Farm Button?',
                 subtitle: 'Adds a button that links to Buddy Farm homepage.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );

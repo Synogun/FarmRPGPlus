@@ -23,7 +23,7 @@ class QuestPage {
             {
                 title: 'Add Buddy Farm Card?',
                 subtitle: 'Adds a card with links to Buddy Farm quest information.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -34,7 +34,7 @@ class QuestPage {
             {
                 title: 'Add Extra Buddy Farm Buttons?',
                 subtitle: 'Adds buttons for previous and next Buddy Farm quest pages.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -45,7 +45,7 @@ class QuestPage {
             {
                 title: 'Add Library Button to PHRs?',
                 subtitle: 'Adds a button to Personal Help Request pages that links to the library.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -342,7 +342,6 @@ class QuestPage {
         }
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.QUEST, 'addExtraBuddyFarmButtons')) {
-            ConsolePlus.log('Extra Buddy Farm buttons are disabled in settings.');
             return;
         }
 

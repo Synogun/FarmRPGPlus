@@ -10,5 +10,16254 @@
 // @namespace Violentmonkey Scripts
 // ==/UserScript==
 
-/*! For license information please see FarmRPGPlus.user.js.LICENSE.txt */
-(()=>{var e={692:function(e,t){var n;!function(t,n){"use strict";"object"==typeof e.exports?e.exports=t.document?n(t,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return n(e)}:n(t)}("undefined"!=typeof window?window:this,function(r,i){"use strict";var o=[],a=Object.getPrototypeOf,l=o.slice,s=o.flat?function(e){return o.flat.call(e)}:function(e){return o.concat.apply([],e)},u=o.push,c=o.indexOf,f={},d=f.toString,p=f.hasOwnProperty,h=p.toString,g=h.call(Object),y={},m=function(e){return"function"==typeof e&&"number"!=typeof e.nodeType&&"function"!=typeof e.item},v=function(e){return null!=e&&e===e.window},b=r.document,E={type:!0,src:!0,nonce:!0,noModule:!0};function S(e,t,n){var r,i,o=(n=n||b).createElement("script");if(o.text=e,t)for(r in E)(i=t[r]||t.getAttribute&&t.getAttribute(r))&&o.setAttribute(r,i);n.head.appendChild(o).parentNode.removeChild(o)}function w(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?f[d.call(e)]||"object":typeof e}var O="3.7.1",A=/HTML$/i,T=function(e,t){return new T.fn.init(e,t)};function _(e){var t=!!e&&"length"in e&&e.length,n=w(e);return!m(e)&&!v(e)&&("array"===n||0===t||"number"==typeof t&&t>0&&t-1 in e)}function C(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()}T.fn=T.prototype={jquery:O,constructor:T,length:0,toArray:function(){return l.call(this)},get:function(e){return null==e?l.call(this):e<0?this[e+this.length]:this[e]},pushStack:function(e){var t=T.merge(this.constructor(),e);return t.prevObject=this,t},each:function(e){return T.each(this,e)},map:function(e){return this.pushStack(T.map(this,function(t,n){return e.call(t,n,t)}))},slice:function(){return this.pushStack(l.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},even:function(){return this.pushStack(T.grep(this,function(e,t){return(t+1)%2}))},odd:function(){return this.pushStack(T.grep(this,function(e,t){return t%2}))},eq:function(e){var t=this.length,n=+e+(e<0?t:0);return this.pushStack(n>=0&&n<t?[this[n]]:[])},end:function(){return this.prevObject||this.constructor()},push:u,sort:o.sort,splice:o.splice},T.extend=T.fn.extend=function(){var e,t,n,r,i,o,a=arguments[0]||{},l=1,s=arguments.length,u=!1;for("boolean"==typeof a&&(u=a,a=arguments[l]||{},l++),"object"==typeof a||m(a)||(a={}),l===s&&(a=this,l--);l<s;l++)if(null!=(e=arguments[l]))for(t in e)r=e[t],"__proto__"!==t&&a!==r&&(u&&r&&(T.isPlainObject(r)||(i=Array.isArray(r)))?(n=a[t],o=i&&!Array.isArray(n)?[]:i||T.isPlainObject(n)?n:{},i=!1,a[t]=T.extend(u,o,r)):void 0!==r&&(a[t]=r));return a},T.extend({expando:"jQuery"+(O+Math.random()).replace(/\D/g,""),isReady:!0,error:function(e){throw new Error(e)},noop:function(){},isPlainObject:function(e){var t,n;return!(!e||"[object Object]"!==d.call(e)||(t=a(e))&&("function"!=typeof(n=p.call(t,"constructor")&&t.constructor)||h.call(n)!==g))},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},globalEval:function(e,t,n){S(e,{nonce:t&&t.nonce},n)},each:function(e,t){var n,r=0;if(_(e))for(n=e.length;r<n&&!1!==t.call(e[r],r,e[r]);r++);else for(r in e)if(!1===t.call(e[r],r,e[r]))break;return e},text:function(e){var t,n="",r=0,i=e.nodeType;if(!i)for(;t=e[r++];)n+=T.text(t);return 1===i||11===i?e.textContent:9===i?e.documentElement.textContent:3===i||4===i?e.nodeValue:n},makeArray:function(e,t){var n=t||[];return null!=e&&(_(Object(e))?T.merge(n,"string"==typeof e?[e]:e):u.call(n,e)),n},inArray:function(e,t,n){return null==t?-1:c.call(t,e,n)},isXMLDoc:function(e){var t=e&&e.namespaceURI,n=e&&(e.ownerDocument||e).documentElement;return!A.test(t||n&&n.nodeName||"HTML")},merge:function(e,t){for(var n=+t.length,r=0,i=e.length;r<n;r++)e[i++]=t[r];return e.length=i,e},grep:function(e,t,n){for(var r=[],i=0,o=e.length,a=!n;i<o;i++)!t(e[i],i)!==a&&r.push(e[i]);return r},map:function(e,t,n){var r,i,o=0,a=[];if(_(e))for(r=e.length;o<r;o++)null!=(i=t(e[o],o,n))&&a.push(i);else for(o in e)null!=(i=t(e[o],o,n))&&a.push(i);return s(a)},guid:1,support:y}),"function"==typeof Symbol&&(T.fn[Symbol.iterator]=o[Symbol.iterator]),T.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),function(e,t){f["[object "+t+"]"]=t.toLowerCase()});var I=o.pop,x=o.sort,N=o.splice,P="[\\x20\\t\\r\\n\\f]",L=new RegExp("^"+P+"+|((?:^|[^\\\\])(?:\\\\.)*)"+P+"+$","g");T.contains=function(e,t){var n=t&&t.parentNode;return e===n||!(!n||1!==n.nodeType||!(e.contains?e.contains(n):e.compareDocumentPosition&&16&e.compareDocumentPosition(n)))};var k=/([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g;function R(e,t){return t?"\0"===e?"�":e.slice(0,-1)+"\\"+e.charCodeAt(e.length-1).toString(16)+" ":"\\"+e}T.escapeSelector=function(e){return(e+"").replace(k,R)};var M=b,D=u;!function(){var e,t,n,i,a,s,u,f,d,h,g=D,m=T.expando,v=0,b=0,E=ee(),S=ee(),w=ee(),O=ee(),A=function(e,t){return e===t&&(a=!0),0},_="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",k="(?:\\\\[\\da-fA-F]{1,6}"+P+"?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",R="\\["+P+"*("+k+")(?:"+P+"*([*^$|!~]?=)"+P+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+k+"))|)"+P+"*\\]",j=":("+k+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+R+")*)|.*)\\)|)",F=new RegExp(P+"+","g"),B=new RegExp("^"+P+"*,"+P+"*"),G=new RegExp("^"+P+"*([>+~]|"+P+")"+P+"*"),H=new RegExp(P+"|>"),U=new RegExp(j),V=new RegExp("^"+k+"$"),W={ID:new RegExp("^#("+k+")"),CLASS:new RegExp("^\\.("+k+")"),TAG:new RegExp("^("+k+"|[*])"),ATTR:new RegExp("^"+R),PSEUDO:new RegExp("^"+j),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+P+"*(even|odd|(([+-]|)(\\d*)n|)"+P+"*(?:([+-]|)"+P+"*(\\d+)|))"+P+"*\\)|)","i"),bool:new RegExp("^(?:"+_+")$","i"),needsContext:new RegExp("^"+P+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+P+"*((?:-\\d)?\\d*)"+P+"*\\)|)(?=[^-]|$)","i")},q=/^(?:input|select|textarea|button)$/i,K=/^h\d$/i,Y=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,z=/[+~]/,X=new RegExp("\\\\[\\da-fA-F]{1,6}"+P+"?|\\\\([^\\r\\n\\f])","g"),$=function(e,t){var n="0x"+e.slice(1)-65536;return t||(n<0?String.fromCharCode(n+65536):String.fromCharCode(n>>10|55296,1023&n|56320))},Q=function(){se()},J=de(function(e){return!0===e.disabled&&C(e,"fieldset")},{dir:"parentNode",next:"legend"});try{g.apply(o=l.call(M.childNodes),M.childNodes),o[M.childNodes.length].nodeType}catch(e){g={apply:function(e,t){D.apply(e,l.call(t))},call:function(e){D.apply(e,l.call(arguments,1))}}}function Z(e,t,n,r){var i,o,a,l,u,c,p,h=t&&t.ownerDocument,v=t?t.nodeType:9;if(n=n||[],"string"!=typeof e||!e||1!==v&&9!==v&&11!==v)return n;if(!r&&(se(t),t=t||s,f)){if(11!==v&&(u=Y.exec(e)))if(i=u[1]){if(9===v){if(!(a=t.getElementById(i)))return n;if(a.id===i)return g.call(n,a),n}else if(h&&(a=h.getElementById(i))&&Z.contains(t,a)&&a.id===i)return g.call(n,a),n}else{if(u[2])return g.apply(n,t.getElementsByTagName(e)),n;if((i=u[3])&&t.getElementsByClassName)return g.apply(n,t.getElementsByClassName(i)),n}if(!(O[e+" "]||d&&d.test(e))){if(p=e,h=t,1===v&&(H.test(e)||G.test(e))){for((h=z.test(e)&&le(t.parentNode)||t)==t&&y.scope||((l=t.getAttribute("id"))?l=T.escapeSelector(l):t.setAttribute("id",l=m)),o=(c=ce(e)).length;o--;)c[o]=(l?"#"+l:":scope")+" "+fe(c[o]);p=c.join(",")}try{return g.apply(n,h.querySelectorAll(p)),n}catch(t){O(e,!0)}finally{l===m&&t.removeAttribute("id")}}}return ve(e.replace(L,"$1"),t,n,r)}function ee(){var e=[];return function n(r,i){return e.push(r+" ")>t.cacheLength&&delete n[e.shift()],n[r+" "]=i}}function te(e){return e[m]=!0,e}function ne(e){var t=s.createElement("fieldset");try{return!!e(t)}catch(e){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function re(e){return function(t){return C(t,"input")&&t.type===e}}function ie(e){return function(t){return(C(t,"input")||C(t,"button"))&&t.type===e}}function oe(e){return function(t){return"form"in t?t.parentNode&&!1===t.disabled?"label"in t?"label"in t.parentNode?t.parentNode.disabled===e:t.disabled===e:t.isDisabled===e||t.isDisabled!==!e&&J(t)===e:t.disabled===e:"label"in t&&t.disabled===e}}function ae(e){return te(function(t){return t=+t,te(function(n,r){for(var i,o=e([],n.length,t),a=o.length;a--;)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}function le(e){return e&&void 0!==e.getElementsByTagName&&e}function se(e){var n,r=e?e.ownerDocument||e:M;return r!=s&&9===r.nodeType&&r.documentElement?(u=(s=r).documentElement,f=!T.isXMLDoc(s),h=u.matches||u.webkitMatchesSelector||u.msMatchesSelector,u.msMatchesSelector&&M!=s&&(n=s.defaultView)&&n.top!==n&&n.addEventListener("unload",Q),y.getById=ne(function(e){return u.appendChild(e).id=T.expando,!s.getElementsByName||!s.getElementsByName(T.expando).length}),y.disconnectedMatch=ne(function(e){return h.call(e,"*")}),y.scope=ne(function(){return s.querySelectorAll(":scope")}),y.cssHas=ne(function(){try{return s.querySelector(":has(*,:jqfake)"),!1}catch(e){return!0}}),y.getById?(t.filter.ID=function(e){var t=e.replace(X,$);return function(e){return e.getAttribute("id")===t}},t.find.ID=function(e,t){if(void 0!==t.getElementById&&f){var n=t.getElementById(e);return n?[n]:[]}}):(t.filter.ID=function(e){var t=e.replace(X,$);return function(e){var n=void 0!==e.getAttributeNode&&e.getAttributeNode("id");return n&&n.value===t}},t.find.ID=function(e,t){if(void 0!==t.getElementById&&f){var n,r,i,o=t.getElementById(e);if(o){if((n=o.getAttributeNode("id"))&&n.value===e)return[o];for(i=t.getElementsByName(e),r=0;o=i[r++];)if((n=o.getAttributeNode("id"))&&n.value===e)return[o]}return[]}}),t.find.TAG=function(e,t){return void 0!==t.getElementsByTagName?t.getElementsByTagName(e):t.querySelectorAll(e)},t.find.CLASS=function(e,t){if(void 0!==t.getElementsByClassName&&f)return t.getElementsByClassName(e)},d=[],ne(function(e){var t;u.appendChild(e).innerHTML="<a id='"+m+"' href='' disabled='disabled'></a><select id='"+m+"-\r\\' disabled='disabled'><option selected=''></option></select>",e.querySelectorAll("[selected]").length||d.push("\\["+P+"*(?:value|"+_+")"),e.querySelectorAll("[id~="+m+"-]").length||d.push("~="),e.querySelectorAll("a#"+m+"+*").length||d.push(".#.+[+~]"),e.querySelectorAll(":checked").length||d.push(":checked"),(t=s.createElement("input")).setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),u.appendChild(e).disabled=!0,2!==e.querySelectorAll(":disabled").length&&d.push(":enabled",":disabled"),(t=s.createElement("input")).setAttribute("name",""),e.appendChild(t),e.querySelectorAll("[name='']").length||d.push("\\["+P+"*name"+P+"*="+P+"*(?:''|\"\")")}),y.cssHas||d.push(":has"),d=d.length&&new RegExp(d.join("|")),A=function(e,t){if(e===t)return a=!0,0;var n=!e.compareDocumentPosition-!t.compareDocumentPosition;return n||(1&(n=(e.ownerDocument||e)==(t.ownerDocument||t)?e.compareDocumentPosition(t):1)||!y.sortDetached&&t.compareDocumentPosition(e)===n?e===s||e.ownerDocument==M&&Z.contains(M,e)?-1:t===s||t.ownerDocument==M&&Z.contains(M,t)?1:i?c.call(i,e)-c.call(i,t):0:4&n?-1:1)},s):s}for(e in Z.matches=function(e,t){return Z(e,null,null,t)},Z.matchesSelector=function(e,t){if(se(e),f&&!O[t+" "]&&(!d||!d.test(t)))try{var n=h.call(e,t);if(n||y.disconnectedMatch||e.document&&11!==e.document.nodeType)return n}catch(e){O(t,!0)}return Z(t,s,null,[e]).length>0},Z.contains=function(e,t){return(e.ownerDocument||e)!=s&&se(e),T.contains(e,t)},Z.attr=function(e,n){(e.ownerDocument||e)!=s&&se(e);var r=t.attrHandle[n.toLowerCase()],i=r&&p.call(t.attrHandle,n.toLowerCase())?r(e,n,!f):void 0;return void 0!==i?i:e.getAttribute(n)},Z.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},T.uniqueSort=function(e){var t,n=[],r=0,o=0;if(a=!y.sortStable,i=!y.sortStable&&l.call(e,0),x.call(e,A),a){for(;t=e[o++];)t===e[o]&&(r=n.push(o));for(;r--;)N.call(e,n[r],1)}return i=null,e},T.fn.uniqueSort=function(){return this.pushStack(T.uniqueSort(l.apply(this)))},t=T.expr={cacheLength:50,createPseudo:te,match:W,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(X,$),e[3]=(e[3]||e[4]||e[5]||"").replace(X,$),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||Z.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&Z.error(e[0]),e},PSEUDO:function(e){var t,n=!e[6]&&e[2];return W.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&U.test(n)&&(t=ce(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(X,$).toLowerCase();return"*"===e?function(){return!0}:function(e){return C(e,t)}},CLASS:function(e){var t=E[e+" "];return t||(t=new RegExp("(^|"+P+")"+e+"("+P+"|$)"))&&E(e,function(e){return t.test("string"==typeof e.className&&e.className||void 0!==e.getAttribute&&e.getAttribute("class")||"")})},ATTR:function(e,t,n){return function(r){var i=Z.attr(r,e);return null==i?"!="===t:!t||(i+="","="===t?i===n:"!="===t?i!==n:"^="===t?n&&0===i.indexOf(n):"*="===t?n&&i.indexOf(n)>-1:"$="===t?n&&i.slice(-n.length)===n:"~="===t?(" "+i.replace(F," ")+" ").indexOf(n)>-1:"|="===t&&(i===n||i.slice(0,n.length+1)===n+"-"))}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),l="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,s){var u,c,f,d,p,h=o!==a?"nextSibling":"previousSibling",g=t.parentNode,y=l&&t.nodeName.toLowerCase(),b=!s&&!l,E=!1;if(g){if(o){for(;h;){for(f=t;f=f[h];)if(l?C(f,y):1===f.nodeType)return!1;p=h="only"===e&&!p&&"nextSibling"}return!0}if(p=[a?g.firstChild:g.lastChild],a&&b){for(E=(d=(u=(c=g[m]||(g[m]={}))[e]||[])[0]===v&&u[1])&&u[2],f=d&&g.childNodes[d];f=++d&&f&&f[h]||(E=d=0)||p.pop();)if(1===f.nodeType&&++E&&f===t){c[e]=[v,d,E];break}}else if(b&&(E=d=(u=(c=t[m]||(t[m]={}))[e]||[])[0]===v&&u[1]),!1===E)for(;(f=++d&&f&&f[h]||(E=d=0)||p.pop())&&(!(l?C(f,y):1===f.nodeType)||!++E||(b&&((c=f[m]||(f[m]={}))[e]=[v,E]),f!==t)););return(E-=i)===r||E%r===0&&E/r>=0}}},PSEUDO:function(e,n){var r,i=t.pseudos[e]||t.setFilters[e.toLowerCase()]||Z.error("unsupported pseudo: "+e);return i[m]?i(n):i.length>1?(r=[e,e,"",n],t.setFilters.hasOwnProperty(e.toLowerCase())?te(function(e,t){for(var r,o=i(e,n),a=o.length;a--;)e[r=c.call(e,o[a])]=!(t[r]=o[a])}):function(e){return i(e,0,r)}):i}},pseudos:{not:te(function(e){var t=[],n=[],r=me(e.replace(L,"$1"));return r[m]?te(function(e,t,n,i){for(var o,a=r(e,null,i,[]),l=e.length;l--;)(o=a[l])&&(e[l]=!(t[l]=o))}):function(e,i,o){return t[0]=e,r(t,null,o,n),t[0]=null,!n.pop()}}),has:te(function(e){return function(t){return Z(e,t).length>0}}),contains:te(function(e){return e=e.replace(X,$),function(t){return(t.textContent||T.text(t)).indexOf(e)>-1}}),lang:te(function(e){return V.test(e||"")||Z.error("unsupported lang: "+e),e=e.replace(X,$).toLowerCase(),function(t){var n;do{if(n=f?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return(n=n.toLowerCase())===e||0===n.indexOf(e+"-")}while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(e){var t=r.location&&r.location.hash;return t&&t.slice(1)===e.id},root:function(e){return e===u},focus:function(e){return e===function(){try{return s.activeElement}catch(e){}}()&&s.hasFocus()&&!!(e.type||e.href||~e.tabIndex)},enabled:oe(!1),disabled:oe(!0),checked:function(e){return C(e,"input")&&!!e.checked||C(e,"option")&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,!0===e.selected},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!t.pseudos.empty(e)},header:function(e){return K.test(e.nodeName)},input:function(e){return q.test(e.nodeName)},button:function(e){return C(e,"input")&&"button"===e.type||C(e,"button")},text:function(e){var t;return C(e,"input")&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:ae(function(){return[0]}),last:ae(function(e,t){return[t-1]}),eq:ae(function(e,t,n){return[n<0?n+t:n]}),even:ae(function(e,t){for(var n=0;n<t;n+=2)e.push(n);return e}),odd:ae(function(e,t){for(var n=1;n<t;n+=2)e.push(n);return e}),lt:ae(function(e,t,n){var r;for(r=n<0?n+t:n>t?t:n;--r>=0;)e.push(r);return e}),gt:ae(function(e,t,n){for(var r=n<0?n+t:n;++r<t;)e.push(r);return e})}},t.pseudos.nth=t.pseudos.eq,{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})t.pseudos[e]=re(e);for(e in{submit:!0,reset:!0})t.pseudos[e]=ie(e);function ue(){}function ce(e,n){var r,i,o,a,l,s,u,c=S[e+" "];if(c)return n?0:c.slice(0);for(l=e,s=[],u=t.preFilter;l;){for(a in r&&!(i=B.exec(l))||(i&&(l=l.slice(i[0].length)||l),s.push(o=[])),r=!1,(i=G.exec(l))&&(r=i.shift(),o.push({value:r,type:i[0].replace(L," ")}),l=l.slice(r.length)),t.filter)!(i=W[a].exec(l))||u[a]&&!(i=u[a](i))||(r=i.shift(),o.push({value:r,type:a,matches:i}),l=l.slice(r.length));if(!r)break}return n?l.length:l?Z.error(e):S(e,s).slice(0)}function fe(e){for(var t=0,n=e.length,r="";t<n;t++)r+=e[t].value;return r}function de(e,t,n){var r=t.dir,i=t.next,o=i||r,a=n&&"parentNode"===o,l=b++;return t.first?function(t,n,i){for(;t=t[r];)if(1===t.nodeType||a)return e(t,n,i);return!1}:function(t,n,s){var u,c,f=[v,l];if(s){for(;t=t[r];)if((1===t.nodeType||a)&&e(t,n,s))return!0}else for(;t=t[r];)if(1===t.nodeType||a)if(c=t[m]||(t[m]={}),i&&C(t,i))t=t[r]||t;else{if((u=c[o])&&u[0]===v&&u[1]===l)return f[2]=u[2];if(c[o]=f,f[2]=e(t,n,s))return!0}return!1}}function pe(e){return e.length>1?function(t,n,r){for(var i=e.length;i--;)if(!e[i](t,n,r))return!1;return!0}:e[0]}function he(e,t,n,r,i){for(var o,a=[],l=0,s=e.length,u=null!=t;l<s;l++)(o=e[l])&&(n&&!n(o,r,i)||(a.push(o),u&&t.push(l)));return a}function ge(e,t,n,r,i,o){return r&&!r[m]&&(r=ge(r)),i&&!i[m]&&(i=ge(i,o)),te(function(o,a,l,s){var u,f,d,p,h=[],y=[],m=a.length,v=o||function(e,t,n){for(var r=0,i=t.length;r<i;r++)Z(e,t[r],n);return n}(t||"*",l.nodeType?[l]:l,[]),b=!e||!o&&t?v:he(v,h,e,l,s);if(n?n(b,p=i||(o?e:m||r)?[]:a,l,s):p=b,r)for(u=he(p,y),r(u,[],l,s),f=u.length;f--;)(d=u[f])&&(p[y[f]]=!(b[y[f]]=d));if(o){if(i||e){if(i){for(u=[],f=p.length;f--;)(d=p[f])&&u.push(b[f]=d);i(null,p=[],u,s)}for(f=p.length;f--;)(d=p[f])&&(u=i?c.call(o,d):h[f])>-1&&(o[u]=!(a[u]=d))}}else p=he(p===a?p.splice(m,p.length):p),i?i(null,a,p,s):g.apply(a,p)})}function ye(e){for(var r,i,o,a=e.length,l=t.relative[e[0].type],s=l||t.relative[" "],u=l?1:0,f=de(function(e){return e===r},s,!0),d=de(function(e){return c.call(r,e)>-1},s,!0),p=[function(e,t,i){var o=!l&&(i||t!=n)||((r=t).nodeType?f(e,t,i):d(e,t,i));return r=null,o}];u<a;u++)if(i=t.relative[e[u].type])p=[de(pe(p),i)];else{if((i=t.filter[e[u].type].apply(null,e[u].matches))[m]){for(o=++u;o<a&&!t.relative[e[o].type];o++);return ge(u>1&&pe(p),u>1&&fe(e.slice(0,u-1).concat({value:" "===e[u-2].type?"*":""})).replace(L,"$1"),i,u<o&&ye(e.slice(u,o)),o<a&&ye(e=e.slice(o)),o<a&&fe(e))}p.push(i)}return pe(p)}function me(e,r){var i,o=[],a=[],l=w[e+" "];if(!l){for(r||(r=ce(e)),i=r.length;i--;)(l=ye(r[i]))[m]?o.push(l):a.push(l);l=w(e,function(e,r){var i=r.length>0,o=e.length>0,a=function(a,l,u,c,d){var p,h,y,m=0,b="0",E=a&&[],S=[],w=n,O=a||o&&t.find.TAG("*",d),A=v+=null==w?1:Math.random()||.1,_=O.length;for(d&&(n=l==s||l||d);b!==_&&null!=(p=O[b]);b++){if(o&&p){for(h=0,l||p.ownerDocument==s||(se(p),u=!f);y=e[h++];)if(y(p,l||s,u)){g.call(c,p);break}d&&(v=A)}i&&((p=!y&&p)&&m--,a&&E.push(p))}if(m+=b,i&&b!==m){for(h=0;y=r[h++];)y(E,S,l,u);if(a){if(m>0)for(;b--;)E[b]||S[b]||(S[b]=I.call(c));S=he(S)}g.apply(c,S),d&&!a&&S.length>0&&m+r.length>1&&T.uniqueSort(c)}return d&&(v=A,n=w),E};return i?te(a):a}(a,o)),l.selector=e}return l}function ve(e,n,r,i){var o,a,l,s,u,c="function"==typeof e&&e,d=!i&&ce(e=c.selector||e);if(r=r||[],1===d.length){if((a=d[0]=d[0].slice(0)).length>2&&"ID"===(l=a[0]).type&&9===n.nodeType&&f&&t.relative[a[1].type]){if(!(n=(t.find.ID(l.matches[0].replace(X,$),n)||[])[0]))return r;c&&(n=n.parentNode),e=e.slice(a.shift().value.length)}for(o=W.needsContext.test(e)?0:a.length;o--&&(l=a[o],!t.relative[s=l.type]);)if((u=t.find[s])&&(i=u(l.matches[0].replace(X,$),z.test(a[0].type)&&le(n.parentNode)||n))){if(a.splice(o,1),!(e=i.length&&fe(a)))return g.apply(r,i),r;break}}return(c||me(e,d))(i,n,!f,r,!n||z.test(e)&&le(n.parentNode)||n),r}ue.prototype=t.filters=t.pseudos,t.setFilters=new ue,y.sortStable=m.split("").sort(A).join("")===m,se(),y.sortDetached=ne(function(e){return 1&e.compareDocumentPosition(s.createElement("fieldset"))}),T.find=Z,T.expr[":"]=T.expr.pseudos,T.unique=T.uniqueSort,Z.compile=me,Z.select=ve,Z.setDocument=se,Z.tokenize=ce,Z.escape=T.escapeSelector,Z.getText=T.text,Z.isXML=T.isXMLDoc,Z.selectors=T.expr,Z.support=T.support,Z.uniqueSort=T.uniqueSort}();var j=function(e,t,n){for(var r=[],i=void 0!==n;(e=e[t])&&9!==e.nodeType;)if(1===e.nodeType){if(i&&T(e).is(n))break;r.push(e)}return r},F=function(e,t){for(var n=[];e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n},B=T.expr.match.needsContext,G=/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;function H(e,t,n){return m(t)?T.grep(e,function(e,r){return!!t.call(e,r,e)!==n}):t.nodeType?T.grep(e,function(e){return e===t!==n}):"string"!=typeof t?T.grep(e,function(e){return c.call(t,e)>-1!==n}):T.filter(t,e,n)}T.filter=function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?T.find.matchesSelector(r,e)?[r]:[]:T.find.matches(e,T.grep(t,function(e){return 1===e.nodeType}))},T.fn.extend({find:function(e){var t,n,r=this.length,i=this;if("string"!=typeof e)return this.pushStack(T(e).filter(function(){for(t=0;t<r;t++)if(T.contains(i[t],this))return!0}));for(n=this.pushStack([]),t=0;t<r;t++)T.find(e,i[t],n);return r>1?T.uniqueSort(n):n},filter:function(e){return this.pushStack(H(this,e||[],!1))},not:function(e){return this.pushStack(H(this,e||[],!0))},is:function(e){return!!H(this,"string"==typeof e&&B.test(e)?T(e):e||[],!1).length}});var U,V=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/;(T.fn.init=function(e,t,n){var r,i;if(!e)return this;if(n=n||U,"string"==typeof e){if(!(r="<"===e[0]&&">"===e[e.length-1]&&e.length>=3?[null,e,null]:V.exec(e))||!r[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(r[1]){if(t=t instanceof T?t[0]:t,T.merge(this,T.parseHTML(r[1],t&&t.nodeType?t.ownerDocument||t:b,!0)),G.test(r[1])&&T.isPlainObject(t))for(r in t)m(this[r])?this[r](t[r]):this.attr(r,t[r]);return this}return(i=b.getElementById(r[2]))&&(this[0]=i,this.length=1),this}return e.nodeType?(this[0]=e,this.length=1,this):m(e)?void 0!==n.ready?n.ready(e):e(T):T.makeArray(e,this)}).prototype=T.fn,U=T(b);var W=/^(?:parents|prev(?:Until|All))/,q={children:!0,contents:!0,next:!0,prev:!0};function K(e,t){for(;(e=e[t])&&1!==e.nodeType;);return e}T.fn.extend({has:function(e){var t=T(e,this),n=t.length;return this.filter(function(){for(var e=0;e<n;e++)if(T.contains(this,t[e]))return!0})},closest:function(e,t){var n,r=0,i=this.length,o=[],a="string"!=typeof e&&T(e);if(!B.test(e))for(;r<i;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(n.nodeType<11&&(a?a.index(n)>-1:1===n.nodeType&&T.find.matchesSelector(n,e))){o.push(n);break}return this.pushStack(o.length>1?T.uniqueSort(o):o)},index:function(e){return e?"string"==typeof e?c.call(T(e),this[0]):c.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){return this.pushStack(T.uniqueSort(T.merge(this.get(),T(e,t))))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}}),T.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return j(e,"parentNode")},parentsUntil:function(e,t,n){return j(e,"parentNode",n)},next:function(e){return K(e,"nextSibling")},prev:function(e){return K(e,"previousSibling")},nextAll:function(e){return j(e,"nextSibling")},prevAll:function(e){return j(e,"previousSibling")},nextUntil:function(e,t,n){return j(e,"nextSibling",n)},prevUntil:function(e,t,n){return j(e,"previousSibling",n)},siblings:function(e){return F((e.parentNode||{}).firstChild,e)},children:function(e){return F(e.firstChild)},contents:function(e){return null!=e.contentDocument&&a(e.contentDocument)?e.contentDocument:(C(e,"template")&&(e=e.content||e),T.merge([],e.childNodes))}},function(e,t){T.fn[e]=function(n,r){var i=T.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=T.filter(r,i)),this.length>1&&(q[e]||T.uniqueSort(i),W.test(e)&&i.reverse()),this.pushStack(i)}});var Y=/[^\x20\t\r\n\f]+/g;function z(e){return e}function X(e){throw e}function $(e,t,n,r){var i;try{e&&m(i=e.promise)?i.call(e).done(t).fail(n):e&&m(i=e.then)?i.call(e,t,n):t.apply(void 0,[e].slice(r))}catch(e){n.apply(void 0,[e])}}T.Callbacks=function(e){e="string"==typeof e?function(e){var t={};return T.each(e.match(Y)||[],function(e,n){t[n]=!0}),t}(e):T.extend({},e);var t,n,r,i,o=[],a=[],l=-1,s=function(){for(i=i||e.once,r=t=!0;a.length;l=-1)for(n=a.shift();++l<o.length;)!1===o[l].apply(n[0],n[1])&&e.stopOnFalse&&(l=o.length,n=!1);e.memory||(n=!1),t=!1,i&&(o=n?[]:"")},u={add:function(){return o&&(n&&!t&&(l=o.length-1,a.push(n)),function t(n){T.each(n,function(n,r){m(r)?e.unique&&u.has(r)||o.push(r):r&&r.length&&"string"!==w(r)&&t(r)})}(arguments),n&&!t&&s()),this},remove:function(){return T.each(arguments,function(e,t){for(var n;(n=T.inArray(t,o,n))>-1;)o.splice(n,1),n<=l&&l--}),this},has:function(e){return e?T.inArray(e,o)>-1:o.length>0},empty:function(){return o&&(o=[]),this},disable:function(){return i=a=[],o=n="",this},disabled:function(){return!o},lock:function(){return i=a=[],n||t||(o=n=""),this},locked:function(){return!!i},fireWith:function(e,n){return i||(n=[e,(n=n||[]).slice?n.slice():n],a.push(n),t||s()),this},fire:function(){return u.fireWith(this,arguments),this},fired:function(){return!!r}};return u},T.extend({Deferred:function(e){var t=[["notify","progress",T.Callbacks("memory"),T.Callbacks("memory"),2],["resolve","done",T.Callbacks("once memory"),T.Callbacks("once memory"),0,"resolved"],["reject","fail",T.Callbacks("once memory"),T.Callbacks("once memory"),1,"rejected"]],n="pending",i={state:function(){return n},always:function(){return o.done(arguments).fail(arguments),this},catch:function(e){return i.then(null,e)},pipe:function(){var e=arguments;return T.Deferred(function(n){T.each(t,function(t,r){var i=m(e[r[4]])&&e[r[4]];o[r[1]](function(){var e=i&&i.apply(this,arguments);e&&m(e.promise)?e.promise().progress(n.notify).done(n.resolve).fail(n.reject):n[r[0]+"With"](this,i?[e]:arguments)})}),e=null}).promise()},then:function(e,n,i){var o=0;function a(e,t,n,i){return function(){var l=this,s=arguments,u=function(){var r,u;if(!(e<o)){if((r=n.apply(l,s))===t.promise())throw new TypeError("Thenable self-resolution");u=r&&("object"==typeof r||"function"==typeof r)&&r.then,m(u)?i?u.call(r,a(o,t,z,i),a(o,t,X,i)):(o++,u.call(r,a(o,t,z,i),a(o,t,X,i),a(o,t,z,t.notifyWith))):(n!==z&&(l=void 0,s=[r]),(i||t.resolveWith)(l,s))}},c=i?u:function(){try{u()}catch(r){T.Deferred.exceptionHook&&T.Deferred.exceptionHook(r,c.error),e+1>=o&&(n!==X&&(l=void 0,s=[r]),t.rejectWith(l,s))}};e?c():(T.Deferred.getErrorHook?c.error=T.Deferred.getErrorHook():T.Deferred.getStackHook&&(c.error=T.Deferred.getStackHook()),r.setTimeout(c))}}return T.Deferred(function(r){t[0][3].add(a(0,r,m(i)?i:z,r.notifyWith)),t[1][3].add(a(0,r,m(e)?e:z)),t[2][3].add(a(0,r,m(n)?n:X))}).promise()},promise:function(e){return null!=e?T.extend(e,i):i}},o={};return T.each(t,function(e,r){var a=r[2],l=r[5];i[r[1]]=a.add,l&&a.add(function(){n=l},t[3-e][2].disable,t[3-e][3].disable,t[0][2].lock,t[0][3].lock),a.add(r[3].fire),o[r[0]]=function(){return o[r[0]+"With"](this===o?void 0:this,arguments),this},o[r[0]+"With"]=a.fireWith}),i.promise(o),e&&e.call(o,o),o},when:function(e){var t=arguments.length,n=t,r=Array(n),i=l.call(arguments),o=T.Deferred(),a=function(e){return function(n){r[e]=this,i[e]=arguments.length>1?l.call(arguments):n,--t||o.resolveWith(r,i)}};if(t<=1&&($(e,o.done(a(n)).resolve,o.reject,!t),"pending"===o.state()||m(i[n]&&i[n].then)))return o.then();for(;n--;)$(i[n],a(n),o.reject);return o.promise()}});var Q=/^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;T.Deferred.exceptionHook=function(e,t){r.console&&r.console.warn&&e&&Q.test(e.name)&&r.console.warn("jQuery.Deferred exception: "+e.message,e.stack,t)},T.readyException=function(e){r.setTimeout(function(){throw e})};var J=T.Deferred();function Z(){b.removeEventListener("DOMContentLoaded",Z),r.removeEventListener("load",Z),T.ready()}T.fn.ready=function(e){return J.then(e).catch(function(e){T.readyException(e)}),this},T.extend({isReady:!1,readyWait:1,ready:function(e){(!0===e?--T.readyWait:T.isReady)||(T.isReady=!0,!0!==e&&--T.readyWait>0||J.resolveWith(b,[T]))}}),T.ready.then=J.then,"complete"===b.readyState||"loading"!==b.readyState&&!b.documentElement.doScroll?r.setTimeout(T.ready):(b.addEventListener("DOMContentLoaded",Z),r.addEventListener("load",Z));var ee=function(e,t,n,r,i,o,a){var l=0,s=e.length,u=null==n;if("object"===w(n))for(l in i=!0,n)ee(e,t,l,n[l],!0,o,a);else if(void 0!==r&&(i=!0,m(r)||(a=!0),u&&(a?(t.call(e,r),t=null):(u=t,t=function(e,t,n){return u.call(T(e),n)})),t))for(;l<s;l++)t(e[l],n,a?r:r.call(e[l],l,t(e[l],n)));return i?e:u?t.call(e):s?t(e[0],n):o},te=/^-ms-/,ne=/-([a-z])/g;function re(e,t){return t.toUpperCase()}function ie(e){return e.replace(te,"ms-").replace(ne,re)}var oe=function(e){return 1===e.nodeType||9===e.nodeType||!+e.nodeType};function ae(){this.expando=T.expando+ae.uid++}ae.uid=1,ae.prototype={cache:function(e){var t=e[this.expando];return t||(t={},oe(e)&&(e.nodeType?e[this.expando]=t:Object.defineProperty(e,this.expando,{value:t,configurable:!0}))),t},set:function(e,t,n){var r,i=this.cache(e);if("string"==typeof t)i[ie(t)]=n;else for(r in t)i[ie(r)]=t[r];return i},get:function(e,t){return void 0===t?this.cache(e):e[this.expando]&&e[this.expando][ie(t)]},access:function(e,t,n){return void 0===t||t&&"string"==typeof t&&void 0===n?this.get(e,t):(this.set(e,t,n),void 0!==n?n:t)},remove:function(e,t){var n,r=e[this.expando];if(void 0!==r){if(void 0!==t){n=(t=Array.isArray(t)?t.map(ie):(t=ie(t))in r?[t]:t.match(Y)||[]).length;for(;n--;)delete r[t[n]]}(void 0===t||T.isEmptyObject(r))&&(e.nodeType?e[this.expando]=void 0:delete e[this.expando])}},hasData:function(e){var t=e[this.expando];return void 0!==t&&!T.isEmptyObject(t)}};var le=new ae,se=new ae,ue=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,ce=/[A-Z]/g;function fe(e,t,n){var r;if(void 0===n&&1===e.nodeType)if(r="data-"+t.replace(ce,"-$&").toLowerCase(),"string"==typeof(n=e.getAttribute(r))){try{n=function(e){return"true"===e||"false"!==e&&("null"===e?null:e===+e+""?+e:ue.test(e)?JSON.parse(e):e)}(n)}catch(e){}se.set(e,t,n)}else n=void 0;return n}T.extend({hasData:function(e){return se.hasData(e)||le.hasData(e)},data:function(e,t,n){return se.access(e,t,n)},removeData:function(e,t){se.remove(e,t)},_data:function(e,t,n){return le.access(e,t,n)},_removeData:function(e,t){le.remove(e,t)}}),T.fn.extend({data:function(e,t){var n,r,i,o=this[0],a=o&&o.attributes;if(void 0===e){if(this.length&&(i=se.get(o),1===o.nodeType&&!le.get(o,"hasDataAttrs"))){for(n=a.length;n--;)a[n]&&0===(r=a[n].name).indexOf("data-")&&(r=ie(r.slice(5)),fe(o,r,i[r]));le.set(o,"hasDataAttrs",!0)}return i}return"object"==typeof e?this.each(function(){se.set(this,e)}):ee(this,function(t){var n;if(o&&void 0===t)return void 0!==(n=se.get(o,e))||void 0!==(n=fe(o,e))?n:void 0;this.each(function(){se.set(this,e,t)})},null,t,arguments.length>1,null,!0)},removeData:function(e){return this.each(function(){se.remove(this,e)})}}),T.extend({queue:function(e,t,n){var r;if(e)return t=(t||"fx")+"queue",r=le.get(e,t),n&&(!r||Array.isArray(n)?r=le.access(e,t,T.makeArray(n)):r.push(n)),r||[]},dequeue:function(e,t){t=t||"fx";var n=T.queue(e,t),r=n.length,i=n.shift(),o=T._queueHooks(e,t);"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,function(){T.dequeue(e,t)},o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return le.get(e,n)||le.access(e,n,{empty:T.Callbacks("once memory").add(function(){le.remove(e,[t+"queue",n])})})}}),T.fn.extend({queue:function(e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),arguments.length<n?T.queue(this[0],e):void 0===t?this:this.each(function(){var n=T.queue(this,e,t);T._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&T.dequeue(this,e)})},dequeue:function(e){return this.each(function(){T.dequeue(this,e)})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,t){var n,r=1,i=T.Deferred(),o=this,a=this.length,l=function(){--r||i.resolveWith(o,[o])};for("string"!=typeof e&&(t=e,e=void 0),e=e||"fx";a--;)(n=le.get(o[a],e+"queueHooks"))&&n.empty&&(r++,n.empty.add(l));return l(),i.promise(t)}});var de=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,pe=new RegExp("^(?:([+-])=|)("+de+")([a-z%]*)$","i"),he=["Top","Right","Bottom","Left"],ge=b.documentElement,ye=function(e){return T.contains(e.ownerDocument,e)},me={composed:!0};ge.getRootNode&&(ye=function(e){return T.contains(e.ownerDocument,e)||e.getRootNode(me)===e.ownerDocument});var ve=function(e,t){return"none"===(e=t||e).style.display||""===e.style.display&&ye(e)&&"none"===T.css(e,"display")};function be(e,t,n,r){var i,o,a=20,l=r?function(){return r.cur()}:function(){return T.css(e,t,"")},s=l(),u=n&&n[3]||(T.cssNumber[t]?"":"px"),c=e.nodeType&&(T.cssNumber[t]||"px"!==u&&+s)&&pe.exec(T.css(e,t));if(c&&c[3]!==u){for(s/=2,u=u||c[3],c=+s||1;a--;)T.style(e,t,c+u),(1-o)*(1-(o=l()/s||.5))<=0&&(a=0),c/=o;c*=2,T.style(e,t,c+u),n=n||[]}return n&&(c=+c||+s||0,i=n[1]?c+(n[1]+1)*n[2]:+n[2],r&&(r.unit=u,r.start=c,r.end=i)),i}var Ee={};function Se(e){var t,n=e.ownerDocument,r=e.nodeName,i=Ee[r];return i||(t=n.body.appendChild(n.createElement(r)),i=T.css(t,"display"),t.parentNode.removeChild(t),"none"===i&&(i="block"),Ee[r]=i,i)}function we(e,t){for(var n,r,i=[],o=0,a=e.length;o<a;o++)(r=e[o]).style&&(n=r.style.display,t?("none"===n&&(i[o]=le.get(r,"display")||null,i[o]||(r.style.display="")),""===r.style.display&&ve(r)&&(i[o]=Se(r))):"none"!==n&&(i[o]="none",le.set(r,"display",n)));for(o=0;o<a;o++)null!=i[o]&&(e[o].style.display=i[o]);return e}T.fn.extend({show:function(){return we(this,!0)},hide:function(){return we(this)},toggle:function(e){return"boolean"==typeof e?e?this.show():this.hide():this.each(function(){ve(this)?T(this).show():T(this).hide()})}});var Oe,Ae,Te=/^(?:checkbox|radio)$/i,_e=/<([a-z][^\/\0>\x20\t\r\n\f]*)/i,Ce=/^$|^module$|\/(?:java|ecma)script/i;Oe=b.createDocumentFragment().appendChild(b.createElement("div")),(Ae=b.createElement("input")).setAttribute("type","radio"),Ae.setAttribute("checked","checked"),Ae.setAttribute("name","t"),Oe.appendChild(Ae),y.checkClone=Oe.cloneNode(!0).cloneNode(!0).lastChild.checked,Oe.innerHTML="<textarea>x</textarea>",y.noCloneChecked=!!Oe.cloneNode(!0).lastChild.defaultValue,Oe.innerHTML="<option></option>",y.option=!!Oe.lastChild;var Ie={thead:[1,"<table>","</table>"],col:[2,"<table><colgroup>","</colgroup></table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:[0,"",""]};function xe(e,t){var n;return n=void 0!==e.getElementsByTagName?e.getElementsByTagName(t||"*"):void 0!==e.querySelectorAll?e.querySelectorAll(t||"*"):[],void 0===t||t&&C(e,t)?T.merge([e],n):n}function Ne(e,t){for(var n=0,r=e.length;n<r;n++)le.set(e[n],"globalEval",!t||le.get(t[n],"globalEval"))}Ie.tbody=Ie.tfoot=Ie.colgroup=Ie.caption=Ie.thead,Ie.th=Ie.td,y.option||(Ie.optgroup=Ie.option=[1,"<select multiple='multiple'>","</select>"]);var Pe=/<|&#?\w+;/;function Le(e,t,n,r,i){for(var o,a,l,s,u,c,f=t.createDocumentFragment(),d=[],p=0,h=e.length;p<h;p++)if((o=e[p])||0===o)if("object"===w(o))T.merge(d,o.nodeType?[o]:o);else if(Pe.test(o)){for(a=a||f.appendChild(t.createElement("div")),l=(_e.exec(o)||["",""])[1].toLowerCase(),s=Ie[l]||Ie._default,a.innerHTML=s[1]+T.htmlPrefilter(o)+s[2],c=s[0];c--;)a=a.lastChild;T.merge(d,a.childNodes),(a=f.firstChild).textContent=""}else d.push(t.createTextNode(o));for(f.textContent="",p=0;o=d[p++];)if(r&&T.inArray(o,r)>-1)i&&i.push(o);else if(u=ye(o),a=xe(f.appendChild(o),"script"),u&&Ne(a),n)for(c=0;o=a[c++];)Ce.test(o.type||"")&&n.push(o);return f}var ke=/^([^.]*)(?:\.(.+)|)/;function Re(){return!0}function Me(){return!1}function De(e,t,n,r,i,o){var a,l;if("object"==typeof t){for(l in"string"!=typeof n&&(r=r||n,n=void 0),t)De(e,l,n,r,t[l],o);return e}if(null==r&&null==i?(i=n,r=n=void 0):null==i&&("string"==typeof n?(i=r,r=void 0):(i=r,r=n,n=void 0)),!1===i)i=Me;else if(!i)return e;return 1===o&&(a=i,i=function(e){return T().off(e),a.apply(this,arguments)},i.guid=a.guid||(a.guid=T.guid++)),e.each(function(){T.event.add(this,t,i,r,n)})}function je(e,t,n){n?(le.set(e,t,!1),T.event.add(e,t,{namespace:!1,handler:function(e){var n,r=le.get(this,t);if(1&e.isTrigger&&this[t]){if(r)(T.event.special[t]||{}).delegateType&&e.stopPropagation();else if(r=l.call(arguments),le.set(this,t,r),this[t](),n=le.get(this,t),le.set(this,t,!1),r!==n)return e.stopImmediatePropagation(),e.preventDefault(),n}else r&&(le.set(this,t,T.event.trigger(r[0],r.slice(1),this)),e.stopPropagation(),e.isImmediatePropagationStopped=Re)}})):void 0===le.get(e,t)&&T.event.add(e,t,Re)}T.event={global:{},add:function(e,t,n,r,i){var o,a,l,s,u,c,f,d,p,h,g,y=le.get(e);if(oe(e))for(n.handler&&(n=(o=n).handler,i=o.selector),i&&T.find.matchesSelector(ge,i),n.guid||(n.guid=T.guid++),(s=y.events)||(s=y.events=Object.create(null)),(a=y.handle)||(a=y.handle=function(t){return void 0!==T&&T.event.triggered!==t.type?T.event.dispatch.apply(e,arguments):void 0}),u=(t=(t||"").match(Y)||[""]).length;u--;)p=g=(l=ke.exec(t[u])||[])[1],h=(l[2]||"").split(".").sort(),p&&(f=T.event.special[p]||{},p=(i?f.delegateType:f.bindType)||p,f=T.event.special[p]||{},c=T.extend({type:p,origType:g,data:r,handler:n,guid:n.guid,selector:i,needsContext:i&&T.expr.match.needsContext.test(i),namespace:h.join(".")},o),(d=s[p])||((d=s[p]=[]).delegateCount=0,f.setup&&!1!==f.setup.call(e,r,h,a)||e.addEventListener&&e.addEventListener(p,a)),f.add&&(f.add.call(e,c),c.handler.guid||(c.handler.guid=n.guid)),i?d.splice(d.delegateCount++,0,c):d.push(c),T.event.global[p]=!0)},remove:function(e,t,n,r,i){var o,a,l,s,u,c,f,d,p,h,g,y=le.hasData(e)&&le.get(e);if(y&&(s=y.events)){for(u=(t=(t||"").match(Y)||[""]).length;u--;)if(p=g=(l=ke.exec(t[u])||[])[1],h=(l[2]||"").split(".").sort(),p){for(f=T.event.special[p]||{},d=s[p=(r?f.delegateType:f.bindType)||p]||[],l=l[2]&&new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),a=o=d.length;o--;)c=d[o],!i&&g!==c.origType||n&&n.guid!==c.guid||l&&!l.test(c.namespace)||r&&r!==c.selector&&("**"!==r||!c.selector)||(d.splice(o,1),c.selector&&d.delegateCount--,f.remove&&f.remove.call(e,c));a&&!d.length&&(f.teardown&&!1!==f.teardown.call(e,h,y.handle)||T.removeEvent(e,p,y.handle),delete s[p])}else for(p in s)T.event.remove(e,p+t[u],n,r,!0);T.isEmptyObject(s)&&le.remove(e,"handle events")}},dispatch:function(e){var t,n,r,i,o,a,l=new Array(arguments.length),s=T.event.fix(e),u=(le.get(this,"events")||Object.create(null))[s.type]||[],c=T.event.special[s.type]||{};for(l[0]=s,t=1;t<arguments.length;t++)l[t]=arguments[t];if(s.delegateTarget=this,!c.preDispatch||!1!==c.preDispatch.call(this,s)){for(a=T.event.handlers.call(this,s,u),t=0;(i=a[t++])&&!s.isPropagationStopped();)for(s.currentTarget=i.elem,n=0;(o=i.handlers[n++])&&!s.isImmediatePropagationStopped();)s.rnamespace&&!1!==o.namespace&&!s.rnamespace.test(o.namespace)||(s.handleObj=o,s.data=o.data,void 0!==(r=((T.event.special[o.origType]||{}).handle||o.handler).apply(i.elem,l))&&!1===(s.result=r)&&(s.preventDefault(),s.stopPropagation()));return c.postDispatch&&c.postDispatch.call(this,s),s.result}},handlers:function(e,t){var n,r,i,o,a,l=[],s=t.delegateCount,u=e.target;if(s&&u.nodeType&&!("click"===e.type&&e.button>=1))for(;u!==this;u=u.parentNode||this)if(1===u.nodeType&&("click"!==e.type||!0!==u.disabled)){for(o=[],a={},n=0;n<s;n++)void 0===a[i=(r=t[n]).selector+" "]&&(a[i]=r.needsContext?T(i,this).index(u)>-1:T.find(i,this,null,[u]).length),a[i]&&o.push(r);o.length&&l.push({elem:u,handlers:o})}return u=this,s<t.length&&l.push({elem:u,handlers:t.slice(s)}),l},addProp:function(e,t){Object.defineProperty(T.Event.prototype,e,{enumerable:!0,configurable:!0,get:m(t)?function(){if(this.originalEvent)return t(this.originalEvent)}:function(){if(this.originalEvent)return this.originalEvent[e]},set:function(t){Object.defineProperty(this,e,{enumerable:!0,configurable:!0,writable:!0,value:t})}})},fix:function(e){return e[T.expando]?e:new T.Event(e)},special:{load:{noBubble:!0},click:{setup:function(e){var t=this||e;return Te.test(t.type)&&t.click&&C(t,"input")&&je(t,"click",!0),!1},trigger:function(e){var t=this||e;return Te.test(t.type)&&t.click&&C(t,"input")&&je(t,"click"),!0},_default:function(e){var t=e.target;return Te.test(t.type)&&t.click&&C(t,"input")&&le.get(t,"click")||C(t,"a")}},beforeunload:{postDispatch:function(e){void 0!==e.result&&e.originalEvent&&(e.originalEvent.returnValue=e.result)}}}},T.removeEvent=function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n)},T.Event=function(e,t){if(!(this instanceof T.Event))return new T.Event(e,t);e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||void 0===e.defaultPrevented&&!1===e.returnValue?Re:Me,this.target=e.target&&3===e.target.nodeType?e.target.parentNode:e.target,this.currentTarget=e.currentTarget,this.relatedTarget=e.relatedTarget):this.type=e,t&&T.extend(this,t),this.timeStamp=e&&e.timeStamp||Date.now(),this[T.expando]=!0},T.Event.prototype={constructor:T.Event,isDefaultPrevented:Me,isPropagationStopped:Me,isImmediatePropagationStopped:Me,isSimulated:!1,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=Re,e&&!this.isSimulated&&e.preventDefault()},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=Re,e&&!this.isSimulated&&e.stopPropagation()},stopImmediatePropagation:function(){var e=this.originalEvent;this.isImmediatePropagationStopped=Re,e&&!this.isSimulated&&e.stopImmediatePropagation(),this.stopPropagation()}},T.each({altKey:!0,bubbles:!0,cancelable:!0,changedTouches:!0,ctrlKey:!0,detail:!0,eventPhase:!0,metaKey:!0,pageX:!0,pageY:!0,shiftKey:!0,view:!0,char:!0,code:!0,charCode:!0,key:!0,keyCode:!0,button:!0,buttons:!0,clientX:!0,clientY:!0,offsetX:!0,offsetY:!0,pointerId:!0,pointerType:!0,screenX:!0,screenY:!0,targetTouches:!0,toElement:!0,touches:!0,which:!0},T.event.addProp),T.each({focus:"focusin",blur:"focusout"},function(e,t){function n(e){if(b.documentMode){var n=le.get(this,"handle"),r=T.event.fix(e);r.type="focusin"===e.type?"focus":"blur",r.isSimulated=!0,n(e),r.target===r.currentTarget&&n(r)}else T.event.simulate(t,e.target,T.event.fix(e))}T.event.special[e]={setup:function(){var r;if(je(this,e,!0),!b.documentMode)return!1;(r=le.get(this,t))||this.addEventListener(t,n),le.set(this,t,(r||0)+1)},trigger:function(){return je(this,e),!0},teardown:function(){var e;if(!b.documentMode)return!1;(e=le.get(this,t)-1)?le.set(this,t,e):(this.removeEventListener(t,n),le.remove(this,t))},_default:function(t){return le.get(t.target,e)},delegateType:t},T.event.special[t]={setup:function(){var r=this.ownerDocument||this.document||this,i=b.documentMode?this:r,o=le.get(i,t);o||(b.documentMode?this.addEventListener(t,n):r.addEventListener(e,n,!0)),le.set(i,t,(o||0)+1)},teardown:function(){var r=this.ownerDocument||this.document||this,i=b.documentMode?this:r,o=le.get(i,t)-1;o?le.set(i,t,o):(b.documentMode?this.removeEventListener(t,n):r.removeEventListener(e,n,!0),le.remove(i,t))}}}),T.each({mouseenter:"mouseover",mouseleave:"mouseout",pointerenter:"pointerover",pointerleave:"pointerout"},function(e,t){T.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=e.relatedTarget,i=e.handleObj;return r&&(r===this||T.contains(this,r))||(e.type=i.origType,n=i.handler.apply(this,arguments),e.type=t),n}}}),T.fn.extend({on:function(e,t,n,r){return De(this,e,t,n,r)},one:function(e,t,n,r){return De(this,e,t,n,r,1)},off:function(e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,T(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return!1!==t&&"function"!=typeof t||(n=t,t=void 0),!1===n&&(n=Me),this.each(function(){T.event.remove(this,e,n,t)})}});var Fe=/<script|<style|<link/i,Be=/checked\s*(?:[^=]|=\s*.checked.)/i,Ge=/^\s*<!\[CDATA\[|\]\]>\s*$/g;function He(e,t){return C(e,"table")&&C(11!==t.nodeType?t:t.firstChild,"tr")&&T(e).children("tbody")[0]||e}function Ue(e){return e.type=(null!==e.getAttribute("type"))+"/"+e.type,e}function Ve(e){return"true/"===(e.type||"").slice(0,5)?e.type=e.type.slice(5):e.removeAttribute("type"),e}function We(e,t){var n,r,i,o,a,l;if(1===t.nodeType){if(le.hasData(e)&&(l=le.get(e).events))for(i in le.remove(t,"handle events"),l)for(n=0,r=l[i].length;n<r;n++)T.event.add(t,i,l[i][n]);se.hasData(e)&&(o=se.access(e),a=T.extend({},o),se.set(t,a))}}function qe(e,t){var n=t.nodeName.toLowerCase();"input"===n&&Te.test(e.type)?t.checked=e.checked:"input"!==n&&"textarea"!==n||(t.defaultValue=e.defaultValue)}function Ke(e,t,n,r){t=s(t);var i,o,a,l,u,c,f=0,d=e.length,p=d-1,h=t[0],g=m(h);if(g||d>1&&"string"==typeof h&&!y.checkClone&&Be.test(h))return e.each(function(i){var o=e.eq(i);g&&(t[0]=h.call(this,i,o.html())),Ke(o,t,n,r)});if(d&&(o=(i=Le(t,e[0].ownerDocument,!1,e,r)).firstChild,1===i.childNodes.length&&(i=o),o||r)){for(l=(a=T.map(xe(i,"script"),Ue)).length;f<d;f++)u=i,f!==p&&(u=T.clone(u,!0,!0),l&&T.merge(a,xe(u,"script"))),n.call(e[f],u,f);if(l)for(c=a[a.length-1].ownerDocument,T.map(a,Ve),f=0;f<l;f++)u=a[f],Ce.test(u.type||"")&&!le.access(u,"globalEval")&&T.contains(c,u)&&(u.src&&"module"!==(u.type||"").toLowerCase()?T._evalUrl&&!u.noModule&&T._evalUrl(u.src,{nonce:u.nonce||u.getAttribute("nonce")},c):S(u.textContent.replace(Ge,""),u,c))}return e}function Ye(e,t,n){for(var r,i=t?T.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||T.cleanData(xe(r)),r.parentNode&&(n&&ye(r)&&Ne(xe(r,"script")),r.parentNode.removeChild(r));return e}T.extend({htmlPrefilter:function(e){return e},clone:function(e,t,n){var r,i,o,a,l=e.cloneNode(!0),s=ye(e);if(!(y.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||T.isXMLDoc(e)))for(a=xe(l),r=0,i=(o=xe(e)).length;r<i;r++)qe(o[r],a[r]);if(t)if(n)for(o=o||xe(e),a=a||xe(l),r=0,i=o.length;r<i;r++)We(o[r],a[r]);else We(e,l);return(a=xe(l,"script")).length>0&&Ne(a,!s&&xe(e,"script")),l},cleanData:function(e){for(var t,n,r,i=T.event.special,o=0;void 0!==(n=e[o]);o++)if(oe(n)){if(t=n[le.expando]){if(t.events)for(r in t.events)i[r]?T.event.remove(n,r):T.removeEvent(n,r,t.handle);n[le.expando]=void 0}n[se.expando]&&(n[se.expando]=void 0)}}}),T.fn.extend({detach:function(e){return Ye(this,e,!0)},remove:function(e){return Ye(this,e)},text:function(e){return ee(this,function(e){return void 0===e?T.text(this):this.empty().each(function(){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||(this.textContent=e)})},null,e,arguments.length)},append:function(){return Ke(this,arguments,function(e){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||He(this,e).appendChild(e)})},prepend:function(){return Ke(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=He(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return Ke(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return Ke(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},empty:function(){for(var e,t=0;null!=(e=this[t]);t++)1===e.nodeType&&(T.cleanData(xe(e,!1)),e.textContent="");return this},clone:function(e,t){return e=null!=e&&e,t=null==t?e:t,this.map(function(){return T.clone(this,e,t)})},html:function(e){return ee(this,function(e){var t=this[0]||{},n=0,r=this.length;if(void 0===e&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!Fe.test(e)&&!Ie[(_e.exec(e)||["",""])[1].toLowerCase()]){e=T.htmlPrefilter(e);try{for(;n<r;n++)1===(t=this[n]||{}).nodeType&&(T.cleanData(xe(t,!1)),t.innerHTML=e);t=0}catch(e){}}t&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=[];return Ke(this,arguments,function(t){var n=this.parentNode;T.inArray(this,e)<0&&(T.cleanData(xe(this)),n&&n.replaceChild(t,this))},e)}}),T.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){T.fn[e]=function(e){for(var n,r=[],i=T(e),o=i.length-1,a=0;a<=o;a++)n=a===o?this:this.clone(!0),T(i[a])[t](n),u.apply(r,n.get());return this.pushStack(r)}});var ze=new RegExp("^("+de+")(?!px)[a-z%]+$","i"),Xe=/^--/,$e=function(e){var t=e.ownerDocument.defaultView;return t&&t.opener||(t=r),t.getComputedStyle(e)},Qe=function(e,t,n){var r,i,o={};for(i in t)o[i]=e.style[i],e.style[i]=t[i];for(i in r=n.call(e),t)e.style[i]=o[i];return r},Je=new RegExp(he.join("|"),"i");function Ze(e,t,n){var r,i,o,a,l=Xe.test(t),s=e.style;return(n=n||$e(e))&&(a=n.getPropertyValue(t)||n[t],l&&a&&(a=a.replace(L,"$1")||void 0),""!==a||ye(e)||(a=T.style(e,t)),!y.pixelBoxStyles()&&ze.test(a)&&Je.test(t)&&(r=s.width,i=s.minWidth,o=s.maxWidth,s.minWidth=s.maxWidth=s.width=a,a=n.width,s.width=r,s.minWidth=i,s.maxWidth=o)),void 0!==a?a+"":a}function et(e,t){return{get:function(){if(!e())return(this.get=t).apply(this,arguments);delete this.get}}}!function(){function e(){if(c){u.style.cssText="position:absolute;left:-11111px;width:60px;margin-top:1px;padding:0;border:0",c.style.cssText="position:relative;display:block;box-sizing:border-box;overflow:scroll;margin:auto;border:1px;padding:1px;width:60%;top:1%",ge.appendChild(u).appendChild(c);var e=r.getComputedStyle(c);n="1%"!==e.top,s=12===t(e.marginLeft),c.style.right="60%",a=36===t(e.right),i=36===t(e.width),c.style.position="absolute",o=12===t(c.offsetWidth/3),ge.removeChild(u),c=null}}function t(e){return Math.round(parseFloat(e))}var n,i,o,a,l,s,u=b.createElement("div"),c=b.createElement("div");c.style&&(c.style.backgroundClip="content-box",c.cloneNode(!0).style.backgroundClip="",y.clearCloneStyle="content-box"===c.style.backgroundClip,T.extend(y,{boxSizingReliable:function(){return e(),i},pixelBoxStyles:function(){return e(),a},pixelPosition:function(){return e(),n},reliableMarginLeft:function(){return e(),s},scrollboxSize:function(){return e(),o},reliableTrDimensions:function(){var e,t,n,i;return null==l&&(e=b.createElement("table"),t=b.createElement("tr"),n=b.createElement("div"),e.style.cssText="position:absolute;left:-11111px;border-collapse:separate",t.style.cssText="box-sizing:content-box;border:1px solid",t.style.height="1px",n.style.height="9px",n.style.display="block",ge.appendChild(e).appendChild(t).appendChild(n),i=r.getComputedStyle(t),l=parseInt(i.height,10)+parseInt(i.borderTopWidth,10)+parseInt(i.borderBottomWidth,10)===t.offsetHeight,ge.removeChild(e)),l}}))}();var tt=["Webkit","Moz","ms"],nt=b.createElement("div").style,rt={};function it(e){return T.cssProps[e]||rt[e]||(e in nt?e:rt[e]=function(e){for(var t=e[0].toUpperCase()+e.slice(1),n=tt.length;n--;)if((e=tt[n]+t)in nt)return e}(e)||e)}var ot=/^(none|table(?!-c[ea]).+)/,at={position:"absolute",visibility:"hidden",display:"block"},lt={letterSpacing:"0",fontWeight:"400"};function st(e,t,n){var r=pe.exec(t);return r?Math.max(0,r[2]-(n||0))+(r[3]||"px"):t}function ut(e,t,n,r,i,o){var a="width"===t?1:0,l=0,s=0,u=0;if(n===(r?"border":"content"))return 0;for(;a<4;a+=2)"margin"===n&&(u+=T.css(e,n+he[a],!0,i)),r?("content"===n&&(s-=T.css(e,"padding"+he[a],!0,i)),"margin"!==n&&(s-=T.css(e,"border"+he[a]+"Width",!0,i))):(s+=T.css(e,"padding"+he[a],!0,i),"padding"!==n?s+=T.css(e,"border"+he[a]+"Width",!0,i):l+=T.css(e,"border"+he[a]+"Width",!0,i));return!r&&o>=0&&(s+=Math.max(0,Math.ceil(e["offset"+t[0].toUpperCase()+t.slice(1)]-o-s-l-.5))||0),s+u}function ct(e,t,n){var r=$e(e),i=(!y.boxSizingReliable()||n)&&"border-box"===T.css(e,"boxSizing",!1,r),o=i,a=Ze(e,t,r),l="offset"+t[0].toUpperCase()+t.slice(1);if(ze.test(a)){if(!n)return a;a="auto"}return(!y.boxSizingReliable()&&i||!y.reliableTrDimensions()&&C(e,"tr")||"auto"===a||!parseFloat(a)&&"inline"===T.css(e,"display",!1,r))&&e.getClientRects().length&&(i="border-box"===T.css(e,"boxSizing",!1,r),(o=l in e)&&(a=e[l])),(a=parseFloat(a)||0)+ut(e,t,n||(i?"border":"content"),o,r,a)+"px"}function ft(e,t,n,r,i){return new ft.prototype.init(e,t,n,r,i)}T.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=Ze(e,"opacity");return""===n?"1":n}}}},cssNumber:{animationIterationCount:!0,aspectRatio:!0,borderImageSlice:!0,columnCount:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,gridArea:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnStart:!0,gridRow:!0,gridRowEnd:!0,gridRowStart:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,scale:!0,widows:!0,zIndex:!0,zoom:!0,fillOpacity:!0,floodOpacity:!0,stopOpacity:!0,strokeMiterlimit:!0,strokeOpacity:!0},cssProps:{},style:function(e,t,n,r){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var i,o,a,l=ie(t),s=Xe.test(t),u=e.style;if(s||(t=it(l)),a=T.cssHooks[t]||T.cssHooks[l],void 0===n)return a&&"get"in a&&void 0!==(i=a.get(e,!1,r))?i:u[t];"string"==(o=typeof n)&&(i=pe.exec(n))&&i[1]&&(n=be(e,t,i),o="number"),null!=n&&n==n&&("number"!==o||s||(n+=i&&i[3]||(T.cssNumber[l]?"":"px")),y.clearCloneStyle||""!==n||0!==t.indexOf("background")||(u[t]="inherit"),a&&"set"in a&&void 0===(n=a.set(e,n,r))||(s?u.setProperty(t,n):u[t]=n))}},css:function(e,t,n,r){var i,o,a,l=ie(t);return Xe.test(t)||(t=it(l)),(a=T.cssHooks[t]||T.cssHooks[l])&&"get"in a&&(i=a.get(e,!0,n)),void 0===i&&(i=Ze(e,t,r)),"normal"===i&&t in lt&&(i=lt[t]),""===n||n?(o=parseFloat(i),!0===n||isFinite(o)?o||0:i):i}}),T.each(["height","width"],function(e,t){T.cssHooks[t]={get:function(e,n,r){if(n)return!ot.test(T.css(e,"display"))||e.getClientRects().length&&e.getBoundingClientRect().width?ct(e,t,r):Qe(e,at,function(){return ct(e,t,r)})},set:function(e,n,r){var i,o=$e(e),a=!y.scrollboxSize()&&"absolute"===o.position,l=(a||r)&&"border-box"===T.css(e,"boxSizing",!1,o),s=r?ut(e,t,r,l,o):0;return l&&a&&(s-=Math.ceil(e["offset"+t[0].toUpperCase()+t.slice(1)]-parseFloat(o[t])-ut(e,t,"border",!1,o)-.5)),s&&(i=pe.exec(n))&&"px"!==(i[3]||"px")&&(e.style[t]=n,n=T.css(e,t)),st(0,n,s)}}}),T.cssHooks.marginLeft=et(y.reliableMarginLeft,function(e,t){if(t)return(parseFloat(Ze(e,"marginLeft"))||e.getBoundingClientRect().left-Qe(e,{marginLeft:0},function(){return e.getBoundingClientRect().left}))+"px"}),T.each({margin:"",padding:"",border:"Width"},function(e,t){T.cssHooks[e+t]={expand:function(n){for(var r=0,i={},o="string"==typeof n?n.split(" "):[n];r<4;r++)i[e+he[r]+t]=o[r]||o[r-2]||o[0];return i}},"margin"!==e&&(T.cssHooks[e+t].set=st)}),T.fn.extend({css:function(e,t){return ee(this,function(e,t,n){var r,i,o={},a=0;if(Array.isArray(t)){for(r=$e(e),i=t.length;a<i;a++)o[t[a]]=T.css(e,t[a],!1,r);return o}return void 0!==n?T.style(e,t,n):T.css(e,t)},e,t,arguments.length>1)}}),T.Tween=ft,ft.prototype={constructor:ft,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||T.easing._default,this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(T.cssNumber[n]?"":"px")},cur:function(){var e=ft.propHooks[this.prop];return e&&e.get?e.get(this):ft.propHooks._default.get(this)},run:function(e){var t,n=ft.propHooks[this.prop];return this.options.duration?this.pos=t=T.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):ft.propHooks._default.set(this),this}},ft.prototype.init.prototype=ft.prototype,ft.propHooks={_default:{get:function(e){var t;return 1!==e.elem.nodeType||null!=e.elem[e.prop]&&null==e.elem.style[e.prop]?e.elem[e.prop]:(t=T.css(e.elem,e.prop,""))&&"auto"!==t?t:0},set:function(e){T.fx.step[e.prop]?T.fx.step[e.prop](e):1!==e.elem.nodeType||!T.cssHooks[e.prop]&&null==e.elem.style[it(e.prop)]?e.elem[e.prop]=e.now:T.style(e.elem,e.prop,e.now+e.unit)}}},ft.propHooks.scrollTop=ft.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},T.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2},_default:"swing"},T.fx=ft.prototype.init,T.fx.step={};var dt,pt,ht=/^(?:toggle|show|hide)$/,gt=/queueHooks$/;function yt(){pt&&(!1===b.hidden&&r.requestAnimationFrame?r.requestAnimationFrame(yt):r.setTimeout(yt,T.fx.interval),T.fx.tick())}function mt(){return r.setTimeout(function(){dt=void 0}),dt=Date.now()}function vt(e,t){var n,r=0,i={height:e};for(t=t?1:0;r<4;r+=2-t)i["margin"+(n=he[r])]=i["padding"+n]=e;return t&&(i.opacity=i.width=e),i}function bt(e,t,n){for(var r,i=(Et.tweeners[t]||[]).concat(Et.tweeners["*"]),o=0,a=i.length;o<a;o++)if(r=i[o].call(n,t,e))return r}function Et(e,t,n){var r,i,o=0,a=Et.prefilters.length,l=T.Deferred().always(function(){delete s.elem}),s=function(){if(i)return!1;for(var t=dt||mt(),n=Math.max(0,u.startTime+u.duration-t),r=1-(n/u.duration||0),o=0,a=u.tweens.length;o<a;o++)u.tweens[o].run(r);return l.notifyWith(e,[u,r,n]),r<1&&a?n:(a||l.notifyWith(e,[u,1,0]),l.resolveWith(e,[u]),!1)},u=l.promise({elem:e,props:T.extend({},t),opts:T.extend(!0,{specialEasing:{},easing:T.easing._default},n),originalProperties:t,originalOptions:n,startTime:dt||mt(),duration:n.duration,tweens:[],createTween:function(t,n){var r=T.Tween(e,u.opts,t,n,u.opts.specialEasing[t]||u.opts.easing);return u.tweens.push(r),r},stop:function(t){var n=0,r=t?u.tweens.length:0;if(i)return this;for(i=!0;n<r;n++)u.tweens[n].run(1);return t?(l.notifyWith(e,[u,1,0]),l.resolveWith(e,[u,t])):l.rejectWith(e,[u,t]),this}}),c=u.props;for(function(e,t){var n,r,i,o,a;for(n in e)if(i=t[r=ie(n)],o=e[n],Array.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),(a=T.cssHooks[r])&&"expand"in a)for(n in o=a.expand(o),delete e[r],o)n in e||(e[n]=o[n],t[n]=i);else t[r]=i}(c,u.opts.specialEasing);o<a;o++)if(r=Et.prefilters[o].call(u,e,c,u.opts))return m(r.stop)&&(T._queueHooks(u.elem,u.opts.queue).stop=r.stop.bind(r)),r;return T.map(c,bt,u),m(u.opts.start)&&u.opts.start.call(e,u),u.progress(u.opts.progress).done(u.opts.done,u.opts.complete).fail(u.opts.fail).always(u.opts.always),T.fx.timer(T.extend(s,{elem:e,anim:u,queue:u.opts.queue})),u}T.Animation=T.extend(Et,{tweeners:{"*":[function(e,t){var n=this.createTween(e,t);return be(n.elem,e,pe.exec(t),n),n}]},tweener:function(e,t){m(e)?(t=e,e=["*"]):e=e.match(Y);for(var n,r=0,i=e.length;r<i;r++)n=e[r],Et.tweeners[n]=Et.tweeners[n]||[],Et.tweeners[n].unshift(t)},prefilters:[function(e,t,n){var r,i,o,a,l,s,u,c,f="width"in t||"height"in t,d=this,p={},h=e.style,g=e.nodeType&&ve(e),y=le.get(e,"fxshow");for(r in n.queue||(null==(a=T._queueHooks(e,"fx")).unqueued&&(a.unqueued=0,l=a.empty.fire,a.empty.fire=function(){a.unqueued||l()}),a.unqueued++,d.always(function(){d.always(function(){a.unqueued--,T.queue(e,"fx").length||a.empty.fire()})})),t)if(i=t[r],ht.test(i)){if(delete t[r],o=o||"toggle"===i,i===(g?"hide":"show")){if("show"!==i||!y||void 0===y[r])continue;g=!0}p[r]=y&&y[r]||T.style(e,r)}if((s=!T.isEmptyObject(t))||!T.isEmptyObject(p))for(r in f&&1===e.nodeType&&(n.overflow=[h.overflow,h.overflowX,h.overflowY],null==(u=y&&y.display)&&(u=le.get(e,"display")),"none"===(c=T.css(e,"display"))&&(u?c=u:(we([e],!0),u=e.style.display||u,c=T.css(e,"display"),we([e]))),("inline"===c||"inline-block"===c&&null!=u)&&"none"===T.css(e,"float")&&(s||(d.done(function(){h.display=u}),null==u&&(c=h.display,u="none"===c?"":c)),h.display="inline-block")),n.overflow&&(h.overflow="hidden",d.always(function(){h.overflow=n.overflow[0],h.overflowX=n.overflow[1],h.overflowY=n.overflow[2]})),s=!1,p)s||(y?"hidden"in y&&(g=y.hidden):y=le.access(e,"fxshow",{display:u}),o&&(y.hidden=!g),g&&we([e],!0),d.done(function(){for(r in g||we([e]),le.remove(e,"fxshow"),p)T.style(e,r,p[r])})),s=bt(g?y[r]:0,r,d),r in y||(y[r]=s.start,g&&(s.end=s.start,s.start=0))}],prefilter:function(e,t){t?Et.prefilters.unshift(e):Et.prefilters.push(e)}}),T.speed=function(e,t,n){var r=e&&"object"==typeof e?T.extend({},e):{complete:n||!n&&t||m(e)&&e,duration:e,easing:n&&t||t&&!m(t)&&t};return T.fx.off?r.duration=0:"number"!=typeof r.duration&&(r.duration in T.fx.speeds?r.duration=T.fx.speeds[r.duration]:r.duration=T.fx.speeds._default),null!=r.queue&&!0!==r.queue||(r.queue="fx"),r.old=r.complete,r.complete=function(){m(r.old)&&r.old.call(this),r.queue&&T.dequeue(this,r.queue)},r},T.fn.extend({fadeTo:function(e,t,n,r){return this.filter(ve).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=T.isEmptyObject(e),o=T.speed(t,n,r),a=function(){var t=Et(this,T.extend({},e),o);(i||le.get(this,"finish"))&&t.stop(!0)};return a.finish=a,i||!1===o.queue?this.each(a):this.queue(o.queue,a)},stop:function(e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=void 0),t&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=T.timers,a=le.get(this);if(i)a[i]&&a[i].stop&&r(a[i]);else for(i in a)a[i]&&a[i].stop&&gt.test(i)&&r(a[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));!t&&n||T.dequeue(this,e)})},finish:function(e){return!1!==e&&(e=e||"fx"),this.each(function(){var t,n=le.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=T.timers,a=r?r.length:0;for(n.finish=!0,T.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;t<a;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}}),T.each(["toggle","show","hide"],function(e,t){var n=T.fn[t];T.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(vt(t,!0),e,r,i)}}),T.each({slideDown:vt("show"),slideUp:vt("hide"),slideToggle:vt("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){T.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),T.timers=[],T.fx.tick=function(){var e,t=0,n=T.timers;for(dt=Date.now();t<n.length;t++)(e=n[t])()||n[t]!==e||n.splice(t--,1);n.length||T.fx.stop(),dt=void 0},T.fx.timer=function(e){T.timers.push(e),T.fx.start()},T.fx.interval=13,T.fx.start=function(){pt||(pt=!0,yt())},T.fx.stop=function(){pt=null},T.fx.speeds={slow:600,fast:200,_default:400},T.fn.delay=function(e,t){return e=T.fx&&T.fx.speeds[e]||e,t=t||"fx",this.queue(t,function(t,n){var i=r.setTimeout(t,e);n.stop=function(){r.clearTimeout(i)}})},function(){var e=b.createElement("input"),t=b.createElement("select").appendChild(b.createElement("option"));e.type="checkbox",y.checkOn=""!==e.value,y.optSelected=t.selected,(e=b.createElement("input")).value="t",e.type="radio",y.radioValue="t"===e.value}();var St,wt=T.expr.attrHandle;T.fn.extend({attr:function(e,t){return ee(this,T.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){T.removeAttr(this,e)})}}),T.extend({attr:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return void 0===e.getAttribute?T.prop(e,t,n):(1===o&&T.isXMLDoc(e)||(i=T.attrHooks[t.toLowerCase()]||(T.expr.match.bool.test(t)?St:void 0)),void 0!==n?null===n?void T.removeAttr(e,t):i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:(e.setAttribute(t,n+""),n):i&&"get"in i&&null!==(r=i.get(e,t))?r:null==(r=T.find.attr(e,t))?void 0:r)},attrHooks:{type:{set:function(e,t){if(!y.radioValue&&"radio"===t&&C(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},removeAttr:function(e,t){var n,r=0,i=t&&t.match(Y);if(i&&1===e.nodeType)for(;n=i[r++];)e.removeAttribute(n)}}),St={set:function(e,t,n){return!1===t?T.removeAttr(e,n):e.setAttribute(n,n),n}},T.each(T.expr.match.bool.source.match(/\w+/g),function(e,t){var n=wt[t]||T.find.attr;wt[t]=function(e,t,r){var i,o,a=t.toLowerCase();return r||(o=wt[a],wt[a]=i,i=null!=n(e,t,r)?a:null,wt[a]=o),i}});var Ot=/^(?:input|select|textarea|button)$/i,At=/^(?:a|area)$/i;function Tt(e){return(e.match(Y)||[]).join(" ")}function _t(e){return e.getAttribute&&e.getAttribute("class")||""}function Ct(e){return Array.isArray(e)?e:"string"==typeof e&&e.match(Y)||[]}T.fn.extend({prop:function(e,t){return ee(this,T.prop,e,t,arguments.length>1)},removeProp:function(e){return this.each(function(){delete this[T.propFix[e]||e]})}}),T.extend({prop:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return 1===o&&T.isXMLDoc(e)||(t=T.propFix[t]||t,i=T.propHooks[t]),void 0!==n?i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){var t=T.find.attr(e,"tabindex");return t?parseInt(t,10):Ot.test(e.nodeName)||At.test(e.nodeName)&&e.href?0:-1}}},propFix:{for:"htmlFor",class:"className"}}),y.optSelected||(T.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null},set:function(e){var t=e.parentNode;t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex)}}),T.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){T.propFix[this.toLowerCase()]=this}),T.fn.extend({addClass:function(e){var t,n,r,i,o,a;return m(e)?this.each(function(t){T(this).addClass(e.call(this,t,_t(this)))}):(t=Ct(e)).length?this.each(function(){if(r=_t(this),n=1===this.nodeType&&" "+Tt(r)+" "){for(o=0;o<t.length;o++)i=t[o],n.indexOf(" "+i+" ")<0&&(n+=i+" ");a=Tt(n),r!==a&&this.setAttribute("class",a)}}):this},removeClass:function(e){var t,n,r,i,o,a;return m(e)?this.each(function(t){T(this).removeClass(e.call(this,t,_t(this)))}):arguments.length?(t=Ct(e)).length?this.each(function(){if(r=_t(this),n=1===this.nodeType&&" "+Tt(r)+" "){for(o=0;o<t.length;o++)for(i=t[o];n.indexOf(" "+i+" ")>-1;)n=n.replace(" "+i+" "," ");a=Tt(n),r!==a&&this.setAttribute("class",a)}}):this:this.attr("class","")},toggleClass:function(e,t){var n,r,i,o,a=typeof e,l="string"===a||Array.isArray(e);return m(e)?this.each(function(n){T(this).toggleClass(e.call(this,n,_t(this),t),t)}):"boolean"==typeof t&&l?t?this.addClass(e):this.removeClass(e):(n=Ct(e),this.each(function(){if(l)for(o=T(this),i=0;i<n.length;i++)r=n[i],o.hasClass(r)?o.removeClass(r):o.addClass(r);else void 0!==e&&"boolean"!==a||((r=_t(this))&&le.set(this,"__className__",r),this.setAttribute&&this.setAttribute("class",r||!1===e?"":le.get(this,"__className__")||""))}))},hasClass:function(e){var t,n,r=0;for(t=" "+e+" ";n=this[r++];)if(1===n.nodeType&&(" "+Tt(_t(n))+" ").indexOf(t)>-1)return!0;return!1}});var It=/\r/g;T.fn.extend({val:function(e){var t,n,r,i=this[0];return arguments.length?(r=m(e),this.each(function(n){var i;1===this.nodeType&&(null==(i=r?e.call(this,n,T(this).val()):e)?i="":"number"==typeof i?i+="":Array.isArray(i)&&(i=T.map(i,function(e){return null==e?"":e+""})),(t=T.valHooks[this.type]||T.valHooks[this.nodeName.toLowerCase()])&&"set"in t&&void 0!==t.set(this,i,"value")||(this.value=i))})):i?(t=T.valHooks[i.type]||T.valHooks[i.nodeName.toLowerCase()])&&"get"in t&&void 0!==(n=t.get(i,"value"))?n:"string"==typeof(n=i.value)?n.replace(It,""):null==n?"":n:void 0}}),T.extend({valHooks:{option:{get:function(e){var t=T.find.attr(e,"value");return null!=t?t:Tt(T.text(e))}},select:{get:function(e){var t,n,r,i=e.options,o=e.selectedIndex,a="select-one"===e.type,l=a?null:[],s=a?o+1:i.length;for(r=o<0?s:a?o:0;r<s;r++)if(((n=i[r]).selected||r===o)&&!n.disabled&&(!n.parentNode.disabled||!C(n.parentNode,"optgroup"))){if(t=T(n).val(),a)return t;l.push(t)}return l},set:function(e,t){for(var n,r,i=e.options,o=T.makeArray(t),a=i.length;a--;)((r=i[a]).selected=T.inArray(T.valHooks.option.get(r),o)>-1)&&(n=!0);return n||(e.selectedIndex=-1),o}}}}),T.each(["radio","checkbox"],function(){T.valHooks[this]={set:function(e,t){if(Array.isArray(t))return e.checked=T.inArray(T(e).val(),t)>-1}},y.checkOn||(T.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var xt=r.location,Nt={guid:Date.now()},Pt=/\?/;T.parseXML=function(e){var t,n;if(!e||"string"!=typeof e)return null;try{t=(new r.DOMParser).parseFromString(e,"text/xml")}catch(e){}return n=t&&t.getElementsByTagName("parsererror")[0],t&&!n||T.error("Invalid XML: "+(n?T.map(n.childNodes,function(e){return e.textContent}).join("\n"):e)),t};var Lt=/^(?:focusinfocus|focusoutblur)$/,kt=function(e){e.stopPropagation()};T.extend(T.event,{trigger:function(e,t,n,i){var o,a,l,s,u,c,f,d,h=[n||b],g=p.call(e,"type")?e.type:e,y=p.call(e,"namespace")?e.namespace.split("."):[];if(a=d=l=n=n||b,3!==n.nodeType&&8!==n.nodeType&&!Lt.test(g+T.event.triggered)&&(g.indexOf(".")>-1&&(y=g.split("."),g=y.shift(),y.sort()),u=g.indexOf(":")<0&&"on"+g,(e=e[T.expando]?e:new T.Event(g,"object"==typeof e&&e)).isTrigger=i?2:3,e.namespace=y.join("."),e.rnamespace=e.namespace?new RegExp("(^|\\.)"+y.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,e.result=void 0,e.target||(e.target=n),t=null==t?[e]:T.makeArray(t,[e]),f=T.event.special[g]||{},i||!f.trigger||!1!==f.trigger.apply(n,t))){if(!i&&!f.noBubble&&!v(n)){for(s=f.delegateType||g,Lt.test(s+g)||(a=a.parentNode);a;a=a.parentNode)h.push(a),l=a;l===(n.ownerDocument||b)&&h.push(l.defaultView||l.parentWindow||r)}for(o=0;(a=h[o++])&&!e.isPropagationStopped();)d=a,e.type=o>1?s:f.bindType||g,(c=(le.get(a,"events")||Object.create(null))[e.type]&&le.get(a,"handle"))&&c.apply(a,t),(c=u&&a[u])&&c.apply&&oe(a)&&(e.result=c.apply(a,t),!1===e.result&&e.preventDefault());return e.type=g,i||e.isDefaultPrevented()||f._default&&!1!==f._default.apply(h.pop(),t)||!oe(n)||u&&m(n[g])&&!v(n)&&((l=n[u])&&(n[u]=null),T.event.triggered=g,e.isPropagationStopped()&&d.addEventListener(g,kt),n[g](),e.isPropagationStopped()&&d.removeEventListener(g,kt),T.event.triggered=void 0,l&&(n[u]=l)),e.result}},simulate:function(e,t,n){var r=T.extend(new T.Event,n,{type:e,isSimulated:!0});T.event.trigger(r,null,t)}}),T.fn.extend({trigger:function(e,t){return this.each(function(){T.event.trigger(e,t,this)})},triggerHandler:function(e,t){var n=this[0];if(n)return T.event.trigger(e,t,n,!0)}});var Rt=/\[\]$/,Mt=/\r?\n/g,Dt=/^(?:submit|button|image|reset|file)$/i,jt=/^(?:input|select|textarea|keygen)/i;function Ft(e,t,n,r){var i;if(Array.isArray(t))T.each(t,function(t,i){n||Rt.test(e)?r(e,i):Ft(e+"["+("object"==typeof i&&null!=i?t:"")+"]",i,n,r)});else if(n||"object"!==w(t))r(e,t);else for(i in t)Ft(e+"["+i+"]",t[i],n,r)}T.param=function(e,t){var n,r=[],i=function(e,t){var n=m(t)?t():t;r[r.length]=encodeURIComponent(e)+"="+encodeURIComponent(null==n?"":n)};if(null==e)return"";if(Array.isArray(e)||e.jquery&&!T.isPlainObject(e))T.each(e,function(){i(this.name,this.value)});else for(n in e)Ft(n,e[n],t,i);return r.join("&")},T.fn.extend({serialize:function(){return T.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=T.prop(this,"elements");return e?T.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!T(this).is(":disabled")&&jt.test(this.nodeName)&&!Dt.test(e)&&(this.checked||!Te.test(e))}).map(function(e,t){var n=T(this).val();return null==n?null:Array.isArray(n)?T.map(n,function(e){return{name:t.name,value:e.replace(Mt,"\r\n")}}):{name:t.name,value:n.replace(Mt,"\r\n")}}).get()}});var Bt=/%20/g,Gt=/#.*$/,Ht=/([?&])_=[^&]*/,Ut=/^(.*?):[ \t]*([^\r\n]*)$/gm,Vt=/^(?:GET|HEAD)$/,Wt=/^\/\//,qt={},Kt={},Yt="*/".concat("*"),zt=b.createElement("a");function Xt(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(Y)||[];if(m(n))for(;r=o[i++];)"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function $t(e,t,n,r){var i={},o=e===Kt;function a(l){var s;return i[l]=!0,T.each(e[l]||[],function(e,l){var u=l(t,n,r);return"string"!=typeof u||o||i[u]?o?!(s=u):void 0:(t.dataTypes.unshift(u),a(u),!1)}),s}return a(t.dataTypes[0])||!i["*"]&&a("*")}function Qt(e,t){var n,r,i=T.ajaxSettings.flatOptions||{};for(n in t)void 0!==t[n]&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&T.extend(!0,e,r),e}zt.href=xt.href,T.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:xt.href,type:"GET",isLocal:/^(?:about|app|app-storage|.+-extension|file|res|widget):$/.test(xt.protocol),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":Yt,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/\bxml\b/,html:/\bhtml/,json:/\bjson\b/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":JSON.parse,"text xml":T.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?Qt(Qt(e,T.ajaxSettings),t):Qt(T.ajaxSettings,e)},ajaxPrefilter:Xt(qt),ajaxTransport:Xt(Kt),ajax:function(e,t){"object"==typeof e&&(t=e,e=void 0),t=t||{};var n,i,o,a,l,s,u,c,f,d,p=T.ajaxSetup({},t),h=p.context||p,g=p.context&&(h.nodeType||h.jquery)?T(h):T.event,y=T.Deferred(),m=T.Callbacks("once memory"),v=p.statusCode||{},E={},S={},w="canceled",O={readyState:0,getResponseHeader:function(e){var t;if(u){if(!a)for(a={};t=Ut.exec(o);)a[t[1].toLowerCase()+" "]=(a[t[1].toLowerCase()+" "]||[]).concat(t[2]);t=a[e.toLowerCase()+" "]}return null==t?null:t.join(", ")},getAllResponseHeaders:function(){return u?o:null},setRequestHeader:function(e,t){return null==u&&(e=S[e.toLowerCase()]=S[e.toLowerCase()]||e,E[e]=t),this},overrideMimeType:function(e){return null==u&&(p.mimeType=e),this},statusCode:function(e){var t;if(e)if(u)O.always(e[O.status]);else for(t in e)v[t]=[v[t],e[t]];return this},abort:function(e){var t=e||w;return n&&n.abort(t),A(0,t),this}};if(y.promise(O),p.url=((e||p.url||xt.href)+"").replace(Wt,xt.protocol+"//"),p.type=t.method||t.type||p.method||p.type,p.dataTypes=(p.dataType||"*").toLowerCase().match(Y)||[""],null==p.crossDomain){s=b.createElement("a");try{s.href=p.url,s.href=s.href,p.crossDomain=zt.protocol+"//"+zt.host!=s.protocol+"//"+s.host}catch(e){p.crossDomain=!0}}if(p.data&&p.processData&&"string"!=typeof p.data&&(p.data=T.param(p.data,p.traditional)),$t(qt,p,t,O),u)return O;for(f in(c=T.event&&p.global)&&0===T.active++&&T.event.trigger("ajaxStart"),p.type=p.type.toUpperCase(),p.hasContent=!Vt.test(p.type),i=p.url.replace(Gt,""),p.hasContent?p.data&&p.processData&&0===(p.contentType||"").indexOf("application/x-www-form-urlencoded")&&(p.data=p.data.replace(Bt,"+")):(d=p.url.slice(i.length),p.data&&(p.processData||"string"==typeof p.data)&&(i+=(Pt.test(i)?"&":"?")+p.data,delete p.data),!1===p.cache&&(i=i.replace(Ht,"$1"),d=(Pt.test(i)?"&":"?")+"_="+Nt.guid+++d),p.url=i+d),p.ifModified&&(T.lastModified[i]&&O.setRequestHeader("If-Modified-Since",T.lastModified[i]),T.etag[i]&&O.setRequestHeader("If-None-Match",T.etag[i])),(p.data&&p.hasContent&&!1!==p.contentType||t.contentType)&&O.setRequestHeader("Content-Type",p.contentType),O.setRequestHeader("Accept",p.dataTypes[0]&&p.accepts[p.dataTypes[0]]?p.accepts[p.dataTypes[0]]+("*"!==p.dataTypes[0]?", "+Yt+"; q=0.01":""):p.accepts["*"]),p.headers)O.setRequestHeader(f,p.headers[f]);if(p.beforeSend&&(!1===p.beforeSend.call(h,O,p)||u))return O.abort();if(w="abort",m.add(p.complete),O.done(p.success),O.fail(p.error),n=$t(Kt,p,t,O)){if(O.readyState=1,c&&g.trigger("ajaxSend",[O,p]),u)return O;p.async&&p.timeout>0&&(l=r.setTimeout(function(){O.abort("timeout")},p.timeout));try{u=!1,n.send(E,A)}catch(e){if(u)throw e;A(-1,e)}}else A(-1,"No Transport");function A(e,t,a,s){var f,d,b,E,S,w=t;u||(u=!0,l&&r.clearTimeout(l),n=void 0,o=s||"",O.readyState=e>0?4:0,f=e>=200&&e<300||304===e,a&&(E=function(e,t,n){for(var r,i,o,a,l=e.contents,s=e.dataTypes;"*"===s[0];)s.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader("Content-Type"));if(r)for(i in l)if(l[i]&&l[i].test(r)){s.unshift(i);break}if(s[0]in n)o=s[0];else{for(i in n){if(!s[0]||e.converters[i+" "+s[0]]){o=i;break}a||(a=i)}o=o||a}if(o)return o!==s[0]&&s.unshift(o),n[o]}(p,O,a)),!f&&T.inArray("script",p.dataTypes)>-1&&T.inArray("json",p.dataTypes)<0&&(p.converters["text script"]=function(){}),E=function(e,t,n,r){var i,o,a,l,s,u={},c=e.dataTypes.slice();if(c[1])for(a in e.converters)u[a.toLowerCase()]=e.converters[a];for(o=c.shift();o;)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!s&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),s=o,o=c.shift())if("*"===o)o=s;else if("*"!==s&&s!==o){if(!(a=u[s+" "+o]||u["* "+o]))for(i in u)if((l=i.split(" "))[1]===o&&(a=u[s+" "+l[0]]||u["* "+l[0]])){!0===a?a=u[i]:!0!==u[i]&&(o=l[0],c.unshift(l[1]));break}if(!0!==a)if(a&&e.throws)t=a(t);else try{t=a(t)}catch(e){return{state:"parsererror",error:a?e:"No conversion from "+s+" to "+o}}}return{state:"success",data:t}}(p,E,O,f),f?(p.ifModified&&((S=O.getResponseHeader("Last-Modified"))&&(T.lastModified[i]=S),(S=O.getResponseHeader("etag"))&&(T.etag[i]=S)),204===e||"HEAD"===p.type?w="nocontent":304===e?w="notmodified":(w=E.state,d=E.data,f=!(b=E.error))):(b=w,!e&&w||(w="error",e<0&&(e=0))),O.status=e,O.statusText=(t||w)+"",f?y.resolveWith(h,[d,w,O]):y.rejectWith(h,[O,w,b]),O.statusCode(v),v=void 0,c&&g.trigger(f?"ajaxSuccess":"ajaxError",[O,p,f?d:b]),m.fireWith(h,[O,w]),c&&(g.trigger("ajaxComplete",[O,p]),--T.active||T.event.trigger("ajaxStop")))}return O},getJSON:function(e,t,n){return T.get(e,t,n,"json")},getScript:function(e,t){return T.get(e,void 0,t,"script")}}),T.each(["get","post"],function(e,t){T[t]=function(e,n,r,i){return m(n)&&(i=i||r,r=n,n=void 0),T.ajax(T.extend({url:e,type:t,dataType:i,data:n,success:r},T.isPlainObject(e)&&e))}}),T.ajaxPrefilter(function(e){var t;for(t in e.headers)"content-type"===t.toLowerCase()&&(e.contentType=e.headers[t]||"")}),T._evalUrl=function(e,t,n){return T.ajax({url:e,type:"GET",dataType:"script",cache:!0,async:!1,global:!1,converters:{"text script":function(){}},dataFilter:function(e){T.globalEval(e,t,n)}})},T.fn.extend({wrapAll:function(e){var t;return this[0]&&(m(e)&&(e=e.call(this[0])),t=T(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){for(var e=this;e.firstElementChild;)e=e.firstElementChild;return e}).append(this)),this},wrapInner:function(e){return m(e)?this.each(function(t){T(this).wrapInner(e.call(this,t))}):this.each(function(){var t=T(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=m(e);return this.each(function(n){T(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(e){return this.parent(e).not("body").each(function(){T(this).replaceWith(this.childNodes)}),this}}),T.expr.pseudos.hidden=function(e){return!T.expr.pseudos.visible(e)},T.expr.pseudos.visible=function(e){return!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)},T.ajaxSettings.xhr=function(){try{return new r.XMLHttpRequest}catch(e){}};var Jt={0:200,1223:204},Zt=T.ajaxSettings.xhr();y.cors=!!Zt&&"withCredentials"in Zt,y.ajax=Zt=!!Zt,T.ajaxTransport(function(e){var t,n;if(y.cors||Zt&&!e.crossDomain)return{send:function(i,o){var a,l=e.xhr();if(l.open(e.type,e.url,e.async,e.username,e.password),e.xhrFields)for(a in e.xhrFields)l[a]=e.xhrFields[a];for(a in e.mimeType&&l.overrideMimeType&&l.overrideMimeType(e.mimeType),e.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest"),i)l.setRequestHeader(a,i[a]);t=function(e){return function(){t&&(t=n=l.onload=l.onerror=l.onabort=l.ontimeout=l.onreadystatechange=null,"abort"===e?l.abort():"error"===e?"number"!=typeof l.status?o(0,"error"):o(l.status,l.statusText):o(Jt[l.status]||l.status,l.statusText,"text"!==(l.responseType||"text")||"string"!=typeof l.responseText?{binary:l.response}:{text:l.responseText},l.getAllResponseHeaders()))}},l.onload=t(),n=l.onerror=l.ontimeout=t("error"),void 0!==l.onabort?l.onabort=n:l.onreadystatechange=function(){4===l.readyState&&r.setTimeout(function(){t&&n()})},t=t("abort");try{l.send(e.hasContent&&e.data||null)}catch(e){if(t)throw e}},abort:function(){t&&t()}}}),T.ajaxPrefilter(function(e){e.crossDomain&&(e.contents.script=!1)}),T.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/\b(?:java|ecma)script\b/},converters:{"text script":function(e){return T.globalEval(e),e}}}),T.ajaxPrefilter("script",function(e){void 0===e.cache&&(e.cache=!1),e.crossDomain&&(e.type="GET")}),T.ajaxTransport("script",function(e){var t,n;if(e.crossDomain||e.scriptAttrs)return{send:function(r,i){t=T("<script>").attr(e.scriptAttrs||{}).prop({charset:e.scriptCharset,src:e.url}).on("load error",n=function(e){t.remove(),n=null,e&&i("error"===e.type?404:200,e.type)}),b.head.appendChild(t[0])},abort:function(){n&&n()}}});var en,tn=[],nn=/(=)\?(?=&|$)|\?\?/;T.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=tn.pop()||T.expando+"_"+Nt.guid++;return this[e]=!0,e}}),T.ajaxPrefilter("json jsonp",function(e,t,n){var i,o,a,l=!1!==e.jsonp&&(nn.test(e.url)?"url":"string"==typeof e.data&&0===(e.contentType||"").indexOf("application/x-www-form-urlencoded")&&nn.test(e.data)&&"data");if(l||"jsonp"===e.dataTypes[0])return i=e.jsonpCallback=m(e.jsonpCallback)?e.jsonpCallback():e.jsonpCallback,l?e[l]=e[l].replace(nn,"$1"+i):!1!==e.jsonp&&(e.url+=(Pt.test(e.url)?"&":"?")+e.jsonp+"="+i),e.converters["script json"]=function(){return a||T.error(i+" was not called"),a[0]},e.dataTypes[0]="json",o=r[i],r[i]=function(){a=arguments},n.always(function(){void 0===o?T(r).removeProp(i):r[i]=o,e[i]&&(e.jsonpCallback=t.jsonpCallback,tn.push(i)),a&&m(o)&&o(a[0]),a=o=void 0}),"script"}),y.createHTMLDocument=((en=b.implementation.createHTMLDocument("").body).innerHTML="<form></form><form></form>",2===en.childNodes.length),T.parseHTML=function(e,t,n){return"string"!=typeof e?[]:("boolean"==typeof t&&(n=t,t=!1),t||(y.createHTMLDocument?((r=(t=b.implementation.createHTMLDocument("")).createElement("base")).href=b.location.href,t.head.appendChild(r)):t=b),o=!n&&[],(i=G.exec(e))?[t.createElement(i[1])]:(i=Le([e],t,o),o&&o.length&&T(o).remove(),T.merge([],i.childNodes)));var r,i,o},T.fn.load=function(e,t,n){var r,i,o,a=this,l=e.indexOf(" ");return l>-1&&(r=Tt(e.slice(l)),e=e.slice(0,l)),m(t)?(n=t,t=void 0):t&&"object"==typeof t&&(i="POST"),a.length>0&&T.ajax({url:e,type:i||"GET",dataType:"html",data:t}).done(function(e){o=arguments,a.html(r?T("<div>").append(T.parseHTML(e)).find(r):e)}).always(n&&function(e,t){a.each(function(){n.apply(this,o||[e.responseText,t,e])})}),this},T.expr.pseudos.animated=function(e){return T.grep(T.timers,function(t){return e===t.elem}).length},T.offset={setOffset:function(e,t,n){var r,i,o,a,l,s,u=T.css(e,"position"),c=T(e),f={};"static"===u&&(e.style.position="relative"),l=c.offset(),o=T.css(e,"top"),s=T.css(e,"left"),("absolute"===u||"fixed"===u)&&(o+s).indexOf("auto")>-1?(a=(r=c.position()).top,i=r.left):(a=parseFloat(o)||0,i=parseFloat(s)||0),m(t)&&(t=t.call(e,n,T.extend({},l))),null!=t.top&&(f.top=t.top-l.top+a),null!=t.left&&(f.left=t.left-l.left+i),"using"in t?t.using.call(e,f):c.css(f)}},T.fn.extend({offset:function(e){if(arguments.length)return void 0===e?this:this.each(function(t){T.offset.setOffset(this,e,t)});var t,n,r=this[0];return r?r.getClientRects().length?(t=r.getBoundingClientRect(),n=r.ownerDocument.defaultView,{top:t.top+n.pageYOffset,left:t.left+n.pageXOffset}):{top:0,left:0}:void 0},position:function(){if(this[0]){var e,t,n,r=this[0],i={top:0,left:0};if("fixed"===T.css(r,"position"))t=r.getBoundingClientRect();else{for(t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;e&&(e===n.body||e===n.documentElement)&&"static"===T.css(e,"position");)e=e.parentNode;e&&e!==r&&1===e.nodeType&&((i=T(e).offset()).top+=T.css(e,"borderTopWidth",!0),i.left+=T.css(e,"borderLeftWidth",!0))}return{top:t.top-i.top-T.css(r,"marginTop",!0),left:t.left-i.left-T.css(r,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){for(var e=this.offsetParent;e&&"static"===T.css(e,"position");)e=e.offsetParent;return e||ge})}}),T.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,t){var n="pageYOffset"===t;T.fn[e]=function(r){return ee(this,function(e,r,i){var o;if(v(e)?o=e:9===e.nodeType&&(o=e.defaultView),void 0===i)return o?o[t]:e[r];o?o.scrollTo(n?o.pageXOffset:i,n?i:o.pageYOffset):e[r]=i},e,r,arguments.length)}}),T.each(["top","left"],function(e,t){T.cssHooks[t]=et(y.pixelPosition,function(e,n){if(n)return n=Ze(e,t),ze.test(n)?T(e).position()[t]+"px":n})}),T.each({Height:"height",Width:"width"},function(e,t){T.each({padding:"inner"+e,content:t,"":"outer"+e},function(n,r){T.fn[r]=function(i,o){var a=arguments.length&&(n||"boolean"!=typeof i),l=n||(!0===i||!0===o?"margin":"border");return ee(this,function(t,n,i){var o;return v(t)?0===r.indexOf("outer")?t["inner"+e]:t.document.documentElement["client"+e]:9===t.nodeType?(o=t.documentElement,Math.max(t.body["scroll"+e],o["scroll"+e],t.body["offset"+e],o["offset"+e],o["client"+e])):void 0===i?T.css(t,n,l):T.style(t,n,i,l)},t,a?i:void 0,a)}})}),T.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){T.fn[t]=function(e){return this.on(t,e)}}),T.fn.extend({bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)},hover:function(e,t){return this.on("mouseenter",e).on("mouseleave",t||e)}}),T.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "),function(e,t){T.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}});var rn=/^[\s\uFEFF\xA0]+|([^\s\uFEFF\xA0])[\s\uFEFF\xA0]+$/g;T.proxy=function(e,t){var n,r,i;if("string"==typeof t&&(n=e[t],t=e,e=n),m(e))return r=l.call(arguments,2),i=function(){return e.apply(t||this,r.concat(l.call(arguments)))},i.guid=e.guid=e.guid||T.guid++,i},T.holdReady=function(e){e?T.readyWait++:T.ready(!0)},T.isArray=Array.isArray,T.parseJSON=JSON.parse,T.nodeName=C,T.isFunction=m,T.isWindow=v,T.camelCase=ie,T.type=w,T.now=Date.now,T.isNumeric=function(e){var t=T.type(e);return("number"===t||"string"===t)&&!isNaN(e-parseFloat(e))},T.trim=function(e){return null==e?"":(e+"").replace(rn,"$1")},void 0===(n=function(){return T}.apply(t,[]))||(e.exports=n);var on=r.jQuery,an=r.$;return T.noConflict=function(e){return r.$===T&&(r.$=an),e&&r.jQuery===T&&(r.jQuery=on),T},void 0===i&&(r.jQuery=r.$=T),T})},92:(e,t,n)=>{"use strict";var r=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if(void 0!==n.g)return n.g;throw new Error("unable to locate global object")}();e.exports=t=r.fetch,r.fetch&&(t.default=r.fetch.bind(r)),t.Headers=r.Headers,t.Request=r.Request,t.Response=r.Response}},t={};function n(r){var i=t[r];if(void 0!==i)return i.exports;var o=t[r]={exports:{}};return e[r].call(o.exports,o,o.exports,n),o.exports}n.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return n.d(t,{a:t}),t},n.d=(e,t)=>{for(var r in t)n.o(t,r)&&!n.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},n.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{"use strict";var e,t=n(692),r=n.n(t);function i(e){return i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},i(e)}function o(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,a(r.key),r)}}function a(e){var t=function(e){if("object"!=i(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=i(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==i(t)?t:t+""}var l,s,u,c=function(){return e=function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)},t=[{key:"_timestamp",value:function(){return(new Date).toLocaleString()}},{key:"debug",value:function(){}},{key:"info",value:function(){for(var e,t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];(e=console).info.apply(e,["".concat(this.prefix())].concat(n))}},{key:"log",value:function(){for(var e,t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];(e=console).log.apply(e,["".concat(this.prefix())].concat(n))}},{key:"warn",value:function(){for(var e,t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];(e=console).warn.apply(e,["".concat(this.prefix())].concat(n))}},{key:"error",value:function(){for(var e,t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];(e=console).error.apply(e,["".concat(this.prefix())].concat(n))}}],null&&o(e.prototype,null),t&&o(e,t),Object.defineProperty(e,"prototype",{writable:!1}),e;var e,t}();e=c,l=c,u=function(){return"[".concat(e._timestamp(),"] [FRPGP]")},(s=a(s="prefix"))in l?Object.defineProperty(l,s,{value:u,enumerable:!0,configurable:!0,writable:!0}):l[s]=u;const f=c;function d(e){return d="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},d(e)}function p(e){var t="function"==typeof Map?new Map:void 0;return p=function(e){if(null===e||!function(e){try{return-1!==Function.toString.call(e).indexOf("[native code]")}catch(t){return"function"==typeof e}}(e))return e;if("function"!=typeof e)throw new TypeError("Super expression must either be null or a function");if(void 0!==t){if(t.has(e))return t.get(e);t.set(e,n)}function n(){return function(e,t,n){if(h())return Reflect.construct.apply(null,arguments);var r=[null];r.push.apply(r,t);var i=new(e.bind.apply(e,r));return n&&g(i,n.prototype),i}(e,arguments,y(this).constructor)}return n.prototype=Object.create(e.prototype,{constructor:{value:n,enumerable:!1,writable:!0,configurable:!0}}),g(n,e)},p(e)}function h(){try{var e=!Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){}))}catch(e){}return(h=function(){return!!e})()}function g(e,t){return g=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},g(e,t)}function y(e){return y=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(e){return e.__proto__||Object.getPrototypeOf(e)},y(e)}var m=Object.freeze({PAGE_NOT_FOUND:"Page not found",PARAMETER_MISMATCH:"Parameter type mismatch",ELEMENT_NOT_FOUND:"Element not found",NETWORK_ERROR:"Network error",INVALID_QUEST_NUMBER:"Invalid quest number",INVALID_URL:"Invalid URL",UNKNOWN:"Unknown error"}),v=function(e){function t(e){var n,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"",i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"";return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=function(e,t,n){return t=y(t),function(e,t){if(t&&("object"==d(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}(e,h()?Reflect.construct(t,n||[],y(e).constructor):t.apply(e,n))}(this,t,[e||m.UNKNOWN])).context=r?" | ".concat(r):"",n.extraMessage=i?" | ".concat(i):"",f.error("Error: ".concat(n.message).concat(n.context).concat(n.extraMessage)),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&g(e,t)}(t,e),function(e){return Object.defineProperty(e,"prototype",{writable:!1}),e}(t)}(p(Error));function b(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function E(){var e,t,n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},i=n.rowId,o=void 0===i?"":i,a=n.rowClass,l=void 0===a?"":a,s=n.rowLink,u=void 0===s?"":s,c=n.buttonLabel,f=void 0===c?"":c,d=n.onClick,p=n.iconImageUrl,h=n.iconMediaUrl,g=void 0===h?"":h,y=n.iconClass,m=void 0===y?"":y,v=n.iconUrl,b=void 0===v?"":v,E=n.iconOnTitleEnd,S=void 0!==E&&E,w=n.title,O=void 0===w?"":w,A=n.subtitle,T=void 0===A?"":A,_=n.afterLabel,C=void 0===_?"":_;null!=p&&p.trim()?e=r()('<img class="itemimg" src="'.concat(p,'">')):""===p&&(e=r()('<div class="itemimg">')),t=g?r()('<div class="item-media">').append(r()("<a>").attr("href",g).append(e)):e?r()('<div class="item-media">').append(e):null;var I=r()('<div class="item-title">');if(b||m){if(I.append(S?"".concat(O," "):" ".concat(O)),m)S?I.append(r()("<i>").addClass(m)):I.prepend(r()("<i>").addClass(m));else if(b){var x=r()("<img>").attr("src",b).css("width","16px").css("height","16px");S?I.append(x):I.prepend(x)}}else I.append(O);T&&I.append(["<br>",'<span style="font-size: 11px">'.concat(T,"</span>")]);var N=null;if(f&&d){var P=r()('<button class="button btngreen">'.concat(f,"</button>")).on("click",d||function(){});N=r()('<div class="item-after">').append(P)}C&&!f&&(N=r()('<div class="item-after">').append(C)),C||p||(N=r()('<div class="item-after">'));var L=r()('<div class="item-inner">').append(I,N),k=r()('<div class="item-content">').append(t,L),R=r()("<li>");if(u){var M=!u.includes(".php"),D=r()("<a>").addClass("item-link").addClass("close-panel").attr("href",u).attr("data-view",".view-main");o&&D.attr("id",o),l&&D.addClass(l),M&&D.addClass("external").attr("target","_blank").attr("rel","noopener noreferrer"),R=r()("<li>").append(D.append(k))}else R=r()("<li>").addClass("close-panel"),l&&R.addClass(l),o&&R.attr("id",o),R.append(k);return R}function S(e){var t=e.cardId,n=void 0===t?"":t,i=e.cardClass,o=void 0===i?"":i,a=e.title,l=void 0===a?"":a,s=e.children,u=void 0===s?[]:s,c=e.cardContentOnly,f=void 0!==c&&c;if("string"==typeof o&&Array.isArray(u)){var d=[];return d.push(r()("<div>").addClass("card").addClass(o||"").attr("id",n||"").append(r()("<div>").addClass("card-content").append(f?r()("<div>").addClass("card-content-inner").append(u):r()("<div>").addClass("list-block").append(r()("<ul>").append(u))))),l&&d.unshift(r()("<div>").addClass("content-block-title").text(l)),d}new v(m.PARAMETER_MISMATCH,S.name)}function w(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},i=n.returnTitle,o=void 0!==i&&i,a=n.regex,l=void 0!==a&&a,s=n.offset,u=void 0===s?0:s;if("string"!=typeof t||!t.trim()||"number"!=typeof u||!e||!e.container)return new v(m.PARAMETER_MISMATCH,w.name),null;var c=r()(e.container).find("div.content-block-title"),f=c.filter(function(e,n){var i=r()(n).text().trim();return l?i.match(new RegExp(t.trim(),"i")):i===t.trim()});if(0===f.length&&0!==u){u<0&&(c=c.get().reverse(),u=-u);var d=(c.index(f[0])+u)%c.length;f=c.eq(d)}if(0===f.length)return new v(m.ELEMENT_NOT_FOUND,w.name),null;if(o)return f;var p=f.next(".card");if(0===p.length)return new v(m.ELEMENT_NOT_FOUND,w.name),null;var h=p.find(".list-block ul");return h.length?h.eq(0):(p.next(".list-block")&&(h=p.next(".list-block").find("ul").eq(0)),0===h.length?(new v(m.ELEMENT_NOT_FOUND,w.name),null):h)}function O(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.separator,r=void 0===n?"-":n,i=t.lowercase,o=void 0===i||i,a=e.trim().replace(/[ _!@#$%^&*()+=[\]{};':"\\|,.<>/?]+/g,"-").replace(/[\u00C0-\u00FF]/g,"-").replace(/-+/g,"-");return o&&(a=a.toLowerCase()),"-"!==r&&(a=a.replace(/-/g,r)),a}function A(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||function(e,t){if(e){if("string"==typeof e)return T(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?T(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function T(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function _(e){return _="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_(e)}var C={handlers:{},registerHandlers:function(e){if(e&&"object"===_(e))for(var t=0,n=Object.entries(e);t<n.length;t++){var r=A(n[t],2),i=r[0],o=r[1];o&&"function"==typeof o.applyHandler?this.bindPageHandler(i,o.applyHandler):f.warn("Page instance for ".concat(i," does not have an applyHandler function."))}else f.warn("No valid pages object found.")},bindPageHandler:function(e,t){"string"==typeof e&&e.trim()&&"function"==typeof t?this.handlers[e]=t:new v(m.PARAMETER_MISMATCH,this.bindPageHandler.name)},unregister:function(e){delete this.handlers[e]},isRegistered:function(e){return!!this.handlers[e]},isPageUpdate:function(e){var t=this.getPageName(e),n=this.getPreviousPage(e);return n&&this.getPageName(n)===t},getPageUrl:function(e){var t;return null!==(t=null==e?void 0:e.url)&&void 0!==t?t:""},getPageName:function(e){var t;return null!==(t=null==e?void 0:e.name)&&void 0!==t?t:void 0},getPreviousPage:function(e){var t;return null!==(t=null==e?void 0:e.fromPage)&&void 0!==t?t:void 0},getPreviousSide:function(e){var t;return null!==(t=null==e?void 0:e.from)&&void 0!==t?t:void 0},handlePageChange:function(e){if(e){var t=this.getPageName(e);this.isRegistered(t)&&this.handlers[t]?this.handlers[t](e):f.warn("No handler registered for page: ".concat(t),e)}},getCurrentPage:function(){return myApp.getCurrentView().activePage||mainView.activePage||null},getPageHistory:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:void 0;if(!e)return[];for(var n=[],r=e;r&&(this.getPageName(r)&&n.push({from:r.from||"unknown",name:this.getPageName(r)||"unknown"}),!(t&&n.length>=t));)r=this.getPreviousPage(r);return n},goto:function(e){"string"==typeof e&&""!==e.trim()&&this.isHashValid(e)?(e=e.replace(/^#!\//,""),mainView.router.loadPage(e)):new v(m.INVALID_URL,this.goto.name)},isFarmUrlValid:function(e){return function(e){try{return new URL(e),!0}catch(e){return!1}}(e)&&/^https:\/\/farmrpg\.com\/#!\/[^/]+\.php(\?.*)?$/.test(e)},isHashValid:function(e){return/^(#!\/)?[^/]+\.php(\?.*)?$/.test(e)},fixUrlHash:function(){var e=window.location,t="https://farmrpg.com/",n=/^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;if(e.href===t||e.href===t.replace(/\/$/,""))return e.replace("".concat(t,"#!/index.php")),!0;if(n.test(e.href)&&!e.hash){var r=e.href.match(n),i=r[1]+(r[2]||"");return e.replace("".concat(t,"#!/").concat(i)),!0}if(e.href.includes("#!/".concat(t))){var o=e.href.replace("#!/".concat(t),"");return f.log("ed"),n.test(o)?(e.replace(o),!0):(e.replace("".concat(t,"#!/index.php")),!0)}return this.isFarmUrlValid(e.href)?(f.debug("URL is valid, no changes needed.",e.href),!1):(f.warn("Invalid URL format, redirecting to index.php."),e.replace("".concat(t,"#!/index.php")),!1)},fixBackButton:function(e){if(null!=e&&e.navbarInnerContainer){var t=this.getPreviousPage(e);if(t&&this.getPageName(t)){var n=r()(e.navbarInnerContainer).find('a.back[href="x"]');if(n.length){var i=this.getPageName(t)===this.Pages.INDEX?"index.php":this.getPageUrl(t);i&&(n.attr("href",i),n.removeClass("back"),n.addClass("no-animation"),f.log("Back button fixed to: ".concat(i)))}}else f.warn("No valid previous page found to fix back button.")}else f.warn("No back button to fix, page does not have a navbar.")}};const I=C;function x(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function N(e){return N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},N(e)}function P(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,L(r.key),r)}}function L(e){var t=function(e){if("object"!=N(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=N(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==N(t)?t:t+""}var k=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return function(e,t,n){return n&&P(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}(e,0,[{key:"initStorage",value:function(){var t=window.localStorage.getItem(e._configKey);t&&"object"===N(t)&&"1.2.1"===(null==t?void 0:t.version)||e._setStorage({version:"1.2.1"}),null!=t&&t.version||e.set("version","1.2.1")}},{key:"_getStorage",value:function(){var t=window.localStorage.getItem(e._configKey);try{return t||(e.initStorage(),t=window.localStorage.getItem(e._configKey)),JSON.parse(t)}catch(n){return console.error("Error parsing stored settings:",n),e.initStorage(),t=window.localStorage.getItem(e._configKey),JSON.parse(t)}}},{key:"_setStorage",value:function(t){window.localStorage.setItem(e._configKey,JSON.stringify(t))}},{key:"set",value:function(t,n){for(var r=t.split("."),i=e._getStorage(),o=i,a=0;a<r.length;a++){var l=r[a];a===r.length-1?o[l]=n:(o[l]&&"object"===N(o[l])||(o[l]={}),o=o[l])}e._setStorage(i)}},{key:"get",value:function(t,n){var r,i=t.split("."),o=e._getStorage(),a=function(e,t){var n="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!n){if(Array.isArray(e)||(n=function(e,t){if(e){if("string"==typeof e)return x(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?x(e,t):void 0}}(e))||t&&e&&"number"==typeof e.length){n&&(e=n);var r=0,i=function(){};return{s:i,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(e){throw e},f:i}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var o,a=!0,l=!1;return{s:function(){n=n.call(e)},n:function(){var e=n.next();return a=e.done,e},e:function(e){l=!0,o=e},f:function(){try{a||null==n.return||n.return()}finally{if(l)throw o}}}}(i);try{for(a.s();!(r=a.n()).done;){var l=r.value;if(!o||!Object.prototype.hasOwnProperty.call(o,l))return n;o=o[l]}}catch(e){a.e(e)}finally{a.f()}return o}},{key:"remove",value:function(t){for(var n=t.split("."),r=e._getStorage(),i=r,o=0;o<n.length-1;o++){var a=n[o];if(!i[a]||"object"!==N(i[a]))return;i=i[a]}delete i[n[n.length-1]],e._setStorage(r)}},{key:"clear",value:function(){e._setStorage({})}}])}();!function(e,t,n){(t=L(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n}(k,"_configKey","frpg_plus");const R=k;var M;function D(e){return D="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},D(e)}function j(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,G(r.key),r)}}function F(e,t,n){return t&&j(e.prototype,t),n&&j(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function B(e,t,n){return(t=G(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function G(e){var t=function(e){if("object"!=D(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=D(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==D(t)?t:t+""}var H=F(function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)});M=H,B(H,"isDevelopmentMode",function(){return!1}),B(H,"goto",function(e){I.goto(e)}),B(H,"applyDebugFeatures",function(){r()(mainView.container).on("page:init",function(){window.page=myApp.getCurrentView().activePage||mainView.activePage}),window.clearDevLs=function(){R.clear("frpg_plus_dev"),console.debug("Development local storage cleared.")},window.StoragePlus=R,window.RouterPlus=I,window.goto=M.goto,window.getListByTitle=w});const U=H;function V(e){return V="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},V(e)}function W(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function q(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?W(Object(n),!0).forEach(function(t){K(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):W(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}function K(e,t,n){return(t=function(e){var t=function(e){if("object"!=V(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=V(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==V(t)?t:t+""}(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var Y=Object.freeze({HOME:"index-1",PROFILE:"profile",INVENTORY:"inventory",WORKSHOP:"workshop",KITCHEN:"kitchen",POST_OFFICE:"postoffice",MESSAGES:"messages",FRIENDS:"friends",SETTINGS:"settings",TOWN:"town",LIBRARY:"wiki",ABOUT:"about"}),z=Object.freeze({MY_FARM:"xfarm",INVENTORY:"inventory",WORKSHOP:"workshop",KITCHEN:"kitchen",TOWN:"town",FISHING:"fish",EXPLORE:"explore",QUESTS:"quests",TOWER:"tower",PERKS:"perks",MASTERY:"mastery",NPCS:"npclevels",DAILY_CHORES:"daily"}),X=Object.freeze({TOWN:"town",COUNTRY_STORE:"store",FARMERS_MARKET:"market",FLEA_MARKET:"flea",FARM_SUPPLY:"supply",BORGEN_MERCANTILE:"bmerc",SPIN:"spin",BANK:"bank",VAULT:"crack",STEAK_MARKET:"steakmarket",TEMPLE:"temple",FISHING_CHARTER:"charter",EXPEDITION:"expedition",PET_SHOP:"pets",WELL:"well",EXCHANGE_CENTER:"exchange",HOUSE_OF_CARDS:"cardshop",ART_GALLERY:"gallery",POST_OFFICE:"postoffice",LOCKSMITH:"locksmith",COMMUNITY_CENTER:"comm",REDBROOK_ADVENTURES:"radv",MUSEUM:"museum",SCHOOLHOUSE:"schoolhouse",LIBRARY:"wiki",TOWN_HALL:"townhall"}),$=Object.freeze({EXPLORE:"explore",FOREST:"area.php?id=7",SMALL_CAVE:"area.php?id=1",SMALL_SPRING:"area.php?id=2",HIGHLAND_HILLS:"area.php?id=3",CANE_POLE_RIDGE:"area.php?id=4",MISTY_FOREST:"area.php?id=5",BLACK_ROCK_CANYON:"area.php?id=6",MOUNT_BANON:"area.php?id=8",EMBER_LAGOON:"area.php?id=9",WHISPERING_CREEK:"area.php?id=10",JUNDLAND_DESERT:"area.php?id=13",GARY_CRUSHROOM:"area.php?id=20",EXPEDITION:"expedition.php"}),Q=Object.freeze({FOREST_INFO:"location.php?type=explore&id=7",SMALL_CAVE_INFO:"location.php?type=explore&id=1",SMALL_SPRING_INFO:"location.php?type=explore&id=2",HIGHLAND_HILLS_INFO:"location.php?type=explore&id=3",CANE_POLE_RIDGE_INFO:"location.php?type=explore&id=4",MISTY_FOREST_INFO:"location.php?type=explore&id=5",BLACK_ROCK_CANYON_INFO:"location.php?type=explore&id=6",MOUNT_BANON_INFO:"location.php?type=explore&id=8",EMBER_LAGOON_INFO:"location.php?type=explore&id=9",WHISPERING_CREEK_INFO:"location.php?type=explore&id=10",JUNDLAND_DESERT_INFO:"location.php?type=explore&id=13",GARY_CRUSHROOM_INFO:"location.php?type=explore&id=20"}),J=Object.freeze({FISHING:"fish",FARM_POND:"fishing.php?id=2",SMALL_POND:"fishing.php?id=1",FOREST_POND:"fishing.php?id=3",LAKE_TEMPEST:"fishing.php?id=4",SMALL_ISLAND:"fishing.php?id=5",CRYSTAL_RIVER:"fishing.php?id=6",EMERALD_BEACH:"fishing.php?id=7",VAST_OCEAN:"fishing.php?id=8",LAKE_MINERVA:"fishing.php?id=9",LARGE_ISLAND:"fishing.php?id=10",PIRATES_COVE:"fishing.php?id=11",GLACIER_LAKE:"fishing.php?id=12",CHARTER:"charter.php"}),Z=Object.freeze({FARM_POND_INFO:"location.php?type=fishing&id=2",SMALL_POND_INFO:"location.php?type=fishing&id=1",FOREST_POND_INFO:"location.php?type=fishing&id=3",LAKE_TEMPEST_INFO:"location.php?type=fishing&id=4",SMALL_ISLAND_INFO:"location.php?type=fishing&id=5",CRYSTAL_RIVER_INFO:"location.php?type=fishing&id=6",EMERALD_BEACH_INFO:"location.php?type=fishing&id=7",VAST_OCEAN_INFO:"location.php?type=fishing&id=8",LAKE_MINERVA_INFO:"location.php?type=fishing&id=9",LARGE_ISLAND_INFO:"location.php?type=fishing&id=10",PIRATES_COVE_INFO:"location.php?type=fishing&id=11",GLACIER_LAKE_INFO:"location.php?type=fishing&id=12"}),ee=Object.freeze({BOTTLE_ROCKET:"Bottle-Rocket-Brawl"}),te=Object.freeze({OVEN:"oven",ITEM:"item",QUEST:"quest",MAILBOX:"mailbox"}),ne=Object.freeze({SETTINGS:"settings",SETTINGS_OPTIONS:"settings_options"});const re=Object.freeze(q(q(q(q(q(q(q(q(q(q({},Y),z),X),$),Q),J),Z),ee),te),ne));function ie(e){return ie="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ie(e)}function oe(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function ae(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?oe(Object(n),!0).forEach(function(t){ce(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):oe(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}function le(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||function(e,t){if(e){if("string"==typeof e)return se(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?se(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function se(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function ue(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,fe(r.key),r)}}function ce(e,t,n){return(t=fe(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function fe(e){var t=function(e){if("object"!=ie(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=ie(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==ie(t)?t:t+""}var de=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return function(e,t,n){return n&&ue(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}(e,0,[{key:"registerPage",value:function(t,n){var r=n.displayName,i=n.order,o=void 0===i?100:i;if(t)if(R.get("".concat(e._configKey,".").concat(t),null)){var a=R.get("".concat(e._configKey,".").concat(t,".title"),t),l=R.get("".concat(e._configKey,".").concat(t,".order"),o);R.set("".concat(e._configKey,".").concat(t,".title"),null!=r?r:a),R.set("".concat(e._configKey,".").concat(t,".order"),null!=o?o:l)}else R.set("".concat(e._configKey,".").concat(t),{title:null!=r?r:t,order:o,features:{}});else f.warn("Invalid page registration:",{pageId:t})}},{key:"registerFeature",value:function(t,n,r){if(r&&t&&n){var i="".concat(e._configKey,".").concat(t);R.get(i,null)?(i+=".features.".concat(n),R.get(i,null)||R.set(i,r)):f.warn("Page not registered:",t)}else f.warn("Invalid config registration:",{pageId:t,configId:n})}},{key:"getAllFeatures",value:function(){var t=R.get(e._configKey,{});return Object.entries(t).filter(function(e){var t=le(e,2),n=(t[0],t[1]);return Object.entries(n.features).length>0}).sort(function(e,t){var n=le(e,2),r=(n[0],n[1]),i=le(t,2),o=(i[0],i[1]);return r.order-o.order}).map(function(e){var t,n=le(e,2),r=n[0],i=n[1];return ae(ae({pageId:r},i),{},{features:Object.entries(null!==(t=null==i?void 0:i.features)&&void 0!==t?t:{}).map(function(e){var t=le(e,2),n=t[0],r=t[1];return ae(ae({featureId:n},r),{},{configs:Object.entries(r.configs).map(function(e){var t=le(e,2);return ae({configId:t[0]},t[1])})})})})})}},{key:"isEnabled",value:function(t,n){return t&&n?R.get(e._configKey+".".concat(t,".features.").concat(n),{isEnabled:!0}).isEnabled:(f.warn("Invalid parameters for isEnabled:",{pageId:t,featureId:n}),!1)}},{key:"setValue",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:void 0,i=arguments.length>3?arguments[3]:void 0;if(!t||!n||void 0===i)return f.warn("Invalid parameters for setValue:",{pageId:t,featureId:n,value:i}),!1;var o="".concat(e._configKey,".").concat(t,".features.").concat(n),a=R.get(o,{});if(!a)return f.warn("Feature not found for:",{pageId:t,featureId:n}),!1;if(r){if(!a.configs||!a.configs[r])return f.warn("Config not found:",{pageId:t,featureId:n,configId:r}),!1;a.configs[r].typeData.value=i}else a.isEnabled=i;return R.set(o,a),!0}},{key:"getValue",value:function(t,n){var r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:void 0,i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:void 0;if(!t||!n)return f.warn("Invalid parameters for getValue:",{pageId:t,featureId:n}),null;var o="".concat(e._configKey,".").concat(t,".features.").concat(n),a=R.get(o,null),l=i;if(!a)return f.warn("Feature not found for:",{pageId:t,featureId:n,configId:r}),null;if(r){if(!a.configs||!a.configs[r])return f.warn("Config not found:",{pageId:t,featureId:n,configId:r}),null;l=a.configs[r].typeData.value}else{var s;l=null!==(s=null==a?void 0:a.isEnabled)&&void 0!==s?s:l}return null==l?(f.warn("Settings not found for:",{pageId:t,featureId:n,configId:r}),null):l}},{key:"resetAllSettings",value:function(){R.set(e._configKey,{}),f.log("All settings have been reset to default.")}}])}();ce(de,"_configKey","feature_configs");const pe=de;function he(e){return he="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},he(e)}function ge(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,ye(r.key),r)}}function ye(e){var t=function(e){if("object"!=he(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=he(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==he(t)?t:t+""}var me=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return function(e,t,n){return n&&ge(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}(e,0,[{key:"getLocaleTimeStringOnCT",value:function(t){var n=t?e.getLocaleTimeOnCT(t):"Invalid Timestamp";return n.toLocaleString("en-US",{day:"numeric",month:"short",hour:"numeric",minute:"numeric",second:"numeric",hour12:!0})}},{key:"getLocaleTimeOnCT",value:function(e){var t=e?new Date(e):new Date,n=6e4*t.getTimezoneOffset();return new Date(t.getTime()+n-18e6)}},{key:"isResetTime",value:function(){var t=e.getLocaleTimeOnCT();return 23===t.getHours()&&t.getMinutes()>=29&&t.getMinutes()<=36?1:0===t.getHours()&&t.getMinutes()>=0&&t.getMinutes()<=6?2:0}}])}();const ve=me;function be(e){return be="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},be(e)}function Ee(e){return function(e){if(Array.isArray(e))return Oe(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||we(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function Se(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||we(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function we(e,t){if(e){if("string"==typeof e)return Oe(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?Oe(e,t):void 0}}function Oe(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function Ae(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Ce(r.key),r)}}function Te(e,t,n){return t&&Ae(e.prototype,t),n&&Ae(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function _e(e,t,n){return(t=Ce(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Ce(e){var t=function(e){if("object"!=be(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=be(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==be(t)?t:t+""}var Ie=Te(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),_e(this,"getTokenAmount",function(e){if(null==e||!e.container)return new v(m.PAGE_NOT_FOUND,t.getTokenAmount.name),0;var n=r()(e.container).find("a[href='item.php?id=1097']").next().next().text();if(!n)return 0;var i=n.trim(),o=parseInt(i.replace(/,/g,""),10);return isNaN(o)?0:o}),_e(this,"makeStats",function(n){if(null!=n&&n.container)if(pe.getValue("eventFeatures","bottleRocket","addStatsCards")){var i=R.get("bottle_Rocket",e.defaultStorageObject()),o=Object.entries(i.total_attacks).map(function(e){var t=Se(e,2),n=t[0],r=t[1];return E({title:['<i class="fa fa-fw fa-rocket"></i>'," Total ".concat(n," Shots Made")],rowId:"frpgp-total-attack-".concat(n,"-shot-history-row"),afterLabel:r.toLocaleString()})}),a=E({title:['<i class="fa fa-fw fa-rocket"></i>'," Total Attacks Made"],rowId:"frpgp-total-attacks-history-row",afterLabel:Object.values(i.total_attacks).reduce(function(e,t){return e+t},0).toLocaleString()}),l=E({title:['<i class="fa fa-fw fa-bullseye"></i>'," Total Hits"],rowId:"frpgp-total-hits-history-row",afterLabel:i.total_hits.toLocaleString()}),s=E({title:['<i class="fa fa-fw fa-times"></i>'," Total Misses"],rowId:"frpgp-total-misses-history-row",afterLabel:i.total_misses.toLocaleString()}),u=E({title:['<i class="fa fa-fw fa-coins"></i>'," Total Tokens Earned"],rowId:"frpgp-total-tokens-history-row",afterLabel:i.total_token_gain.toLocaleString()}),c=E({title:['<i class="fa fa-fw fa-coins"></i>'," Average Tokens Per Attack"],rowId:"frpgp-avg-tokens-per-attack-history-row",afterLabel:i.avg_tokens_per_attack.toLocaleString()}),d=E({title:['<i class="fa fa-fw fa-clock"></i>'," Last Updated"],rowId:"frpgp-last-updated-history-row",afterLabel:i.timestamp?ve.getLocaleTimeStringOnCT(i.timestamp):"Never"}),p=S({cardId:"frpgp-bottle-rocket-stats-card",title:"Bottle Rocket Stats",children:[].concat(Ee(o),[a,l,s,u,c,d])});r()(n.container).find("#frpgp-bottle-rocket-stats-card").length>0||w(n,e.titles.LEAVE_OR_JOIN_GAME,{returnTitle:!0}).before(p)}else f.log("Bottle Rocket stats cards are disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.makeStats.name)}),_e(this,"makeAttackHistory",function(n){if(null!=n&&n.container)if(pe.getValue("eventFeatures","bottleRocket","isAttackHistoryEnabled")){var i,o=R.get("bottle_Rocket",e.defaultStorageObject()).attack_history;0===(null==o?void 0:o.length)&&(i=E({title:['<i class="fa fa-fw fa-times"></i>'," No Attack History Found"],rowId:"frpgp-no-attack-history-row"}));var a=S({cardId:"frpgp-bottle-rocket-attack-history-card",title:"Attack History",children:i?[i]:o.map(function(e){var t=e.attack_type,n=e.hits,r=e.misses;return E({title:['<i class="fa fa-fw fa-rocket"></i>'," ".concat(t," Shot")],rowId:"frpgp-attack-history-row-".concat(n,"-").concat(r,"-").concat(t),afterLabel:"Hits: ".concat(n," | Misses: ").concat(r," | Players Attacked: ").concat(n+r)})})});r()(n.container).find("#frpgp-bottle-rocket-attack-history-card").length>0||w(n,e.titles.LEAVE_OR_JOIN_GAME,{returnTitle:!0}).before(a)}else f.log("Bottle Rocket attack history is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.makeAttackHistory.name)}),_e(this,"makeLastPlayersHistory",function(n){if(null!=n&&n.container)if(pe.getValue("eventFeatures","bottleRocket","isPlayerHistoryEnabled")){var i,o=R.get("bottle_Rocket",e.defaultStorageObject()).player_history;o&&0!==o.length||(i=E({title:['<i class="fa fa-fw fa-times"></i>'," No Player History Found"],rowId:"frpgp-no-player-history-row"}));var a=S({cardId:"frpgp-bottle-rocket-player-history-card",title:"Last Players Attacked (Oldest to Newest)",children:i?[i]:o.map(function(e){var t=e.player_name,n=e.hit_or_miss;return E({rowId:"frpgp-player-history-row-".concat(O(t)),rowLink:"profile.php?user_name=".concat(O(t,{separator:"+",lowercase:!1})),title:['<i class="fa fa-fw fa-user"></i>'," ".concat(t)],afterLabel:'<strong style="color:'.concat("HIT"===n?"red":"",'">').concat(n,"</strong>")})})});r()(n.container).find("#frpgp-bottle-rocket-player-history-card").length>0||w(n,e.titles.LEAVE_OR_JOIN_GAME,{returnTitle:!0}).before(a)}else f.log("Bottle Rocket player history is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.makeLastPlayersHistory.name)}),_e(this,"startObserver",function(n){if(null!=n&&n.container){var i=r()(n.container).find(".event-brb-attack");if(0!==i.length){var o=null;return i.on("click",function(n){var i,a,l,s;i=".modal.modal-in",a=function(i){var a=i.find(".modal-title");if(0===a.length)return o(),void new v(m.ELEMENT_NOT_FOUND,t.startObserver.name);if("Attack Results"!==a.text().trim())return o(),void new v(m.ELEMENT_NOT_FOUND,t.startObserver.name);if(0===i.find(".modal-text").length)return o(),void new v(m.ELEMENT_NOT_FOUND,t.startObserver.name);var l=i.text().trim(),s=l.match(/You earned (\d+) Event Tokens/),u=parseInt(s[1],10);if(s&&!isNaN(u)){var c=R.get("bottle_Rocket.total_token_gain",e.defaultStorageObject().total_token_gain);R.set("bottle_Rocket.total_token_gain",c+u)}else u=0;var f=l.split("!").filter(function(e){return e.includes("was")});if(0===f.length)return o(),void new v(m.ELEMENT_NOT_FOUND,t.startObserver.name);var d=f.reduce(function(t,n){var r=Se(n.replace("Attack Results","").split(" was "),2),i=r[0],o=r[1];if(!i||!o)return t;var a=R.get("bottle_Rocket.player_history",e.defaultStorageObject().player_history);a.push({player_name:i.trim(),hit_or_miss:o.trim()});var l=pe.getValue("eventFeatures","bottleRocket","maxPlayerHistoryLength",10);return a.length>l&&a.splice(0,a.length-l),R.set("bottle_Rocket.player_history",a),t.hits+=o.includes("HIT")?1:0,t.misses+=o.includes("MISSED")?1:0,t},{hits:0,misses:0}),p=r()(n.target).attr("data-type");p="small"===p?"Strike":"medium"===p?"Blast":"large"===p?"Inferno":"Unknown";var h=R.get("bottle_Rocket.total_attacks",e.defaultStorageObject().total_attacks);"Unknown"!==p?h[p]=(h[p]||0)+1:U.isDevelopmentMode()&&(h.Unknown=(h.Unknown||0)+1);var g=R.get("bottle_Rocket.attack_history",e.defaultStorageObject().attack_history),y=pe.getValue("eventFeatures","bottleRocket","maxAttackHistoryLength",10);g.length>y&&g.splice(0,g.length-y),g.push({attack_type:p,hits:d.hits,misses:d.misses}),R.set("bottle_Rocket.attack_history",g),R.set("bottle_Rocket.total_attacks",h),R.set("bottle_Rocket.total_hits",R.get("bottle_Rocket.total_hits",0)+d.hits),R.set("bottle_Rocket.total_misses",R.get("bottle_Rocket.total_misses",0)+d.misses);var b=Object.values(h).reduce(function(e,t){return e+t},0),E=b>0?R.get("bottle_Rocket.total_token_gain",0)/b:0;R.set("bottle_Rocket.avg_tokens_per_attack",E.toFixed(2)),R.set("bottle_Rocket.timestamp",Date.now())},l=null,s=r()(i),o=s.length?(a(s.first()),function(){}):((l=new MutationObserver(function(e){var t,n=function(e,t){var n="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!n){if(Array.isArray(e)||(n=function(e,t){if(e){if("string"==typeof e)return b(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?b(e,t):void 0}}(e))||t&&e&&"number"==typeof e.length){n&&(e=n);var r=0,i=function(){};return{s:i,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(e){throw e},f:i}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var o,a=!0,l=!1;return{s:function(){n=n.call(e)},n:function(){var e=n.next();return a=e.done,e},e:function(e){l=!0,o=e},f:function(){try{a||null==n.return||n.return()}finally{if(l)throw o}}}}(e);try{for(n.s();!(t=n.n()).done;){var o=t.value;r()(o.addedNodes).each(function(e,t){if(1===t.nodeType){var n=r()(t).is(i)?r()(t):r()(t).find(i);if(n.length)return a(n.first()),void l.disconnect()}})}}catch(e){n.e(e)}finally{n.f()}})).observe(document.body,{childList:!0,subtree:!0}),function(){l&&l.disconnect()})}),o}new v(m.ELEMENT_NOT_FOUND,t.startObserver.name)}else new v(m.PAGE_NOT_FOUND,t.startObserver.name)}),_e(this,"applyHandler",function(e){if(null!=e&&e.container){if(pe.isEnabled("eventFeatures","bottleRocket"))return f.log("Bottle Rocket page initialized:",e),t.makeStats(e),t.makeAttackHistory(e),t.makeLastPlayersHistory(e),t.startObserver(e);f.log("Bottle Rocket event features are disabled in settings.")}else new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage("eventFeatures",{displayName:"Event Features",order:999}),pe.registerFeature("eventFeatures","bottleRocket",{title:"Bottle Rocket Event",subtitle:"Features for the Bottle Rocket event that usually happens in July.",isEnabled:!0,enableTitle:"Enable Bottle Rocket Event Features?",enableSubtitle:"Enables features related to the Bottle Rocket event.",configs:{addStatsCards:{title:"Add Stats Card?",subtitle:"Enables a list card containing statistics gathered along the event.",type:"checkbox",typeData:{value:!0}},isAttackHistoryEnabled:{title:"Add Attack History Card?",subtitle:"Adds a log card of last attacks made during the event.",type:"checkbox",typeData:{value:!0}},maxAttackHistoryLength:{title:"Max Attack History Length",subtitle:"Maximum number of attack actions to keep in history.",type:"numeric",typeData:{value:5,min:1,max:100}},isPlayerHistoryEnabled:{title:"Add Player History Card?",subtitle:"Adds a log card of last players attacked during the event.",type:"checkbox",typeData:{value:!0}},maxPlayerHistoryLength:{title:"Max Player History Length",subtitle:"Maximum number of players attacked to keep in history.",type:"numeric",typeData:{value:5,min:1,max:100}}}})});_e(Ie,"titles",Object.freeze({CHOOSE_YOUR_DEFENSE:"CHOOSE YOUR DEFENSE",CHOOSE_YOUR_ATTACK:"CHOOSE YOUR ATTACK",HOW_THIS_WORKS:"HOW THIS WORKS",LEAVE_OR_JOIN_GAME:"LEAVE OR JOIN GAME"})),_e(Ie,"defaultStorageObject",function(){return{total_attacks:{Strike:0,Blast:0,Inferno:0},total_hits:0,total_misses:0,total_token_gain:0,avg_tokens_per_attack:0,player_history:[],attack_history:[],timestamp:0}});const xe=Ie;function Ne(e){return Ne="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Ne(e)}function Pe(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function Le(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?Pe(Object(n),!0).forEach(function(t){ke(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):Pe(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}function ke(e,t,n){return(t=function(e){var t=function(e){if("object"!=Ne(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Ne(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Ne(t)?t:t+""}(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var Re=Object.freeze({BUDDY_FARM:"https://buddy.farm/icons/icon-512x512.png"}),Me=Object.freeze({ROSALIE_IMAGE:"/img/items/a_098.png",HOLGER_IMAGE:"/img/items/a_028.png",BEATRIX_IMAGE:"/img/items/a_011.png",THOMAS_IMAGE:"/img/items/a_048.png",CECIL_IMAGE:"/img/items/a_027.png",GEORGE_IMAGE:"/img/items/a_034.png",JILL_IMAGE:"/img/items/a_024.png",VINCENT_IMAGE:"/img/items/a_047.png",LORN_IMAGE:"/img/items/a_088.png",BUDDY_IMAGE:"/img/items/buddy.png",BORGEN_IMAGE:"/img/items/borgen.png",RIC_RYPH_IMAGE:"/img/items/npc_figure2.png",MUMMY_IMAGE:"/img/items/mummy_t_01.png",STAR_MEERIF_IMAGE:"/img/items/npc_figure.png",CHARLES_IMAGE:"/img/items/npc_horse.png",ROOMBA_IMAGE:"/img/items/robot_02.png",CPT_THOMAS_IMAGE:"/img/items/MustacheTom96.png",FRANK_IMAGE:"/img/items/npc_bunny1.png",MARIYA_IMAGE:"/img/items/mariya.png",BABA_GEC_IMAGE:"/img/items/merchant.png",GEIST_IMAGE:"/img/items/npc_beast.png",GARY_BEARSON_V_IMAGE:"/img/items/bear_01.png",CID_IMAGE:"/img/items/cid.png"}),De=Object.freeze({FOREST:"/img/items/trees.png",SMALL_CAVE:"/img/items/cave.png",SMALL_SPRING:"/img/items/spring.png",HIGHLAND_HILLS:"/img/items/hills.png",CANE_POLE_RIDGE:"/img/items/ridge.png",MISTY_FOREST:"/img/items/mistforest.png",BLACK_ROCK_CANYON:"/img/items/canyon.png",MOUNT_BANON:"/img/items/mountain.png",EMBER_LAGOON:"/img/items/lagoon.png",WHISPERING_CREEK:"/img/items/creek.png",JUNDLAND_DESERT:"/img/items/desert.png",GARY_CRUSHROOM:"/img/items/gcave.png"}),je=Object.freeze({FARM_POND:"/img/items/pond.png",SMALL_POND:"/img/items/pond.png",FOREST_POND:"/img/items/fpond.png",LAKE_TEMPEST:"/img/items/lake.png",SMALL_ISLAND:"/img/items/island.png",CRYSTAL_RIVER:"/img/items/river.png",EMERALD_BEACH:"/img/items/beach.png",VAST_OCEAN:"/img/items/ocean.png",LAKE_MINERVA:"/img/items/lava.png",LARGE_ISLAND:"/img/items/largeisland.png",PIRATES_COVE:"/img/items/cove.png",GLACIER_LAKE:"/img/items/glacier.png"});const Fe=Object.freeze(Le(Le(Le(Le(Le({},Re),Me),De),je),{},{NPC_SUPER_LOVES_GIFT:"/img/items/s_love.png",NPC_LOVES_GIFT:"/img/items/s_love.png",NPC_LIKES_GIFT:"/img/items/s_like.png",NPC_NEUTRAL_GIFT:"/img/items/s_neutral.png",NPC_HATES_GIFT:"/img/items/s_hate.png",NPC_OMG_GIFT:"/img/items/s_omg.png",LOVE_ICON:"/img/items/love_sm.png",OVEN_ICON:"/img/items/oven.png"}));function Be(e){return Be="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Be(e)}function Ge(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Ve(r.key),r)}}function He(e,t,n){return t&&Ge(e.prototype,t),n&&Ge(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Ue(e,t,n){return(t=Ve(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Ve(e){var t=function(e){if("object"!=Be(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Be(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Be(t)?t:t+""}var We=He(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Ue(this,"addBuddyFarmButton",function(n){if(null!=n&&n.container)if(pe.isEnabled(re.HOME,"addBuddyFarmButton")){var i=E({iconImageUrl:Fe.BUDDY_FARM,title:"Buddy Farm",subtitle:"Open's Buddy Farm Home Page",rowLink:"https://buddy.farm",rowId:"frpgp-buddy-farm-row"});r()(n.container).find("#frpgp-buddy-farm-row").length>0||w(n,e.titles.HOME).append(i)}else f.log("Buddy Farm button is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addBuddyFarmButton.name)}),Ue(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Index page initialized:",e),t.addBuddyFarmButton(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.HOME,{displayName:"Home Page",order:1}),pe.registerFeature(re.HOME,"addBuddyFarmButton",{title:"Add Buddy Farm Button?",subtitle:"Adds a button that links to Buddy Farm homepage.",isEnabled:!0,configs:{}})});Ue(We,"titles",Object.freeze({HOME:"Where do you want to go?",MY_SKILLS:"My Skills",PERKS_AND_MASTERY:"Perks, Mastery & More",UPDATE:"Most Recent Update",OTHER_STUFF:"Other Stuff"}));const qe=We;function Ke(e){return Ke="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Ke(e)}function Ye(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,$e(r.key),r)}}function ze(e,t,n){return t&&Ye(e.prototype,t),n&&Ye(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Xe(e,t,n){return(t=$e(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function $e(e){var t=function(e){if("object"!=Ke(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Ke(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Ke(t)?t:t+""}const Qe=ze(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Xe(this,"syncCollectionProgress",function(e){if(null!=e&&e.container){var n=r()(e.container).find(".item-title strong");if(0!==n.length){var i=R.get("items_collected_cache",{});n.each(function(e,t){var n=r()(t).text().trim();n&&"-"!==n&&(i[n]=i[n]||!0)}),R.set("items_collected_cache",i),f.log("Collection progress cache updated")}else f.log("No collection progress found on the Museum page.")}else new v(m.PAGE_NOT_FOUND,t.syncCollectionProgress.name)}),Xe(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Inventory page initialized:",e),t.syncCollectionProgress(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)})});function Je(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}var Ze,et,tt=["Heart Container","Bouquet of Flowers"],nt=Object.freeze({ROSALIE:{SUPER_LOVES:[].concat(tt),LOVES:["Gold Carrot","Green Dye","Valentines Card","Blue Dye","Purple Dye","Red Dye","Box of Chocolate 01"],LIKES:["Aquamarine","Apple","Carrot","Iced Tea","Purple Flower","Apple Cider","Fireworks","Caterpillar"],HATES:["Worms","Fish Bones","Iron Cup","Grubs","Spider","Fire Ant","Coal","Old Boot","Horned Beetle","Carp"]},HOLGER:{SUPER_LOVES:[].concat(tt),LOVES:["Wooden Table","Gold Trout","Mug of Beer","Potato"],LIKES:["Largemouth Bass","Peas","Bluegill","Trout","Arrowhead","Peach","Horn","Cheese","Apple Cider","Carp","Mushroom Stew"],HATES:["Aquamarine","Worms","Milk","Valentines Card"]},BEATRIX:{SUPER_LOVES:[].concat(tt),LOVES:["Black Powder","Iced Tea","Explosive","Fireworks"],LIKES:["Bird Egg","Hammer","Oak","Coal","Hops","Carbon Sphere"],HATES:["Worms","Grubs","Fire Ant","Horned Beetle"]},THOMAS:{SUPER_LOVES:[].concat(tt),LOVES:["Fishing Net","Flier","Gold Catfish","Gold Trout","Goldgill"],LIKES:["Largemouth Bass","Drum","Minnows","Iced Tea","Gummy Worms","Mealworms","Carp"],HATES:["Worms","Green Dye","Eggs","Leek"]},CECIL:{SUPER_LOVES:[].concat(tt),LOVES:["MIAB","Shiny Beetle","Old Boot","Grasshopper","Yarn","Horned Beetle","Leather"],LIKES:["Aquamarine","Grapes","Snail","Slimestone","Ladder","Giant Centipede"],HATES:["Feathers","Mushroom","Worms","Milk"]},GEORGE:{SUPER_LOVES:[].concat(tt,["Perfect Paint Palette"]),LOVES:["Hide","Spider","Apple Cider","Carbon Sphere","Mug of Beer"],LIKES:["Glass Orb","Bird Egg","Arrowhead","Orange Juice","Hops","Mushroom Stew"],HATES:["Worms","Fish Bones","Bone","Cheese"]},JILL:{SUPER_LOVES:[].concat(tt,["Refined Corn Quartz"]),LOVES:["Yellow Perch","Mushroom Paste","MIAB","Peach","Leather"],LIKES:["Tomato","Milk","Grapes","Old Boot","Cheese","Scrap Metal"],HATES:["Worms","Stingray","Grubs","Spider","Hops","Snowball"]},VINCENT:{SUPER_LOVES:[].concat(tt),LOVES:["Mushroom Paste","Lemonade","Onion Soup","Axe","Orange Juice","5 Gold","Apple Cider"],LIKES:["Apple","Shovel","Horn","Cheese","Hops","Leather Diary","Wooden Box","Acorn"],HATES:["Aquamarine","Worms","Purple Parchment","Valentines Card","Purple Flower","Shrimp"]},LORN:{SUPER_LOVES:[].concat(tt),LOVES:["Milk","Glass Orb","Gold Peas","Small Prawn","Shrimp"],LIKES:["Peas","Purple Parchment","Iron Cup","3-leaf Clover","Iced Tea","Bucket","Apple Cider","Green Parchment"],HATES:["Worms","Crappie","Snail","Spider","Old Boot"]},BUDDY:{SUPER_LOVES:[].concat(tt),LOVES:["Pirate Bandana","Valentines Card","Purple Flower","Pirate Flag"],LIKES:["Mushroom","Bone","Gummy Worms","Snail","Spider","Bucket","Giant Centipede","Gold Peppers"],HATES:["Worms","Drum","Crappie","Lemon","Lemonade","Grubs","Peppers","Snowball"]},BORGEN:{SUPER_LOVES:[].concat(tt),LOVES:["Gold Catfish","Cheese","Wooden Box"],LIKES:["Milk","Glass Orb","Gold Carrot","Slimestone","Gold Peas","Gold Cucumber"],HATES:["Worms","Grubs","Green Dye","Valentines Card","Old Boot","Purple Flower"]},RIC_RYPH:{SUPER_LOVES:[].concat(tt,["Five Point Mace"]),LOVES:["Mushroom Paste","Shovel","Hammer","5 Gold"],LIKES:["Black Powder","Bucket","Arrowhead","Coal","Old Boot","Carbon Sphere","Unpolished Shimmer Stone","Green Parchment"],HATES:["Aquamarine","Worms","Milk","Valentines Card","Ladder","Cheese","Caterpillar"]},MUMMY:{SUPER_LOVES:[].concat(tt),LOVES:["Bone","Spider","Valentines Card"],LIKES:["Fish Bones","Hammer","Yarn","Treat Bag 02"],HATES:["Worms","Drum","Coal","Cheese","Box of Chocolate 01","Snowball"]},STAR_MEERIF:{SUPER_LOVES:[].concat(tt,["Ramjoram's Mask"]),LOVES:["Gold Feather","Blue Feathers"],LIKES:["Feathers","Eggs"],HATES:["Worms","Bone","Lemon","Lemonade","Iron Cup","Grubs","Cheese"]},CHARLES:{SUPER_LOVES:[].concat(tt),LOVES:["Apple","Gold Carrot","Valentines Card","Peach","Apple Cider","Box of Chocolate 01"],LIKES:["Carrot","3-leaf Clover","Twine","Grasshopper"],HATES:["Worms","Stone","Bone","Lemon","Lemonade","Grubs","Snail","Spider","Cheese","Green Chromis","Blue Crab"]},ROOMBA:{SUPER_LOVES:[].concat(tt,["Refined Corn Quartz"]),LOVES:["Carbon Sphere","Scrap Metal"],LIKES:["Glass Orb","Scrap Wire","Hammer"],HATES:["Worms","Milk","Bird Egg","3-leaf Clover","Arrowhead","Snowball","Acorn"]},CPT_THOMAS:{SUPER_LOVES:[].concat(tt),LOVES:["Fishing Net","Gold Catfish","Large Net","Gold Drum","Gold Trout"],LIKES:["Minnows","Blue Crab"],HATES:["Radish","Worms","Spider"]},FRANK:{SUPER_LOVES:[].concat(tt),LOVES:["Gold Carrot","Carrot"],LIKES:["Feathers","Blue Feathers","Bucket","Blue Dye","Grasshopper","Caterpillar"],HATES:["Mushroom","Worms","Peas","Trout","Fire Ant","Eggs"]},MARIYA:{SUPER_LOVES:[].concat(tt),LOVES:["Shrimp-a-Plenty","Onion Soup","Over The Moon","Quandary Chowder","Cat's Meow","Sea Pincher Special","Leather Diary","Mushroom Stew"],LIKES:["Radish","Cucumber","Eggplant","Milk","Iced Tea","Peach","Eggs"],HATES:["Worms","Black Powder","Spider","Explosive"]},BABA_GEC:{SUPER_LOVES:[].concat(tt),LOVES:["Cabbage Stew","Peach Juice","Wooden Button"],LIKES:["Onion","Rope","Snail","Leek"],HATES:["Worms","Stone","Horned Beetle"]},GEIST:{SUPER_LOVES:[].concat(tt,["Prism Shell"]),LOVES:["Gold Catfish","Shrimp-a-Plenty","Sea Pincher Special","Goldgill"],LIKES:["Yellow Perch","Stingray","Green Chromis","Blue Crab"],HATES:["Worms","Black Powder","Gummy Worms","Explosive","Axe"]},GARY_BEARSON_V:{SUPER_LOVES:[].concat(tt,["Gare Bear"]),LOVES:["Yarn","Gold Trout","You Rock Card","Apple Cider"],LIKES:["Feathers","Trout","Oak"],HATES:["Tomato","Radish","Worms","Black Powder","Bucket"]},CID:{SUPER_LOVES:[].concat(tt),LOVES:["Spider","Explosive","Diamonds","Bomb","Mushroom Stew","Safety Goggles"],LIKES:["Stone","Black Powder","Blue Feathers","Shimmer Stone"],HATES:["Worms","Cheese"]}}),rt=(Ze=nt,et={},Object.keys(Ze).forEach(function(e){var t=Ze[e];[[t.SUPER_LOVES,"SUPER_LOVES"],[t.LOVES,"LOVES"],[t.LIKES,"LIKES"],[t.HATES,"HATES"]].forEach(function(t){var n=function(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||function(e,t){if(e){if("string"==typeof e)return Je(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?Je(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}(t,2),r=n[0],i=n[1];r.forEach(function(t){et[t]||(et[t]={}),et[t][i]||(et[t][i]=[]),et[t][i].push(e)})})}),Object.freeze(et));const it=Object.freeze({TOWNSFOLK:{FRIENDSHIP:"wiki.php?page=Townsfolk Friendship",GIFTS:"wiki.php?page=Gifts",BUDDY_FARM:"https://buddy.farm/townsfolk/"},ROSALIE:{IMAGE:Fe.ROSALIE_IMAGE,MAILBOX:"mailbox.php?id=22438",BUDDY_FARM:"https://buddy.farm/t/rosalie/"},HOLGER:{IMAGE:Fe.HOLGER_IMAGE,MAILBOX:"mailbox.php?id=22439",BUDDY_FARM:"https://buddy.farm/t/holger/"},BEATRIX:{IMAGE:Fe.BEATRIX_IMAGE,MAILBOX:"mailbox.php?id=22440",BUDDY_FARM:"https://buddy.farm/t/beatrix/"},THOMAS:{IMAGE:Fe.THOMAS_IMAGE,MAILBOX:"mailbox.php?id=22441",BUDDY_FARM:"https://buddy.farm/t/thomas/"},CECIL:{IMAGE:Fe.CECIL_IMAGE,MAILBOX:"mailbox.php?id=22442",BUDDY_FARM:"https://buddy.farm/t/cecil/"},GEORGE:{IMAGE:Fe.GEORGE_IMAGE,MAILBOX:"mailbox.php?id=22443",BUDDY_FARM:"https://buddy.farm/t/george/"},JILL:{IMAGE:Fe.JILL_IMAGE,MAILBOX:"mailbox.php?id=22444",BUDDY_FARM:"https://buddy.farm/t/jill/"},VINCENT:{IMAGE:Fe.VINCENT_IMAGE,MAILBOX:"mailbox.php?id=22445",BUDDY_FARM:"https://buddy.farm/t/vincent/"},LORN:{IMAGE:Fe.LORN_IMAGE,MAILBOX:"mailbox.php?id=22446",BUDDY_FARM:"https://buddy.farm/t/lorn/"},BUDDY:{IMAGE:Fe.BUDDY_IMAGE,MAILBOX:"mailbox.php?id=22447",BUDDY_FARM:"https://buddy.farm/t/buddy/"},BORGEN:{IMAGE:Fe.BORGEN_IMAGE,MAILBOX:"mailbox.php?id=53900",BUDDY_FARM:"https://buddy.farm/t/borgen/"},RIC_RYPH:{IMAGE:Fe.RIC_RYPH_IMAGE,MAILBOX:"mailbox.php?id=59421",BUDDY_FARM:"https://buddy.farm/t/ric-ryph/"},MUMMY:{IMAGE:Fe.MUMMY_IMAGE,MAILBOX:"mailbox.php?id=70604",BUDDY_FARM:"https://buddy.farm/t/mummy/"},STAR_MEERIF:{IMAGE:Fe.STAR_MEERIF_IMAGE,MAILBOX:"mailbox.php?id=46158",BUDDY_FARM:"https://buddy.farm/t/star-meerif/"},CHARLES:{IMAGE:Fe.CHARLES_IMAGE,MAILBOX:"mailbox.php?id=71760",BUDDY_FARM:"https://buddy.farm/t/charles-horsington-iii/"},ROOMBA:{IMAGE:Fe.ROOMBA_IMAGE,MAILBOX:"mailbox.php?id=71761",BUDDY_FARM:"https://buddy.farm/t/roomba/"},CPT_THOMAS:{IMAGE:Fe.CPT_THOMAS_IMAGE,MAILBOX:"mailbox.php?id=71805",BUDDY_FARM:"https://buddy.farm/t/captain-thomas/"},FRANK:{IMAGE:Fe.FRANK_IMAGE,MAILBOX:"mailbox.php?id=84518",BUDDY_FARM:"https://buddy.farm/t/frank/"},MARIYA:{IMAGE:Fe.MARIYA_IMAGE,MAILBOX:"mailbox.php?id=178572",BUDDY_FARM:"https://buddy.farm/t/mariya/"},BABA_GEC:{IMAGE:Fe.BABA_GEC_IMAGE,MAILBOX:"mailbox.php?id=267531",BUDDY_FARM:"https://buddy.farm/t/baba-gec/"},GEIST:{IMAGE:Fe.GEIST_IMAGE,MAILBOX:"mailbox.php?id=118065",BUDDY_FARM:"https://buddy.farm/t/geist/"},GARY_BEARSON_V:{IMAGE:Fe.GARY_BEARSON_V_IMAGE,MAILBOX:"mailbox.php?id=38",BUDDY_FARM:"https://buddy.farm/t/gary-bearson-v/"},CID:{IMAGE:Fe.CID_IMAGE,MAILBOX:"mailbox.php?id=16",BUDDY_FARM:"https://buddy.farm/t/cid/"}});function ot(e){return ot="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ot(e)}function at(e,t,n){return(t=function(e){var t=function(e){if("object"!=ot(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=ot(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==ot(t)?t:t+""}(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}var lt={TIER_I:100,TIER_II:1e3,MASTERY:1e4,GRAND_MASTERY:1e5,MEGA_MASTERY:1e6},st=at(at(at(at(at({},lt.TIER_I,"Tier I"),lt.TIER_II,"Tier II"),lt.MASTERY,"M"),lt.GRAND_MASTERY,"GM"),lt.MEGA_MASTERY,"MM");const ut=lt;function ct(e){return ct="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ct(e)}function ft(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||dt(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function dt(e,t){if(e){if("string"==typeof e)return pt(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?pt(e,t):void 0}}function pt(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function ht(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,mt(r.key),r)}}function gt(e,t,n){return t&&ht(e.prototype,t),n&&ht(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function yt(e,t,n){return(t=mt(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function mt(e){var t=function(e){if("object"!=ct(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=ct(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==ct(t)?t:t+""}var vt=gt(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),yt(this,"isFoodItemPage",function(e){return!(null==e||!e.container)&&r()(e.container).find(".page-on-center .button.usemultitembtn").length>0}),yt(this,"doesItemHaveMastery",function(e){if(null!=e&&e.container)return r()(e.container).find('img[src="/img/items/icon_mastery2.png?1"]').length>0;new v(m.PAGE_NOT_FOUND,t.doesItemHaveMastery.name)}),yt(this,"getItemMasteryAmount",function(e){if(null==e||!e.container)return new v(m.PAGE_NOT_FOUND,t.getItemMasteryAmount.name),0;var n=r()(e.container).find(".item-title span:contains('Progress')");if(0===n.length)return 0;var i=n.text().match(/([0-9,]+) \/ ([0-9,]+) Progress/);return i&&i[1]?parseInt(i[1].replace(/,/g,""),10):0}),yt(this,"getItemNameOnNavbar",function(e){if(null!=e&&e.navbarInnerContainer){var n=r()(e.navbarInnerContainer).find("a.sharelink").text();if(n&&""!==n.trim())return n.trim();new v(m.ELEMENT_NOT_FOUND,t.getItemNameOnNavbar.name)}else new v(m.PAGE_NOT_FOUND,t.getItemNameOnNavbar.name)}),yt(this,"getItemQuantity",function(e){var n=(arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}).storehouse,i=void 0!==n&&n;if(!e||!e.container)return new v(m.INVALID_PARAMETER,t.getItemQuantity.name),0;var o=ft(r()(e.container).find(".item-title:contains('My Inventory')").children("span").text().match(/([0-9,]+ on hand)([0-9,]+ in Storehouse)?/),3),a=o[0],l=o[1],s=o[2];if(!a||!l)return new v(m.ELEMENT_NOT_FOUND,t.getItemQuantity.name),0;if(i&&!s)return 0;var u=parseInt(l.replace(/[^0-9]/g,""),10)||0;return i&&(u=parseInt(s.replace(/[^0-9]/g,""),10)||0),u}),yt(this,"addBuddyFarmButton",function(n){if(null!=n&&n.container)if(pe.isEnabled(re.ITEM,"addBuddyFarmButton")){var i=E({iconImageUrl:Fe.BUDDY_FARM,title:"Buddy Farm",subtitle:"Open's Buddy Farm Item Page",buttonLabel:"Open",rowId:"frpgp-item-buddy-farm-row",onClick:function(){var e=t.getItemNameOnNavbar(n),r="https://buddy.farm/i/".concat(O(e));window.open(r,"_blank")}});r()(n.container).find("#frpgp-item-buddy-farm-row").length>0||w(n,e.titles.ITEM_DETAILS).prepend(i)}else f.log("Buddy Farm button is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addBuddyFarmButton.name)}),yt(this,"addNpcLikingsCards",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.ITEM,"addNpcLikingsCards")){var n,i=function(e){return e.split("_").map(function(e){return e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()}).join(" ")},o=t.getItemNameOnNavbar(e),a=function(e){var t="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!t){if(Array.isArray(e)||(t=dt(e))){t&&(e=t);var n=0,r=function(){};return{s:r,n:function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}},e:function(e){throw e},f:r}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,o=!0,a=!1;return{s:function(){t=t.call(e)},n:function(){var e=t.next();return o=e.done,e},e:function(e){a=!0,i=e},f:function(){try{o||null==t.return||t.return()}finally{if(a)throw i}}}}(Object.entries(rt[o]||{}).sort(function(e,t){var n={SUPER_LOVES:1,LOVES:2,LIKES:3,HATES:4};return(n[e[0]]||0)-(n[t[0]]||0)}));try{var l=function(){var t=ft(n.value,2),a=t[0],l=t[1];if(!l||0===l.length)return 1;var s;s="Bouquet of Flowers"===o?1e3:"Heart Container"===o?1e6:"SUPER_LOVES"===a?1e7:"LOVES"===a?150:"LIKES"===a?100:-50;var u=l.map(function(e){var t,n;return E({iconImageUrl:(null===(t=it[e])||void 0===t?void 0:t.IMAGE)||"",iconUrl:Fe["NPC_".concat(a,"_GIFT")]||"",iconOnTitleEnd:!0,title:i(e),subtitle:"Gives: ".concat(s," XP | TFOD: ").concat(2*s," XP"),rowLink:null===(n=it[e])||void 0===n?void 0:n.MAILBOX})}),c="frpg-".concat(a.toLowerCase().replace("_","-"),"-npc-likings-card"),f=S({cardId:c,title:"NPCs Who ".concat(i(a)," "),children:u});r()(e.container).find(c).length>0||r()(e.container).find("p").first().prev().after(f)};for(a.s();!(n=a.n()).done;)l()}catch(e){a.e(e)}finally{a.f()}}else f.log("NPC likings cards are disabled in settings.");else new v(m.PARAMETER_MISMATCH,t.addNpcLikingsCards.name)}),yt(this,"addCollectedIndicator",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.ITEM,"addCollectedIndicator")){var n=R.get("items_collected_cache");n&&"object"===ct(n)||(R.set("items_collected_cache",{}),n={});var i=t.getItemNameOnNavbar(e),o=n[i]||t.getItemQuantity(e)>0||t.getItemQuantity(e,{storehouse:!0})>0,a=r()("<span>").attr("id","frpgp-collected-indicator").css("font-weight","bold").css("font-size","11px");o?(a.css("color","green").text("Collected!"),n[i]=!0):a.css("color","red").text("Not Collected"),R.set("items_collected_cache",n),r()(e.container).find("#frpgp-collected-indicator").length>0||r()(e.container).find("div#img").append([a,"<br>"])}else f.log("Collected indicator is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addCollectedIndicator.name)}),yt(this,"addPJToGoalIndicator",function(n){if(null!=n&&n.container)if(pe.isEnabled(re.ITEM,"addPJToGoalIndicator"))if(w(n,e.titles.PUMPKING_JUICE)){var i=r()(n.container).find("a.usepumpkinjuicebtn");if(i.length){var o=i.find(".item-after").text().trim();if(o&&"0"!==o){var a=r()("<span>").attr("id","frpgp-pj-owned").css("font-size","11px").append(["You own ","<strong>".concat(o,"</strong>")," Pumpkin Juices."]);r()(n.container).find("#frpgp-pj-owned").length>0||i.find(".item-title").append(["<br>",a]);var l=t.getItemMasteryAmount(n);if(l>=ut.MEGA_MASTERY)f.debug("Current mastery amount is already at or above Mega Mastery.");else{for(var s=[],u=0,c=Object.values(ut);u<c.length;u++){var d=c[u];if(!(d<=l)){var p=addCommas(Math.ceil(Math.log(d/l)/Math.log(1.1)).toString());f.debug("Goal: ".concat(d,", PJ Needed: ").concat(p,", Current Mastery: ").concat(l));var h="".concat(p," to ").concat(st[d]);s.push("".concat(h))}}0!==s.length?r()(n.container).find("#frpgp-pj-goals").length>0||i.find(".item-after").addClass("frpgp-pj-goals").text("").append(s.join(" | ")):f.debug("No mastery goals found for the current item.")}}else f.debug("Pumpkin Juice amount is zero or not found.")}else f.debug("Pumpkin Juice button not found.")}else f.debug("Pumpking Juice section not found on the page.");else f.log("Pumpking Juice goal indicator is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addPJToGoalIndicator.name)}),yt(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Item page initialized:",e),t.addBuddyFarmButton(e),t.addNpcLikingsCards(e),t.addCollectedIndicator(e),t.addPJToGoalIndicator(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.ITEM,{displayName:"Item Page",order:3}),pe.registerFeature(re.ITEM,"addBuddyFarmButton",{title:"Add Buddy Farm Button?",subtitle:"Adds a button that links to Buddy Farm page of the item.",isEnabled:!0,configs:{}}),pe.registerFeature(re.ITEM,"addNpcLikingsCards",{title:"Add NPC Likings Cards?",subtitle:"Adds cards showing which NPCs super love, love, like or hate the current item.",isEnabled:!0,configs:{}}),pe.registerFeature(re.ITEM,"addCollectedIndicator",{title:"Add Collected Indicator?",subtitle:["Adds an indicator showing if the item was already collected at some point of the game.","<br>","Synchronizes whenever entering on Inventory, Item or Museum pages."],isEnabled:!0,configs:{}}),pe.registerFeature(re.ITEM,"addPJToGoalIndicator",{title:"Add Pumpkin Juice Goal Indicator?",subtitle:"Adds an indicator showing the amount of Pumpkin Juice you need to reach goal.",isEnabled:!0,configs:{}})});yt(vt,"titles",Object.freeze({ITEM_DETAILS:"Item Details",PUMPKING_JUICE:"Pumpkin Juice",COOKING_RECIPE:"Cooking Recipe",COOKING_USE:"Cooking Use",CRAFTING_RECIPE:"Crafting Recipe",CRAFTING_USE:"Crafting Use",FISHING:"Fishing",EXPLORING:"Exploring"}));const bt=vt;function Et(e){return Et="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Et(e)}function St(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,At(r.key),r)}}function wt(e,t,n){return t&&St(e.prototype,t),n&&St(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Ot(e,t,n){return(t=At(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function At(e){var t=function(e){if("object"!=Et(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Et(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Et(t)?t:t+""}var Tt=wt(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Ot(this,"addTownsfolkInfoCard",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.NPCS,"townsfolkInfo")){var n=S({cardId:"frpgp-townsfolk-info-card",title:"Townsfolk Info",children:[E({title:"Library - Townsfolk Friendship",iconClass:"fa fa-fw fa-heart",subtitle:"Open's the Townsfolk Friendship Library page",rowLink:it.TOWNSFOLK.FRIENDSHIP,rowId:"frpgp-townsfolk-friendship-row"}),E({title:"Library - Townsfolk Gifts",iconClass:"fa fa-fw fa-gift",subtitle:"Open's the Townsfolk Gifts Library page",rowLink:it.TOWNSFOLK.GIFTS,rowId:"frpgp-townsfolk-gifts-row"}),E({title:"Buddy Farm - Townsfolk",iconClass:"fa fa-fw fa-users",subtitle:"Open's Buddy Farm Townsfolk page",rowLink:it.TOWNSFOLK.BUDDY_FARM,rowId:"frpgp-buddy-farm-townsfolk-row"})]});r()(e.container).find("#frpgp-townsfolk-info-card").length>0||r()(e.container).find(".card").last().after(n)}else f.log("Townsfolk Info Card is disabled, skipping creation.");else new v(m.PARAMETER_MISMATCH,t.addTownsfolkInfoCard.name)}),Ot(this,"applyHandler",function(e){null!=e&&e.container?(f.log("NPCs page initialized:",e),t.addTownsfolkInfoCard(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.NPCS,{displayName:"NPCs Page",order:100}),pe.registerFeature(re.NPCS,"townsfolkInfo",{title:"Add Townsfolk Info Card?",subtitle:"Adds a card with links to townsfolk information.",isEnabled:!0,configs:{}})});Ot(Tt,"titles",Object.freeze({CURRENT_LEVELS:"Current Levels",DRINK_BABA_COLA:"Drink Baba Cola"}));const _t=Tt;var Ct=n(92),It=n.n(Ct);function xt(e){return xt="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},xt(e)}function Nt(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Pt(r.key),r)}}function Pt(e){var t=function(e){if("object"!=xt(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=xt(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==xt(t)?t:t+""}var Lt=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}return function(e,t,n){return n&&Nt(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}(e,0,[{key:"isValid",value:function(e){return!("string"!=typeof e||!e.trim())&&/^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(e.toUpperCase())}},{key:"romanize",value:function(e){if(!+e)return!1;for(var t=String(+e).split(""),n=["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM","","X","XX","XXX","XL","L","LX","LXX","LXXX","XC","","I","II","III","IV","V","VI","VII","VIII","IX"],r="",i=3;i--;)r=(n[+t.pop()+10*i]||"")+r;return Array(+t.join("")+1).join("M")+r}},{key:"deromanize",value:function(e){if("string"!=typeof e||!e.trim())return!1;var t,n=/[MDLV]|C[MD]?|X[CL]?|I[XV]?/g,r={M:1e3,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},i=0;if(!(e=e.toUpperCase())||!/^M*(?:D?C{0,3}|C[MD])(?:L?X{0,3}|X[CL])(?:V?I{0,3}|I[XV])$/.test(e))return!1;for(t=n.exec(e);t;)i+=r[t[0]],t=n.exec(e);return i}},{key:"next",value:function(t){if("string"!=typeof t||!t.trim()||!e.isValid(t))return null;var n=e.deromanize(t);return e.romanize(n+1)}},{key:"prev",value:function(t){if("string"!=typeof t||!t.trim()||!e.isValid(t))return null;var n=e.deromanize(t);return n<=1?null:e.romanize(n-1)}}])}();const kt=Lt;function Rt(e){return Rt="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Rt(e)}function Mt(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function Dt(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Bt(r.key),r)}}function jt(e,t,n){return t&&Dt(e.prototype,t),n&&Dt(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Ft(e,t,n){return(t=Bt(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Bt(e){var t=function(e){if("object"!=Rt(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Rt(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Rt(t)?t:t+""}var Gt=jt(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Ft(this,"createBuddyFarmCardList",function(n){if(null==n||!n.container)return new v(m.PARAMETER_MISMATCH,t.createBuddyFarmCardList.name),null;var i;if(r()(n.container).find("#frpgp-buddy-farm-quest-info-card").length>0){if(0===(i=r()(n.container).find("#frpgp-buddy-farm-quest-info-card ul")).length)return new v(m.ELEMENT_NOT_FOUND,t.getBuddyFarmCardList.name),null}else{var o=S({cardId:"frpgp-buddy-farm-quest-info-card",title:"Buddy Farm Quest Information",children:[]});if(o=w(n,e.titles.REWARDS,{returnTitle:!0}).next(".card").after(o).next().next(),f.debug("Buddy Farm card created:",o),i=o.find("ul"),f.debug("Buddy Farm card list:",i),0===i.length)return new v(m.ELEMENT_NOT_FOUND,t.createBuddyFarmCardList.name),null}return i}),Ft(this,"checkIfNextQuestExists",function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";if(e&&"string"==typeof e){var r=e.split(" ").at(-1);if(!n)return Promise.reject();var i=e.replace(new RegExp("\\b".concat(r,"$"))," ".concat(n)),o=R.get("next_quest_cache",{});return o[i]?Promise.resolve(o[i]):It()("https://buddy.farm/q/".concat(O(i))).then(function(e){return o[i]=200===e.status,R.set("next_quest_cache",o),o[i]},function(){return new v(m.NETWORK_ERROR,t.checkIfNextQuestExists.name),!1}).catch(function(){return new v(m.NETWORK_ERROR,t.checkIfNextQuestExists.name),!1})}new v(m.PARAMETER_MISMATCH,t.checkIfNextQuestExists.name)}),Ft(this,"isPhrQuestPage",function(e){return!(null==e||!e.container)&&r()(e.container).find(".button.btnorange.drinkpj").length>0}),Ft(this,"getPreviousAndNextQuestNumbers",function(e){if(e&&"string"==typeof e){var n=e.split(" ").at(-1);return kt.isValid(n)?"I"===n?[null,kt.next(n)]:[kt.prev(n),kt.next(n)]:Number.isInteger(Number(n))?"1"===n?[null,"2"]:["".concat(Number(n)-1),"".concat(Number(n)+1)]:void new v(m.INVALID_QUEST_NUMBER,t.getPreviousAndNextQuestNumbers.name)}new v(m.PARAMETER_MISMATCH,t.getPreviousAndNextQuestNumbers.name)}),Ft(this,"addLibraryButtonToPhr",function(n){if(null!=n&&n.container){if(t.isPhrQuestPage(n))if(pe.isEnabled(re.QUEST,"addLibraryButtonToPhr"))if(0!==r()(n.container).find(".button.btnorange.drinkpj").length){var i=S({cardId:"frpgp-library-info-card",title:"Library Information",children:[E({iconClass:"fa fa-fw fa-book",title:"Library - Personal Help Requests",subtitle:"Open's library personal help requests page",rowLink:"wiki.php?page=Personal+Help+Requests"})]}),o=w(n,e.titles.REWARDS,{returnTitle:!0});r()(n.container).find("#frpgp-library-info-card").length>0||o.next(".card").after(i)}else f.log("Not a PHR page, skipping library button addition.");else f.log("Library button for PHR is disabled in settings.")}else new v(m.PAGE_NOT_FOUND,t.addLibraryButtonToPhr.name)}),Ft(this,"addBuddyFarmCard",function(e){if(null!=e&&e.container){if(!t.isPhrQuestPage(e))if(pe.isEnabled(re.QUEST,"addBuddyFarmCard")){var n=r()(e.container).find(".item-title[style='font-weight: bold']");if(n&&0!==n.length){var i=n.children().length>=1?n.html().trim().replace(/<br\s*\/?>/gi," "):n.text().trim();if(i){var o=E({rowId:"frpgp-buddy-farm-current-quest",title:"BF - ".concat(i),iconClass:"fa fa-fw fa-bullseye",subtitle:"Open's Buddy Farm current quest page",rowLink:"https://buddy.farm/q/".concat(O(i))});if(!(r()(e.container).find("#frpgp-buddy-current-quest").length>0)){var a=t.createBuddyFarmCardList(e);if(f.debug("Buddy Farm card for current quest:",a),!a)return void new v(m.ELEMENT_NOT_FOUND,t.addBuddyFarmCard.name);a.append(o)}}else new v(m.ELEMENT_NOT_FOUND,t.addBuddyFarmCard.name)}else new v(m.ELEMENT_NOT_FOUND,t.addBuddyFarmCard.name)}else f.log("Buddy Farm card is disabled in settings.")}else new v(m.PAGE_NOT_FOUND,t.addBuddyFarmCard.name)}),Ft(this,"addExtraBuddyFarmButtons",function(e){if(null!=e&&e.container){if(!t.isPhrQuestPage(e))if(pe.isEnabled(re.QUEST,"addExtraBuddyFarmButtons")){var n=r()(e.container).find(".item-title[style='font-weight: bold']");if(0!==!(null!=n&&n.length)){var i=n.children().length>=1?n.html().trim().replace(/<br\s*\/?>/gi," "):n.text().trim();if(i){var o,a,l=function(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||function(e,t){if(e){if("string"==typeof e)return Mt(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?Mt(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}(t.getPreviousAndNextQuestNumbers(i),2),s=l[0],u=l[1];if(s){var c=i.replace(new RegExp("\\b".concat(i.split(" ").at(-1),"$")),s);if(o=E({rowId:"frpgp-buddy-farm-previous-quest",iconClass:"fa fa-fw fa-arrow-left",title:"BF - Previous Quest",subtitle:"Open's Buddy Farm previous quest page",rowLink:"https://buddy.farm/q/".concat(O(c))}),!(r()(e.container).find("#frpgp-buddy-farm-previous-quest").length>0)){var d=t.createBuddyFarmCardList(e);if(!d)return void new v(m.ELEMENT_NOT_FOUND,t.addExtraBuddyFarmButtons.name);d.prepend(o)}}t.checkIfNextQuestExists(i,u).then(function(n){if(!n)return!1;var o=i.replace(new RegExp("\\b".concat(i.split(" ").at(-1),"$"))," ".concat(u));if(a=E({rowId:"frpgp-buddy-farm-next-quest",iconClass:"fa fa-fw fa-arrow-right",title:"BF - Next Quest",subtitle:"Open's Buddy Farm next quest page",rowLink:"https://buddy.farm/q/".concat(O(o))}),!(r()(e.container).find("#frpgp-buddy-farm-next-quest").length>0)){var l=t.createBuddyFarmCardList(e);if(f.debug("Buddy Farm card for next quest:",l),!l)return void new v(m.ELEMENT_NOT_FOUND,t.addExtraBuddyFarmButtons.name);l.append(a)}return!0},function(){return!1}).catch(function(){return!1})}else new v(m.ELEMENT_NOT_FOUND,t.addExtraBuddyFarmButtons.name)}else new v(m.ELEMENT_NOT_FOUND,t.addExtraBuddyFarmButtons.name)}else f.log("Extra Buddy Farm buttons are disabled in settings.")}else new v(m.PAGE_NOT_FOUND,t.addExtraBuddyFarmButtons.name)}),Ft(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Quest page initialized:",e),t.addLibraryButtonToPhr(e),t.addBuddyFarmCard(e),t.addExtraBuddyFarmButtons(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.QUEST,{displayName:"Quest Page",order:5}),pe.registerFeature(re.QUEST,"addBuddyFarmCard",{title:"Add Buddy Farm Card?",subtitle:"Adds a card with links to Buddy Farm quest information.",isEnabled:!0,configs:{}}),pe.registerFeature(re.QUEST,"addExtraBuddyFarmButtons",{title:"Add Extra Buddy Farm Buttons?",subtitle:"Adds buttons for previous and next Buddy Farm quest pages.",isEnabled:!0,configs:{}}),pe.registerFeature(re.QUEST,"addLibraryButtonToPhr",{title:"Add Library Button to PHRs?",subtitle:"Adds a button to Personal Help Request pages that links to the library.",isEnabled:!0,configs:{}})});Ft(Gt,"titles",{SILVER_REQUESTED:"Silver Requested",ITEMS_REQUESTED:"Items Requested",REWARDS:"Rewards"});const Ht=Gt;function Ut(e){return Ut="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Ut(e)}function Vt(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Kt(r.key),r)}}function Wt(e,t,n){return t&&Vt(e.prototype,t),n&&Vt(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function qt(e,t,n){return(t=Kt(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Kt(e){var t=function(e){if("object"!=Ut(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Ut(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Ut(t)?t:t+""}var Yt=Wt(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),qt(this,"addBuddyFarmCard",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.QUESTS,"addBuddyFarmButton")){var n=S({title:"Buddy Farm",children:[E({iconImageUrl:Fe.BUDDY_FARM,title:"Buddy Farm",subtitle:"Open's Buddy Farm Quests Page",rowLink:"https://buddy.farm/quests/",rowId:"frpgp-buddy-farm-row"})]});r()(e.container).find("#frpgp-buddy-farm-row").length>0||r()(e.container).find(".card").last().prev().prev().after(n)}else f.log("Buddy Farm button is disabled in settings.");else new v("PAGE_NOT_FOUND",t.addBuddyFarmCard.name)}),qt(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Quests page initialized:",e),t.addBuddyFarmCard(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.QUESTS,{displayName:"Quests Page",order:4}),pe.registerFeature(re.QUESTS,"addBuddyFarmButton",{title:"Add Buddy Farm Button?",subtitle:"Adds a button that links to the Buddy Farm Quests page.",isEnabled:!0,configs:{}})});qt(Yt,"titles",Object.freeze({COMMUNITY_CENTER:"Community Center",SPECIAL_REQUESTS:"Special Requests ([0-9]+)",ACTIVE_REQUESTS:"Active Requests ([0-9]+)",PERSONAL_REQUESTS:"Personal Requests ([0-9]+)",REQUEST_TOTALS:"Request Totals"}));const zt=Yt;function Xt(e){return Xt="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Xt(e)}function $t(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Zt(r.key),r)}}function Qt(e,t,n){return t&&$t(e.prototype,t),n&&$t(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Jt(e,t,n){return(t=Zt(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Zt(e){var t=function(e){if("object"!=Xt(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Xt(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Xt(t)?t:t+""}var en=Qt(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Jt(this,"getResourceSaverFactor",function(e){if(null==e||!e.container)return new v(m.PAGE_NOT_FOUND,t.getResourceSaverFactor.name),1;var n=r()(e.container).find(".progressbar").next(".card");0===n.length&&new v(m.ELEMENT_NOT_FOUND,t.addCraftingBonusIndicator.name);var i=n.text().trim().match(/Your resource saver perk is (\d+)%\./),o=0;return i&&(o=parseInt(i[1],10)/100),isNaN(o)||o<0?(f.warn("Invalid resource saver percentage found:",o),0):o}),Jt(this,"addCraftingBonusIndicator",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.WORKSHOP,"addCraftingBonusIndicator")){var n=r()(e.container).find(".item-title");if(n.length<=3)f.warn("No item titles found in the workshop page.");else{n=n.slice(3);var i=t.getResourceSaverFactor(e);n.each(function(e,t){var n=r()(t).find("input");if(0!==n.length&&"0"!==n.val()){var o=parseInt(n.val(),10);if(!(isNaN(o)||o<=0)){var a=Math.floor(o*i),l=n.prev("button");if(0!==l.length){var s=n.next("button");if(0!==s.length){var u=r()("<span>").addClass("frpgp-crafting-bonus-indicator").attr("title","Crafting bonus with resource saver").css({color:"green","margin-left":"5px","font-weight":"bold","font-size":"14px"}).text("(".concat(a,")"));r()(t).find(".frpgp-crafting-bonus-indicator").length>0||r()(t).append(u),n.on("change change.frpgplus",function(e,t){e.preventDefault(),e.stopPropagation();var r=parseInt(n.val(),10);null!=t&&t.offset&&(r+=t.offset),isNaN(r)||r<0?u.text(""):u.text("(".concat(Math.floor(r*i),")"))}),l.on("click",function(e){e.preventDefault(),e.stopPropagation(),"0"===n.val()||n.trigger("change.frpgplus",{offset:-1})}),s.on("click",function(e){e.preventDefault(),e.stopPropagation(),parseInt(n.val(),10)>=parseInt(n.attr("data-max"),10)||n.trigger("change.frpgplus",{offset:1})})}else f.warn("Plus button not found for input:",n)}else f.warn("Minus button not found for input:",n)}}})}}else f.log("Crafting bonus indicator is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addCraftingBonusIndicator.name)}),Jt(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Workshop page initialized:",e),t.addCraftingBonusIndicator(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.WORKSHOP,{displayName:"Workshop Page",order:2}),pe.registerFeature(re.WORKSHOP,"addCraftingBonusIndicator",{title:"Add Crafting Bonus Indicator?",subtitle:"Adds a indicator to crafting items showing how much bonus resources will be crafted with resource saver.",isEnabled:!0,configs:{}})});Jt(en,"titles",Object.freeze({FAVORITE_ITEMS:"Workshop",CRAFTING:"Crafting"}));const tn=en;function nn(e){return nn="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},nn(e)}function rn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,ln(r.key),r)}}function on(e,t,n){return t&&rn(e.prototype,t),n&&rn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function an(e,t,n){return(t=ln(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function ln(e){var t=function(e){if("object"!=nn(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=nn(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==nn(t)?t:t+""}const sn=on(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),an(this,"cachePlayerOvenAmount",function(e){var n;if(null!=e&&e.container){var i=r()(e.container).find('a[href^="oven.php?num="]').last();if(0!==i.length){var o=null===(n=i.attr("href"))||void 0===n?void 0:n.match(/num=(\d+)/)[1],a=parseInt(o,10);isNaN(a)?f.warn("Invalid oven amount found:",o):R.set("player_oven_amount",a)}else new v(m.ELEMENT_NOT_FOUND,t.cachePlayerOvenAmount.name)}else new v(m.PAGE_NOT_FOUND,t.cachePlayerOvenAmount.name)}),an(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Kitchen page initialized",e),t.cachePlayerOvenAmount(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)})});function un(e){return un="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},un(e)}function cn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,pn(r.key),r)}}function fn(e,t,n){return t&&cn(e.prototype,t),n&&cn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function dn(e,t,n){return(t=pn(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function pn(e){var t=function(e){if("object"!=un(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=un(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==un(t)?t:t+""}var hn=fn(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),dn(this,"isCurrentlyCooking",function(t){if(null==t||!t.container)return!1;var n=w(t,e.titles.CURRENTLY_COOKING),i=r()(t.container).find("a.cookreadybtn");return n&&0===i.length}),dn(this,"isCookingComplete",function(e){return!(null==e||!e.container)&&1===r()(e.container).find("a.cookreadybtn").length}),dn(this,"addOvenNavigationButtons",function(n){var i;if(null!=n&&n.container)if(pe.isEnabled(re.OVEN,"addOvenNavigationButtons")){var o=R.get("player_oven_amount")||1,a=parseInt((null==n||null===(i=n.query)||void 0===i?void 0:i.num)||1,10),l=r()("<a>").addClass("button btngreen").text("Previous").on("click",function(){I.goto("#!/oven.php?num=".concat(1===a?o:a-1))}),s=r()("<a>").addClass("button btngreen").text("  Next  ").on("click",function(e){e.preventDefault(),I.goto("#!/oven.php?num=".concat(a===o?1:a+1))}),u=S({cardId:"frpg-oven-navigation-card",title:"Oven Navigation",children:[E({iconImageUrl:Fe.OVEN_ICON,title:"Oven Navigation",subtitle:"Navigate to next or previous oven page",rowId:"frpg-oven-navigation-row",afterLabel:[l,"<p>&nbsp;</p>",s]})]}),c=r()(n.container).find("#frpg-oven-navigation-card").length>0;t.isCurrentlyCooking(n)||c?c||w(n,e.titles.CURRENTLY_COOKING,{returnTitle:!0}).before(u):w(n,e.titles.LEARNED_RECIPES,{returnTitle:!0}).before(u)}else f.log("Oven navigation buttons are disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addOvenNavigationButtons.name)}),dn(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Oven page initialized",e),t.addOvenNavigationButtons(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.OVEN,{displayName:"Oven Page",order:100}),pe.registerFeature(re.OVEN,"addOvenNavigationButtons",{title:"Add Oven Navigation Buttons?",subtitle:"Adds buttons to navigate between different oven pages.",isEnabled:!0,configs:{}})});dn(hn,"titles",Object.freeze({LEARNED_RECIPES:"Learned Recipes",CURRENTLY_COOKING:"Currently Cooking",COOKING_OPTIONS:"Cooking Options",OTHER_OPTIONS:"Other Options"}));const gn=hn;function yn(e){return yn="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},yn(e)}function mn(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function vn(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?mn(Object(n),!0).forEach(function(t){On(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):mn(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}function bn(e,t){var n="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!n){if(Array.isArray(e)||(n=function(e,t){if(e){if("string"==typeof e)return En(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?En(e,t):void 0}}(e))||t&&e&&"number"==typeof e.length){n&&(e=n);var r=0,i=function(){};return{s:i,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(e){throw e},f:i}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var o,a=!0,l=!1;return{s:function(){n=n.call(e)},n:function(){var e=n.next();return a=e.done,e},e:function(e){l=!0,o=e},f:function(){try{a||null==n.return||n.return()}finally{if(l)throw o}}}}function En(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function Sn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,An(r.key),r)}}function wn(e,t,n){return t&&Sn(e.prototype,t),n&&Sn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function On(e,t,n){return(t=An(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function An(e){var t=function(e){if("object"!=yn(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=yn(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==yn(t)?t:t+""}const Tn=wn(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),On(this,"createCheckboxRow",function(e,t,n){if(!t||!t.title||!t.subtitle)return f.warn("Invalid feature configuration:",t),null;var i=r()("<div>").addClass("item-content"),o=r()("<div>").addClass("item-inner").attr({role:"checkbox",id:"".concat(t.id,"-aria"),"aria-labelledby":"".concat(t.id,"-label"),"aria-checked":!0===t.typeData.value?"true":"false"}),a=r()("<div>").addClass("item-title label").css("width","60%").append(r()("<label>").attr("id","".concat(t.id,"-label")).attr("for","".concat(t.id,"-input")).append(t.title),"<br>",r()("<span>").css("font-size","11px").append(t.subtitle)),l=r()("<label>").addClass("label-switch").append(r()("<input>").addClass("frpgp-options").attr({type:"checkbox",id:"".concat(t.id,"-input"),name:"".concat(t.id,"-name"),value:"1"}).prop("checked",t.typeData.value).on("change",function(){var r="true"===o.attr("aria-checked");pe.setValue(e.pageId,n?t.featureId:t.id,n?t.id:void 0,!r),o.attr("aria-checked",r?"false":"true")}),r()("<div>").addClass("checkbox"));return o.append([a,l]),i.append(o),i}),On(this,"createNumericRow",function(e,t,n){if(!t||!t.title||!t.subtitle)return f.warn("Invalid feature configuration:",t),null;var i=r()("<div>").addClass("item-content"),o=r()("<div>").addClass("item-inner"),a=r()("<div>").addClass("item-title label").append(t.title,"<br>",r()("<span>").css("font-size","11px").append(t.subtitle)),l=r()("<div>").addClass("item-after").append(r()("<input>").attr({type:"text",name:"".concat(t.id,"-input"),value:t.typeData.value}).addClass("inlineinputsm").css("width","60px").on("change",function(){var i,o,a,l;if(t.typeData.min&&t.typeData.max){var s=pe.getValue(e.pageId,n?t.featureId:t.id,n?t.id:void 0),u=parseInt(r()(this).val(),10);isNaN(u)&&(u=s),u<(null!==(i=null==t||null===(o=t.typeData)||void 0===o?void 0:o.min)&&void 0!==i?i:1)&&r()(this).val(t.typeData.min),u>(null!==(a=null==t||null===(l=t.typeData)||void 0===l?void 0:l.max)&&void 0!==a?a:100)&&r()(this).val(t.typeData.max),pe.setValue(e.pageId,n?t.featureId:t.id,n?t.id:void 0,u)}else f.warn("Numeric feature ".concat(t.id," does not have min/max defined."))}));return o.append([a,l]),i.append(o),i}),On(this,"createSelectRow",function(e,t,n){var i;if(!t||!t.title||!t.subtitle)return f.warn("Invalid feature configuration:",t),null;if(n&&(null===(i=t.typeData)||void 0===i||!i.options))return f.warn("Invalid feature configuration for select row:",t),null;var o=r()("<div>").addClass("item-content"),a=r()("<div>").addClass("item-inner"),l=r()("<div>").addClass("item-title").append(t.title,"<br>",r()("<span>").css("font-size","11px").append(t.subtitle)),s=[];t.typeData.options&&Array.isArray(t.typeData.options)||f.warn("Invalid feature options:",t.typeData.options);var u,c=bn(t.typeData.options);try{for(c.s();!(u=c.n()).done;){var d=u.value;if(d&&d.value&&d.label){var p=r()("<option>").attr("value",d.value).text(d.label);d.value===t.typeData.value&&p.attr("selected",""),s.push(p)}else f.warn("Invalid feature option:",d)}}catch(e){c.e(e)}finally{c.f()}var h=r()("<div>").addClass("item-after").append(r()("<select>").attr("name","".concat(t.id,"-input")).addClass("inlineinputlg").on("change",function(){var i=r()(this).val();pe.setValue(e.pageId,n?t.featureId:t.id,n?t.id:void 0,i)}).append(s));return a.append([l,h]),o.append(a),o}),On(this,"makeConfigFeatureRow",function(e,n){var i=arguments.length>2&&void 0!==arguments[2]&&arguments[2];if(!n||!n.title||!n.subtitle)return f.warn("Invalid feature configuration:",n),null;if(i&&!n.configId&&!n.featureId)return f.warn("Invalid feature configuration for many config row:",n),null;var o,a,l,s,u,c,d,p={};switch(i?(p.id=n.configId,p.featureId=n.featureId,p.title=n.title,p.subtitle=n.subtitle,p.type=null!==(o=n.type)&&void 0!==o?o:"checkbox",p.typeData=vn(vn({},n.typeData),{},{value:null!==(a=null===(l=n.typeData)||void 0===l?void 0:l.value)&&void 0!==a&&a})):(p.id=n.featureId,p.title=null!==(s=n.enableTitle)&&void 0!==s?s:n.title,p.subtitle=null!==(u=n.enableSubtitle)&&void 0!==u?u:n.subtitle,p.type="checkbox",p.typeData={value:null!==(c=n.isEnabled)&&void 0!==c&&c}),p.type){case"checkbox":d=t.createCheckboxRow(e,p,i);break;case"numeric":d=t.createNumericRow(e,p,i);break;case"select":d=t.createSelectRow(e,p,i);break;default:return f.warn("Unsupported feature type:",p.type),null}return r()("<li>").attr("id","".concat(p.id,"-row")).append(d)}),On(this,"makeManyConfigFeatureRow",function(e,n){if(!(n&&n.title&&n.subtitle&&n.configs))return f.warn("Invalid feature configuration:",n),null;var i=r()("<a>").attr("href","#").addClass("item-content item-link").append(r()("<div>").addClass("item-inner").append(r()("<div>").addClass("item-title").append(n.title,r()("<br>"),r()("<span>").css("font-size","11px").append(n.subtitle)))),o=r()("<div>").addClass("accordion-item-content"),a=r()("<div>").addClass("list-block"),l=r()("<ul>"),s=t.makeConfigFeatureRow(e,n,!1);l.append(s);var u,c=bn(n.configs);try{for(c.s();!(u=c.n()).done;){var d=u.value;if(d&&d.title&&d.subtitle){var p=vn(vn({},d),{},{featureId:n.featureId});(s=t.makeConfigFeatureRow(e,p,!0))&&l.append(s)}else f.warn("Invalid config:",d)}}catch(e){c.e(e)}finally{c.f()}return a.append(l),o.append(a),r()("<li>").addClass("accordion-item").append(i,o)}),On(this,"addUserscriptConfiguration",function(e){if(null!=e&&e.container){var n=r()(e.container).find(".content-block").last();if(0!==n.length){var i=pe.getAllFeatures();if(i&&0!==Object.keys(i).length){var o,a=[],l=bn(i);try{for(l.s();!(o=l.n()).done;){var s=o.value,u=r()("<li>").addClass("list-group-title item-divider").text("".concat(s.title," Options"));a.push(u);var c,d=bn(s.features);try{for(d.s();!(c=d.n()).done;){var p=c.value,h=p.configs.length>0?t.makeManyConfigFeatureRow(s,p):t.makeConfigFeatureRow(s,p);a.push(h)}}catch(e){d.e(e)}finally{d.f()}}}catch(e){l.e(e)}finally{l.f()}var g=r()("<div>").addClass("list-block").append(r()("<ul>").append(a)),y=r()("<div>").addClass("content-block-title").attr("id","frpgp-userscript-configuration-title").append(r()("<span>").css({"font-size":"11px",float:"right"}).append("Settings are saved automatically when changed"),"FarmRPG Plus Configuration"),b=r()("<div>").attr("id","frpgp-userscript-configuration").addClass("content-block").append(y,g);r()(e.container).find("#frpgp-userscript-configuration").length>0||n.after("<p>&nbsp;</p>",b)}else f.log("No settings available to display.")}else new v(m.ELEMENT_NOT_FOUND,t.addUserscriptConfiguration.name)}else new v(m.PAGE_NOT_FOUND,t.addUserscriptConfiguration.name)}),On(this,"addResetEverythingButton",function(e){if(null!=e&&e.container){var n=r()(e.container).find(".content-block").last(),i=r()(e.container).find("#frpgp-userscript-configuration"),o=r()("<a>").attr("id","frpgp-reset-everything-button").addClass("button btn btnred").text("Reset all settings to default").on("click",function(e){e.preventDefault(),myApp.confirm("Are you sure you want to reset all FarmRPG Plus settings?\n\nThis action cannot be undone.","Reset FarmRPG Plus settings",function(){f.log("Resetting all settings to default."),R.clear(),myApp.alert("All FarmRPG Plus settings have been reset to default.","Success",function(){window.location.reload()})},function(){})});i.length?i.after(r()("<div>").addClass("content-block").append(o)):n.after("<p>&nbsp;</p>",r()("<div>").addClass("content-block").append(o))}else new v(m.PAGE_NOT_FOUND,t.addResetEverythingButton.name)}),On(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Settings Options page initialized:",e),t.addUserscriptConfiguration(e),t.addResetEverythingButton(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)})});function _n(e){return _n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_n(e)}function Cn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Nn(r.key),r)}}function In(e,t,n){return t&&Cn(e.prototype,t),n&&Cn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function xn(e,t,n){return(t=Nn(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Nn(e){var t=function(e){if("object"!=_n(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=_n(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==_n(t)?t:t+""}var Pn=In(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),xn(this,"syncCollectionProgress",function(e){if(null!=e&&e.container){var n=r()(e.container).find(".col-25");if(0!==n.length){var i=R.get("items_collected_cache",{});n.each(function(e,t){var n=r()(t).text().trim();n&&"-"!==n&&(i[n]=i[n]||!0)}),R.set("items_collected_cache",i),f.log("Collection progress cache updated")}else f.log("No collection progress found on the Museum page.")}else new v(m.PAGE_NOT_FOUND,t.syncCollectionProgress.name)}),xn(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Museum page initialized:",e),t.syncCollectionProgress(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)})});xn(Pn,"titles",Object.freeze({COLLECTION_PROGRESS:"Collection Progress",CROPS:"Crops",FISH:"Fish",ITEMS:"Items",SEEDS:"Seeds",BAIT:"Bait",MEALS:"Meals",CARDS:"Cards",EVENT:"Event"}));const Ln=Pn;function kn(e){return kn="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},kn(e)}function Rn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,jn(r.key),r)}}function Mn(e,t,n){return t&&Rn(e.prototype,t),n&&Rn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Dn(e,t,n){return(t=jn(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function jn(e){var t=function(e){if("object"!=kn(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=kn(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==kn(t)?t:t+""}var Fn=Mn(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Dn(this,"addDisplayDiscounts",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.FARM_SUPPLY,"addDisplayDiscounts")){var n=r()(e.container).find("span[style^='color:teal;'] strong");0!==n.length?n.each(function(t,n){var i=r()(n).parents(".item-title").next();if(0!==i.length){var o=parseInt(r()(n).text().trim(),10),a=100-100*parseInt(i.text().trim(),10)/o;!(r()(e.container).find(".frpgp-discount-after-".concat(t)).length>0)&&!isNaN(a)&&a>=0&&(i.prepend("&nbsp;"),i.prepend('<span style="color: teal; font-weight: bold;" class=\'frpgp-discount-after-'.concat(t,"'>").concat(a.toFixed(2),"% Off</span>")))}else f.log("No discounted price found for:",r()(n).text())}):f.log("No discounts found on the Farm Supply page.")}else f.log("Discount display is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addDisplayDiscounts.name)}),Dn(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Farm Supply page initialized:",e),t.addDisplayDiscounts(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.FARM_SUPPLY,{displayName:"Farm Supply",order:100}),pe.registerFeature(re.FARM_SUPPLY,"addDisplayDiscounts",{title:"Add discount indicators for on SALE items?",subtitle:"Adds a discount percentage next to items that are on sale.",isEnabled:!0,configs:{}})});Dn(Fn,"titles",Object.freeze({CAP_UPGRADES:"Cap Upgrades",UPGRADES_ON_SALE:"Upgrades on Sale (Changes on Mondays)",FARMING_UPGRADES:"Farming Upgrades",FISHING_UPGRADES:"Fishing Upgrades",CRAFTING_UPGRADES:"Crafting Upgrades",EXPLORING_UPGRADES:"Exploring Upgrades",COOKING_UPGRADES:"Cooking Upgrades",QUALITY_OF_LIFE_UPGRADES:"Quality of Life Upgrades",BANK_UPGRADES:"Bank Upgrades",ORCHARD_UPGRADES:"Orchard Upgrades",WINE_CELLAR_UPGRADES:"Wine Cellar Upgrades",LIVESTOCK_UPGRADES:"Livestock Upgrades",WHEEL_OF_BORGEN_UPGRADES:"Wheel of Borgen Upgrades",MISCELLANEOUS_UPGRADES:"Miscellaneous Upgrades",ARTIFACT_UPGRADES:"Artifact Upgrades"}));const Bn=Fn;function Gn(e){return Gn="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Gn(e)}function Hn(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=Array(t);n<t;n++)r[n]=e[n];return r}function Un(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,qn(r.key),r)}}function Vn(e,t,n){return t&&Un(e.prototype,t),n&&Un(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Wn(e,t,n){return(t=qn(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function qn(e){var t=function(e){if("object"!=Gn(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=Gn(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==Gn(t)?t:t+""}var Kn=Vn(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Wn(this,"addLibraryCard",function(n){if(null!=n&&n.container)if(pe.isEnabled(re.VAULT,"addLibraryCard")){var i=S({cardId:"frpgp-vault-library-card",title:"Vault Library",children:[E({rowId:"frpgp-vault-library",iconClass:"fa fa-fw fa-book",title:"Library - Vault Library",subtitle:"Open's Vault Library page",rowLink:"wiki.php?page=The+Vault"})]});r()(n.container).find("#frpgp-vault-library-card").length>0||w(n,e.titles.BORGEN_BUCKS,{returnTitle:!0}).before(i)}else f.log("Vault Library card is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addLibraryCard.name)}),Wn(this,"addGuessVaultCode",function(e){if(null!=e&&e.container)if(pe.isEnabled(re.VAULT,"addGuessVaultCode")){var n=r()(e.container).find("#vaultcode"),i=r()("<a>").attr("id","frpgp-vault-guess-code-button").addClass("button btn btnblue").text("Guess Vault Code");i.on("click",function(i){if(i.preventDefault(),n.length){var o=r()(e.container).find(".card-content-inner .row .col-25");if(o.length){var a=o.map(function(e,t){return r()(t).text().trim()}).get().reduce(function(e,t){var n=t.match(/([a-zA-Z]+)(\d+)/).slice(1);if(n){var r=function(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=n){var r,i,o,a,l=[],s=!0,u=!1;try{if(o=(n=n.call(e)).next,0===t){if(Object(n)!==n)return;s=!1}else for(;!(s=(r=o.call(n)).done)&&(l.push(r.value),l.length!==t);s=!0);}catch(e){u=!0,i=e}finally{try{if(!s&&null!=n.return&&(a=n.return(),Object(a)!==a))return}finally{if(u)throw i}}return l}}(e,t)||function(e,t){if(e){if("string"==typeof e)return Hn(e,t);var n={}.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?Hn(e,t):void 0}}(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}(n,2),i=r[0],o=r[1];e.push({color:i,number:o})}return e},[]);console.log("Vault hints:",a),n.val(t.guessVaultCode(a))}else n.val("0123")}else new v(m.ELEMENT_NOT_FOUND,t.addGuessVaultCode.name)});var o=r()(e.container).find(".resetbtn").length>0;r()(e.container).find("#frpgp-vault-guess-code-button").length>0||o||r()(e.container).find("a.vcbtn").after(i)}else f.log("Vault Guess Code button is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addGuessVaultCode.name)}),Wn(this,"guessVaultCode",function(e){if(!e||0===e.length)return"0123";var t=e.length/4,n=[];return 1===t?n.push("4","5","6","7"):2===t&&n.push("8","9"),n.join("")}),Wn(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Vault page initialized:",e),t.addLibraryCard(e),t.addGuessVaultCode(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.VAULT,{displayName:"Vault",order:100}),pe.registerFeature(re.VAULT,"addLibraryCard",{title:"Add Library Card?",subtitle:"Adds a card with a link to the Vault Library page.",isEnabled:!0,configs:{}}),pe.registerFeature(re.VAULT,"addGuessVaultCode",{title:"Add Guess Vault Code Button?",subtitle:"Enables the Guess Vault Code button.",isEnabled:!0,configs:{}})});Wn(Kn,"titles",Object.freeze({VAULT_STATS:"Vault Stats",BORGEN_BUCKS:"Borgen Bucks",LUCKY_SEVENS:"All Lucky 7's Today"}));const Yn=Kn;function zn(e){return zn="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},zn(e)}function Xn(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,Jn(r.key),r)}}function $n(e,t,n){return t&&Xn(e.prototype,t),n&&Xn(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Qn(e,t,n){return(t=Jn(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Jn(e){var t=function(e){if("object"!=zn(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=zn(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==zn(t)?t:t+""}var Zn=$n(function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),Qn(this,"addLibraryCard",function(n){if(null!=n&&n.container)if(pe.isEnabled(re.WELL,"addLibraryCard")){var i=S({cardId:"frpgp-wishing-well-library-card",title:"Wishing Well Library",children:[E({rowId:"frpgp-wishing-well-tips",iconClass:"fa fa-fw fa-lightbulb",title:"Library - Wishing Well Tips",subtitle:"Open's Wishing Well Tips Library page",rowLink:"wiki.php?page=Wishing+Well+Tips"}),E({rowId:"frpgp-wishing-well-curios",iconClass:"fa fa-fw fa-search",title:"Library - Wishing Well Curios",subtitle:"Open's Wishing Well Curios Library page",rowLink:"wiki.php?page=Wishing+Well+Curios"}),E({rowId:"frpgp-ww-wants",iconClass:"fa fa-fw fa-gift",title:"Library - WW Wants",subtitle:"Open's WW Wants Library page",rowLink:"wiki.php?page=WW Wants"})]}),o=w(n,e.titles.TOSS_SOMETHING_IN,{returnTitle:!0});r()(n.container).find("#frpgp-wishing-well-library-card").length>0||o.next(".card").after(i)}else f.log("Wishing Well Library card is disabled in settings.");else new v(m.PAGE_NOT_FOUND,t.addLibraryCard.name)}),Qn(this,"applyHandler",function(e){null!=e&&e.container?(f.log("Well page initialized:",e),t.addLibraryCard(e)):new v(m.PAGE_NOT_FOUND,t.applyHandler.name)}),pe.registerPage(re.WELL,{displayName:"Wishing Well",order:100}),pe.registerFeature(re.WELL,"addLibraryCard",{title:"Add Library Card?",subtitle:"Adds a card with links to helpful Wishing Well Library pages.",isEnabled:!0,configs:{}})});Qn(Zn,"titles",Object.freeze({ABOUT_THE_WISHING_WELL:"About the Wishing Well",TOSS_SOMETHING_IN:"Toss something in"}));const er=Zn;var tr;function nr(e){return nr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},nr(e)}function rr(e,t,n){return(t=function(e){var t=function(e){if("object"!=nr(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var n=t.call(e,"string");if("object"!=nr(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==nr(t)?t:t+""}(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}const ir=(rr(rr(rr(rr(rr(rr(rr(rr(rr(rr(tr={},re.HOME,new qe),re.INVENTORY,new Qe),re.WORKSHOP,new tn),re.KITCHEN,new sn),re.QUESTS,new zt),re.NPCS,new _t),re.OVEN,new gn),re.ITEM,new bt),re.QUEST,new Ht),re.FARM_SUPPLY,new Bn),rr(rr(rr(rr(rr(tr,re.VAULT,new Yn),re.WELL,new er),re.MUSEUM,new Ln),re.SETTINGS_OPTIONS,new Tn),re.BOTTLE_ROCKET,new xe));I.registerHandlers(ir),r()(function(){var e=ve.isResetTime();1!==e&&2!==e?(f.log("FarmRPG Plus app initialized."),U.isDevelopmentMode()&&(f.warn("Development mode is enabled, debugging features are active."),U.applyDebugFeatures()),I.fixUrlHash(),window.mainView&&mainView.container&&r()(mainView.container).on("page:init page:reinit",function(){I.fixUrlHash();var e=myApp.getCurrentView().activePage||mainView.activePage,t=I.handlePageChange(e);t&&"function"==typeof t&&(f.debug("Running callback for page: ".concat(e.name)),t(e))})):f.warn("It is ".concat(2===e?"reset":"backup"," time, not loading the app."))})})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/FarmRPGPlusError.js":
+/*!*********************************!*\
+  !*** ./src/FarmRPGPlusError.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ErrorTypesEnum: () => (/* binding */ ErrorTypes),
+/* harmony export */   FarmRPGPlusError: () => (/* binding */ FarmRPGPlusError)
+/* harmony export */ });
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/consolePlus */ "./src/modules/consolePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
+function _assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
+function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
+function _wrapNativeSuper(t) { var r = "function" == typeof Map ? new Map() : void 0; return _wrapNativeSuper = function _wrapNativeSuper(t) { if (null === t || !_isNativeFunction(t)) return t; if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function"); if (void 0 !== r) { if (r.has(t)) return r.get(t); r.set(t, Wrapper); } function Wrapper() { return _construct(t, arguments, _getPrototypeOf(this).constructor); } return Wrapper.prototype = Object.create(t.prototype, { constructor: { value: Wrapper, enumerable: !1, writable: !0, configurable: !0 } }), _setPrototypeOf(Wrapper, t); }, _wrapNativeSuper(t); }
+function _construct(t, e, r) { if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments); var o = [null]; o.push.apply(o, e); var p = new (t.bind.apply(t, o))(); return r && _setPrototypeOf(p, r.prototype), p; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _isNativeFunction(t) { try { return -1 !== Function.toString.call(t).indexOf("[native code]"); } catch (n) { return "function" == typeof t; } }
+function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
+function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, _getPrototypeOf(t); }
+
+var ErrorTypes = Object.freeze({
+  PAGE_NOT_FOUND: 'Page not found',
+  PARAMETER_MISMATCH: 'Parameter type mismatch',
+  ELEMENT_NOT_FOUND: 'Element not found',
+  NETWORK_ERROR: 'Network error',
+  INVALID_QUEST_NUMBER: 'Invalid quest number',
+  INVALID_URL: 'Invalid URL',
+  UNKNOWN: 'Unknown error'
+});
+var FarmRPGPlusError = /*#__PURE__*/function (_Error) {
+  function FarmRPGPlusError(type) {
+    var _this;
+    var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var extraMessage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    _classCallCheck(this, FarmRPGPlusError);
+    _this = _callSuper(this, FarmRPGPlusError, [type || ErrorTypes.UNKNOWN]);
+    _this.context = context ? " | ".concat(context) : '';
+    _this.extraMessage = extraMessage ? " | ".concat(extraMessage) : '';
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].error("Error: ".concat(_this.message).concat(_this.context).concat(_this.extraMessage));
+    return _this;
+  }
+  _inherits(FarmRPGPlusError, _Error);
+  return _createClass(FarmRPGPlusError);
+}(/*#__PURE__*/_wrapNativeSuper(Error));
+
+
+/***/ }),
+
+/***/ "./src/constants/gamePagesEnum.js":
+/*!****************************************!*\
+  !*** ./src/constants/gamePagesEnum.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EventPageLinks: () => (/* binding */ EventPageLinks),
+/* harmony export */   ExploreInfoPageLinks: () => (/* binding */ ExploreInfoPageLinks),
+/* harmony export */   ExplorePageLinks: () => (/* binding */ ExplorePageLinks),
+/* harmony export */   FishingInfoPageLinks: () => (/* binding */ FishingInfoPageLinks),
+/* harmony export */   FishingPageLinks: () => (/* binding */ FishingPageLinks),
+/* harmony export */   HomePageLinks: () => (/* binding */ HomePageLinks),
+/* harmony export */   NavBarLinks: () => (/* binding */ NavBarLinks),
+/* harmony export */   SinglePageLinks: () => (/* binding */ SinglePageLinks),
+/* harmony export */   TownPageLinks: () => (/* binding */ TownPageLinks),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var NavBarLinks = Object.freeze({
+  HOME: 'index-1',
+  PROFILE: 'profile',
+  INVENTORY: 'inventory',
+  WORKSHOP: 'workshop',
+  KITCHEN: 'kitchen',
+  POST_OFFICE: 'postoffice',
+  MESSAGES: 'messages',
+  FRIENDS: 'friends',
+  SETTINGS: 'settings',
+  TOWN: 'town',
+  LIBRARY: 'wiki',
+  ABOUT: 'about'
+});
+var HomePageLinks = Object.freeze({
+  MY_FARM: 'xfarm',
+  INVENTORY: 'inventory',
+  WORKSHOP: 'workshop',
+  KITCHEN: 'kitchen',
+  TOWN: 'town',
+  FISHING: 'fish',
+  EXPLORE: 'explore',
+  QUESTS: 'quests',
+  TOWER: 'tower',
+  PERKS: 'perks',
+  MASTERY: 'mastery',
+  NPCS: 'npclevels',
+  DAILY_CHORES: 'daily'
+});
+var TownPageLinks = Object.freeze({
+  TOWN: 'town',
+  COUNTRY_STORE: 'store',
+  FARMERS_MARKET: 'market',
+  FLEA_MARKET: 'flea',
+  FARM_SUPPLY: 'supply',
+  BORGEN_MERCANTILE: 'bmerc',
+  SPIN: 'spin',
+  BANK: 'bank',
+  VAULT: 'crack',
+  STEAK_MARKET: 'steakmarket',
+  TEMPLE: 'temple',
+  FISHING_CHARTER: 'charter',
+  EXPEDITION: 'expedition',
+  PET_SHOP: 'pets',
+  WELL: 'well',
+  EXCHANGE_CENTER: 'exchange',
+  HOUSE_OF_CARDS: 'cardshop',
+  ART_GALLERY: 'gallery',
+  POST_OFFICE: 'postoffice',
+  LOCKSMITH: 'locksmith',
+  COMMUNITY_CENTER: 'comm',
+  REDBROOK_ADVENTURES: 'radv',
+  MUSEUM: 'museum',
+  SCHOOLHOUSE: 'schoolhouse',
+  LIBRARY: 'wiki',
+  TOWN_HALL: 'townhall'
+});
+var ExplorePageLinks = Object.freeze({
+  EXPLORE: 'explore',
+  FOREST: 'area.php?id=7',
+  SMALL_CAVE: 'area.php?id=1',
+  SMALL_SPRING: 'area.php?id=2',
+  HIGHLAND_HILLS: 'area.php?id=3',
+  CANE_POLE_RIDGE: 'area.php?id=4',
+  MISTY_FOREST: 'area.php?id=5',
+  BLACK_ROCK_CANYON: 'area.php?id=6',
+  MOUNT_BANON: 'area.php?id=8',
+  EMBER_LAGOON: 'area.php?id=9',
+  WHISPERING_CREEK: 'area.php?id=10',
+  JUNDLAND_DESERT: 'area.php?id=13',
+  GARY_CRUSHROOM: 'area.php?id=20',
+  EXPEDITION: 'expedition.php'
+});
+var ExploreInfoPageLinks = Object.freeze({
+  FOREST_INFO: 'location.php?type=explore&id=7',
+  SMALL_CAVE_INFO: 'location.php?type=explore&id=1',
+  SMALL_SPRING_INFO: 'location.php?type=explore&id=2',
+  HIGHLAND_HILLS_INFO: 'location.php?type=explore&id=3',
+  CANE_POLE_RIDGE_INFO: 'location.php?type=explore&id=4',
+  MISTY_FOREST_INFO: 'location.php?type=explore&id=5',
+  BLACK_ROCK_CANYON_INFO: 'location.php?type=explore&id=6',
+  MOUNT_BANON_INFO: 'location.php?type=explore&id=8',
+  EMBER_LAGOON_INFO: 'location.php?type=explore&id=9',
+  WHISPERING_CREEK_INFO: 'location.php?type=explore&id=10',
+  JUNDLAND_DESERT_INFO: 'location.php?type=explore&id=13',
+  GARY_CRUSHROOM_INFO: 'location.php?type=explore&id=20'
+});
+var FishingPageLinks = Object.freeze({
+  FISHING: 'fish',
+  FARM_POND: 'fishing.php?id=2',
+  SMALL_POND: 'fishing.php?id=1',
+  FOREST_POND: 'fishing.php?id=3',
+  LAKE_TEMPEST: 'fishing.php?id=4',
+  SMALL_ISLAND: 'fishing.php?id=5',
+  CRYSTAL_RIVER: 'fishing.php?id=6',
+  EMERALD_BEACH: 'fishing.php?id=7',
+  VAST_OCEAN: 'fishing.php?id=8',
+  LAKE_MINERVA: 'fishing.php?id=9',
+  LARGE_ISLAND: 'fishing.php?id=10',
+  PIRATES_COVE: 'fishing.php?id=11',
+  GLACIER_LAKE: 'fishing.php?id=12',
+  CHARTER: 'charter.php'
+});
+var FishingInfoPageLinks = Object.freeze({
+  FARM_POND_INFO: 'location.php?type=fishing&id=2',
+  SMALL_POND_INFO: 'location.php?type=fishing&id=1',
+  FOREST_POND_INFO: 'location.php?type=fishing&id=3',
+  LAKE_TEMPEST_INFO: 'location.php?type=fishing&id=4',
+  SMALL_ISLAND_INFO: 'location.php?type=fishing&id=5',
+  CRYSTAL_RIVER_INFO: 'location.php?type=fishing&id=6',
+  EMERALD_BEACH_INFO: 'location.php?type=fishing&id=7',
+  VAST_OCEAN_INFO: 'location.php?type=fishing&id=8',
+  LAKE_MINERVA_INFO: 'location.php?type=fishing&id=9',
+  LARGE_ISLAND_INFO: 'location.php?type=fishing&id=10',
+  PIRATES_COVE_INFO: 'location.php?type=fishing&id=11',
+  GLACIER_LAKE_INFO: 'location.php?type=fishing&id=12'
+});
+var EventPageLinks = Object.freeze({
+  BOTTLE_ROCKET: 'Bottle-Rocket-Brawl'
+});
+var SinglePageLinks = Object.freeze({
+  OVEN: 'oven',
+  ITEM: 'item',
+  QUEST: 'quest',
+  MAILBOX: 'mailbox'
+});
+var MiscPageLinks = Object.freeze({
+  SETTINGS: 'settings',
+  SETTINGS_OPTIONS: 'settings_options'
+});
+var GamePagesEnum = Object.freeze(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, NavBarLinks), HomePageLinks), TownPageLinks), ExplorePageLinks), ExploreInfoPageLinks), FishingPageLinks), FishingInfoPageLinks), EventPageLinks), SinglePageLinks), MiscPageLinks));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GamePagesEnum);
+
+
+/***/ }),
+
+/***/ "./src/constants/iconsUrlEnum.js":
+/*!***************************************!*\
+  !*** ./src/constants/iconsUrlEnum.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var ExternalIconsUrlEnum = Object.freeze({
+  BUDDY_FARM: 'https://buddy.farm/icons/icon-512x512.png'
+});
+var NPCIconsUrlEnum = Object.freeze({
+  ROSALIE_IMAGE: '/img/items/a_098.png',
+  HOLGER_IMAGE: '/img/items/a_028.png',
+  BEATRIX_IMAGE: '/img/items/a_011.png',
+  THOMAS_IMAGE: '/img/items/a_048.png',
+  CECIL_IMAGE: '/img/items/a_027.png',
+  GEORGE_IMAGE: '/img/items/a_034.png',
+  JILL_IMAGE: '/img/items/a_024.png',
+  VINCENT_IMAGE: '/img/items/a_047.png',
+  LORN_IMAGE: '/img/items/a_088.png',
+  BUDDY_IMAGE: '/img/items/buddy.png',
+  BORGEN_IMAGE: '/img/items/borgen.png',
+  RIC_RYPH_IMAGE: '/img/items/npc_figure2.png',
+  MUMMY_IMAGE: '/img/items/mummy_t_01.png',
+  STAR_MEERIF_IMAGE: '/img/items/npc_figure.png',
+  CHARLES_IMAGE: '/img/items/npc_horse.png',
+  ROOMBA_IMAGE: '/img/items/robot_02.png',
+  CPT_THOMAS_IMAGE: '/img/items/MustacheTom96.png',
+  FRANK_IMAGE: '/img/items/npc_bunny1.png',
+  MARIYA_IMAGE: '/img/items/mariya.png',
+  BABA_GEC_IMAGE: '/img/items/merchant.png',
+  GEIST_IMAGE: '/img/items/npc_beast.png',
+  GARY_BEARSON_V_IMAGE: '/img/items/bear_01.png',
+  CID_IMAGE: '/img/items/cid.png'
+});
+var ExploringLocationIconsUrlEnum = Object.freeze({
+  FOREST: '/img/items/trees.png',
+  SMALL_CAVE: '/img/items/cave.png',
+  SMALL_SPRING: '/img/items/spring.png',
+  HIGHLAND_HILLS: '/img/items/hills.png',
+  CANE_POLE_RIDGE: '/img/items/ridge.png',
+  MISTY_FOREST: '/img/items/mistforest.png',
+  BLACK_ROCK_CANYON: '/img/items/canyon.png',
+  MOUNT_BANON: '/img/items/mountain.png',
+  EMBER_LAGOON: '/img/items/lagoon.png',
+  WHISPERING_CREEK: '/img/items/creek.png',
+  JUNDLAND_DESERT: '/img/items/desert.png',
+  GARY_CRUSHROOM: '/img/items/gcave.png'
+});
+var FishingLocationIconsUrlEnum = Object.freeze({
+  FARM_POND: '/img/items/pond.png',
+  SMALL_POND: '/img/items/pond.png',
+  FOREST_POND: '/img/items/fpond.png',
+  LAKE_TEMPEST: '/img/items/lake.png',
+  SMALL_ISLAND: '/img/items/island.png',
+  CRYSTAL_RIVER: '/img/items/river.png',
+  EMERALD_BEACH: '/img/items/beach.png',
+  VAST_OCEAN: '/img/items/ocean.png',
+  LAKE_MINERVA: '/img/items/lava.png',
+  LARGE_ISLAND: '/img/items/largeisland.png',
+  PIRATES_COVE: '/img/items/cove.png',
+  GLACIER_LAKE: '/img/items/glacier.png'
+});
+var IconsUrlEnum = Object.freeze(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, ExternalIconsUrlEnum), NPCIconsUrlEnum), ExploringLocationIconsUrlEnum), FishingLocationIconsUrlEnum), {}, {
+  NPC_SUPER_LOVES_GIFT: '/img/items/s_love.png',
+  NPC_LOVES_GIFT: '/img/items/s_love.png',
+  NPC_LIKES_GIFT: '/img/items/s_like.png',
+  NPC_NEUTRAL_GIFT: '/img/items/s_neutral.png',
+  NPC_HATES_GIFT: '/img/items/s_hate.png',
+  NPC_OMG_GIFT: '/img/items/s_omg.png',
+  LOVE_ICON: '/img/items/love_sm.png',
+  OVEN_ICON: '/img/items/oven.png'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IconsUrlEnum);
+
+/***/ }),
+
+/***/ "./src/constants/masteryTiersEnum.js":
+/*!*******************************************!*\
+  !*** ./src/constants/masteryTiersEnum.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MasteryTiersDisplayEnum: () => (/* binding */ MasteryTiersDisplayEnum),
+/* harmony export */   MasteryTiersEnum: () => (/* binding */ MasteryTiersEnum),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var MasteryTiersEnum = {
+  TIER_I: 100,
+  TIER_II: 1000,
+  MASTERY: 10000,
+  GRAND_MASTERY: 100000,
+  MEGA_MASTERY: 1000000
+};
+var MasteryTiersDisplayEnum = _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty({}, MasteryTiersEnum.TIER_I, 'Tier I'), MasteryTiersEnum.TIER_II, 'Tier II'), MasteryTiersEnum.MASTERY, 'M'), MasteryTiersEnum.GRAND_MASTERY, 'GM'), MasteryTiersEnum.MEGA_MASTERY, 'MM');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MasteryTiersEnum);
+
+
+/***/ }),
+
+/***/ "./src/constants/npcGiftsEnum.js":
+/*!***************************************!*\
+  !*** ./src/constants/npcGiftsEnum.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ItemGiftsEnum: () => (/* binding */ ItemGiftsEnum),
+/* harmony export */   NPCGiftsEnum: () => (/* binding */ NPCGiftsEnum),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var SUPER_LOVE_GIFTS = ['Heart Container', 'Bouquet of Flowers'];
+var NPCGiftsEnum = Object.freeze({
+  ROSALIE: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Gold Carrot', 'Green Dye', 'Valentines Card', 'Blue Dye', 'Purple Dye', 'Red Dye', 'Box of Chocolate 01'],
+    LIKES: ['Aquamarine', 'Apple', 'Carrot', 'Iced Tea', 'Purple Flower', 'Apple Cider', 'Fireworks', 'Caterpillar'],
+    HATES: ['Worms', 'Fish Bones', 'Iron Cup', 'Grubs', 'Spider', 'Fire Ant', 'Coal', 'Old Boot', 'Horned Beetle', 'Carp']
+  },
+  HOLGER: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Wooden Table', 'Gold Trout', 'Mug of Beer', 'Potato'],
+    LIKES: ['Largemouth Bass', 'Peas', 'Bluegill', 'Trout', 'Arrowhead', 'Peach', 'Horn', 'Cheese', 'Apple Cider', 'Carp', 'Mushroom Stew'],
+    HATES: ['Aquamarine', 'Worms', 'Milk', 'Valentines Card']
+  },
+  BEATRIX: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Black Powder', 'Iced Tea', 'Explosive', 'Fireworks'],
+    LIKES: ['Bird Egg', 'Hammer', 'Oak', 'Coal', 'Hops', 'Carbon Sphere'],
+    HATES: ['Worms', 'Grubs', 'Fire Ant', 'Horned Beetle']
+  },
+  THOMAS: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Fishing Net', 'Flier', 'Gold Catfish', 'Gold Trout', 'Goldgill'],
+    LIKES: ['Largemouth Bass', 'Drum', 'Minnows', 'Iced Tea', 'Gummy Worms', 'Mealworms', 'Carp'],
+    HATES: ['Worms', 'Green Dye', 'Eggs', 'Leek']
+  },
+  CECIL: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['MIAB', 'Shiny Beetle', 'Old Boot', 'Grasshopper', 'Yarn', 'Horned Beetle', 'Leather'],
+    LIKES: ['Aquamarine', 'Grapes', 'Snail', 'Slimestone', 'Ladder', 'Giant Centipede'],
+    HATES: ['Feathers', 'Mushroom', 'Worms', 'Milk']
+  },
+  GEORGE: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Perfect Paint Palette']),
+    LOVES: ['Hide', 'Spider', 'Apple Cider', 'Carbon Sphere', 'Mug of Beer'],
+    LIKES: ['Glass Orb', 'Bird Egg', 'Arrowhead', 'Orange Juice', 'Hops', 'Mushroom Stew'],
+    HATES: ['Worms', 'Fish Bones', 'Bone', 'Cheese']
+  },
+  JILL: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Refined Corn Quartz']),
+    LOVES: ['Yellow Perch', 'Mushroom Paste', 'MIAB', 'Peach', 'Leather'],
+    LIKES: ['Tomato', 'Milk', 'Grapes', 'Old Boot', 'Cheese', 'Scrap Metal'],
+    HATES: ['Worms', 'Stingray', 'Grubs', 'Spider', 'Hops', 'Snowball']
+  },
+  VINCENT: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Mushroom Paste', 'Lemonade', 'Onion Soup', 'Axe', 'Orange Juice', '5 Gold', 'Apple Cider'],
+    LIKES: ['Apple', 'Shovel', 'Horn', 'Cheese', 'Hops', 'Leather Diary', 'Wooden Box', 'Acorn'],
+    HATES: ['Aquamarine', 'Worms', 'Purple Parchment', 'Valentines Card', 'Purple Flower', 'Shrimp']
+  },
+  LORN: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Milk', 'Glass Orb', 'Gold Peas', 'Small Prawn', 'Shrimp'],
+    LIKES: ['Peas', 'Purple Parchment', 'Iron Cup', '3-leaf Clover', 'Iced Tea', 'Bucket', 'Apple Cider', 'Green Parchment'],
+    HATES: ['Worms', 'Crappie', 'Snail', 'Spider', 'Old Boot']
+  },
+  BUDDY: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Pirate Bandana', 'Valentines Card', 'Purple Flower', 'Pirate Flag'],
+    LIKES: ['Mushroom', 'Bone', 'Gummy Worms', 'Snail', 'Spider', 'Bucket', 'Giant Centipede', 'Gold Peppers'],
+    HATES: ['Worms', 'Drum', 'Crappie', 'Lemon', 'Lemonade', 'Grubs', 'Peppers', 'Snowball']
+  },
+  BORGEN: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Gold Catfish', 'Cheese', 'Wooden Box'],
+    LIKES: ['Milk', 'Glass Orb', 'Gold Carrot', 'Slimestone', 'Gold Peas', 'Gold Cucumber'],
+    HATES: ['Worms', 'Grubs', 'Green Dye', 'Valentines Card', 'Old Boot', 'Purple Flower']
+  },
+  RIC_RYPH: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Five Point Mace']),
+    LOVES: ['Mushroom Paste', 'Shovel', 'Hammer', '5 Gold'],
+    LIKES: ['Black Powder', 'Bucket', 'Arrowhead', 'Coal', 'Old Boot', 'Carbon Sphere', 'Unpolished Shimmer Stone', 'Green Parchment'],
+    HATES: ['Aquamarine', 'Worms', 'Milk', 'Valentines Card', 'Ladder', 'Cheese', 'Caterpillar']
+  },
+  MUMMY: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Bone', 'Spider', 'Valentines Card'],
+    LIKES: ['Fish Bones', 'Hammer', 'Yarn', 'Treat Bag 02'],
+    HATES: ['Worms', 'Drum', 'Coal', 'Cheese', 'Box of Chocolate 01', 'Snowball']
+  },
+  STAR_MEERIF: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Ramjoram\'s Mask']),
+    LOVES: ['Gold Feather', 'Blue Feathers'],
+    LIKES: ['Feathers', 'Eggs'],
+    HATES: ['Worms', 'Bone', 'Lemon', 'Lemonade', 'Iron Cup', 'Grubs', 'Cheese']
+  },
+  CHARLES: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Apple', 'Gold Carrot', 'Valentines Card', 'Peach', 'Apple Cider', 'Box of Chocolate 01'],
+    LIKES: ['Carrot', '3-leaf Clover', 'Twine', 'Grasshopper'],
+    HATES: ['Worms', 'Stone', 'Bone', 'Lemon', 'Lemonade', 'Grubs', 'Snail', 'Spider', 'Cheese', 'Green Chromis', 'Blue Crab']
+  },
+  ROOMBA: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Refined Corn Quartz']),
+    LOVES: ['Carbon Sphere', 'Scrap Metal'],
+    LIKES: ['Glass Orb', 'Scrap Wire', 'Hammer'],
+    HATES: ['Worms', 'Milk', 'Bird Egg', '3-leaf Clover', 'Arrowhead', 'Snowball', 'Acorn']
+  },
+  CPT_THOMAS: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Fishing Net', 'Gold Catfish', 'Large Net', 'Gold Drum', 'Gold Trout'],
+    LIKES: ['Minnows', 'Blue Crab'],
+    HATES: ['Radish', 'Worms', 'Spider']
+  },
+  FRANK: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Gold Carrot', 'Carrot'],
+    LIKES: ['Feathers', 'Blue Feathers', 'Bucket', 'Blue Dye', 'Grasshopper', 'Caterpillar'],
+    HATES: ['Mushroom', 'Worms', 'Peas', 'Trout', 'Fire Ant', 'Eggs']
+  },
+  MARIYA: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Shrimp-a-Plenty', 'Onion Soup', 'Over The Moon', 'Quandary Chowder', 'Cat\'s Meow', 'Sea Pincher Special', 'Leather Diary', 'Mushroom Stew'],
+    LIKES: ['Radish', 'Cucumber', 'Eggplant', 'Milk', 'Iced Tea', 'Peach', 'Eggs'],
+    HATES: ['Worms', 'Black Powder', 'Spider', 'Explosive']
+  },
+  BABA_GEC: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Cabbage Stew', 'Peach Juice', 'Wooden Button'],
+    LIKES: ['Onion', 'Rope', 'Snail', 'Leek'],
+    HATES: ['Worms', 'Stone', 'Horned Beetle']
+  },
+  GEIST: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Prism Shell']),
+    LOVES: ['Gold Catfish', 'Shrimp-a-Plenty', 'Sea Pincher Special', 'Goldgill'],
+    LIKES: ['Yellow Perch', 'Stingray', 'Green Chromis', 'Blue Crab'],
+    HATES: ['Worms', 'Black Powder', 'Gummy Worms', 'Explosive', 'Axe']
+  },
+  GARY_BEARSON_V: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS, ['Gare Bear']),
+    LOVES: ['Yarn', 'Gold Trout', 'You Rock Card', 'Apple Cider'],
+    LIKES: ['Feathers', 'Trout', 'Oak'],
+    HATES: ['Tomato', 'Radish', 'Worms', 'Black Powder', 'Bucket']
+  },
+  CID: {
+    SUPER_LOVES: [].concat(SUPER_LOVE_GIFTS),
+    LOVES: ['Spider', 'Explosive', 'Diamonds', 'Bomb', 'Mushroom Stew', 'Safety Goggles'],
+    LIKES: ['Stone', 'Black Powder', 'Blue Feathers', 'Shimmer Stone'],
+    HATES: ['Worms', 'Cheese']
+  }
+});
+var makeItemGiftsEnum = function makeItemGiftsEnum(gifts) {
+  var items = {};
+  var npcs = Object.keys(gifts);
+  npcs.forEach(function (npc) {
+    var _gifts$npc = gifts[npc],
+      SUPER_LOVES = _gifts$npc.SUPER_LOVES,
+      LOVES = _gifts$npc.LOVES,
+      LIKES = _gifts$npc.LIKES,
+      HATES = _gifts$npc.HATES;
+    var giftLevel = [[SUPER_LOVES, 'SUPER_LOVES'], [LOVES, 'LOVES'], [LIKES, 'LIKES'], [HATES, 'HATES']];
+    giftLevel.forEach(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+        level = _ref2[0],
+        levelName = _ref2[1];
+      level.forEach(function (item) {
+        if (!items[item]) {
+          items[item] = {};
+        }
+        if (!items[item][levelName]) {
+          items[item][levelName] = [];
+        }
+        items[item][levelName].push(npc);
+      });
+    });
+  });
+  return Object.freeze(items);
+};
+var ItemGiftsEnum = makeItemGiftsEnum(NPCGiftsEnum);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NPCGiftsEnum);
+
+
+/***/ }),
+
+/***/ "./src/constants/npcUrlsEnum.js":
+/*!**************************************!*\
+  !*** ./src/constants/npcUrlsEnum.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./iconsUrlEnum.js */ "./src/constants/iconsUrlEnum.js");
+
+var NPCUrlsEnum = Object.freeze({
+  TOWNSFOLK: {
+    FRIENDSHIP: 'wiki.php?page=Townsfolk Friendship',
+    GIFTS: 'wiki.php?page=Gifts',
+    BUDDY_FARM: 'https://buddy.farm/townsfolk/'
+  },
+  ROSALIE: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].ROSALIE_IMAGE,
+    MAILBOX: 'mailbox.php?id=22438',
+    BUDDY_FARM: 'https://buddy.farm/t/rosalie/'
+  },
+  HOLGER: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].HOLGER_IMAGE,
+    MAILBOX: 'mailbox.php?id=22439',
+    BUDDY_FARM: 'https://buddy.farm/t/holger/'
+  },
+  BEATRIX: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].BEATRIX_IMAGE,
+    MAILBOX: 'mailbox.php?id=22440',
+    BUDDY_FARM: 'https://buddy.farm/t/beatrix/'
+  },
+  THOMAS: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].THOMAS_IMAGE,
+    MAILBOX: 'mailbox.php?id=22441',
+    BUDDY_FARM: 'https://buddy.farm/t/thomas/'
+  },
+  CECIL: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].CECIL_IMAGE,
+    MAILBOX: 'mailbox.php?id=22442',
+    BUDDY_FARM: 'https://buddy.farm/t/cecil/'
+  },
+  GEORGE: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].GEORGE_IMAGE,
+    MAILBOX: 'mailbox.php?id=22443',
+    BUDDY_FARM: 'https://buddy.farm/t/george/'
+  },
+  JILL: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].JILL_IMAGE,
+    MAILBOX: 'mailbox.php?id=22444',
+    BUDDY_FARM: 'https://buddy.farm/t/jill/'
+  },
+  VINCENT: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].VINCENT_IMAGE,
+    MAILBOX: 'mailbox.php?id=22445',
+    BUDDY_FARM: 'https://buddy.farm/t/vincent/'
+  },
+  LORN: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].LORN_IMAGE,
+    MAILBOX: 'mailbox.php?id=22446',
+    BUDDY_FARM: 'https://buddy.farm/t/lorn/'
+  },
+  BUDDY: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].BUDDY_IMAGE,
+    MAILBOX: 'mailbox.php?id=22447',
+    BUDDY_FARM: 'https://buddy.farm/t/buddy/'
+  },
+  BORGEN: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].BORGEN_IMAGE,
+    MAILBOX: 'mailbox.php?id=53900',
+    BUDDY_FARM: 'https://buddy.farm/t/borgen/'
+  },
+  RIC_RYPH: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].RIC_RYPH_IMAGE,
+    MAILBOX: 'mailbox.php?id=59421',
+    BUDDY_FARM: 'https://buddy.farm/t/ric-ryph/'
+  },
+  MUMMY: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].MUMMY_IMAGE,
+    MAILBOX: 'mailbox.php?id=70604',
+    BUDDY_FARM: 'https://buddy.farm/t/mummy/'
+  },
+  STAR_MEERIF: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].STAR_MEERIF_IMAGE,
+    MAILBOX: 'mailbox.php?id=46158',
+    BUDDY_FARM: 'https://buddy.farm/t/star-meerif/'
+  },
+  CHARLES: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].CHARLES_IMAGE,
+    MAILBOX: 'mailbox.php?id=71760',
+    BUDDY_FARM: 'https://buddy.farm/t/charles-horsington-iii/'
+  },
+  ROOMBA: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].ROOMBA_IMAGE,
+    MAILBOX: 'mailbox.php?id=71761',
+    BUDDY_FARM: 'https://buddy.farm/t/roomba/'
+  },
+  CPT_THOMAS: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].CPT_THOMAS_IMAGE,
+    MAILBOX: 'mailbox.php?id=71805',
+    BUDDY_FARM: 'https://buddy.farm/t/captain-thomas/'
+  },
+  FRANK: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].FRANK_IMAGE,
+    MAILBOX: 'mailbox.php?id=84518',
+    BUDDY_FARM: 'https://buddy.farm/t/frank/'
+  },
+  MARIYA: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].MARIYA_IMAGE,
+    MAILBOX: 'mailbox.php?id=178572',
+    BUDDY_FARM: 'https://buddy.farm/t/mariya/'
+  },
+  BABA_GEC: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].BABA_GEC_IMAGE,
+    MAILBOX: 'mailbox.php?id=267531',
+    BUDDY_FARM: 'https://buddy.farm/t/baba-gec/'
+  },
+  GEIST: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].GEIST_IMAGE,
+    MAILBOX: 'mailbox.php?id=118065',
+    BUDDY_FARM: 'https://buddy.farm/t/geist/'
+  },
+  GARY_BEARSON_V: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].GARY_BEARSON_V_IMAGE,
+    MAILBOX: 'mailbox.php?id=38',
+    BUDDY_FARM: 'https://buddy.farm/t/gary-bearson-v/'
+  },
+  CID: {
+    IMAGE: _iconsUrlEnum_js__WEBPACK_IMPORTED_MODULE_0__["default"].CID_IMAGE,
+    MAILBOX: 'mailbox.php?id=16',
+    BUDDY_FARM: 'https://buddy.farm/t/cid/'
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NPCUrlsEnum);
+
+/***/ }),
+
+/***/ "./src/modules/consolePlus.js":
+/*!************************************!*\
+  !*** ./src/modules/consolePlus.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var _ConsolePlus;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/**
+ * Utility class for logging messages to the console with a timestamp and a custom prefix.
+ * Provides static methods for different log levels: debug, info, log, warn, and error.
+ *
+ * @class
+ */
+var ConsolePlus = /*#__PURE__*/function () {
+  function ConsolePlus() {
+    _classCallCheck(this, ConsolePlus);
+  }
+  return _createClass(ConsolePlus, null, [{
+    key: "_timestamp",
+    value:
+    /**
+     * Returns the current date and time as a formatted string.
+     * @private
+     * @returns {string} The current date and time formatted according to the user's locale.
+     */
+    function _timestamp() {
+      return new Date().toLocaleString();
+    }
+
+    /**
+     * Logs debug messages to the console with a timestamp and a custom prefix.
+     *
+     * @static
+     * @param {...any} args - The messages or objects to log.
+     */
+  }, {
+    key: "debug",
+    value: function debug() {
+      var _console;
+      if (true) {
+        return; // Skip debug logs in production
+      }
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      (_console = console).debug.apply(_console, ["".concat(this.prefix(), " [DEBUG]")].concat(args));
+    }
+
+    /**
+     * Logs informational messages to the console with a timestamp and a custom prefix.
+     *
+     * @static
+     * @param {...any} args - The messages or objects to log.
+     */
+  }, {
+    key: "info",
+    value: function info() {
+      var _console2;
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+      (_console2 = console).info.apply(_console2, ["".concat(this.prefix())].concat(args));
+    }
+
+    /**
+     * Logs messages to the console with a timestamp and a custom prefix.
+     *
+     * @static
+     * @param {...any} args - The messages or objects to log.
+     */
+  }, {
+    key: "log",
+    value: function log() {
+      var _console3;
+      for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+        args[_key3] = arguments[_key3];
+      }
+      (_console3 = console).log.apply(_console3, ["".concat(this.prefix())].concat(args));
+    }
+
+    /**
+     * Logs a warning message to the console with a timestamp and a custom prefix.
+     *
+     * @static
+     * @param {...any} args - The warning messages or objects to log.
+     */
+  }, {
+    key: "warn",
+    value: function warn() {
+      var _console4;
+      for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
+      }
+      (_console4 = console).warn.apply(_console4, ["".concat(this.prefix())].concat(args));
+    }
+
+    /**
+     * Logs an error message to the console with a timestamp and a custom prefix.
+     *
+     * @static
+     * @param {...any} args - The error messages or objects to log.
+     */
+  }, {
+    key: "error",
+    value: function error() {
+      var _console5;
+      for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+        args[_key5] = arguments[_key5];
+      }
+      (_console5 = console).error.apply(_console5, ["".concat(this.prefix())].concat(args));
+    }
+  }]);
+}();
+_ConsolePlus = ConsolePlus;
+_defineProperty(ConsolePlus, "prefix", function () {
+  return "[".concat(_ConsolePlus._timestamp(), "] [FRPGP]");
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConsolePlus);
+
+/***/ }),
+
+/***/ "./src/modules/debugPlus.js":
+/*!**********************************!*\
+  !*** ./src/modules/debugPlus.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _routerPlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routerPlus */ "./src/modules/routerPlus.js");
+/* harmony import */ var _storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storagePlus */ "./src/modules/storagePlus.js");
+var _DebugPlus;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var DebugPlus = /*#__PURE__*/_createClass(function DebugPlus() {
+  _classCallCheck(this, DebugPlus);
+});
+_DebugPlus = DebugPlus;
+_defineProperty(DebugPlus, "isDevelopmentMode", function () {
+  return  false || "production" === 'test';
+});
+_defineProperty(DebugPlus, "goto", function (hash) {
+  _routerPlus__WEBPACK_IMPORTED_MODULE_2__["default"]["goto"](hash);
+});
+_defineProperty(DebugPlus, "applyDebugFeatures", function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(mainView.container).on('page:init', function () {
+    window.page = myApp.getCurrentView().activePage || mainView.activePage;
+  });
+  window.clearDevLs = function () {
+    _storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].clear('frpg_plus_dev');
+    console.debug('Development local storage cleared.');
+  };
+  window.StoragePlus = _storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"];
+  window.RouterPlus = _routerPlus__WEBPACK_IMPORTED_MODULE_2__["default"];
+  window["goto"] = _DebugPlus["goto"];
+  window.getListByTitle = _utils_utils__WEBPACK_IMPORTED_MODULE_1__.getListByTitle;
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DebugPlus);
+
+/***/ }),
+
+/***/ "./src/modules/routerPlus.js":
+/*!***********************************!*\
+  !*** ./src/modules/routerPlus.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./consolePlus */ "./src/modules/consolePlus.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+
+
+
+
+
+/**
+ * RouterPlus is a utility for handling page navigation and routing.
+ * @namespace RouterPlus
+ * @property {Object} Page - Predefined page names.
+ * @property {Object} handlers - Registered page handlers.
+ * @property {function} register - Register a handler for a page.
+ * @property {function} unregister - Unregister a handler for a page.
+ * @property {function} isRegistered - Check if a handler is registered for a page.
+ * @property {function} handle - Call the registered handler for a page.
+ * @property {function} getPageUrl - Get the URL of a page.
+ * @property {function} getPageName - Get the name of a page.
+ * @property {function} getPreviousPage - Get the previous page object.
+ * @property {function} getPreviousSide - Get the navigation side.
+ * @property {function} handlePageChange - Handle navigation or update for a page.
+ * @property {function} getPageHistory - Get navigation history from a page.
+ */
+var RouterPlus = {
+  /**
+   * Stores registered page handlers.
+   * @private
+   * @type {Object<string, Function>}
+   */
+  handlers: {},
+  registerHandlers: function registerHandlers(pages) {
+    if (!pages || _typeof(pages) !== 'object') {
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('No valid pages object found.');
+      return;
+    }
+    for (var _i = 0, _Object$entries = Object.entries(pages); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        page = _Object$entries$_i[0],
+        pageInstance = _Object$entries$_i[1];
+      if (pageInstance && typeof pageInstance.applyHandler === 'function') {
+        this.bindPageHandler(page, pageInstance.applyHandler);
+      } else {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn("Page instance for ".concat(page, " does not have an applyHandler function."));
+      }
+    }
+  },
+  /**
+   * Register a handler for a page.
+   * @param {string} page - Page name.
+   * @param {Function} handler - Handler for navigation.
+   */
+  bindPageHandler: function bindPageHandler(page, handler) {
+    if (typeof page !== 'string' || !page.trim() || typeof handler !== 'function') {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.bindPageHandler.name);
+      return;
+    }
+    this.handlers[page] = handler;
+  },
+  /**
+   * Unregister a handler for a page.
+   * @param {string} page - Page name.
+   */
+  unregister: function unregister(page) {
+    delete this.handlers[page];
+  },
+  /**
+   * Check if a handler is registered for a page.
+   * @param {string} page - Page name.
+   * @returns {boolean}
+   */
+  isRegistered: function isRegistered(page) {
+    return !!this.handlers[page];
+  },
+  /**
+   * Check if the navigation is a page update.
+   * @param {Object} page - Page object.
+   * @returns {boolean}
+   */
+  isPageUpdate: function isPageUpdate(page) {
+    var pageName = this.getPageName(page);
+    var lastPage = this.getPreviousPage(page);
+    return lastPage && this.getPageName(lastPage) === pageName;
+  },
+  /**
+   * Get the URL of a page.
+   * @param {Object} page - Page object.
+   * @returns {string}
+   */
+  getPageUrl: function getPageUrl(page) {
+    var _page$url;
+    return (_page$url = page === null || page === void 0 ? void 0 : page.url) !== null && _page$url !== void 0 ? _page$url : '';
+  },
+  /**
+   * Get the name of a page.
+   * @param {Object} page - Page object.
+   * @returns {string|undefined}
+   */
+  getPageName: function getPageName(page) {
+    var _page$name;
+    return (_page$name = page === null || page === void 0 ? void 0 : page.name) !== null && _page$name !== void 0 ? _page$name : undefined;
+  },
+  /**
+   * Get the previous page object.
+   * @param {Object} page - Current page object.
+   * @returns {Object|undefined}
+   */
+  getPreviousPage: function getPreviousPage(page) {
+    var _page$fromPage;
+    return (_page$fromPage = page === null || page === void 0 ? void 0 : page.fromPage) !== null && _page$fromPage !== void 0 ? _page$fromPage : undefined;
+  },
+  /**
+   * Get the navigation side.
+   * @param {Object} page - Current page object.
+   * @returns {string|undefined}
+   */
+  getPreviousSide: function getPreviousSide(page) {
+    var _page$from;
+    return (_page$from = page === null || page === void 0 ? void 0 : page.from) !== null && _page$from !== void 0 ? _page$from : undefined;
+  },
+  /**
+   * Handle navigation or update for a page.
+   * @param {Object} page - Page object.
+   */
+  handlePageChange: function handlePageChange(page) {
+    if (!page) {
+      return;
+    }
+    var pageName = this.getPageName(page);
+    if (this.isRegistered(pageName) && this.handlers[pageName]) {
+      this.handlers[pageName](page);
+    } else {
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn("No handler registered for page: ".concat(pageName), page);
+    }
+  },
+  /**
+   * Get the current page object.
+   * @returns {Object|null}
+   */
+  getCurrentPage: function getCurrentPage() {
+    return myApp.getCurrentView().activePage || mainView.activePage || null;
+  },
+  /**
+   * Get navigation history from a page.
+   * @param {Object} page - Current page object.
+   * @param {number} [maximum] - Max number of history entries.
+   * @returns {Array<Object>}
+   */
+  getPageHistory: function getPageHistory(page) {
+    var maximum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+    if (!page) {
+      return [];
+    }
+    var history = [];
+    var currentPage = page;
+    while (currentPage) {
+      this.getPageName(currentPage) && history.push({
+        from: currentPage.from || 'unknown',
+        name: this.getPageName(currentPage) || 'unknown'
+      });
+      if (maximum && history.length >= maximum) {
+        break;
+      }
+      currentPage = this.getPreviousPage(currentPage);
+    }
+    return history;
+  },
+  /**
+   * Navigate to a specific page using its hash.
+   * @param {string} hash - The hash to navigate to, e.g., '#!/index.php'.
+   * @throws {FarmRPGPlusError} If the hash is invalid or empty.
+   */
+  "goto": function goto(hash) {
+    if (typeof hash !== 'string' || hash.trim() === '') {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.INVALID_URL, this["goto"].name);
+      return;
+    }
+    if (!this.isHashValid(hash)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.INVALID_URL, this["goto"].name);
+      return;
+    }
+    hash = hash.replace(/^#!\//, ''); // Remove leading #!/
+    mainView.router.loadPage(hash);
+  },
+  /**
+   * Check if the given URL is a valid FarmRPG URL.
+   * @param {string} url - The URL to validate.
+   * @returns {boolean} True if the URL is valid, false otherwise.
+   */
+  isFarmUrlValid: function isFarmUrlValid(url) {
+    return (0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.isUrlValid)(url) && /^https:\/\/farmrpg\.com\/#!\/[^/]+\.php(\?.*)?$/.test(url);
+  },
+  /**
+   * Check if the given hash is a valid FarmRPG URL hash.
+   * @param {string} hash - The hash to validate.
+   * @returns {boolean} True if the hash is valid, false otherwise.
+   */
+  isHashValid: function isHashValid(hash) {
+    return /^(#!\/)?[^/]+\.php(\?.*)?$/.test(hash);
+  },
+  /**
+   * Fixes the URL hash if needed.
+   */
+  fixUrlHash: function fixUrlHash() {
+    var _window = window,
+      location = _window.location;
+    var baseUrl = 'https://farmrpg.com/';
+    var phpPageRegex = /^https:\/\/farmrpg\.com\/([^/]+\.php)(\?.*)?$/;
+    // const hashPhpRegex = /^#!\/([^/]+\.php)(\?.*)?$/;
+
+    // Case 0: https://farmrpg.com/
+    if (location.href === baseUrl || location.href === baseUrl.replace(/\/$/, '')) {
+      location.replace("".concat(baseUrl, "#!/index.php"));
+      return true;
+    }
+
+    // Case 1: https://farmrpg.com/<page-name>.php
+    if (phpPageRegex.test(location.href) && !location.hash) {
+      var match = location.href.match(phpPageRegex);
+      var page = match[1] + (match[2] || '');
+      location.replace("".concat(baseUrl, "#!/").concat(page));
+      return true;
+    }
+
+    // Case 2: https://farmrpg.com/#!/https://farmrpg.com/<page-name>.php
+    if (location.href.includes("#!/".concat(baseUrl))) {
+      var _page = location.href.replace("#!/".concat(baseUrl), '');
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('ed');
+      if (phpPageRegex.test(_page)) {
+        location.replace(_page);
+        return true;
+      } else {
+        location.replace("".concat(baseUrl, "#!/index.php"));
+        return true;
+      }
+    }
+    if (this.isFarmUrlValid(location.href)) {
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].debug('URL is valid, no changes needed.', location.href);
+      return false;
+    }
+    _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('Invalid URL format, redirecting to index.php.');
+    location.replace("".concat(baseUrl, "#!/index.php"));
+    return false;
+  },
+  // TODO: Convert this to a more generic function that can update the back button for any page.
+  fixBackButton: function fixBackButton(page) {
+    if (!(page !== null && page !== void 0 && page.navbarInnerContainer)) {
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('No back button to fix, page does not have a navbar.');
+      return;
+    }
+    var previousPage = this.getPreviousPage(page);
+    if (!previousPage || !this.getPageName(previousPage)) {
+      _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('No valid previous page found to fix back button.');
+      return;
+    }
+    var $backButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.navbarInnerContainer).find('a.back[href="x"]');
+    if (!$backButton.length) {
+      return;
+    }
+    var previousPageUrl = this.getPageName(previousPage) === this.Pages.INDEX ? 'index.php' : this.getPageUrl(previousPage);
+    if (!previousPageUrl) {
+      return;
+    }
+    $backButton.attr('href', previousPageUrl);
+    $backButton.removeClass('back');
+    $backButton.addClass('no-animation');
+    _consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log("Back button fixed to: ".concat(previousPageUrl));
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RouterPlus);
+
+/***/ }),
+
+/***/ "./src/modules/rowFactory.js":
+/*!***********************************!*\
+  !*** ./src/modules/rowFactory.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createRow: () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_2__.createRow),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+/**
+ * RowFactory class for creating jQuery <li> elements representing rows with optional media, title, subtitle, button, and link.
+ */
+var RowFactory = /*#__PURE__*/function () {
+  //TODO: Finish the implementation
+  function RowFactory() {
+    _classCallCheck(this, RowFactory);
+    this.reset();
+  }
+  return _createClass(RowFactory, [{
+    key: "reset",
+    value: function reset() {
+      this.options = {
+        rowId: undefined,
+        rowClass: undefined,
+        rowTargetUrl: undefined,
+        rowIconSourceUrl: undefined,
+        rowIconTargetUrl: undefined,
+        title: [],
+        subtitle: [],
+        titleIcons: [],
+        rowEnd: []
+      };
+      return this;
+    }
+  }, {
+    key: "addTitleText",
+    value: function addTitleText(_ref) {
+      var title = _ref.title,
+        _ref$bold = _ref.bold,
+        bold = _ref$bold === void 0 ? false : _ref$bold;
+      if (!title && title !== '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.addTitleText.name);
+        return;
+      }
+      this.options.title.push({
+        title: title,
+        bold: bold
+      });
+      return this;
+    }
+  }, {
+    key: "addSubtitle",
+    value: function addSubtitle(_ref2) {
+      var subtitle = _ref2.subtitle,
+        _ref2$bold = _ref2.bold,
+        bold = _ref2$bold === void 0 ? false : _ref2$bold,
+        _ref2$newLine = _ref2.newLine,
+        newLine = _ref2$newLine === void 0 ? true : _ref2$newLine;
+      if (!subtitle && subtitle !== '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.addSubtitle.name);
+        return;
+      }
+      this.options.subtitle.push({
+        subtitle: subtitle,
+        bold: bold,
+        newLine: newLine
+      });
+      return this;
+    }
+  }, {
+    key: "addTitleIcon",
+    value: function addTitleIcon(_ref3) {
+      var iconUrl = _ref3.iconUrl,
+        iconName = _ref3.iconName;
+      if ((iconUrl === null || iconUrl === void 0 ? void 0 : iconUrl.trim()) === '' && (iconName === null || iconName === void 0 ? void 0 : iconName.trim()) === '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.addTitleIcon.name);
+        return;
+      }
+      this.options.title.push({
+        iconUrl: iconUrl,
+        iconName: iconName
+      });
+      return this;
+    }
+  }, {
+    key: "addRowIcon",
+    value: function addRowIcon(_ref4) {
+      var sourceUrl = _ref4.sourceUrl,
+        _ref4$targetUrl = _ref4.targetUrl,
+        targetUrl = _ref4$targetUrl === void 0 ? undefined : _ref4$targetUrl;
+      if ((sourceUrl === null || sourceUrl === void 0 ? void 0 : sourceUrl.trim()) === '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.addRowIcon.name);
+        return;
+      }
+      this.options.rowIconSourceUrl = sourceUrl;
+      this.options.rowIconTargetUrl = targetUrl;
+      return this;
+    }
+  }, {
+    key: "setRowId",
+    value: function setRowId(id) {
+      if ((id === null || id === void 0 ? void 0 : id.trim()) === '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.setRowId.name);
+        return;
+      }
+      this.options.rowId = id;
+      return this;
+    }
+  }, {
+    key: "setRowClass",
+    value: function setRowClass(cls) {
+      var _cls, _cls2;
+      if (((_cls = cls) === null || _cls === void 0 ? void 0 : _cls.trim()) === '' || ((_cls2 = cls) === null || _cls2 === void 0 ? void 0 : _cls2.length) === 0) {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.setRowClass.name);
+        return;
+      }
+      if (this.options.rowClass === undefined) {
+        this.options.rowClass = '';
+      }
+      if (!Array.isArray(cls)) {
+        cls = cls.split(' ');
+      }
+      cls = cls.map(function (c) {
+        return c.trim();
+      }).filter(function (c) {
+        return c;
+      });
+      this.options.rowClass += " ".concat(cls.join(' '));
+      return this;
+    }
+  }, {
+    key: "setRowTarget",
+    value: function setRowTarget(url) {
+      if ((url === null || url === void 0 ? void 0 : url.trim()) === '') {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, this.setRowTarget.name);
+        return;
+      }
+      if (!(0,_utils_utils__WEBPACK_IMPORTED_MODULE_2__.isUrlValid)(url)) {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.INVALID_URL, this.setRowTarget.name);
+        return;
+      }
+      this.options.rowTargetUrl = url;
+      return this;
+    }
+
+    // --- Internal helper ---
+  }, {
+    key: "createMediaContent",
+    value: function createMediaContent() {
+      var _this$options = this.options,
+        iconSourceUrl = _this$options.iconSourceUrl,
+        iconTargetUrl = _this$options.iconTargetUrl;
+      var $mediaContent;
+      if (iconSourceUrl !== null && iconSourceUrl !== void 0 && iconSourceUrl.trim()) {
+        $mediaContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<img class=\"itemimg\" src=\"".concat(iconSourceUrl, "\">"));
+      } else if (iconSourceUrl === '') {
+        $mediaContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="itemimg">');
+      }
+      if (iconTargetUrl !== null && iconTargetUrl !== void 0 && iconTargetUrl.trim()) {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-media">').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr('href', iconTargetUrl).append($mediaContent));
+      }
+      return $mediaContent ? jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-media">').append($mediaContent) : null;
+    }
+  }, {
+    key: "createItemTitle",
+    value: function createItemTitle() {
+      var _this$options2 = this.options,
+        _this$options2$title = _this$options2.title,
+        title = _this$options2$title === void 0 ? '' : _this$options2$title,
+        _this$options2$subtit = _this$options2.subtitle,
+        subtitle = _this$options2$subtit === void 0 ? '' : _this$options2$subtit,
+        iconUrl = _this$options2.iconUrl,
+        iconClass = _this$options2.iconClass,
+        _this$options2$iconOn = _this$options2.iconOnTitleEnd,
+        iconOnTitleEnd = _this$options2$iconOn === void 0 ? false : _this$options2$iconOn;
+      var $itemTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-title">');
+      if (iconUrl || iconClass) {
+        $itemTitle.append(iconOnTitleEnd ? "".concat(title, " ") : " ".concat(title));
+        if (iconClass) {
+          iconOnTitleEnd ? $itemTitle.append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<i>').addClass(iconClass)) : $itemTitle.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<i>').addClass(iconClass));
+        } else if (iconUrl) {
+          var $image = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<img>').attr('src', iconUrl).css('width', '16px').css('height', '16px');
+          iconOnTitleEnd ? $itemTitle.append($image) : $itemTitle.prepend($image);
+        }
+      } else {
+        $itemTitle.append(title);
+      }
+      if (subtitle) {
+        $itemTitle.append(['<br>', "<span style=\"font-size: 11px\">".concat(subtitle, "</span>")]);
+      }
+      return $itemTitle;
+    }
+  }, {
+    key: "createItemAfter",
+    value: function createItemAfter() {
+      var _this$options3 = this.options,
+        buttonLabel = _this$options3.buttonLabel,
+        onClick = _this$options3.onClick,
+        afterLabel = _this$options3.afterLabel,
+        iconImageUrl = _this$options3.iconImageUrl;
+      var $itemAfter = null;
+      if (buttonLabel && onClick) {
+        var $btn = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<button class=\"button btngreen\">".concat(buttonLabel, "</button>")).on('click', onClick || function () {});
+        $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">').append($btn);
+      } else if (afterLabel && !buttonLabel) {
+        $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">').append(afterLabel);
+      } else if (!afterLabel && !iconImageUrl) {
+        $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">');
+      }
+      return $itemAfter;
+    }
+  }, {
+    key: "wrapWithLink",
+    value: function wrapWithLink($itemContent) {
+      var _this$options4 = this.options,
+        rowLink = _this$options4.rowLink,
+        rowId = _this$options4.rowId,
+        rowClass = _this$options4.rowClass;
+      if (!rowLink) return null;
+      var isExternal = !rowLink.includes('.php');
+      var $a = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('item-link').addClass('close-panel').attr('href', rowLink).attr('data-view', '.view-main');
+      if (rowId) $a.attr('id', rowId);
+      if (rowClass) $a.addClass(rowClass);
+      if (isExternal) {
+        $a.addClass('external').attr('target', '_blank').attr('rel', 'noopener noreferrer');
+      }
+      return $a.append($itemContent);
+    }
+  }, {
+    key: "create",
+    value: function create() {
+      var _this$options5 = this.options,
+        rowId = _this$options5.rowId,
+        rowClass = _this$options5.rowClass,
+        rowLink = _this$options5.rowLink;
+      var $itemMedia = this.createMediaContent();
+      var $itemTitle = this.createItemTitle();
+      var $itemAfter = this.createItemAfter();
+      var $itemInner = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-inner">').append($itemTitle, $itemAfter);
+      var $itemContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-content">').append($itemMedia, $itemInner);
+      var $li = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>');
+      if (rowLink) {
+        var $a = this.wrapWithLink($itemContent);
+        $li.append($a);
+      } else {
+        $li.addClass('close-panel');
+        if (rowClass) $li.addClass(rowClass);
+        if (rowId) $li.attr('id', rowId);
+        $li.append($itemContent);
+      }
+      return $li;
+    }
+  }]);
+}(); // Usage: const row = new RowFactory().addTitle('Title').addRowIcon('url').create();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RowFactory);
+
+
+/***/ }),
+
+/***/ "./src/modules/settingsPlus.js":
+/*!*************************************!*\
+  !*** ./src/modules/settingsPlus.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _consolePlus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _storagePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+var SettingsPlus = /*#__PURE__*/function () {
+  function SettingsPlus() {
+    _classCallCheck(this, SettingsPlus);
+  }
+  return _createClass(SettingsPlus, null, [{
+    key: "registerPage",
+    value:
+    /**
+     * Registers a new settings page with the given page ID and options.
+     *
+     * @param {string} pageId - The unique identifier for the settings page.
+     * @param {Object} options - Options for the settings page.
+     * @param {string} options.displayName - The display name for the settings page.
+     * @param {number} [options.order=100] - The order in which the page should appear.
+     */
+    function registerPage(pageId, _ref) {
+      var displayName = _ref.displayName,
+        _ref$order = _ref.order,
+        order = _ref$order === void 0 ? 100 : _ref$order;
+      if (!pageId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid page registration:', {
+          pageId: pageId
+        });
+        return;
+      }
+      var registeredPage = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get("".concat(SettingsPlus._configKey, ".").concat(pageId), null);
+      if (!registeredPage) {
+        _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set("".concat(SettingsPlus._configKey, ".").concat(pageId), {
+          title: displayName !== null && displayName !== void 0 ? displayName : pageId,
+          order: order,
+          features: {}
+        });
+        return;
+      }
+      _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set("".concat(SettingsPlus._configKey, ".").concat(pageId), _objectSpread(_objectSpread(_objectSpread({}, registeredPage), displayName ? {
+        title: displayName
+      } : {}), order ? {
+        order: order
+      } : {}));
+    }
+
+    /**
+     *  Register a feature config for a specific page
+     *
+     *  @param {string} pageId - The ID of the page to register the config on
+     *  @param {string} featureId - The ID of the config to register
+     *  @param {*} featureObject - Configuration object for the config
+     *  @returns {void}
+     */
+  }, {
+    key: "registerFeature",
+    value: function registerFeature(pageId, featureId, featureObject) {
+      if (!pageId || !featureId || !featureObject) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid config registration:', {
+          pageId: pageId,
+          featureId: featureId
+        });
+        return;
+      }
+      var key = "".concat(SettingsPlus._configKey, ".").concat(pageId);
+      if (!_storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, null)) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Page not registered:', pageId);
+        return;
+      }
+      key += ".features.".concat(featureId);
+      var registeredFeature = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, null);
+      if (!registeredFeature) {
+        if (!featureObject.isEnabled && featureObject.enabledByDefault !== undefined) {
+          featureObject.isEnabled = featureObject.enabledByDefault;
+        }
+        if (featureObject.configs) {
+          Object.values(featureObject.configs).forEach(function (config) {
+            var _config$typeData, _config$typeData2;
+            if ((config === null || config === void 0 || (_config$typeData = config.typeData) === null || _config$typeData === void 0 ? void 0 : _config$typeData.value) === undefined && (config === null || config === void 0 || (_config$typeData2 = config.typeData) === null || _config$typeData2 === void 0 ? void 0 : _config$typeData2.defaultValue) !== undefined) {
+              config.typeData.value = config.typeData.defaultValue;
+            }
+          });
+        }
+        _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(key, featureObject);
+        return;
+      }
+      var mergedFeature = _objectSpread(_objectSpread({}, registeredFeature), featureObject);
+      if (registeredFeature.isEnabled !== undefined) {
+        mergedFeature.isEnabled = registeredFeature.isEnabled;
+      } else if (featureObject.enabledByDefault !== undefined) {
+        mergedFeature.isEnabled = featureObject.enabledByDefault;
+      }
+      mergedFeature.configs = _objectSpread(_objectSpread({}, registeredFeature.configs), featureObject.configs);
+      for (var _i = 0, _Object$keys = Object.keys(mergedFeature.configs); _i < _Object$keys.length; _i++) {
+        var _registeredFeature$co, _featureObject$config;
+        var configId = _Object$keys[_i];
+        var regConfig = (_registeredFeature$co = registeredFeature.configs) === null || _registeredFeature$co === void 0 ? void 0 : _registeredFeature$co[configId];
+        var newConfig = (_featureObject$config = featureObject.configs) === null || _featureObject$config === void 0 ? void 0 : _featureObject$config[configId];
+        if (!regConfig) {
+          var _newConfig$typeData, _newConfig$typeData2;
+          if ((newConfig === null || newConfig === void 0 || (_newConfig$typeData = newConfig.typeData) === null || _newConfig$typeData === void 0 ? void 0 : _newConfig$typeData.value) === undefined && (newConfig === null || newConfig === void 0 || (_newConfig$typeData2 = newConfig.typeData) === null || _newConfig$typeData2 === void 0 ? void 0 : _newConfig$typeData2.defaultValue) !== undefined) {
+            mergedFeature.configs[configId].typeData.value = newConfig.typeData.defaultValue;
+          }
+        } else if (newConfig) {
+          var _regConfig$typeData;
+          if (regConfig.type !== newConfig.type) {
+            var _newConfig$typeData3;
+            if (((_newConfig$typeData3 = newConfig.typeData) === null || _newConfig$typeData3 === void 0 ? void 0 : _newConfig$typeData3.defaultValue) !== undefined) {
+              mergedFeature.configs[configId].typeData.value = newConfig.typeData.defaultValue;
+            }
+          } else if (((_regConfig$typeData = regConfig.typeData) === null || _regConfig$typeData === void 0 ? void 0 : _regConfig$typeData.value) !== undefined) {
+            mergedFeature.configs[configId].typeData.value = regConfig.typeData.value;
+          }
+        }
+      }
+      _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(key, mergedFeature);
+      return;
+    }
+
+    /**
+     * Get all registered pages with their configurations
+     *
+     * @returns {Array} - Array of page configurations
+     */
+  }, {
+    key: "getAllFeatures",
+    value: function getAllFeatures() {
+      var features = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(SettingsPlus._configKey, {});
+      return Object.entries(features).filter(function (_ref2) {
+        var _ref3 = _slicedToArray(_ref2, 2),
+          _ = _ref3[0],
+          pageDef = _ref3[1];
+        return Object.entries(pageDef.features).length > 0;
+      }).sort(function (_ref4, _ref5) {
+        var _ref6 = _slicedToArray(_ref4, 2),
+          _a = _ref6[0],
+          aPageDef = _ref6[1];
+        var _ref7 = _slicedToArray(_ref5, 2),
+          _b = _ref7[0],
+          bPageDef = _ref7[1];
+        return aPageDef.order - bPageDef.order;
+      }).map(function (_ref8) {
+        var _pageDef$features;
+        var _ref9 = _slicedToArray(_ref8, 2),
+          pageId = _ref9[0],
+          pageDef = _ref9[1];
+        return _objectSpread(_objectSpread({
+          pageId: pageId
+        }, pageDef), {}, {
+          features: Object.entries((_pageDef$features = pageDef === null || pageDef === void 0 ? void 0 : pageDef.features) !== null && _pageDef$features !== void 0 ? _pageDef$features : {}).map(function (_ref0) {
+            var _featureDef$configs;
+            var _ref1 = _slicedToArray(_ref0, 2),
+              featureId = _ref1[0],
+              featureDef = _ref1[1];
+            return _objectSpread(_objectSpread({
+              featureId: featureId
+            }, featureDef), {}, {
+              configs: Object.entries((_featureDef$configs = featureDef === null || featureDef === void 0 ? void 0 : featureDef.configs) !== null && _featureDef$configs !== void 0 ? _featureDef$configs : {}).map(function (_ref10) {
+                var _ref11 = _slicedToArray(_ref10, 2),
+                  configId = _ref11[0],
+                  configDef = _ref11[1];
+                return _objectSpread({
+                  configId: configId
+                }, configDef);
+              })
+            });
+          })
+        });
+      });
+    }
+
+    /**
+     * Check if a feature is enabled
+     *
+     * @param {string} pageId - The ID of the page
+     * @param {string} featureId - The ID of the configuration to check
+     * @returns {boolean} - True if the feature is enabled, false otherwise
+     */
+  }, {
+    key: "isEnabled",
+    value: function isEnabled(pageId, featureId) {
+      if (!pageId || !featureId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for isEnabled:', {
+          pageId: pageId,
+          featureId: featureId
+        });
+        return false;
+      }
+      var feature = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(SettingsPlus._configKey + ".".concat(pageId, ".features.").concat(featureId), null);
+      if (!feature && feature.enabledByDefault !== undefined) {
+        return feature.enabledByDefault;
+      }
+      return feature.isEnabled;
+    }
+
+    /**
+     * Sets a feature or configuration value.
+     * This can be used to enable/disable a feature or set a value for a configuration.
+     *
+     * @param {string} pageId - The ID of the page
+     * @param {string} featureId - The ID of the feature
+     * @param {string} configId - Optional configuration ID
+     * @param {*} value - The value to set for the configuration
+     * @returns {boolean} - True if the value was set successfully, false otherwise
+     */
+  }, {
+    key: "setValue",
+    value: function setValue(pageId, featureId) {
+      var configId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+      var value = arguments.length > 3 ? arguments[3] : undefined;
+      if (!pageId || !featureId || value === undefined) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for setValue:', {
+          pageId: pageId,
+          featureId: featureId,
+          value: value
+        });
+        return false;
+      }
+      var key = "".concat(SettingsPlus._configKey, ".").concat(pageId, ".features.").concat(featureId);
+      var feature = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, {});
+      if (!feature) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Feature not found for:', {
+          pageId: pageId,
+          featureId: featureId
+        });
+        return false;
+      }
+      if (configId) {
+        if (!feature.configs || !feature.configs[configId]) {
+          _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Config not found:', {
+            pageId: pageId,
+            featureId: featureId,
+            configId: configId
+          });
+          return false;
+        }
+        feature.configs[configId].typeData.value = value;
+      } else {
+        feature.isEnabled = value;
+      }
+      _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(key, feature);
+      return true;
+    }
+
+    /**
+     * Get configuration value.
+     * This can be used to retrieve the value of a feature or a sub-configuration.
+     *
+     * @param {string} pageId - The ID of the page
+     * @param {string} featureId - The ID of the feature
+     * @param {string} configId - Optional configuration ID
+     * @param {*} defaultValue - Default value to return if not found
+     * @returns {*} - The value of the configuration or feature, or defaultValue if not found
+     */
+  }, {
+    key: "getValue",
+    value: function getValue(pageId, featureId) {
+      var configId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+      var defaultValue = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+      if (!pageId || !featureId) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Invalid parameters for getValue:', {
+          pageId: pageId,
+          featureId: featureId
+        });
+        return null;
+      }
+      var key = "".concat(SettingsPlus._configKey, ".").concat(pageId, ".features.").concat(featureId);
+      var feature = _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].get(key, null);
+      var value = defaultValue;
+      if (!feature) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Feature not found for:', {
+          pageId: pageId,
+          featureId: featureId,
+          configId: configId
+        });
+        return null;
+      }
+      if (configId) {
+        if (!feature.configs || !feature.configs[configId]) {
+          _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Config not found:', {
+            pageId: pageId,
+            featureId: featureId,
+            configId: configId
+          });
+          return null;
+        }
+        value = feature.configs[configId].typeData.value;
+      } else {
+        var _feature$isEnabled;
+        value = (_feature$isEnabled = feature === null || feature === void 0 ? void 0 : feature.isEnabled) !== null && _feature$isEnabled !== void 0 ? _feature$isEnabled : value;
+      }
+      if (value === undefined || value === null) {
+        _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].warn('Settings not found for:', {
+          pageId: pageId,
+          featureId: featureId,
+          configId: configId
+        });
+        return null;
+      }
+      return value;
+    }
+  }, {
+    key: "resetAllSettings",
+    value: function resetAllSettings() {
+      _storagePlus__WEBPACK_IMPORTED_MODULE_1__["default"].set(SettingsPlus._configKey, {});
+      _consolePlus__WEBPACK_IMPORTED_MODULE_0__["default"].log('All settings have been reset to default.');
+    }
+  }]);
+}();
+_defineProperty(SettingsPlus, "_configKey", 'feature_configs');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsPlus);
+
+/***/ }),
+
+/***/ "./src/modules/storagePlus.js":
+/*!************************************!*\
+  !*** ./src/modules/storagePlus.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/**
+ * StoragePlus is a wrapper class for managing a custom localStorage namespace (`frpg_plus`).
+ * It provides static methods to set, get, remove, and clear key-value pairs stored as a JSON object in localStorage.
+ *
+ * @class
+ */
+var StoragePlus = /*#__PURE__*/function () {
+  function StoragePlus() {
+    _classCallCheck(this, StoragePlus);
+  }
+  return _createClass(StoragePlus, null, [{
+    key: "initStorage",
+    value: function initStorage() {
+      var localStorage = window.localStorage.getItem(StoragePlus._configKey);
+      if (!localStorage || _typeof(localStorage) !== 'object' || (localStorage === null || localStorage === void 0 ? void 0 : localStorage.version) !== "1.2.1") {
+        StoragePlus._setStorage({
+          version: "1.2.1"
+        });
+      }
+      if (!(localStorage !== null && localStorage !== void 0 && localStorage.version)) {
+        StoragePlus.set('version', "1.2.1");
+      }
+    }
+
+    /**
+     * Ensures that a 'frpg_plus' key exists in localStorage and returns the parsed object.
+     * If the key does not exist, it is created and initialized as an empty object.
+     * @returns {Object} The parsed storage object.
+     */
+  }, {
+    key: "_getStorage",
+    value: function _getStorage() {
+      var localStorage = window.localStorage.getItem(StoragePlus._configKey);
+      try {
+        if (!localStorage) {
+          StoragePlus.initStorage();
+          localStorage = window.localStorage.getItem(StoragePlus._configKey);
+        }
+        return JSON.parse(localStorage);
+      } catch (e) {
+        console.error('Error parsing stored settings:', e);
+        StoragePlus.initStorage();
+        localStorage = window.localStorage.getItem(StoragePlus._configKey);
+        return JSON.parse(localStorage);
+      }
+    }
+
+    /**
+     * Persists the given storage object to localStorage.
+     * @param {Object} storage - The storage object to persist.
+     */
+  }, {
+    key: "_setStorage",
+    value: function _setStorage(storage) {
+      window.localStorage.setItem(StoragePlus._configKey, JSON.stringify(storage));
+    }
+
+    /**
+     * Sets a value for the specified key in the storage object and persists the updated storage to localStorage
+     *
+     * @param {string} key - The key under which the value will be stored, using dot notation for nested properties.
+     * @param {*} value - The value to store. Can be of any type that is serializable to JSON.
+     */
+  }, {
+    key: "set",
+    value: function set(key, value) {
+      var keys = key.split('.');
+      var storage = StoragePlus._getStorage();
+      var current = storage;
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (i === keys.length - 1) {
+          current[k] = value;
+        } else {
+          if (!current[k] || _typeof(current[k]) !== 'object') {
+            current[k] = {};
+          }
+          current = current[k];
+        }
+      }
+      StoragePlus._setStorage(storage);
+    }
+
+    /**
+     * Retrieves the value associated with the specified key from storage.
+     *
+     * @param {string} key - The key of the item to retrieve using dot notation for nested properties.
+     * @param {*} [defaultValue=undefined] - The default value to return if the key does not exist in storage.
+     * @returns {*} The value associated with the key, or defaultValue if the key does not exist.
+     */
+  }, {
+    key: "get",
+    value: function get(key, defaultValue) {
+      var keys = key.split('.');
+      var value = StoragePlus._getStorage();
+      var _iterator = _createForOfIteratorHelper(keys),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var k = _step.value;
+          if (value && Object.prototype.hasOwnProperty.call(value, k)) {
+            value = value[k];
+          } else {
+            return defaultValue;
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+      return value;
+    }
+
+    /**
+     * Removes an item from the internal storage and updates localStorage.
+     *
+     * @param {string} key - The key of the item to remove from storage, using dot notation for nested properties.
+     * @returns {void}
+     */
+  }, {
+    key: "remove",
+    value: function remove(key) {
+      var keys = key.split('.');
+      var storage = StoragePlus._getStorage();
+      var current = storage;
+      for (var i = 0; i < keys.length - 1; i++) {
+        var k = keys[i];
+        if (!current[k] || _typeof(current[k]) !== 'object') {
+          return;
+        }
+        current = current[k];
+      }
+      delete current[keys[keys.length - 1]];
+      StoragePlus._setStorage(storage);
+    }
+
+    /**
+     * Clears the current storage by resetting it to an empty object
+     * and updates the 'frpg_plus' entry in localStorage accordingly.
+     */
+  }, {
+    key: "clear",
+    value: function clear() {
+      StoragePlus._setStorage({});
+    }
+  }]);
+}();
+_defineProperty(StoragePlus, "_configKey",  true ? 'frpg_plus' : 0);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StoragePlus);
+
+/***/ }),
+
+/***/ "./src/pages/events/bottleRocket.js":
+/*!******************************************!*\
+  !*** ./src/pages/events/bottleRocket.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_debugPlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/debugPlus */ "./src/modules/debugPlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_timeControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/timeControl */ "./src/utils/timeControl.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+var BottleRocketPage = /*#__PURE__*/_createClass(function BottleRocketPage() {
+  var _this = this;
+  _classCallCheck(this, BottleRocketPage);
+  _defineProperty(this, "getTokenAmount", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.getTokenAmount.name);
+      return 0;
+    }
+    var $tokenAmount = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a[href=\'item.php?id=1097\']').next().next().text();
+    if (!$tokenAmount) {
+      return 0;
+    }
+    var tokenAmountText = $tokenAmount.trim();
+    var tokenAmount = parseInt(tokenAmountText.replace(/,/g, ''), 10);
+    return isNaN(tokenAmount) ? 0 : tokenAmount;
+  });
+  _defineProperty(this, "makeStats", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.makeStats.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Bottle Rocket stats cards are disabled in settings.');
+      return;
+    }
+    var history = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket', BottleRocketPage.defaultStorageObject());
+    var $totalAttackTypeRows = Object.entries(history.total_attacks).map(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+        color = _ref2[0],
+        count = _ref2[1];
+      return (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+        title: ['<i class="fa fa-fw fa-rocket"></i>', " Total ".concat(color, " Shots Made")],
+        rowId: "frpgp-total-attack-".concat(color, "-shot-history-row"),
+        afterLabel: count.toLocaleString()
+      });
+    });
+    var $totalAttacksRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-rocket"></i>', ' Total Attacks Made'],
+      rowId: 'frpgp-total-attacks-history-row',
+      afterLabel: Object.values(history.total_attacks).reduce(function (a, b) {
+        return a + b;
+      }, 0).toLocaleString()
+    });
+    var $totalHitsRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-bullseye"></i>', ' Total Hits'],
+      rowId: 'frpgp-total-hits-history-row',
+      afterLabel: history.total_hits.toLocaleString()
+    });
+    var $totalMissesRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-times"></i>', ' Total Misses'],
+      rowId: 'frpgp-total-misses-history-row',
+      afterLabel: history.total_misses.toLocaleString()
+    });
+    var $totalTokensRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-coins"></i>', ' Total Tokens Earned'],
+      rowId: 'frpgp-total-tokens-history-row',
+      afterLabel: history.total_token_gain.toLocaleString()
+    });
+    var $avgTokensPerAttackRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-coins"></i>', ' Average Tokens Per Attack'],
+      rowId: 'frpgp-avg-tokens-per-attack-history-row',
+      afterLabel: history.avg_tokens_per_attack.toLocaleString()
+    });
+    var $lastUpdatedRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      title: ['<i class="fa fa-fw fa-clock"></i>', ' Last Updated'],
+      rowId: 'frpgp-last-updated-history-row',
+      afterLabel: history.timestamp ? _utils_timeControl__WEBPACK_IMPORTED_MODULE_7__["default"].getLocaleTimeStringOnCT(history.timestamp) : 'Never'
+    });
+    var $statsCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.createCardList)({
+      cardId: 'frpgp-bottle-rocket-stats-card',
+      title: 'Bottle Rocket Stats',
+      children: [].concat(_toConsumableArray($totalAttackTypeRows), [$totalAttacksRow, $totalHitsRow, $totalMissesRow, $totalTokensRow, $avgTokensPerAttackRow, $lastUpdatedRow])
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-bottle-rocket-stats-card').length > 0;
+    if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, BottleRocketPage.titles.LEAVE_OR_JOIN_GAME, {
+        returnTitle: true
+      }).before($statsCard);
+    }
+  });
+  _defineProperty(this, "makeAttackHistory", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.makeAttackHistory.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getValue('eventFeatures', 'bottleRocket', 'isAttackHistoryEnabled')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Bottle Rocket attack history is disabled in settings.');
+      return;
+    }
+    var _StoragePlus$get = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket', BottleRocketPage.defaultStorageObject()),
+      history = _StoragePlus$get.attack_history;
+    var $noHistoryRow;
+    if ((history === null || history === void 0 ? void 0 : history.length) === 0) {
+      $noHistoryRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+        title: ['<i class="fa fa-fw fa-times"></i>', ' No Attack History Found'],
+        rowId: 'frpgp-no-attack-history-row'
+      });
+    }
+    var $historyRows = $noHistoryRow ? [$noHistoryRow] : history.map(function (attack) {
+      var attackType = attack.attack_type,
+        hits = attack.hits,
+        misses = attack.misses;
+      return (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+        title: ['<i class="fa fa-fw fa-rocket"></i>', " ".concat(attackType, " Shot")],
+        rowId: "frpgp-attack-history-row-".concat(hits, "-").concat(misses, "-").concat(attackType),
+        afterLabel: "Hits: ".concat(hits, " | Misses: ").concat(misses, " | Players Attacked: ").concat(hits + misses)
+      });
+    });
+    var $historyCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.createCardList)({
+      cardId: 'frpgp-bottle-rocket-attack-history-card',
+      title: 'Attack History',
+      children: $historyRows
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-bottle-rocket-attack-history-card').length > 0;
+    if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, BottleRocketPage.titles.LEAVE_OR_JOIN_GAME, {
+        returnTitle: true
+      }).before($historyCard);
+    }
+  });
+  _defineProperty(this, "makeLastPlayersHistory", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.makeLastPlayersHistory.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getValue('eventFeatures', 'bottleRocket', 'isPlayerHistoryEnabled')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Bottle Rocket player history is disabled in settings.');
+      return;
+    }
+
+    // profile.php?user_name=<player+name+with+spaces>
+
+    var _StoragePlus$get2 = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket', BottleRocketPage.defaultStorageObject()),
+      history = _StoragePlus$get2.player_history;
+    var $noHistoryRow;
+    if (!history || history.length === 0) {
+      $noHistoryRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+        title: ['<i class="fa fa-fw fa-times"></i>', ' No Player History Found'],
+        rowId: 'frpgp-no-player-history-row'
+      });
+    }
+    var $historyRows = $noHistoryRow ? [$noHistoryRow] : history.map(function (player) {
+      var playerName = player.player_name,
+        hitOrMiss = player.hit_or_miss;
+      return (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+        rowId: "frpgp-player-history-row-".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.parseNameForUrl)(playerName)),
+        rowLink: "profile.php?user_name=".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.parseNameForUrl)(playerName, {
+          separator: '+',
+          lowercase: false
+        })),
+        title: ['<i class="fa fa-fw fa-user"></i>', " ".concat(playerName)],
+        afterLabel: "<strong style=\"color:".concat(hitOrMiss === 'HIT' ? 'red' : '', "\">").concat(hitOrMiss, "</strong>")
+      });
+    });
+    var $historyCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.createCardList)({
+      cardId: 'frpgp-bottle-rocket-player-history-card',
+      title: 'Last Players Attacked (Oldest to Newest)',
+      children: $historyRows
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-bottle-rocket-player-history-card').length > 0;
+    if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, BottleRocketPage.titles.LEAVE_OR_JOIN_GAME, {
+        returnTitle: true
+      }).before($historyCard);
+    }
+  });
+  _defineProperty(this, "startObserver", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.startObserver.name);
+      return;
+    }
+    var $attackButtons = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.event-brb-attack');
+    if ($attackButtons.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.startObserver.name);
+      return;
+    }
+    var stopMutatorHandle = null;
+    $attackButtons.on('click', function (event) {
+      stopMutatorHandle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.watchForElement)('.modal.modal-in', function ($el) {
+        var $modalTitle = $el.find('.modal-title');
+        if ($modalTitle.length === 0) {
+          stopMutatorHandle();
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.startObserver.name);
+          return;
+        }
+        var modalTitle = $modalTitle.text().trim();
+        if (modalTitle !== 'Attack Results') {
+          stopMutatorHandle();
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.startObserver.name);
+          return;
+        }
+        var $modalText = $el.find('.modal-text');
+        if ($modalText.length === 0) {
+          stopMutatorHandle();
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.startObserver.name);
+          return;
+        }
+        var modalText = $el.text().trim();
+        var earnedTokensMatch = modalText.match(/You earned (\d+) Event Tokens/);
+        var earnedTokens = parseInt(earnedTokensMatch[1], 10);
+        if (earnedTokensMatch && !isNaN(earnedTokens)) {
+          var currentTotalTokens = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.total_token_gain', BottleRocketPage.defaultStorageObject().total_token_gain);
+          _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.total_token_gain', currentTotalTokens + earnedTokens);
+        } else {
+          earnedTokens = 0; // Default to 0 if no match or invalid number
+        }
+        var attackResults = modalText.split('!').filter(function (line) {
+          return line.includes('was');
+        });
+        if (attackResults.length === 0) {
+          stopMutatorHandle();
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.startObserver.name);
+          return;
+        }
+        var attackResultObject = attackResults.reduce(function (acc, result) {
+          var _result$replace$split = result.replace('Attack Results', '').split(' was '),
+            _result$replace$split2 = _slicedToArray(_result$replace$split, 2),
+            playerName = _result$replace$split2[0],
+            hitOrMiss = _result$replace$split2[1];
+          if (!playerName || !hitOrMiss) {
+            return acc;
+          }
+
+          // Update the history with the attack result
+          var currentPlayerHistory = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.player_history', BottleRocketPage.defaultStorageObject().player_history);
+          currentPlayerHistory.push({
+            player_name: playerName.trim(),
+            hit_or_miss: hitOrMiss.trim()
+          });
+          var maxPlayerHistoryLength = _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getValue('eventFeatures', 'bottleRocket', 'maxPlayerHistoryLength', 10);
+          if (currentPlayerHistory.length > maxPlayerHistoryLength) {
+            currentPlayerHistory.splice(0, currentPlayerHistory.length - maxPlayerHistoryLength);
+          }
+          _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.player_history', currentPlayerHistory);
+          acc.hits += hitOrMiss.includes('HIT') ? 1 : 0;
+          acc.misses += hitOrMiss.includes('MISSED') ? 1 : 0;
+          return acc;
+        }, {
+          hits: 0,
+          misses: 0
+        });
+        var attackType = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).attr('data-type');
+        attackType = attackType === 'small' ? 'Strike' : attackType === 'medium' ? 'Blast' : attackType === 'large' ? 'Inferno' : 'Unknown';
+        var totalAttacks = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.total_attacks', BottleRocketPage.defaultStorageObject().total_attacks);
+        if (attackType !== 'Unknown') {
+          totalAttacks[attackType] = (totalAttacks[attackType] || 0) + 1;
+        } else if (_modules_debugPlus__WEBPACK_IMPORTED_MODULE_3__["default"].isDevelopmentMode()) {
+          totalAttacks['Unknown'] = (totalAttacks['Unknown'] || 0) + 1;
+        }
+        var currentAttackHistory = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.attack_history', BottleRocketPage.defaultStorageObject().attack_history);
+        var maxAttackHistoryLength = _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].getValue('eventFeatures', 'bottleRocket', 'maxAttackHistoryLength', 10);
+        if (currentAttackHistory.length > maxAttackHistoryLength) {
+          currentAttackHistory.splice(0, currentAttackHistory.length - maxAttackHistoryLength);
+        }
+        currentAttackHistory.push({
+          attack_type: attackType,
+          hits: attackResultObject.hits,
+          misses: attackResultObject.misses
+        });
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.attack_history', currentAttackHistory);
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.total_attacks', totalAttacks);
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.total_hits', _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.total_hits', 0) + attackResultObject.hits);
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.total_misses', _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.total_misses', 0) + attackResultObject.misses);
+        var totalAttack = Object.values(totalAttacks).reduce(function (a, b) {
+          return a + b;
+        }, 0);
+        var avgTokenPerAttack = totalAttack > 0 ? _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].get('bottle_Rocket.total_token_gain', 0) / totalAttack : 0.0;
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.avg_tokens_per_attack', avgTokenPerAttack.toFixed(2));
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_6__["default"].set('bottle_Rocket.timestamp', Date.now());
+      });
+    });
+    return stopMutatorHandle;
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].isEnabled('eventFeatures', 'bottleRocket')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Bottle Rocket event features are disabled in settings.');
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Bottle Rocket page initialized:', page);
+    _this.makeStats(page);
+    _this.makeAttackHistory(page);
+    _this.makeLastPlayersHistory(page);
+    var callback = _this.startObserver(page);
+    return callback;
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerPage('eventFeatures', {
+    displayName: 'Event Features',
+    order: 999
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerFeature('eventFeatures', 'bottleRocket', {
+    title: 'Bottle Rocket Event',
+    subtitle: 'Features for the Bottle Rocket event that usually happens in July.',
+    enabledByDefault: true,
+    enableTitle: 'Enable Bottle Rocket Event Features?',
+    enableSubtitle: 'Enables features related to the Bottle Rocket event.',
+    configs: {
+      addStatsCards: {
+        title: 'Add Stats Card?',
+        subtitle: 'Enables a list card containing statistics gathered along the event.',
+        type: 'checkbox',
+        typeData: {
+          defaultValue: true
+        }
+      },
+      isAttackHistoryEnabled: {
+        title: 'Add Attack History Card?',
+        subtitle: 'Adds a log card of last attacks made during the event.',
+        type: 'checkbox',
+        typeData: {
+          defaultValue: true
+        }
+      },
+      maxAttackHistoryLength: {
+        title: 'Max Attack History Length',
+        subtitle: 'Maximum number of attack actions to keep in history.',
+        type: 'numeric',
+        typeData: {
+          defaultValue: 5,
+          min: 1,
+          max: 100
+        }
+      },
+      isPlayerHistoryEnabled: {
+        title: 'Add Player History Card?',
+        subtitle: 'Adds a log card of last players attacked during the event.',
+        type: 'checkbox',
+        typeData: {
+          defaultValue: true
+        }
+      },
+      maxPlayerHistoryLength: {
+        title: 'Max Player History Length',
+        subtitle: 'Maximum number of players attacked to keep in history.',
+        type: 'numeric',
+        typeData: {
+          defaultValue: 5,
+          min: 1,
+          max: 100
+        }
+      }
+    }
+  });
+});
+_defineProperty(BottleRocketPage, "titles", Object.freeze({
+  CHOOSE_YOUR_DEFENSE: 'CHOOSE YOUR DEFENSE',
+  CHOOSE_YOUR_ATTACK: 'CHOOSE YOUR ATTACK',
+  HOW_THIS_WORKS: 'HOW THIS WORKS',
+  LEAVE_OR_JOIN_GAME: 'LEAVE OR JOIN GAME'
+}));
+_defineProperty(BottleRocketPage, "defaultStorageObject", function () {
+  return {
+    total_attacks: {
+      Strike: 0,
+      Blast: 0,
+      Inferno: 0
+    },
+    total_hits: 0,
+    total_misses: 0,
+    total_token_gain: 0,
+    avg_tokens_per_attack: 0.0,
+    player_history: [],
+    attack_history: [],
+    timestamp: 0
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BottleRocketPage);
+
+// Attack Result Modal:
+/**
+ <div class="modal modal-in" style="display: block; margin-top: -131px;"><div class="modal-inner"><div class="modal-title">Attack Results</div><div class="modal-text">Detested was <strong>MISSED</strong>!<br>Itsyaboii was <strong><span style="color:red">HIT</span></strong>!<br>Sokko was <strong><span style="color:red">HIT</span></strong>!<br>beznadiyna was <strong><span style="color:red">HIT</span></strong>!<br>skinnyceps was <strong><span style="color:red">HIT</span></strong>!<br>Raindrop was <strong><span style="color:red">HIT</span></strong>!<br><br>You earned 5 Event Tokens!</div></div><div class="modal-buttons modal-buttons-1 "><span class="modal-button modal-button-bold">OK</span></div></div>
+ */
+
+/***/ }),
+
+/***/ "./src/pages/home/home.js":
+/*!********************************!*\
+  !*** ./src/pages/home/home.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+var HomePage = /*#__PURE__*/_createClass(function HomePage() {
+  var _this = this;
+  _classCallCheck(this, HomePage);
+  _defineProperty(this, "addBuddyFarmButton", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addBuddyFarmButton.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].HOME, 'addBuddyFarmButton')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Buddy Farm button is disabled in settings.');
+      return;
+    }
+    var $li = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__["default"].BUDDY_FARM,
+      title: 'Buddy Farm',
+      subtitle: 'Open\'s Buddy Farm Home Page',
+      rowLink: 'https://buddy.farm',
+      rowId: 'frpgp-buddy-farm-row'
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-row').length > 0;
+    if (!itExists) {
+      var $list = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_7__.getListByTitle)(page, HomePage.titles.HOME);
+      $list.append($li);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Index page initialized:', page);
+    _this.addBuddyFarmButton(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].HOME, {
+    displayName: 'Home Page',
+    order: 1
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].HOME, 'addBuddyFarmButton', {
+    title: 'Add Buddy Farm Button?',
+    subtitle: 'Adds a button that links to Buddy Farm homepage.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(HomePage, "titles", Object.freeze({
+  HOME: 'Where do you want to go?',
+  MY_SKILLS: 'My Skills',
+  PERKS_AND_MASTERY: 'Perks, Mastery & More',
+  UPDATE: 'Most Recent Update',
+  OTHER_STUFF: 'Other Stuff'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);
+
+/***/ }),
+
+/***/ "./src/pages/home/inventory.js":
+/*!*************************************!*\
+  !*** ./src/pages/home/inventory.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var InventoryPage = /*#__PURE__*/_createClass(function InventoryPage() {
+  var _this = this;
+  _classCallCheck(this, InventoryPage);
+  _defineProperty(this, "syncCollectionProgress", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
+      return;
+    }
+    var $itemNames = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title strong');
+    if ($itemNames.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('No collection progress found on the Museum page.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].get('items_collected_cache', {});
+    $itemNames.each(function (_, element) {
+      var itemName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).text().trim();
+      if (!itemName || itemName === '-') {
+        return;
+      }
+      cache[itemName] = cache[itemName] || true;
+    });
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('items_collected_cache', cache);
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Collection progress cache updated');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Inventory page initialized:', page);
+    _this.syncCollectionProgress(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InventoryPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/item.js":
+/*!********************************!*\
+  !*** ./src/pages/home/item.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _constants_npcGiftsEnum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/npcGiftsEnum */ "./src/constants/npcGiftsEnum.js");
+/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+/* harmony import */ var _constants_masteryTiersEnum__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../constants/masteryTiersEnum */ "./src/constants/masteryTiersEnum.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+
+
+
+var ItemPage = /*#__PURE__*/_createClass(function ItemPage() {
+  var _this = this;
+  _classCallCheck(this, ItemPage);
+  /**
+   * Determines if the given page represents a food item page by checking for the presence
+   * of a specific "use multiple items" button within the page's container.
+   *
+   * @param {Object} page - The page object to check.
+   * @param {HTMLElement} page.container - The DOM element representing the page's container.
+   * @returns {boolean} True if the page contains the "use multiple items" button, otherwise false.
+   */
+  _defineProperty(this, "isFoodItemPage", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) return false;
+    var $useButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.page-on-center .button.usemultitembtn');
+    return $useButton.length > 0;
+  });
+  /**
+   * Checks if the given page contains the mastery icon for an item.
+   *
+   * @param {Object} page - The page object containing the DOM container to search within.
+   * @param {HTMLElement|string} page.container - The container element or selector to search for the mastery icon.
+   * @returns {boolean} Returns true if the mastery icon is found, otherwise false.
+   */
+  _defineProperty(this, "doesItemHaveMastery", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.doesItemHaveMastery.name);
+      return;
+    }
+    var $mastery = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('img[src="/img/items/icon_mastery2.png?1"]');
+    return $mastery.length > 0;
+  });
+  /**
+   * Retrieves the current mastery amount for an item from the given page object.
+   *
+   * @param {Object} page - The page object containing the item information.
+   * @returns {number} The current mastery amount for the item, or 0 if not found or on error.
+   */
+  _defineProperty(this, "getItemMasteryAmount", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.getItemMasteryAmount.name);
+      return 0;
+    }
+    var $mastery = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title span:contains(\'Progress\')');
+    if ($mastery.length === 0) {
+      return 0;
+    }
+    var masteryText = $mastery.text();
+    var match = masteryText.match(/([0-9,]+) \/ ([0-9,]+) Progress/);
+    if (match && match[1]) {
+      return parseInt(match[1].replace(/,/g, ''), 10);
+    }
+    return 0;
+  });
+  /**
+   * Retrieves the item name displayed in the navbar from the given page object.
+   *
+   * @param {Object} page - The page object containing the navbarInnerContainer property.
+   * @param {HTMLElement|string} page.navbarInnerContainer - The container element or selector for the navbar.
+   * @returns {string} The trimmed item name found in the navbar.
+   * @throws {FarmRPGPlusError} If the page or the required element is not found.
+   */
+  _defineProperty(this, "getItemNameOnNavbar", function (page) {
+    if (!(page !== null && page !== void 0 && page.navbarInnerContainer)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.getItemNameOnNavbar.name);
+      return;
+    }
+    var itemName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.navbarInnerContainer).find('a.sharelink').text();
+    if (!itemName || itemName.trim() === '') {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.getItemNameOnNavbar.name);
+      return;
+    }
+    return itemName.trim();
+  });
+  /**
+   * Retrieves the quantity of a specific item based on its name.
+   *
+   * @param {string} itemName - The name of the item to check.
+   * @returns {number} The quantity of the item, or 0 if the item is not found.
+   * @throws {FarmRPGPlusError} If the item name is not provided or is empty.
+   */
+  _defineProperty(this, "getItemQuantity", function (page) {
+    var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$storehouse = _ref.storehouse,
+      storehouse = _ref$storehouse === void 0 ? false : _ref$storehouse;
+    if (!page || !page.container) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.INVALID_PARAMETER, _this.getItemQuantity.name);
+      return 0;
+    }
+    var _$$find$children$text = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title:contains(\'My Inventory\')').children('span').text().match(/([0-9,]+ on hand)([0-9,]+ in Storehouse)?/),
+      _$$find$children$text2 = _slicedToArray(_$$find$children$text, 3),
+      whole = _$$find$children$text2[0],
+      onHand = _$$find$children$text2[1],
+      inStorehouse = _$$find$children$text2[2];
+    if (!whole || !onHand) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.getItemQuantity.name);
+      return 0;
+    } else if (storehouse && !inStorehouse) {
+      return 0;
+    }
+    var quantity = parseInt(onHand.replace(/[^0-9]/g, ''), 10) || 0;
+    if (storehouse) {
+      quantity = parseInt(inStorehouse.replace(/[^0-9]/g, ''), 10) || 0;
+    }
+    return quantity;
+  });
+  /**
+   * Adds a "Buddy Farm" button to the item details page.
+   *
+   * This button, when clicked, opens the corresponding Buddy Farm item page in a new browser tab.
+   *
+   * @param {Object} page - The page object containing the container and item details list.
+   * @throws {FarmRPGPlusError} If the page or its container is not found.
+   */
+  _defineProperty(this, "addBuddyFarmButton", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addBuddyFarmButton.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addBuddyFarmButton')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].log('Buddy Farm button is disabled in settings.');
+      return;
+    }
+    var $li = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_7__.createRow)({
+      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__["default"].BUDDY_FARM,
+      title: 'Buddy Farm',
+      subtitle: 'Open\'s Buddy Farm Item Page',
+      buttonLabel: 'Open',
+      rowId: 'frpgp-item-buddy-farm-row',
+      onClick: function onClick() {
+        var itemName = _this.getItemNameOnNavbar(page);
+        var url = "https://buddy.farm/i/".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_10__.parseNameForUrl)(itemName));
+        window.open(url, '_blank');
+      }
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-item-buddy-farm-row').length > 0;
+    if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_10__.getListByTitle)(page, ItemPage.titles.ITEM_DETAILS).prepend($li);
+    }
+  });
+  /**
+   * Adds NPC likings cards to the given page, displaying which NPCs like, love, or super love the current item,
+   * along with the XP values for gifting. Cards are dynamically created and inserted after the item details section.
+   *
+   * @param {Object} page - The page object to which the NPC likings cards will be added.
+   * @param {HTMLElement} page.container - The container element where cards will be inserted.
+   *
+   * @throws {FarmRPGPlusError} If the page or its container is not provided.
+   *
+   * @returns {void}
+   */
+  _defineProperty(this, "addNpcLikingsCards", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PARAMETER_MISMATCH, _this.addNpcLikingsCards.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addNpcLikingsCards')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].log('NPC likings cards are disabled in settings.');
+      return;
+    }
+    var capitalizeWords = function capitalizeWords(name) {
+      return name.split('_').map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }).join(' ');
+    };
+    var itemName = _this.getItemNameOnNavbar(page);
+    var entries = Object.entries(_constants_npcGiftsEnum__WEBPACK_IMPORTED_MODULE_3__.ItemGiftsEnum[itemName] || {}).sort(function (a, b) {
+      var powerOrder = {
+        SUPER_LOVES: 1,
+        LOVES: 2,
+        LIKES: 3,
+        HATES: 4
+      };
+      return (powerOrder[a[0]] || 0) - (powerOrder[b[0]] || 0);
+    });
+    var _iterator = _createForOfIteratorHelper(entries),
+      _step;
+    try {
+      var _loop = function _loop() {
+        var _step$value = _slicedToArray(_step.value, 2),
+          giftPower = _step$value[0],
+          npcList = _step$value[1];
+        if (!npcList || npcList.length === 0) {
+          return 1; // continue
+        }
+        var XPValue = '';
+        if (itemName === 'Bouquet of Flowers') {
+          XPValue = 1000;
+        } else if (itemName === 'Heart Container') {
+          XPValue = 1000000;
+        } else {
+          if (giftPower === 'SUPER_LOVES') {
+            XPValue = 10000000;
+          } else if (giftPower === 'LOVES') {
+            XPValue = 150;
+          } else if (giftPower === 'LIKES') {
+            XPValue = 100;
+          } else {
+            XPValue = -50;
+          }
+        }
+        var npcRows = npcList.map(function (npcName) {
+          var _NPCUrlsEnum$npcName, _NPCUrlsEnum$npcName2;
+          return (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_7__.createRow)({
+            iconImageUrl: ((_NPCUrlsEnum$npcName = _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_4__["default"][npcName]) === null || _NPCUrlsEnum$npcName === void 0 ? void 0 : _NPCUrlsEnum$npcName.IMAGE) || '',
+            iconUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__["default"]["NPC_".concat(giftPower, "_GIFT")] || '',
+            iconOnTitleEnd: true,
+            title: capitalizeWords(npcName),
+            subtitle: "Gives: ".concat(XPValue, " XP | TFOD: ").concat(XPValue * 2, " XP"),
+            rowLink: (_NPCUrlsEnum$npcName2 = _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_4__["default"][npcName]) === null || _NPCUrlsEnum$npcName2 === void 0 ? void 0 : _NPCUrlsEnum$npcName2.MAILBOX
+          });
+        });
+        var cardId = "frpg-".concat(giftPower.toLowerCase().replace('_', '-'), "-npc-likings-card");
+        var $card = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_10__.createCardList)({
+          cardId: cardId,
+          title: "NPCs Who ".concat(capitalizeWords(giftPower), " "),
+          children: npcRows
+        });
+        var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find(cardId).length > 0;
+        if (!itExists) {
+          var $last = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('p').first().prev();
+          $last.after($card);
+        }
+      };
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        if (_loop()) continue;
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  });
+  /**
+   * Adds a "Collected" or "Not Collected" indicator to the item page UI.
+   *
+   * This method checks if the item has been collected by the user, either from cache or by checking the item quantity.
+   * It updates the cache accordingly and appends a colored indicator to the page if it doesn't already exist.
+   *
+   * @param {Object} page - The page object containing the container element and item information.
+   * @returns {void}
+   */
+  _defineProperty(this, "addCollectedIndicator", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addCollectedIndicator.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addCollectedIndicator')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].log('Collected indicator is disabled in settings.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_9__["default"].get('items_collected_cache');
+    if (!cache || _typeof(cache) !== 'object') {
+      _modules_storagePlus__WEBPACK_IMPORTED_MODULE_9__["default"].set('items_collected_cache', {});
+      cache = {};
+    }
+    var itemName = _this.getItemNameOnNavbar(page);
+    var isCollected = cache[itemName] || _this.getItemQuantity(page) > 0 || _this.getItemQuantity(page, {
+      storehouse: true
+    }) > 0;
+    var $collectedIndicator = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr('id', 'frpgp-collected-indicator').css('font-weight', 'bold').css('font-size', '11px');
+    if (isCollected) {
+      $collectedIndicator.css('color', 'green').text('Collected!');
+      cache[itemName] = true;
+    } else {
+      $collectedIndicator.css('color', 'red').text('Not Collected');
+    }
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_9__["default"].set('items_collected_cache', cache);
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-collected-indicator').length > 0;
+    if (!itExists) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('div#img').append([$collectedIndicator, '<br>']);
+    }
+  });
+  /**
+   * Adds a Pumpkin Juice (PJ) goal indicator to the item page if applicable.
+   *
+   * This function checks if the current page contains the Pumpkin Juice section and button,
+   * verifies if the feature is enabled in settings, and displays the amount of Pumpkin Juice owned.
+   * It also calculates and displays the number of Pumpkin Juices needed to reach the next mastery tiers,
+   * unless the current mastery is already at or above Mega Mastery.
+   *
+   * @param {Object} page - The page object containing the DOM container and item data.
+   * @returns {void}
+   */
+  _defineProperty(this, "addPJToGoalIndicator", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addPJToGoalIndicator.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addPJToGoalIndicator')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].log('Pumpking Juice goal indicator is disabled in settings.');
+      return;
+    }
+    if (!(0,_utils_utils__WEBPACK_IMPORTED_MODULE_10__.getListByTitle)(page, ItemPage.titles.PUMPKING_JUICE)) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug('Pumpking Juice section not found on the page.');
+      return;
+    }
+    var $pumpkinJuiceButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.usepumpkinjuicebtn');
+    if (!$pumpkinJuiceButton.length) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug('Pumpkin Juice button not found.');
+      return;
+    }
+    var pumpkinJuiceAmount = $pumpkinJuiceButton.find('.item-after').text().trim();
+    if (!pumpkinJuiceAmount || pumpkinJuiceAmount === '0') {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug('Pumpkin Juice amount is zero or not found.');
+      return;
+    }
+    var $ownedPJ = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').attr('id', 'frpgp-pj-owned').css('font-size', '11px').append(['You own ', "<strong>".concat(pumpkinJuiceAmount, "</strong>"), ' Pumpkin Juices.']);
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-pj-owned').length > 0;
+    if (!itExists) {
+      $pumpkinJuiceButton.find('.item-title').append(['<br>', $ownedPJ]);
+    }
+    var currentMasteryAmount = _this.getItemMasteryAmount(page);
+    if (currentMasteryAmount >= _constants_masteryTiersEnum__WEBPACK_IMPORTED_MODULE_11__["default"].MEGA_MASTERY) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug('Current mastery amount is already at or above Mega Mastery.');
+      return;
+    }
+    var goals = [];
+    for (var _i = 0, _Object$values = Object.values(_constants_masteryTiersEnum__WEBPACK_IMPORTED_MODULE_11__["default"]); _i < _Object$values.length; _i++) {
+      var goalValue = _Object$values[_i];
+      if (goalValue <= currentMasteryAmount) {
+        continue;
+      }
+      var pjNeeded = addCommas(Math.ceil(Math.log(goalValue / currentMasteryAmount) / Math.log(1.1)).toString());
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug("Goal: ".concat(goalValue, ", PJ Needed: ").concat(pjNeeded, ", Current Mastery: ").concat(currentMasteryAmount));
+      var goalText = "".concat(pjNeeded, " to ").concat(_constants_masteryTiersEnum__WEBPACK_IMPORTED_MODULE_11__.MasteryTiersDisplayEnum[goalValue]);
+      goals.push("".concat(goalText));
+    }
+    if (goals.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].debug('No mastery goals found for the current item.');
+      return;
+    }
+    var itExistsGoals = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-pj-goals').length > 0;
+    if (!itExistsGoals) {
+      $pumpkinJuiceButton.find('.item-after').addClass('frpgp-pj-goals').text('').append(goals.join(' | '));
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_5__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_6__["default"].log('Item page initialized:', page);
+    _this.addBuddyFarmButton(page);
+    _this.addNpcLikingsCards(page);
+    _this.addCollectedIndicator(page);
+    _this.addPJToGoalIndicator(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, {
+    displayName: 'Item Page',
+    order: 3
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addBuddyFarmButton', {
+    title: 'Add Buddy Farm Button?',
+    subtitle: 'Adds a button that links to Buddy Farm page of the item.',
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addNpcLikingsCards', {
+    title: 'Add NPC Likings Cards?',
+    subtitle: 'Adds cards showing which NPCs super love, love, like or hate the current item.',
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addCollectedIndicator', {
+    title: 'Add Collected Indicator?',
+    subtitle: ['Adds an indicator showing if the item was already collected at some point of the game.', '<br>', 'Synchronizes whenever entering on Inventory, Item or Museum pages.'],
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_8__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].ITEM, 'addPJToGoalIndicator', {
+    title: 'Add Pumpkin Juice Goal Indicator?',
+    subtitle: 'Adds an indicator showing the amount of Pumpkin Juice you need to reach goal.',
+    isEnabled: true,
+    configs: {}
+  });
+}
+
+/**
+ * An immutable object containing title constants used throughout the item page.
+ * @readonly
+ * @enum {string}
+ * @property {string} ITEM_DETAILS - Title for the item details section.
+ * @property {string} PUMPKING_JUICE - Title for the pumpkin juice section.
+ * @property {string} COOKING_RECIPE - Title for the cooking recipe section.
+ * @property {string} COOKING_USE - Title for the cooking use section.
+ * @property {string} CRAFTING_RECIPE - Title for the crafting recipe section.
+ * @property {string} CRAFTING_USE - Title for the crafting use section.
+ */);
+_defineProperty(ItemPage, "titles", Object.freeze({
+  ITEM_DETAILS: 'Item Details',
+  PUMPKING_JUICE: 'Pumpkin Juice',
+  COOKING_RECIPE: 'Cooking Recipe',
+  COOKING_USE: 'Cooking Use',
+  CRAFTING_RECIPE: 'Crafting Recipe',
+  CRAFTING_USE: 'Crafting Use',
+  FISHING: 'Fishing',
+  EXPLORING: 'Exploring'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/npcs.js":
+/*!********************************!*\
+  !*** ./src/pages/home/npcs.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/npcUrlsEnum */ "./src/constants/npcUrlsEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+var NPCSPage = /*#__PURE__*/_createClass(function NPCSPage() {
+  var _this = this;
+  _classCallCheck(this, NPCSPage);
+  _defineProperty(this, "addTownsfolkInfoCard", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PARAMETER_MISMATCH, _this.addTownsfolkInfoCard.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].NPCS, 'townsfolkInfo')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Townsfolk Info Card is disabled, skipping creation.');
+      return;
+    }
+    var $townsfolkFriendshipRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      title: 'Library - Townsfolk Friendship',
+      iconClass: 'fa fa-fw fa-heart',
+      subtitle: 'Open\'s the Townsfolk Friendship Library page',
+      rowLink: _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_2__["default"].TOWNSFOLK.FRIENDSHIP,
+      rowId: 'frpgp-townsfolk-friendship-row'
+    });
+    var $giftsRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      title: 'Library - Townsfolk Gifts',
+      iconClass: 'fa fa-fw fa-gift',
+      subtitle: 'Open\'s the Townsfolk Gifts Library page',
+      rowLink: _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_2__["default"].TOWNSFOLK.GIFTS,
+      rowId: 'frpgp-townsfolk-gifts-row'
+    });
+    var $bfTownsfolkRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      title: 'Buddy Farm - Townsfolk',
+      iconClass: 'fa fa-fw fa-users',
+      subtitle: 'Open\'s Buddy Farm Townsfolk page',
+      rowLink: _constants_npcUrlsEnum__WEBPACK_IMPORTED_MODULE_2__["default"].TOWNSFOLK.BUDDY_FARM,
+      rowId: 'frpgp-buddy-farm-townsfolk-row'
+    });
+    var $townsfolkInfoCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_7__.createCardList)({
+      cardId: 'frpgp-townsfolk-info-card',
+      title: 'Townsfolk Info',
+      children: [$townsfolkFriendshipRow, $giftsRow, $bfTownsfolkRow]
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-townsfolk-info-card').length > 0;
+    if (!itExists) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.card').last().after($townsfolkInfoCard);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('NPCs page initialized:', page);
+    _this.addTownsfolkInfoCard(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].NPCS, {
+    displayName: 'NPCs Page',
+    order: 100
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].NPCS, 'townsfolkInfo', {
+    title: 'Add Townsfolk Info Card?',
+    subtitle: 'Adds a card with links to townsfolk information.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(NPCSPage, "titles", Object.freeze({
+  CURRENT_LEVELS: 'Current Levels',
+  DRINK_BABA_COLA: 'Drink Baba Cola'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NPCSPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/quest.js":
+/*!*********************************!*\
+  !*** ./src/pages/home/quest.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! node-fetch */ "./node_modules/node-fetch/browser.js");
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_roman__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/roman */ "./src/utils/roman.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+
+var QuestPage = /*#__PURE__*/_createClass(function QuestPage() {
+  var _this = this;
+  _classCallCheck(this, QuestPage);
+  _defineProperty(this, "createBuddyFarmCardList", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PARAMETER_MISMATCH, _this.createBuddyFarmCardList.name);
+      return null;
+    }
+    var frpgpBuddyFarmCardExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-quest-info-card').length > 0;
+    var $bfCardList;
+    if (!frpgpBuddyFarmCardExists) {
+      var $bfCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.createCardList)({
+        cardId: 'frpgp-buddy-farm-quest-info-card',
+        title: 'Buddy Farm Quest Information',
+        children: []
+      });
+      $bfCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.getListByTitle)(page, QuestPage.titles.REWARDS, {
+        returnTitle: true
+      }).next('.card').after($bfCard).next().next();
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].debug('Buddy Farm card created:', $bfCard);
+      $bfCardList = $bfCard.find('ul');
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].debug('Buddy Farm card list:', $bfCardList);
+      if ($bfCardList.length === 0) {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.createBuddyFarmCardList.name);
+        return null;
+      }
+    } else {
+      $bfCardList = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-quest-info-card ul');
+      if ($bfCardList.length === 0) {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.getBuddyFarmCardList.name);
+        return null;
+      }
+    }
+    return $bfCardList;
+  });
+  _defineProperty(this, "checkIfNextQuestExists", function () {
+    var questName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var nextQuestNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    if (!questName || typeof questName !== 'string') {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PARAMETER_MISMATCH, _this.checkIfNextQuestExists.name);
+      return;
+    }
+    var currentQuestNumber = questName.split(' ').at(-1);
+    if (!nextQuestNumber) {
+      return Promise.reject(); // Not a valid Roman numeral
+    }
+    var nextQuestName = questName.replace(new RegExp("\\b".concat(currentQuestNumber, "$")), " ".concat(nextQuestNumber));
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].get('next_quest_cache', {});
+    return cache[nextQuestName] ? Promise.resolve(cache[nextQuestName]) : node_fetch__WEBPACK_IMPORTED_MODULE_1___default()("https://buddy.farm/q/".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.parseNameForUrl)(nextQuestName))).then(function (response) {
+      cache[nextQuestName] = response.status === 200;
+      _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].set('next_quest_cache', cache);
+      return cache[nextQuestName];
+    }, function () {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.NETWORK_ERROR, _this.checkIfNextQuestExists.name);
+      return false; // Assume no next quest if fetch fails
+    })["catch"](function () {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.NETWORK_ERROR, _this.checkIfNextQuestExists.name);
+      return false; // Assume no next quest if fetch fails
+    });
+  });
+  _defineProperty(this, "isPhrQuestPage", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      return false;
+    }
+    var $peachJuiceBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.button.btnorange.drinkpj');
+    return $peachJuiceBtn.length > 0;
+  });
+  _defineProperty(this, "getPreviousAndNextQuestNumbers", function (questName) {
+    if (!questName || typeof questName !== 'string') {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PARAMETER_MISMATCH, _this.getPreviousAndNextQuestNumbers.name);
+      return;
+    }
+    var currentQuestNumber = questName.split(' ').at(-1);
+    var isRoman = _utils_roman__WEBPACK_IMPORTED_MODULE_8__["default"].isValid(currentQuestNumber);
+    if (isRoman) {
+      if (currentQuestNumber === 'I') {
+        return [null, _utils_roman__WEBPACK_IMPORTED_MODULE_8__["default"].next(currentQuestNumber)];
+      }
+      var previousQuestNumber = _utils_roman__WEBPACK_IMPORTED_MODULE_8__["default"].prev(currentQuestNumber);
+      var nextQuestNumber = _utils_roman__WEBPACK_IMPORTED_MODULE_8__["default"].next(currentQuestNumber);
+      return [previousQuestNumber, nextQuestNumber];
+    } else if (Number.isInteger(Number(currentQuestNumber))) {
+      if (currentQuestNumber === '1') {
+        return [null, '2'];
+      }
+      var _previousQuestNumber = "".concat(Number(currentQuestNumber) - 1);
+      var _nextQuestNumber = "".concat(Number(currentQuestNumber) + 1);
+      return [_previousQuestNumber, _nextQuestNumber];
+    }
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.INVALID_QUEST_NUMBER, _this.getPreviousAndNextQuestNumbers.name);
+    return;
+  });
+  _defineProperty(this, "addLibraryButtonToPhr", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addLibraryButtonToPhr.name);
+      return;
+    }
+    if (!_this.isPhrQuestPage(page)) {
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addLibraryButtonToPhr')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Library button for PHR is disabled in settings.');
+      return;
+    }
+    var $peachJuiceBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.button.btnorange.drinkpj');
+    if ($peachJuiceBtn.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Not a PHR page, skipping library button addition.');
+      return;
+    }
+    var $libraryButton = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      iconClass: 'fa fa-fw fa-book',
+      title: 'Library - Personal Help Requests',
+      subtitle: 'Open\'s library personal help requests page',
+      rowLink: 'wiki.php?page=Personal+Help+Requests'
+    });
+    var $card = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.createCardList)({
+      cardId: 'frpgp-library-info-card',
+      title: 'Library Information',
+      children: [$libraryButton]
+    });
+    var $lastTitle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.getListByTitle)(page, QuestPage.titles.REWARDS, {
+      returnTitle: true
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-library-info-card').length > 0;
+    if (!itExists) {
+      $lastTitle.next('.card').after($card);
+    }
+  });
+  _defineProperty(this, "addBuddyFarmCard", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addBuddyFarmCard.name);
+      return;
+    }
+    if (_this.isPhrQuestPage(page)) {
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addBuddyFarmCard')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Buddy Farm card is disabled in settings.');
+      return;
+    }
+    var $questTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title[style=\'font-weight: bold\']');
+    if (!$questTitle || $questTitle.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addBuddyFarmCard.name);
+      return;
+    }
+    var questName = $questTitle.children().length >= 1 // Check if it title its multi-row
+    ? $questTitle.html().trim().replace(/<br\s*\/?>/gi, ' ') // Replace <br> tags with spaces
+    : $questTitle.text().trim();
+    if (!questName) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addBuddyFarmCard.name);
+      return;
+    }
+    var $bfCurrentQuestRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      rowId: 'frpgp-buddy-farm-current-quest',
+      title: "BF - ".concat(questName),
+      iconClass: 'fa fa-fw fa-bullseye',
+      subtitle: 'Open\'s Buddy Farm current quest page',
+      rowLink: "https://buddy.farm/q/".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.parseNameForUrl)(questName))
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-current-quest').length > 0;
+    if (!itExists) {
+      var $frpgpBuddyFarmCard = _this.createBuddyFarmCardList(page);
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].debug('Buddy Farm card for current quest:', $frpgpBuddyFarmCard);
+      if ($frpgpBuddyFarmCard) {
+        $frpgpBuddyFarmCard.append($bfCurrentQuestRow);
+      } else {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addBuddyFarmCard.name);
+        return;
+      }
+    }
+  });
+  _defineProperty(this, "addExtraBuddyFarmButtons", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addExtraBuddyFarmButtons.name);
+      return;
+    }
+    if (_this.isPhrQuestPage(page)) {
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addExtraBuddyFarmButtons')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Extra Buddy Farm buttons are disabled in settings.');
+      return;
+    }
+    var $questTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title[style=\'font-weight: bold\']');
+    if (!($questTitle !== null && $questTitle !== void 0 && $questTitle.length) === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addExtraBuddyFarmButtons.name);
+      return;
+    }
+    var questName = $questTitle.children().length >= 1 // Check if it title its multi-row
+    ? $questTitle.html().trim().replace(/<br\s*\/?>/gi, ' ') // Replace <br> tags with spaces
+    : $questTitle.text().trim();
+    if (!questName) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addExtraBuddyFarmButtons.name);
+      return;
+    }
+    var $previousQuestRow;
+    var $nextQuestRow;
+    var _this$getPreviousAndN = _this.getPreviousAndNextQuestNumbers(questName),
+      _this$getPreviousAndN2 = _slicedToArray(_this$getPreviousAndN, 2),
+      previousQuestNumber = _this$getPreviousAndN2[0],
+      nextQuestNumber = _this$getPreviousAndN2[1];
+    if (previousQuestNumber) {
+      var previousQuestName = questName.replace(new RegExp("\\b".concat(questName.split(' ').at(-1), "$")), previousQuestNumber);
+      $previousQuestRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+        rowId: 'frpgp-buddy-farm-previous-quest',
+        iconClass: 'fa fa-fw fa-arrow-left',
+        title: 'BF - Previous Quest',
+        subtitle: 'Open\'s Buddy Farm previous quest page',
+        rowLink: "https://buddy.farm/q/".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.parseNameForUrl)(previousQuestName))
+      });
+      var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-previous-quest').length > 0;
+      if (!itExists) {
+        var $frpgpBuddyFarmCard = _this.createBuddyFarmCardList(page);
+        if ($frpgpBuddyFarmCard) {
+          $frpgpBuddyFarmCard.prepend($previousQuestRow);
+        } else {
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addExtraBuddyFarmButtons.name);
+          return;
+        }
+      }
+    }
+    _this.checkIfNextQuestExists(questName, nextQuestNumber).then(function (exists) {
+      if (!exists) {
+        return false; // No next quest exists
+      }
+      var nextQuestName = questName.replace(new RegExp("\\b".concat(questName.split(' ').at(-1), "$")), " ".concat(nextQuestNumber));
+      $nextQuestRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+        rowId: 'frpgp-buddy-farm-next-quest',
+        iconClass: 'fa fa-fw fa-arrow-right',
+        title: 'BF - Next Quest',
+        subtitle: 'Open\'s Buddy Farm next quest page',
+        rowLink: "https://buddy.farm/q/".concat((0,_utils_utils__WEBPACK_IMPORTED_MODULE_9__.parseNameForUrl)(nextQuestName))
+      });
+      var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-next-quest').length > 0;
+      if (!itExists) {
+        var _$frpgpBuddyFarmCard = _this.createBuddyFarmCardList(page);
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].debug('Buddy Farm card for next quest:', _$frpgpBuddyFarmCard);
+        if (_$frpgpBuddyFarmCard) {
+          _$frpgpBuddyFarmCard.append($nextQuestRow);
+        } else {
+          new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addExtraBuddyFarmButtons.name);
+          return;
+        }
+      }
+      return true;
+    }, function () {
+      return false;
+    })["catch"](function () {
+      return false;
+    });
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Quest page initialized:', page);
+    _this.addLibraryButtonToPhr(page);
+    _this.addBuddyFarmCard(page);
+    _this.addExtraBuddyFarmButtons(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, {
+    displayName: 'Quest Page',
+    order: 5
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addBuddyFarmCard', {
+    title: 'Add Buddy Farm Card?',
+    subtitle: 'Adds a card with links to Buddy Farm quest information.',
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addExtraBuddyFarmButtons', {
+    title: 'Add Extra Buddy Farm Buttons?',
+    subtitle: 'Adds buttons for previous and next Buddy Farm quest pages.',
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_2__["default"].QUEST, 'addLibraryButtonToPhr', {
+    title: 'Add Library Button to PHRs?',
+    subtitle: 'Adds a button to Personal Help Request pages that links to the library.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(QuestPage, "titles", {
+  SILVER_REQUESTED: 'Silver Requested',
+  ITEMS_REQUESTED: 'Items Requested',
+  REWARDS: 'Rewards'
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/quests.js":
+/*!**********************************!*\
+  !*** ./src/pages/home/quests.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+var QuestsPage = /*#__PURE__*/_createClass(function QuestsPage() {
+  var _this = this;
+  _classCallCheck(this, QuestsPage);
+  _defineProperty(this, "addBuddyFarmCard", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError('PAGE_NOT_FOUND', _this.addBuddyFarmCard.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].QUESTS, 'addBuddyFarmButton')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Buddy Farm button is disabled in settings.');
+      return;
+    }
+    var $bfRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_5__.createRow)({
+      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__["default"].BUDDY_FARM,
+      title: 'Buddy Farm',
+      subtitle: 'Open\'s Buddy Farm Quests Page',
+      rowLink: 'https://buddy.farm/quests/',
+      rowId: 'frpgp-buddy-farm-row'
+    });
+    var $bfCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_7__.createCardList)({
+      title: 'Buddy Farm',
+      children: [$bfRow]
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-buddy-farm-row').length > 0;
+    if (!itExists) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.card').last().prev().prev().after($bfCard);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Quests page initialized:', page);
+    _this.addBuddyFarmCard(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].QUESTS, {
+    displayName: 'Quests Page',
+    order: 4
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].QUESTS, 'addBuddyFarmButton', {
+    title: 'Add Buddy Farm Button?',
+    subtitle: 'Adds a button that links to the Buddy Farm Quests page.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(QuestsPage, "titles", Object.freeze({
+  COMMUNITY_CENTER: 'Community Center',
+  SPECIAL_REQUESTS: 'Special Requests ([0-9]+)',
+  ACTIVE_REQUESTS: 'Active Requests ([0-9]+)',
+  PERSONAL_REQUESTS: 'Personal Requests ([0-9]+)',
+  REQUEST_TOTALS: 'Request Totals'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestsPage);
+
+/***/ }),
+
+/***/ "./src/pages/home/workshop.js":
+/*!************************************!*\
+  !*** ./src/pages/home/workshop.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+var WorkshopPage = /*#__PURE__*/_createClass(function WorkshopPage() {
+  var _this = this;
+  _classCallCheck(this, WorkshopPage);
+  _defineProperty(this, "getResourceSaverFactor", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.getResourceSaverFactor.name);
+      return 1;
+    }
+    var $firstCardContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.progressbar').next('.card');
+    if ($firstCardContent.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addCraftingBonusIndicator.name);
+    }
+    var cardText = $firstCardContent.text().trim();
+    var resourceSaverMatch = cardText.match(/Your resource saver perk is (\d+)%\./);
+    var resourceSaverPercent = 0;
+    if (resourceSaverMatch) {
+      resourceSaverPercent = parseInt(resourceSaverMatch[1], 10) / 100;
+    }
+    if (isNaN(resourceSaverPercent) || resourceSaverPercent < 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('Invalid resource saver percentage found:', resourceSaverPercent);
+      return 0; // Default to 0 if invalid
+    }
+    return resourceSaverPercent;
+  });
+  _defineProperty(this, "addCraftingBonusIndicator", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addCraftingBonusIndicator.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WORKSHOP, 'addCraftingBonusIndicator')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Crafting bonus indicator is disabled in settings.');
+      return;
+    }
+    var $itemRowTitles = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.item-title');
+    if ($itemRowTitles.length <= 3) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('No item titles found in the workshop page.');
+      return;
+    } else {
+      $itemRowTitles = $itemRowTitles.slice(3); // Skip the first 3 titles
+    }
+    var resourceSaver = _this.getResourceSaverFactor(page);
+    $itemRowTitles.each(function (_, element) {
+      var $input = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).find('input');
+      if ($input.length === 0 || $input.val() === '0') {
+        return;
+      }
+      var parsedValue = parseInt($input.val(), 10);
+      if (isNaN(parsedValue) || parsedValue <= 0) {
+        return;
+      }
+      var bonusValue = Math.floor(parsedValue * resourceSaver);
+      var $minusButton = $input.prev('button');
+      if ($minusButton.length === 0) {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('Minus button not found for input:', $input);
+        return;
+      }
+      var $plusButton = $input.next('button');
+      if ($plusButton.length === 0) {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].warn('Plus button not found for input:', $input);
+        return;
+      }
+      var $indicator = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').addClass('frpgp-crafting-bonus-indicator').attr('title', 'Crafting bonus with resource saver').css({
+        'color': 'green',
+        'margin-left': '5px',
+        'font-weight': 'bold',
+        'font-size': '14px'
+      }).text("(".concat(bonusValue, ")"));
+      var itExistsInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).find('.frpgp-crafting-bonus-indicator').length > 0;
+      if (!itExistsInput) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).append($indicator);
+      }
+      $input.on('change change.frpgplus', function (evt, extra) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        var currentValue = parseInt($input.val(), 10);
+        if (extra !== null && extra !== void 0 && extra.offset) {
+          currentValue += extra.offset;
+        }
+        if (isNaN(currentValue) || currentValue < 0) {
+          $indicator.text('');
+          return;
+        }
+        $indicator.text("(".concat(Math.floor(currentValue * resourceSaver), ")"));
+        return;
+      });
+      $minusButton.on('click', function (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        var onMin = $input.val() === '0';
+        if (!onMin) {
+          $input.trigger('change.frpgplus', {
+            offset: -1
+          });
+        }
+      });
+      $plusButton.on('click', function (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        var onMax = parseInt($input.val(), 10) >= parseInt($input.attr('data-max'), 10);
+        if (!onMax) {
+          $input.trigger('change.frpgplus', {
+            offset: 1
+          });
+        }
+      });
+    });
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Workshop page initialized:', page);
+    _this.addCraftingBonusIndicator(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WORKSHOP, {
+    displayName: 'Workshop Page',
+    order: 2
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WORKSHOP, 'addCraftingBonusIndicator', {
+    title: 'Add Crafting Bonus Indicator?',
+    subtitle: 'Adds a indicator to crafting items showing how much bonus resources will be crafted with resource saver.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(WorkshopPage, "titles", Object.freeze({
+  FAVORITE_ITEMS: 'Workshop',
+  CRAFTING: 'Crafting'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WorkshopPage);
+
+/***/ }),
+
+/***/ "./src/pages/index.js":
+/*!****************************!*\
+  !*** ./src/pages/index.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/bottleRocket */ "./src/pages/events/bottleRocket.js");
+/* harmony import */ var _home_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home */ "./src/pages/home/home.js");
+/* harmony import */ var _home_inventory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/inventory */ "./src/pages/home/inventory.js");
+/* harmony import */ var _home_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/item */ "./src/pages/home/item.js");
+/* harmony import */ var _home_npcs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/npcs */ "./src/pages/home/npcs.js");
+/* harmony import */ var _home_quest__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home/quest */ "./src/pages/home/quest.js");
+/* harmony import */ var _home_quests__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/quests */ "./src/pages/home/quests.js");
+/* harmony import */ var _home_workshop__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/workshop */ "./src/pages/home/workshop.js");
+/* harmony import */ var _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./kitchen/kitchen */ "./src/pages/kitchen/kitchen.js");
+/* harmony import */ var _kitchen_oven__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./kitchen/oven */ "./src/pages/kitchen/oven.js");
+/* harmony import */ var _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./misc/settingsOptions */ "./src/pages/misc/settingsOptions.js");
+/* harmony import */ var _town_museum__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./town/museum */ "./src/pages/town/museum.js");
+/* harmony import */ var _town_supply__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./town/supply */ "./src/pages/town/supply.js");
+/* harmony import */ var _town_vault__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./town/vault */ "./src/pages/town/vault.js");
+/* harmony import */ var _town_well__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./town/well */ "./src/pages/town/well.js");
+var _Pages;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Pages = (_Pages = {}, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].HOME, new _home_home__WEBPACK_IMPORTED_MODULE_2__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].INVENTORY, new _home_inventory__WEBPACK_IMPORTED_MODULE_3__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WORKSHOP, new _home_workshop__WEBPACK_IMPORTED_MODULE_8__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].KITCHEN, new _kitchen_kitchen__WEBPACK_IMPORTED_MODULE_9__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUESTS, new _home_quests__WEBPACK_IMPORTED_MODULE_7__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].NPCS, new _home_npcs__WEBPACK_IMPORTED_MODULE_5__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].OVEN, new _kitchen_oven__WEBPACK_IMPORTED_MODULE_10__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].ITEM, new _home_item__WEBPACK_IMPORTED_MODULE_4__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].QUEST, new _home_quest__WEBPACK_IMPORTED_MODULE_6__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].FARM_SUPPLY, new _town_supply__WEBPACK_IMPORTED_MODULE_13__["default"]()), _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_Pages, _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].VAULT, new _town_vault__WEBPACK_IMPORTED_MODULE_14__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].WELL, new _town_well__WEBPACK_IMPORTED_MODULE_15__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].MUSEUM, new _town_museum__WEBPACK_IMPORTED_MODULE_12__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].SETTINGS_OPTIONS, new _misc_settingsOptions__WEBPACK_IMPORTED_MODULE_11__["default"]()), _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_0__["default"].BOTTLE_ROCKET, new _events_bottleRocket__WEBPACK_IMPORTED_MODULE_1__["default"]()));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pages);
+
+/***/ }),
+
+/***/ "./src/pages/kitchen/kitchen.js":
+/*!**************************************!*\
+  !*** ./src/pages/kitchen/kitchen.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var KitchenPage = /*#__PURE__*/_createClass(function KitchenPage() {
+  var _this = this;
+  _classCallCheck(this, KitchenPage);
+  _defineProperty(this, "cachePlayerOvenAmount", function (page) {
+    var _$ovenAmount$attr;
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.cachePlayerOvenAmount.name);
+      return;
+    }
+    var $ovenAmount = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a[href^="oven.php?num="]').last();
+    if ($ovenAmount.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.cachePlayerOvenAmount.name);
+      return;
+    }
+    var ovenAmountText = (_$ovenAmount$attr = $ovenAmount.attr('href')) === null || _$ovenAmount$attr === void 0 ? void 0 : _$ovenAmount$attr.match(/num=(\d+)/)[1];
+    var ovenAmount = parseInt(ovenAmountText, 10);
+    if (isNaN(ovenAmount)) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid oven amount found:', ovenAmountText);
+      return;
+    }
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('player_oven_amount', ovenAmount);
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Kitchen page initialized', page);
+    _this.cachePlayerOvenAmount(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (KitchenPage);
+
+/***/ }),
+
+/***/ "./src/pages/kitchen/oven.js":
+/*!***********************************!*\
+  !*** ./src/pages/kitchen/oven.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants/iconsUrlEnum */ "./src/constants/iconsUrlEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_routerPlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/routerPlus */ "./src/modules/routerPlus.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+var OvenPage = /*#__PURE__*/_createClass(function OvenPage() {
+  var _this = this;
+  _classCallCheck(this, OvenPage);
+  _defineProperty(this, "isCurrentlyCooking", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      return false;
+    }
+    var $currentlyCookingTitle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING);
+    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
+    return $currentlyCookingTitle && $collectMealButton.length === 0;
+  });
+  _defineProperty(this, "isCookingComplete", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      return false;
+    }
+    var $collectMealButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.cookreadybtn');
+    return $collectMealButton.length === 1;
+  });
+  _defineProperty(this, "addOvenNavigationButtons", function (page) {
+    var _page$query;
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addOvenNavigationButtons.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].OVEN, 'addOvenNavigationButtons')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Oven navigation buttons are disabled in settings.');
+      return;
+    }
+    var playerOvens = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_7__["default"].get('player_oven_amount') || 1;
+    var currentOven = parseInt((page === null || page === void 0 || (_page$query = page.query) === null || _page$query === void 0 ? void 0 : _page$query.num) || 1, 10);
+    var $previousButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('Previous').on('click', function () {
+      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_5__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === 1 ? playerOvens : currentOven - 1));
+    });
+    var $nextButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('button btngreen').text('  Next  ').on('click', function (e) {
+      e.preventDefault();
+      _modules_routerPlus__WEBPACK_IMPORTED_MODULE_5__["default"]["goto"]("#!/oven.php?num=".concat(currentOven === playerOvens ? 1 : currentOven + 1));
+    });
+    var $navRow = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.createRow)({
+      iconImageUrl: _constants_iconsUrlEnum__WEBPACK_IMPORTED_MODULE_2__["default"].OVEN_ICON,
+      title: 'Oven Navigation',
+      subtitle: 'Navigate to next or previous oven page',
+      rowId: 'frpg-oven-navigation-row',
+      afterLabel: [$previousButton, '<p>&nbsp;</p>', $nextButton]
+    });
+    var $navCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.createCardList)({
+      cardId: 'frpg-oven-navigation-card',
+      title: 'Oven Navigation',
+      children: [$navRow]
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpg-oven-navigation-card').length > 0;
+    if (!_this.isCurrentlyCooking(page) && !itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, OvenPage.titles.LEARNED_RECIPES, {
+        returnTitle: true
+      }).before($navCard);
+    } else if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_8__.getListByTitle)(page, OvenPage.titles.CURRENTLY_COOKING, {
+        returnTitle: true
+      }).before($navCard);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_3__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_4__["default"].log('Oven page initialized', page);
+    _this.addOvenNavigationButtons(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].OVEN, {
+    displayName: 'Oven Page',
+    order: 100
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_6__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].OVEN, 'addOvenNavigationButtons', {
+    title: 'Add Oven Navigation Buttons?',
+    subtitle: 'Adds buttons to navigate between different oven pages.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(OvenPage, "titles", Object.freeze({
+  LEARNED_RECIPES: 'Learned Recipes',
+  CURRENTLY_COOKING: 'Currently Cooking',
+  COOKING_OPTIONS: 'Cooking Options',
+  OTHER_OPTIONS: 'Other Options'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OvenPage);
+
+/***/ }),
+
+/***/ "./src/pages/misc/settingsOptions.js":
+/*!*******************************************!*\
+  !*** ./src/pages/misc/settingsOptions.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+_modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__["default"];
+_modules_rowFactory__WEBPACK_IMPORTED_MODULE_3__.createRow;
+var SettingsOptionsPage = /*#__PURE__*/_createClass(function SettingsOptionsPage() {
+  var _this = this;
+  _classCallCheck(this, SettingsOptionsPage);
+  _defineProperty(this, "createCheckboxRow", function (page, featureObject, isConfig) {
+    if (!featureObject || !featureObject.title || !featureObject.subtitle) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration:', featureObject);
+      return null;
+    }
+    var $itemContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-content');
+    var $itemInner = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-inner').attr({
+      'role': 'checkbox',
+      'id': "".concat(featureObject.id, "-aria"),
+      'aria-labelledby': "".concat(featureObject.id, "-label"),
+      'aria-checked': featureObject.typeData.value === true ? 'true' : 'false'
+    });
+    var $itemTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-title label').css('width', '60%').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<label>').attr('id', "".concat(featureObject.id, "-label")).attr('for', "".concat(featureObject.id, "-input")).append(featureObject.title), '<br>', jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').css('font-size', '11px').append(featureObject.subtitle));
+    var $labelSwitch = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<label>').addClass('label-switch').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<input>').addClass('frpgp-options').attr({
+      type: 'checkbox',
+      id: "".concat(featureObject.id, "-input"),
+      name: "".concat(featureObject.id, "-name"),
+      value: '1'
+    }).prop('checked', featureObject.typeData.value).on('change', function () {
+      var isChecked = $itemInner.attr('aria-checked') === 'true';
+      _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].setValue(page.pageId, isConfig ? featureObject.featureId : featureObject.id, isConfig ? featureObject.id : undefined, !isChecked);
+      $itemInner.attr('aria-checked', isChecked ? 'false' : 'true');
+    }), jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('checkbox'));
+    $itemInner.append([$itemTitle, $labelSwitch]);
+    $itemContent.append($itemInner);
+    return $itemContent;
+  });
+  _defineProperty(this, "createNumericRow", function (page, featureObject, isConfig) {
+    if (!featureObject || !featureObject.title || !featureObject.subtitle) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration:', featureObject);
+      return null;
+    }
+    var $itemContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-content');
+    var $itemInner = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-inner');
+    var $itemTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-title label').append(featureObject.title, '<br>', jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').css('font-size', '11px').append(featureObject.subtitle));
+    var $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-after').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<input>').attr({
+      type: 'text',
+      name: "".concat(featureObject.id, "-input"),
+      value: featureObject.typeData.value
+    }).addClass('inlineinputsm').css('width', '60px').on('change', function () {
+      var _featureObject$typeDa, _featureObject$typeDa2, _featureObject$typeDa3, _featureObject$typeDa4;
+      if (!featureObject.typeData.min || !featureObject.typeData.max) {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn("Numeric feature ".concat(featureObject.id, " does not have min/max defined."));
+        return;
+      }
+      var oldValue = _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].getValue(page.pageId, isConfig ? featureObject.featureId : featureObject.id, isConfig ? featureObject.id : undefined);
+      var value = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(), 10);
+      if (isNaN(value)) {
+        value = oldValue;
+      }
+      if (value < ((_featureObject$typeDa = featureObject === null || featureObject === void 0 || (_featureObject$typeDa2 = featureObject.typeData) === null || _featureObject$typeDa2 === void 0 ? void 0 : _featureObject$typeDa2.min) !== null && _featureObject$typeDa !== void 0 ? _featureObject$typeDa : 1)) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(featureObject.typeData.min);
+      }
+      if (value > ((_featureObject$typeDa3 = featureObject === null || featureObject === void 0 || (_featureObject$typeDa4 = featureObject.typeData) === null || _featureObject$typeDa4 === void 0 ? void 0 : _featureObject$typeDa4.max) !== null && _featureObject$typeDa3 !== void 0 ? _featureObject$typeDa3 : 100)) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(featureObject.typeData.max);
+      }
+      _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].setValue(page.pageId, isConfig ? featureObject.featureId : featureObject.id, isConfig ? featureObject.id : undefined, value);
+    }));
+    $itemInner.append([$itemTitle, $itemAfter]);
+    $itemContent.append($itemInner);
+    return $itemContent;
+  });
+  _defineProperty(this, "createSelectRow", function (page, featureObject, isConfig) {
+    var _featureObject$typeDa5;
+    if (!featureObject || !featureObject.title || !featureObject.subtitle) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration:', featureObject);
+      return null;
+    }
+    if (isConfig && !((_featureObject$typeDa5 = featureObject.typeData) !== null && _featureObject$typeDa5 !== void 0 && _featureObject$typeDa5.options)) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration for select row:', featureObject);
+      return null;
+    }
+    var $itemContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-content');
+    var $itemInner = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-inner');
+    var $itemTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-title').append(featureObject.title, '<br>', jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').css('font-size', '11px').append(featureObject.subtitle));
+    var selectOptions = [];
+    if (!featureObject.typeData.options || !Array.isArray(featureObject.typeData.options)) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature options:', featureObject.typeData.options);
+    }
+    var _iterator = _createForOfIteratorHelper(featureObject.typeData.options),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var option = _step.value;
+        if (!option || !option.value || !option.label) {
+          _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature option:', option);
+          continue;
+        }
+        var selectOption = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<option>').attr('value', option.value).text(option.label);
+        if (option.value === featureObject.typeData.value) {
+          selectOption.attr('selected', '');
+        }
+        selectOptions.push(selectOption);
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    var $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-after').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<select>').attr('name', "".concat(featureObject.id, "-input")).addClass('inlineinputlg').on('change', function () {
+      var value = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
+      _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].setValue(page.pageId, isConfig ? featureObject.featureId : featureObject.id, isConfig ? featureObject.id : undefined, value);
+    }).append(selectOptions));
+    $itemInner.append([$itemTitle, $itemAfter]);
+    $itemContent.append($itemInner);
+    return $itemContent;
+  });
+  _defineProperty(this, "makeConfigFeatureRow", function (page, feature) {
+    var isConfig = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    if (!feature || !feature.title || !feature.subtitle) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration:', feature);
+      return null;
+    }
+    if (isConfig && !feature.configId && !feature.featureId) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration for many config row:', feature);
+      return null;
+    }
+    var featureObject = {};
+    if (isConfig) {
+      var _feature$type, _feature$typeData$val, _feature$typeData;
+      featureObject.id = feature.configId;
+      featureObject.featureId = feature.featureId;
+      featureObject.title = feature.title;
+      featureObject.subtitle = feature.subtitle;
+      featureObject.type = (_feature$type = feature.type) !== null && _feature$type !== void 0 ? _feature$type : 'checkbox';
+      featureObject.typeData = _objectSpread(_objectSpread({}, feature.typeData), {}, {
+        value: (_feature$typeData$val = (_feature$typeData = feature.typeData) === null || _feature$typeData === void 0 ? void 0 : _feature$typeData.value) !== null && _feature$typeData$val !== void 0 ? _feature$typeData$val : false
+      });
+    } else {
+      var _feature$enableTitle, _feature$enableSubtit, _feature$isEnabled;
+      featureObject.id = feature.featureId;
+      featureObject.title = (_feature$enableTitle = feature.enableTitle) !== null && _feature$enableTitle !== void 0 ? _feature$enableTitle : feature.title;
+      featureObject.subtitle = (_feature$enableSubtit = feature.enableSubtitle) !== null && _feature$enableSubtit !== void 0 ? _feature$enableSubtit : feature.subtitle;
+      featureObject.type = 'checkbox';
+      featureObject.typeData = {
+        value: (_feature$isEnabled = feature.isEnabled) !== null && _feature$isEnabled !== void 0 ? _feature$isEnabled : false
+      };
+    }
+    var $itemContent;
+    switch (featureObject.type) {
+      case 'checkbox':
+        $itemContent = _this.createCheckboxRow(page, featureObject, isConfig);
+        break;
+      case 'numeric':
+        $itemContent = _this.createNumericRow(page, featureObject, isConfig);
+        break;
+      case 'select':
+        $itemContent = _this.createSelectRow(page, featureObject, isConfig);
+        break;
+      default:
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Unsupported feature type:', featureObject.type);
+        return null;
+    }
+    var $li = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').attr('id', "".concat(featureObject.id, "-row")).append($itemContent);
+    return $li;
+  });
+  _defineProperty(this, "makeManyConfigFeatureRow", function (page, feature) {
+    if (!feature || !feature.title || !feature.subtitle || !feature.configs) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid feature configuration:', feature);
+      return null;
+    }
+    var $accordionHeader = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr('href', '#').addClass('item-content item-link').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-inner').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('item-title').append(feature.title, jquery__WEBPACK_IMPORTED_MODULE_0___default()('<br>'), jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').css('font-size', '11px').append(feature.subtitle))));
+    var $accordionContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('accordion-item-content');
+    var $listBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('list-block');
+    var $ul = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<ul>');
+    var $li = _this.makeConfigFeatureRow(page, feature, false);
+    $ul.append($li);
+    var _iterator2 = _createForOfIteratorHelper(feature.configs),
+      _step2;
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var config = _step2.value;
+        if (!config || !config.title || !config.subtitle) {
+          _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].warn('Invalid config:', config);
+          continue;
+        }
+        var featureFinal = _objectSpread(_objectSpread({}, config), {}, {
+          featureId: feature.featureId
+        });
+        $li = _this.makeConfigFeatureRow(page, featureFinal, true);
+        if ($li) {
+          $ul.append($li);
+        }
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+    $listBlock.append($ul);
+    $accordionContent.append($listBlock);
+    var $accordionItem = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').addClass('accordion-item').append($accordionHeader, $accordionContent);
+    return $accordionItem;
+  });
+  _defineProperty(this, "addUserscriptConfiguration", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addUserscriptConfiguration.name);
+      return;
+    }
+    var $saveGameOptionsButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.content-block').last();
+    if ($saveGameOptionsButton.length === 0) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addUserscriptConfiguration.name);
+      return;
+    }
+    var settings = _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].getAllFeatures();
+    if (!settings || Object.keys(settings).length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('No settings available to display.');
+      return;
+    }
+    var $listContent = [];
+    var _iterator3 = _createForOfIteratorHelper(settings),
+      _step3;
+    try {
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var _page = _step3.value;
+        var $pageTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').addClass('list-group-title item-divider').text("".concat(_page.title, " Options"));
+        $listContent.push($pageTitle);
+        var _iterator4 = _createForOfIteratorHelper(_page.features),
+          _step4;
+        try {
+          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+            var feature = _step4.value;
+            var $li = feature.configs.length > 0 ? _this.makeManyConfigFeatureRow(_page, feature) : _this.makeConfigFeatureRow(_page, feature);
+            $listContent.push($li);
+          }
+        } catch (err) {
+          _iterator4.e(err);
+        } finally {
+          _iterator4.f();
+        }
+      }
+    } catch (err) {
+      _iterator3.e(err);
+    } finally {
+      _iterator3.f();
+    }
+    var $listBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('list-block').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<ul>').append($listContent));
+    var $contentTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('content-block-title').attr('id', 'frpgp-userscript-configuration-title').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<span>').css({
+      'font-size': '11px',
+      'float': 'right'
+    }).append('Settings are saved automatically when changed'), 'FarmRPG Plus Configuration');
+    var $contentBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').attr('id', 'frpgp-userscript-configuration').addClass('content-block').append($contentTitle, $listBlock);
+    var frpgpConfigs = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-userscript-configuration').length > 0;
+    if (!frpgpConfigs) {
+      $saveGameOptionsButton.after('<p>&nbsp;</p>', $contentBlock);
+    }
+  });
+  _defineProperty(this, "addResetEverythingButton", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addResetEverythingButton.name);
+      return;
+    }
+    var $saveGameOptionsButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.content-block').last();
+    var $configListBlock = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-userscript-configuration');
+    var $resetEverythingButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr('id', 'frpgp-reset-everything-button').addClass('button btn btnred').text('Reset all settings to default').on('click', function (evt) {
+      evt.preventDefault();
+      myApp.confirm('Are you sure you want to reset all FarmRPG Plus settings?\n\n' + 'This action cannot be undone.', 'Reset FarmRPG Plus settings', function () {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Resetting all settings to default.');
+        _modules_storagePlus__WEBPACK_IMPORTED_MODULE_5__["default"].clear();
+        myApp.alert('All FarmRPG Plus settings have been reset to default.', 'Success', function () {
+          window.location.reload();
+        });
+      }, function () {});
+    });
+    if (!$configListBlock.length) {
+      $saveGameOptionsButton.after('<p>&nbsp;</p>', jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('content-block').append($resetEverythingButton));
+    } else {
+      $configListBlock.after(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('content-block').append($resetEverythingButton));
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Settings Options page initialized:', page);
+    _this.addUserscriptConfiguration(page);
+    _this.addResetEverythingButton(page);
+  });
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsOptionsPage);
+
+/* Example config with additional options
+<li class="accordion-item">
+    <a href="#" class="item-content item-link">
+        <div class="item-inner">
+            <div class="item-title">
+                config title goes here
+                <br>
+                <span style="font-size: 11px">config subtitle goes here</span>
+            </div>
+        </div>
+    </a>
+    <div class="accordion-item-content" style="">
+        <div style="" class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner" role="checkbox" id="subconfigId-aria" aria-labelledby="subconfigId-label" aria-checked="false">
+                            <div class="item-title label" style="width:60%">
+                                <label id="subconfigId-label" for="subconfigId-input">subconfig title goes here</label>
+                                <br>
+                                <span style="font-size: 11px">subconfig subtitle goes here</span>
+                            </div>
+                            <label class="label-switch">
+                                <input type="checkbox" class="frpgp-options" id="subconfigId-input" name="subconfigId-name" value="1">
+                                <div class="checkbox"></div>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">
+                                Launcher Amount
+                                <br>
+                                <span style="font-size: 11px">
+                                    Number of Large Nets to launch per use
+                                    <br>
+                                    Set between 10 and 50 and watch your Inventory Cap
+                                </span>
+                            </div>
+                            <div class="item-after">
+                                <input type="text" name="lnl_amt" value="50" class="inlineinputsm" style="width:60px">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">
+                                Background Music
+                                <br>
+                                <span style="font-size: 11px">
+                                    iOS (all players)
+                                    <br>
+                                    Android (IN BETA)
+                                </span>
+                            </div>
+                            <div class="item-after">
+                                <select name="music" class="inlineinputlg">
+                                    <option value="none" checked="">None</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3 (Winter)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+               </li>
+            </ul>
+        </div>
+    </div>
+</li>
+*/
+
+/***/ }),
+
+/***/ "./src/pages/town/museum.js":
+/*!**********************************!*\
+  !*** ./src/pages/town/museum.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/storagePlus */ "./src/modules/storagePlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+var MuseumPage = /*#__PURE__*/_createClass(function MuseumPage() {
+  var _this = this;
+  _classCallCheck(this, MuseumPage);
+  _defineProperty(this, "syncCollectionProgress", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.syncCollectionProgress.name);
+      return;
+    }
+    var $itemBlocks = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.col-25');
+    if ($itemBlocks.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('No collection progress found on the Museum page.');
+      return;
+    }
+    var cache = _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].get('items_collected_cache', {});
+    $itemBlocks.each(function (_, element) {
+      var itemName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).text().trim();
+      if (!itemName || itemName === '-') {
+        return;
+      }
+      cache[itemName] = cache[itemName] || true;
+    });
+    _modules_storagePlus__WEBPACK_IMPORTED_MODULE_3__["default"].set('items_collected_cache', cache);
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Collection progress cache updated');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_2__["default"].log('Museum page initialized:', page);
+    _this.syncCollectionProgress(page);
+  });
+});
+_defineProperty(MuseumPage, "titles", Object.freeze({
+  COLLECTION_PROGRESS: 'Collection Progress',
+  CROPS: 'Crops',
+  FISH: 'Fish',
+  ITEMS: 'Items',
+  SEEDS: 'Seeds',
+  BAIT: 'Bait',
+  MEALS: 'Meals',
+  CARDS: 'Cards',
+  EVENT: 'Event'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MuseumPage);
+
+/***/ }),
+
+/***/ "./src/pages/town/supply.js":
+/*!**********************************!*\
+  !*** ./src/pages/town/supply.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+var FarmSupplyPage = /*#__PURE__*/_createClass(function FarmSupplyPage() {
+  var _this = this;
+  _classCallCheck(this, FarmSupplyPage);
+  _defineProperty(this, "addDisplayDiscounts", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addDisplayDiscounts.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].FARM_SUPPLY, 'addDisplayDiscounts')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Discount display is disabled in settings.');
+      return;
+    }
+    var $originalPrices = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('span[style^=\'color:teal;\'] strong');
+    if ($originalPrices.length === 0) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('No discounts found on the Farm Supply page.');
+      return;
+    }
+    $originalPrices.each(function (index, element) {
+      var $discountedPrice = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).parents('.item-title').next();
+      if ($discountedPrice.length === 0) {
+        _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('No discounted price found for:', jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).text());
+        return;
+      }
+      var originalPrice = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).text().trim(), 10);
+      var discountedPrice = parseInt($discountedPrice.text().trim(), 10);
+      var discountFactor = 100 - 100 * discountedPrice / originalPrice;
+      var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find(".frpgp-discount-after-".concat(index)).length > 0;
+      if (!itExists && !isNaN(discountFactor) && discountFactor >= 0) {
+        $discountedPrice.prepend('&nbsp;');
+        $discountedPrice.prepend("<span style=\"color: teal; font-weight: bold;\" class='frpgp-discount-after-".concat(index, "'>").concat(discountFactor.toFixed(2), "% Off</span>"));
+      }
+    });
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Farm Supply page initialized:', page);
+    _this.addDisplayDiscounts(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].FARM_SUPPLY, {
+    displayName: 'Farm Supply',
+    order: 100
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_4__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].FARM_SUPPLY, 'addDisplayDiscounts', {
+    title: 'Add discount indicators for on SALE items?',
+    subtitle: 'Adds a discount percentage next to items that are on sale.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(FarmSupplyPage, "titles", Object.freeze({
+  CAP_UPGRADES: 'Cap Upgrades',
+  UPGRADES_ON_SALE: 'Upgrades on Sale (Changes on Mondays)',
+  FARMING_UPGRADES: 'Farming Upgrades',
+  FISHING_UPGRADES: 'Fishing Upgrades',
+  CRAFTING_UPGRADES: 'Crafting Upgrades',
+  EXPLORING_UPGRADES: 'Exploring Upgrades',
+  COOKING_UPGRADES: 'Cooking Upgrades',
+  QUALITY_OF_LIFE_UPGRADES: 'Quality of Life Upgrades',
+  BANK_UPGRADES: 'Bank Upgrades',
+  ORCHARD_UPGRADES: 'Orchard Upgrades',
+  WINE_CELLAR_UPGRADES: 'Wine Cellar Upgrades',
+  LIVESTOCK_UPGRADES: 'Livestock Upgrades',
+  WHEEL_OF_BORGEN_UPGRADES: 'Wheel of Borgen Upgrades',
+  MISCELLANEOUS_UPGRADES: 'Miscellaneous Upgrades',
+  ARTIFACT_UPGRADES: 'Artifact Upgrades'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FarmSupplyPage);
+
+/***/ }),
+
+/***/ "./src/pages/town/vault.js":
+/*!*********************************!*\
+  !*** ./src/pages/town/vault.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+var VaultPage = /*#__PURE__*/_createClass(function VaultPage() {
+  var _this = this;
+  _classCallCheck(this, VaultPage);
+  _defineProperty(this, "addLibraryCard", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addLibraryCard.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].VAULT, 'addLibraryCard')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Vault Library card is disabled in settings.');
+      return;
+    }
+    var $vaultLibraryRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      rowId: 'frpgp-vault-library',
+      iconClass: 'fa fa-fw fa-book',
+      title: 'Library - Vault Library',
+      subtitle: 'Open\'s Vault Library page',
+      rowLink: 'wiki.php?page=The+Vault'
+    });
+    var $libraryCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createCardList)({
+      cardId: 'frpgp-vault-library-card',
+      title: 'Vault Library',
+      children: [$vaultLibraryRow]
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-vault-library-card').length > 0;
+    if (!itExists) {
+      (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, VaultPage.titles.BORGEN_BUCKS, {
+        returnTitle: true
+      }).before($libraryCard);
+    }
+  });
+  _defineProperty(this, "addGuessVaultCode", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addGuessVaultCode.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].VAULT, 'addGuessVaultCode')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Vault Guess Code button is disabled in settings.');
+      return;
+    }
+
+    /*
+    Crack The Vault code and win Silver!
+    Blue means you guessed a correct digit in the correct position.
+    Yellow means you guessed a correct digit in the wrong position.
+    Code is 4-digit (0001-9999). You have 4 tries left.
+      IMPORTANT! 0 is a valid number and potentially part of the code.
+    Also, the same number could be in the code more than once.
+    */
+
+    var $inputVaultCode = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#vaultcode');
+    var $guessVaultCodeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr('id', 'frpgp-vault-guess-code-button').addClass('button btn btnblue').text('Guess Vault Code');
+    $guessVaultCodeButton.on('click', function (evt) {
+      evt.preventDefault();
+      if (!$inputVaultCode.length) {
+        new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.ELEMENT_NOT_FOUND, _this.addGuessVaultCode.name);
+        return;
+      }
+      var $vaultHints = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.card-content-inner .row .col-25');
+      if (!$vaultHints.length) {
+        $inputVaultCode.val('0123');
+        return; // No hints available, default to '0123'
+      }
+      var vaultHints = $vaultHints.map(function (_, hint) {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(hint).text().trim();
+      }).get().reduce(function (acc, hint) {
+        var hintParts = hint.match(/([a-zA-Z]+)(\d+)/).slice(1);
+        if (hintParts) {
+          var _hintParts = _slicedToArray(hintParts, 2),
+            color = _hintParts[0],
+            number = _hintParts[1];
+          acc.push({
+            color: color,
+            number: number
+          });
+        }
+        return acc;
+      }, []);
+      console.log('Vault hints:', vaultHints);
+      $inputVaultCode.val(_this.guessVaultCode(vaultHints));
+    });
+    var newVaultButtonExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('.resetbtn').length > 0;
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-vault-guess-code-button').length > 0;
+    if (!itExists && !newVaultButtonExists) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('a.vcbtn').after($guessVaultCodeButton);
+    }
+  });
+  /**
+   * Make a guess for the Crack The Vault game based on previous hints
+   * @param {Array<T>} hintList - Previous guesses and their feedback
+   * @returns {string} - The next 4-digit guess
+  */
+  _defineProperty(this, "guessVaultCode", function (hintList) {
+    // TODO: Implement a more sophisticated algorithm to analyze hints and make better guesses
+    if (!hintList || hintList.length === 0) {
+      return '0123'; // Default first guess
+    }
+    var attemptsMade = hintList.length / 4;
+    var suggestedGuess = [];
+    if (attemptsMade === 1) {
+      suggestedGuess.push('4', '5', '6', '7');
+    } else if (attemptsMade === 2) {
+      suggestedGuess.push('8', '9');
+    }
+    return suggestedGuess.join('');
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Vault page initialized:', page);
+    _this.addLibraryCard(page);
+    _this.addGuessVaultCode(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].VAULT, {
+    displayName: 'Vault',
+    order: 100
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].VAULT, 'addLibraryCard', {
+    title: 'Add Library Card?',
+    subtitle: 'Adds a card with a link to the Vault Library page.',
+    isEnabled: true,
+    configs: {}
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].VAULT, 'addGuessVaultCode', {
+    title: 'Add Guess Vault Code Button?',
+    subtitle: 'Enables the Guess Vault Code button.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(VaultPage, "titles", Object.freeze({
+  VAULT_STATS: 'Vault Stats',
+  BORGEN_BUCKS: 'Borgen Bucks',
+  LUCKY_SEVENS: 'All Lucky 7\'s Today'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VaultPage);
+
+/***/ }),
+
+/***/ "./src/pages/town/well.js":
+/*!********************************!*\
+  !*** ./src/pages/town/well.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants/gamePagesEnum */ "./src/constants/gamePagesEnum.js");
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../modules/rowFactory */ "./src/modules/rowFactory.js");
+/* harmony import */ var _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../modules/settingsPlus */ "./src/modules/settingsPlus.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/utils */ "./src/utils/utils.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+var WellPage = /*#__PURE__*/_createClass(function WellPage() {
+  var _this = this;
+  _classCallCheck(this, WellPage);
+  _defineProperty(this, "addLibraryCard", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.addLibraryCard.name);
+      return;
+    }
+    if (!_modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].isEnabled(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WELL, 'addLibraryCard')) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Wishing Well Library card is disabled in settings.');
+      return;
+    }
+    var $wwTipsRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      rowId: 'frpgp-wishing-well-tips',
+      iconClass: 'fa fa-fw fa-lightbulb',
+      title: 'Library - Wishing Well Tips',
+      subtitle: 'Open\'s Wishing Well Tips Library page',
+      rowLink: 'wiki.php?page=Wishing+Well+Tips'
+    });
+    var $wwCuriosRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      rowId: 'frpgp-wishing-well-curios',
+      iconClass: 'fa fa-fw fa-search',
+      title: 'Library - Wishing Well Curios',
+      subtitle: 'Open\'s Wishing Well Curios Library page',
+      rowLink: 'wiki.php?page=Wishing+Well+Curios'
+    });
+    var $wwWantsRow = (0,_modules_rowFactory__WEBPACK_IMPORTED_MODULE_4__.createRow)({
+      rowId: 'frpgp-ww-wants',
+      iconClass: 'fa fa-fw fa-gift',
+      title: 'Library - WW Wants',
+      subtitle: 'Open\'s WW Wants Library page',
+      rowLink: 'wiki.php?page=WW Wants'
+    });
+    var $libraryCard = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.createCardList)({
+      cardId: 'frpgp-wishing-well-library-card',
+      title: 'Wishing Well Library',
+      children: [$wwTipsRow, $wwCuriosRow, $wwWantsRow]
+    });
+    var $lastTitle = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_6__.getListByTitle)(page, WellPage.titles.TOSS_SOMETHING_IN, {
+      returnTitle: true
+    });
+    var itExists = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('#frpgp-wishing-well-library-card').length > 0;
+    if (!itExists) {
+      $lastTitle.next('.card').after($libraryCard);
+    }
+  });
+  _defineProperty(this, "applyHandler", function (page) {
+    if (!(page !== null && page !== void 0 && page.container)) {
+      new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_2__.ErrorTypesEnum.PAGE_NOT_FOUND, _this.applyHandler.name);
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_3__["default"].log('Well page initialized:', page);
+    _this.addLibraryCard(page);
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerPage(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WELL, {
+    displayName: 'Wishing Well',
+    order: 100
+  });
+  _modules_settingsPlus__WEBPACK_IMPORTED_MODULE_5__["default"].registerFeature(_constants_gamePagesEnum__WEBPACK_IMPORTED_MODULE_1__["default"].WELL, 'addLibraryCard', {
+    title: 'Add Library Card?',
+    subtitle: 'Adds a card with links to helpful Wishing Well Library pages.',
+    isEnabled: true,
+    configs: {}
+  });
+});
+_defineProperty(WellPage, "titles", Object.freeze({
+  ABOUT_THE_WISHING_WELL: 'About the Wishing Well',
+  TOSS_SOMETHING_IN: 'Toss something in'
+}));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WellPage);
+
+/***/ }),
+
+/***/ "./src/utils/roman.js":
+/*!****************************!*\
+  !*** ./src/utils/roman.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/**
+ * Utility class for working with Roman numerals.
+ *
+ * Provides static methods to validate, convert, and manipulate Roman numerals.
+ *
+ * @class Roman
+ *
+ * @example
+ * Roman.isValid('XIV'); // true
+ * Roman.romanize(14); // 'XIV'
+ * Roman.deromanize('XIV'); // 14
+ * Roman.next('XIV'); // 'XV'
+ * Roman.prev('XIV'); // 'XIII'
+ */
+var Roman = /*#__PURE__*/function () {
+  function Roman() {
+    _classCallCheck(this, Roman);
+  }
+  return _createClass(Roman, null, [{
+    key: "isValid",
+    value:
+    /**
+     * Determines whether a given string is a valid Roman numeral.
+     *
+     * @param {string} str - The string to test for Roman numeral validity.
+     * @returns {boolean} True if the string is a valid Roman numeral, false otherwise.
+     */
+    function isValid(str) {
+      // https://blog.stevenlevithan.com/archives/javascript-roman-numeral-converter
+      if (typeof str !== 'string' || !str.trim()) {
+        return false;
+      }
+      return /^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(str.toUpperCase());
+    }
+
+    /**
+     * Converts an integer to its Roman numeral representation.
+     *
+     * @param {number|string} num - The number to convert to a Roman numeral.
+     * @returns {string|boolean} The Roman numeral as a string, or false if input is invalid.
+     */
+  }, {
+    key: "romanize",
+    value: function romanize(num) {
+      // https://blog.stevenlevithan.com/archives/javascript-roman-numeral-converter
+      if (!+num) {
+        return false;
+      }
+      var digits = String(+num).split('');
+      var key = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM', '', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC', '', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
+      var roman = '';
+      var i = 3;
+      while (i--) {
+        roman = (key[+digits.pop() + i * 10] || '') + roman;
+      }
+      return Array(+digits.join('') + 1).join('M') + roman;
+    }
+
+    /**
+     * Converts a Roman numeral string to its integer value.
+     *
+     * @param {string} str - The Roman numeral string to convert.
+     * @returns {number|false} The integer value of the Roman numeral, or false if the input is invalid.
+     */
+  }, {
+    key: "deromanize",
+    value: function deromanize(str) {
+      // https://blog.stevenlevithan.com/archives/javascript-roman-numeral-converter
+      if (typeof str !== 'string' || !str.trim()) {
+        return false;
+      }
+      str = str.toUpperCase();
+      var validator = /^M*(?:D?C{0,3}|C[MD])(?:L?X{0,3}|X[CL])(?:V?I{0,3}|I[XV])$/;
+      var token = /[MDLV]|C[MD]?|X[CL]?|I[XV]?/g;
+      var key = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+      };
+      var num = 0;
+      var m;
+      if (!(str && validator.test(str))) {
+        return false;
+      }
+      m = token.exec(str);
+      while (m) {
+        num += key[m[0]];
+        m = token.exec(str);
+      }
+      return num;
+    }
+
+    /**
+     * Returns the next Roman numeral after the given Roman numeral string.
+     * If the input is not a valid Roman numeral, returns null.
+     *
+     * @param {string} str - The Roman numeral string to increment.
+     * @returns {string|null} The next Roman numeral string, or null if input is invalid.
+     */
+  }, {
+    key: "next",
+    value: function next(str) {
+      if (typeof str !== 'string' || !str.trim() || !Roman.isValid(str)) {
+        return null;
+      }
+      var n = Roman.deromanize(str);
+      return Roman.romanize(n + 1);
+    }
+
+    /**
+     * Returns the previous Roman numeral string for the given Roman numeral.
+     * If the input is not a valid Roman numeral or represents 1 or less, returns null.
+     *
+     * @param {string} str - The Roman numeral string to decrement.
+     * @returns {string|null} The previous Roman numeral string, or null if not applicable.
+     */
+  }, {
+    key: "prev",
+    value: function prev(str) {
+      if (typeof str !== 'string' || !str.trim() || !Roman.isValid(str)) {
+        return null;
+      }
+      var n = Roman.deromanize(str);
+      if (n <= 1) {
+        return null;
+      }
+      return Roman.romanize(n - 1);
+    }
+  }]);
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Roman);
+
+/***/ }),
+
+/***/ "./src/utils/timeControl.js":
+/*!**********************************!*\
+  !*** ./src/utils/timeControl.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var TimeControl = /*#__PURE__*/function () {
+  function TimeControl() {
+    _classCallCheck(this, TimeControl);
+  }
+  return _createClass(TimeControl, null, [{
+    key: "getLocaleTimeStringOnCT",
+    value: function getLocaleTimeStringOnCT(timestamp) {
+      var parsedTimestamp = timestamp ? TimeControl.getLocaleTimeOnCT(timestamp) : 'Invalid Timestamp';
+      parsedTimestamp = parsedTimestamp.toLocaleString('en-US', {
+        day: 'numeric',
+        month: 'short',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true
+      });
+      return parsedTimestamp;
+    }
+  }, {
+    key: "getLocaleTimeOnCT",
+    value: function getLocaleTimeOnCT(timestamp) {
+      // If a timestamp is provided, use it; otherwise, use the current time
+      var now = timestamp ? new Date(timestamp) : new Date();
+      var utcOffset = now.getTimezoneOffset() * 60000;
+      var centralTime = new Date(now.getTime() + utcOffset - 3600000 * 5);
+      return centralTime;
+    }
+
+    /**
+     * Determines if the current time (in Central Time, UTC-5) falls within specific reset periods.
+     *
+     * The function checks two reset windows:
+     * 1. Between 11:30 and 11:35 PM CT (inclusive).
+     * 2. Between 12:00 and 12:04 AM CT (inclusive).
+     *
+     * @returns {number} Returns 1 if the current time is within backup period, 2 if is within reset period, otherwise 0.
+     */
+  }, {
+    key: "isResetTime",
+    value: function isResetTime() {
+      var nowOnCT = TimeControl.getLocaleTimeOnCT();
+      if (nowOnCT.getHours() === 23 && nowOnCT.getMinutes() >= 29 && nowOnCT.getMinutes() <= 36) {
+        return 1;
+      }
+      if (nowOnCT.getHours() === 0 && nowOnCT.getMinutes() >= 0 && nowOnCT.getMinutes() <= 6) {
+        return 2;
+      }
+      return 0;
+    }
+  }]);
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TimeControl);
+
+/***/ }),
+
+/***/ "./src/utils/utils.js":
+/*!****************************!*\
+  !*** ./src/utils/utils.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createCardList: () => (/* binding */ createCardList),
+/* harmony export */   createRow: () => (/* binding */ createRow),
+/* harmony export */   getListByTitle: () => (/* binding */ getListByTitle),
+/* harmony export */   isUrlValid: () => (/* binding */ isUrlValid),
+/* harmony export */   parseKeyToDisplayName: () => (/* binding */ parseKeyToDisplayName),
+/* harmony export */   parseNameForUrl: () => (/* binding */ parseNameForUrl),
+/* harmony export */   watchForElement: () => (/* binding */ watchForElement)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FarmRPGPlusError */ "./src/FarmRPGPlusError.js");
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+
+
+
+/**
+ * Creates a jQuery <li> element representing a row with optional media, title, subtitle, button, and link.
+ *
+ * @param {Object} [options={}] - Configuration options for the row.
+ * @param {string} [options.rowId=''] - The id attribute for the row element.
+ * @param {string} [options.rowClass=''] - Additional CSS classes for the row element.
+ * @param {string} [options.rowLink=''] - If provided, wraps the row in an anchor linking to this URL.
+ * @param {string} [options.buttonLabel=''] - Label for an optional button displayed in the row.
+ * @param {function} [options.onClick] - Click handler for the button, if present.
+ * @param {string} [options.iconImageUrl=''] - URL for an image to display as the row's icon.
+ * @param {string} [options.iconMediaUrl=''] - If provided, wraps the icon image in a link to this URL.
+ * @param {string} [options.iconClass=''] - Additional CSS classes for the icon image.
+ * @param {string} [options.title=''] - Main title text for the row.
+ * @param {string} [options.subtitle=''] - Subtitle text displayed below the title.
+ * @param {string} [options.afterLabel=''] - Text or HTML to display after the title, if no button is present.
+ * @returns {jQuery} The constructed <li> element as a jQuery object.
+ */
+function createRow() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+    _ref$rowId = _ref.rowId,
+    rowId = _ref$rowId === void 0 ? '' : _ref$rowId,
+    _ref$rowClass = _ref.rowClass,
+    rowClass = _ref$rowClass === void 0 ? '' : _ref$rowClass,
+    _ref$rowLink = _ref.rowLink,
+    rowLink = _ref$rowLink === void 0 ? '' : _ref$rowLink,
+    _ref$buttonLabel = _ref.buttonLabel,
+    buttonLabel = _ref$buttonLabel === void 0 ? '' : _ref$buttonLabel,
+    onClick = _ref.onClick,
+    iconImageUrl = _ref.iconImageUrl,
+    _ref$iconMediaUrl = _ref.iconMediaUrl,
+    iconMediaUrl = _ref$iconMediaUrl === void 0 ? '' : _ref$iconMediaUrl,
+    _ref$iconClass = _ref.iconClass,
+    iconClass = _ref$iconClass === void 0 ? '' : _ref$iconClass,
+    _ref$iconUrl = _ref.iconUrl,
+    iconUrl = _ref$iconUrl === void 0 ? '' : _ref$iconUrl,
+    _ref$iconOnTitleEnd = _ref.iconOnTitleEnd,
+    iconOnTitleEnd = _ref$iconOnTitleEnd === void 0 ? false : _ref$iconOnTitleEnd,
+    _ref$title = _ref.title,
+    title = _ref$title === void 0 ? '' : _ref$title,
+    _ref$subtitle = _ref.subtitle,
+    subtitle = _ref$subtitle === void 0 ? '' : _ref$subtitle,
+    _ref$afterLabel = _ref.afterLabel,
+    afterLabel = _ref$afterLabel === void 0 ? '' : _ref$afterLabel;
+  var $mediaContent;
+  if (iconImageUrl !== null && iconImageUrl !== void 0 && iconImageUrl.trim()) {
+    $mediaContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<img class=\"itemimg\" src=\"".concat(iconImageUrl, "\">"));
+  } else if (iconImageUrl === '') {
+    $mediaContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="itemimg">');
+  }
+  var $itemMedia;
+  if (iconMediaUrl) {
+    $itemMedia = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-media">').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').attr('href', iconMediaUrl).append($mediaContent));
+  } else {
+    $itemMedia = $mediaContent ? jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-media">').append($mediaContent) : null;
+  }
+  var $itemTitle = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-title">');
+  if (iconUrl || iconClass) {
+    $itemTitle.append(iconOnTitleEnd ? "".concat(title, " ") : " ".concat(title));
+    if (iconClass) {
+      iconOnTitleEnd ? $itemTitle.append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<i>').addClass(iconClass)) : $itemTitle.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<i>').addClass(iconClass));
+    } else if (iconUrl) {
+      var $image = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<img>').attr('src', iconUrl).css('width', '16px').css('height', '16px');
+      iconOnTitleEnd ? $itemTitle.append($image) : $itemTitle.prepend($image);
+    }
+  } else {
+    $itemTitle.append(title);
+  }
+  if (subtitle) {
+    $itemTitle.append(['<br>', "<span style=\"font-size: 11px\">".concat(subtitle, "</span>")]);
+  }
+
+  // $itemTitle.append(
+  //     `${iconClass || iconUrl ? ' ': ''}${title}`,
+
+  // );
+
+  var $itemAfter = null;
+  if (buttonLabel && onClick) {
+    var $btn = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<button class=\"button btngreen\">".concat(buttonLabel, "</button>")).on('click', onClick || function () {});
+    $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">').append($btn);
+  }
+  if (afterLabel && !buttonLabel) {
+    $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">').append(afterLabel);
+  }
+  if (!afterLabel && !iconImageUrl) {
+    $itemAfter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-after">');
+  }
+  var $itemInner = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-inner">').append($itemTitle, $itemAfter);
+  var $itemContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="item-content">').append($itemMedia, $itemInner);
+  var $li = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>');
+  if (rowLink) {
+    var isExternal = !rowLink.includes('.php');
+    var $a = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<a>').addClass('item-link').addClass('close-panel').attr('href', rowLink).attr('data-view', '.view-main');
+    if (rowId) {
+      $a.attr('id', rowId);
+    }
+    if (rowClass) {
+      $a.addClass(rowClass);
+    }
+    if (isExternal) {
+      $a.addClass('external').attr('target', '_blank').attr('rel', 'noopener noreferrer');
+    }
+    $li = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').append($a.append($itemContent));
+  } else {
+    $li = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li>').addClass('close-panel');
+    if (rowClass) {
+      $li.addClass(rowClass);
+    }
+    if (rowId) {
+      $li.attr('id', rowId);
+    }
+    $li.append($itemContent);
+  }
+  return $li;
+}
+
+/**
+ * Creates a list of card elements with an optional title and child elements.
+ *
+ * @param {Object} params - The parameters for creating the card list.
+ * @param {string} [params.cardClass=''] - Additional CSS class to apply to the card.
+ * @param {string} [params.title=''] - Optional title to display above the card list.
+ * @param {Array} [params.children=[]] - Array of child elements (typically jQuery elements) to include in the list.
+ * @returns {Array} An array of jQuery elements representing the card list, optionally including a title.
+ */
+function createCardList(_ref2) {
+  var _ref2$cardId = _ref2.cardId,
+    cardId = _ref2$cardId === void 0 ? '' : _ref2$cardId,
+    _ref2$cardClass = _ref2.cardClass,
+    cardClass = _ref2$cardClass === void 0 ? '' : _ref2$cardClass,
+    _ref2$title = _ref2.title,
+    title = _ref2$title === void 0 ? '' : _ref2$title,
+    _ref2$children = _ref2.children,
+    children = _ref2$children === void 0 ? [] : _ref2$children,
+    _ref2$cardContentOnly = _ref2.cardContentOnly,
+    cardContentOnly = _ref2$cardContentOnly === void 0 ? false : _ref2$cardContentOnly;
+  if (typeof cardClass !== 'string' || !Array.isArray(children)) {
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, createCardList.name);
+    return;
+  }
+  var content = [];
+  content.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('card').addClass(cardClass || '').attr('id', cardId || '').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('card-content').append(cardContentOnly ? jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('card-content-inner').append(children) : jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('list-block').append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<ul>').append(children)))));
+  if (title) {
+    content.unshift(jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('content-block-title').text(title));
+  }
+  return content;
+}
+function watchForElement(selector, callback) {
+  var observer = null;
+
+  // Verifica se o elemento já está presente
+  var $existing = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector);
+  if ($existing.length) {
+    callback($existing.first());
+    return function () {}; // nada a desconectar
+  }
+  observer = new MutationObserver(function (mutationsList) {
+    var _iterator = _createForOfIteratorHelper(mutationsList),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var mutation = _step.value;
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(mutation.addedNodes).each(function (_, node) {
+          if (node.nodeType === 1) {
+            var $matched = jquery__WEBPACK_IMPORTED_MODULE_0___default()(node).is(selector) ? jquery__WEBPACK_IMPORTED_MODULE_0___default()(node) : jquery__WEBPACK_IMPORTED_MODULE_0___default()(node).find(selector);
+            if ($matched.length) {
+              callback($matched.first());
+              observer.disconnect(); // parar após encontrar
+              return;
+            }
+          }
+        });
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  // Retorna função para parar manualmente
+  return function () {
+    if (observer) observer.disconnect();
+  };
+}
+
+/**
+ * Retrieves a list element associated with a given title from a page container.
+ *
+ * @param {Object} page - The page object containing the container to search within.
+ * @param {string} title - The title to search for. Can be matched exactly or via regex.
+ * @param {Object} [options] - Optional parameters.
+ * @param {boolean} [options.returnTitle=false] - If true, returns the matching title element instead of the list.
+ * @param {boolean} [options.regex=false] - If true, uses a regular expression to match the title.
+ * @param {number} [options.offset=0] - Offset from the found title. Can be negative to search backwards.
+ * @returns {jQuery} The jQuery object representing the found list or title element.
+ * @throws {FarmRPGPlusError} Throws if parameters are invalid or elements are not found.
+ */
+function getListByTitle(page, title) {
+  var _ref3 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+    _ref3$returnTitle = _ref3.returnTitle,
+    returnTitle = _ref3$returnTitle === void 0 ? false : _ref3$returnTitle,
+    _ref3$regex = _ref3.regex,
+    regex = _ref3$regex === void 0 ? false : _ref3$regex,
+    _ref3$offset = _ref3.offset,
+    offset = _ref3$offset === void 0 ? 0 : _ref3$offset;
+  if (typeof title !== 'string' || !title.trim() || typeof offset !== 'number' || !page || !page.container) {
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.PARAMETER_MISMATCH, getListByTitle.name);
+    return null;
+  }
+  var $listOfTitles = jquery__WEBPACK_IMPORTED_MODULE_0___default()(page.container).find('div.content-block-title');
+  var $matchingTitle = $listOfTitles.filter(function (_, el) {
+    var text = jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).text().trim();
+    return regex ? text.match(new RegExp(title.trim(), 'i')) : text === title.trim();
+  });
+  if ($matchingTitle.length === 0 && offset !== 0) {
+    if (offset < 0) {
+      $listOfTitles = $listOfTitles.get().reverse();
+      offset = -offset;
+    }
+    var idx = ($listOfTitles.index($matchingTitle[0]) + offset) % $listOfTitles.length;
+    $matchingTitle = $listOfTitles.eq(idx);
+  }
+  if ($matchingTitle.length === 0) {
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, getListByTitle.name);
+    return null;
+  }
+  if (returnTitle) {
+    return $matchingTitle;
+  }
+  var $card = $matchingTitle.next('.card');
+  if ($card.length === 0) {
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, getListByTitle.name);
+    return null;
+  }
+  var $list = $card.find('.list-block ul');
+  if ($list.length) {
+    return $list.eq(0);
+  }
+  if ($card.next('.list-block')) {
+    $list = $card.next('.list-block').find('ul').eq(0);
+  }
+  if ($list.length === 0) {
+    new _FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.FarmRPGPlusError(_FarmRPGPlusError__WEBPACK_IMPORTED_MODULE_1__.ErrorTypesEnum.ELEMENT_NOT_FOUND, getListByTitle.name);
+    return null;
+  }
+  return $list;
+}
+
+/**
+ * Checks if the given string is a valid URL.
+ *
+ * @param {string} url - The URL string to validate.
+ * @returns {boolean} Returns true if the URL is valid, otherwise false.
+ */
+function isUrlValid(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (_unused) {
+    return false;
+  }
+}
+
+/**
+ * Converts a name into a URL-friendly string by:
+ * - Trimming whitespace
+ * - Replacing spaces and special characters with hyphens
+ * - Replacing accented characters with hyphens
+ * - Collapsing multiple hyphens into a single hyphen
+ * - Converting the result to lowercase
+ *
+ * @param {string} name - The original name to be converted.
+ * @returns {string} The URL-friendly version of the name.
+ */
+function parseNameForUrl(name) {
+  var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+    _ref4$separator = _ref4.separator,
+    separator = _ref4$separator === void 0 ? '-' : _ref4$separator,
+    _ref4$lowercase = _ref4.lowercase,
+    lowercase = _ref4$lowercase === void 0 ? true : _ref4$lowercase;
+  var processedName = name.trim().replace(/[ _!@#$%^&*()+=[\]{};':"\\|,.<>/?]+/g, '-') // Replace spaces and special characters with hyphens
+  .replace(/[\u00C0-\u00FF]/g, '-') // Replace accented characters with hyphens
+  .replace(/-+/g, '-'); // Replace multiple hyphens with a single hyphen
+
+  if (lowercase) {
+    processedName = processedName.toLowerCase();
+  }
+  if (separator !== '-') {
+    processedName = processedName.replace(/-/g, separator);
+  }
+  return processedName;
+}
+
+/**
+ * Converts a snake_case key string to a human-readable display name.
+ *
+ * Replaces underscores with spaces, converts the string to lowercase,
+ * and capitalizes the first letter of each word.
+ *
+ * @param {string} key - The key string to convert.
+ * @returns {string} The formatted display name, or an empty string if input is not a string.
+ */
+function parseKeyToDisplayName(key) {
+  if (typeof key !== 'string') {
+    return '';
+  }
+  return key.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, function (_char) {
+    return _char.toUpperCase();
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/jquery/dist/jquery.js":
+/*!********************************************!*\
+  !*** ./node_modules/jquery/dist/jquery.js ***!
+  \********************************************/
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery JavaScript Library v3.7.1
+ * https://jquery.com/
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2023-08-28T13:37Z
+ */
+( function( global, factory ) {
+
+	"use strict";
+
+	if (  true && typeof module.exports === "object" ) {
+
+		// For CommonJS and CommonJS-like environments where a proper `window`
+		// is present, execute the factory and get jQuery.
+		// For environments that do not have a `window` with a `document`
+		// (such as Node.js), expose a factory as module.exports.
+		// This accentuates the need for the creation of a real `window`.
+		// e.g. var jQuery = require("jquery")(window);
+		// See ticket trac-14549 for more info.
+		module.exports = global.document ?
+			factory( global, true ) :
+			function( w ) {
+				if ( !w.document ) {
+					throw new Error( "jQuery requires a window with a document" );
+				}
+				return factory( w );
+			};
+	} else {
+		factory( global );
+	}
+
+// Pass this if window is not defined yet
+} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+
+// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
+// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
+// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
+// enough that all such attempts are guarded in a try block.
+"use strict";
+
+var arr = [];
+
+var getProto = Object.getPrototypeOf;
+
+var slice = arr.slice;
+
+var flat = arr.flat ? function( array ) {
+	return arr.flat.call( array );
+} : function( array ) {
+	return arr.concat.apply( [], array );
+};
+
+
+var push = arr.push;
+
+var indexOf = arr.indexOf;
+
+var class2type = {};
+
+var toString = class2type.toString;
+
+var hasOwn = class2type.hasOwnProperty;
+
+var fnToString = hasOwn.toString;
+
+var ObjectFunctionString = fnToString.call( Object );
+
+var support = {};
+
+var isFunction = function isFunction( obj ) {
+
+		// Support: Chrome <=57, Firefox <=52
+		// In some browsers, typeof returns "function" for HTML <object> elements
+		// (i.e., `typeof document.createElement( "object" ) === "function"`).
+		// We don't want to classify *any* DOM node as a function.
+		// Support: QtWeb <=3.8.5, WebKit <=534.34, wkhtmltopdf tool <=0.12.5
+		// Plus for old WebKit, typeof returns "function" for HTML collections
+		// (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
+		return typeof obj === "function" && typeof obj.nodeType !== "number" &&
+			typeof obj.item !== "function";
+	};
+
+
+var isWindow = function isWindow( obj ) {
+		return obj != null && obj === obj.window;
+	};
+
+
+var document = window.document;
+
+
+
+	var preservedScriptAttributes = {
+		type: true,
+		src: true,
+		nonce: true,
+		noModule: true
+	};
+
+	function DOMEval( code, node, doc ) {
+		doc = doc || document;
+
+		var i, val,
+			script = doc.createElement( "script" );
+
+		script.text = code;
+		if ( node ) {
+			for ( i in preservedScriptAttributes ) {
+
+				// Support: Firefox 64+, Edge 18+
+				// Some browsers don't support the "nonce" property on scripts.
+				// On the other hand, just using `getAttribute` is not enough as
+				// the `nonce` attribute is reset to an empty string whenever it
+				// becomes browsing-context connected.
+				// See https://github.com/whatwg/html/issues/2369
+				// See https://html.spec.whatwg.org/#nonce-attributes
+				// The `node.getAttribute` check was added for the sake of
+				// `jQuery.globalEval` so that it can fake a nonce-containing node
+				// via an object.
+				val = node[ i ] || node.getAttribute && node.getAttribute( i );
+				if ( val ) {
+					script.setAttribute( i, val );
+				}
+			}
+		}
+		doc.head.appendChild( script ).parentNode.removeChild( script );
+	}
+
+
+function toType( obj ) {
+	if ( obj == null ) {
+		return obj + "";
+	}
+
+	// Support: Android <=2.3 only (functionish RegExp)
+	return typeof obj === "object" || typeof obj === "function" ?
+		class2type[ toString.call( obj ) ] || "object" :
+		typeof obj;
+}
+/* global Symbol */
+// Defining this global in .eslintrc.json would create a danger of using the global
+// unguarded in another place, it seems safer to define global only for this module
+
+
+
+var version = "3.7.1",
+
+	rhtmlSuffix = /HTML$/i,
+
+	// Define a local copy of jQuery
+	jQuery = function( selector, context ) {
+
+		// The jQuery object is actually just the init constructor 'enhanced'
+		// Need init if jQuery is called (just allow error to be thrown if not included)
+		return new jQuery.fn.init( selector, context );
+	};
+
+jQuery.fn = jQuery.prototype = {
+
+	// The current version of jQuery being used
+	jquery: version,
+
+	constructor: jQuery,
+
+	// The default length of a jQuery object is 0
+	length: 0,
+
+	toArray: function() {
+		return slice.call( this );
+	},
+
+	// Get the Nth element in the matched element set OR
+	// Get the whole matched element set as a clean array
+	get: function( num ) {
+
+		// Return all the elements in a clean array
+		if ( num == null ) {
+			return slice.call( this );
+		}
+
+		// Return just the one element from the set
+		return num < 0 ? this[ num + this.length ] : this[ num ];
+	},
+
+	// Take an array of elements and push it onto the stack
+	// (returning the new matched element set)
+	pushStack: function( elems ) {
+
+		// Build a new jQuery matched element set
+		var ret = jQuery.merge( this.constructor(), elems );
+
+		// Add the old object onto the stack (as a reference)
+		ret.prevObject = this;
+
+		// Return the newly-formed element set
+		return ret;
+	},
+
+	// Execute a callback for every element in the matched set.
+	each: function( callback ) {
+		return jQuery.each( this, callback );
+	},
+
+	map: function( callback ) {
+		return this.pushStack( jQuery.map( this, function( elem, i ) {
+			return callback.call( elem, i, elem );
+		} ) );
+	},
+
+	slice: function() {
+		return this.pushStack( slice.apply( this, arguments ) );
+	},
+
+	first: function() {
+		return this.eq( 0 );
+	},
+
+	last: function() {
+		return this.eq( -1 );
+	},
+
+	even: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return ( i + 1 ) % 2;
+		} ) );
+	},
+
+	odd: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return i % 2;
+		} ) );
+	},
+
+	eq: function( i ) {
+		var len = this.length,
+			j = +i + ( i < 0 ? len : 0 );
+		return this.pushStack( j >= 0 && j < len ? [ this[ j ] ] : [] );
+	},
+
+	end: function() {
+		return this.prevObject || this.constructor();
+	},
+
+	// For internal use only.
+	// Behaves like an Array's method, not like a jQuery method.
+	push: push,
+	sort: arr.sort,
+	splice: arr.splice
+};
+
+jQuery.extend = jQuery.fn.extend = function() {
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[ 0 ] || {},
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if ( typeof target === "boolean" ) {
+		deep = target;
+
+		// Skip the boolean and the target
+		target = arguments[ i ] || {};
+		i++;
+	}
+
+	// Handle case when target is a string or something (possible in deep copy)
+	if ( typeof target !== "object" && !isFunction( target ) ) {
+		target = {};
+	}
+
+	// Extend jQuery itself if only one argument is passed
+	if ( i === length ) {
+		target = this;
+		i--;
+	}
+
+	for ( ; i < length; i++ ) {
+
+		// Only deal with non-null/undefined values
+		if ( ( options = arguments[ i ] ) != null ) {
+
+			// Extend the base object
+			for ( name in options ) {
+				copy = options[ name ];
+
+				// Prevent Object.prototype pollution
+				// Prevent never-ending loop
+				if ( name === "__proto__" || target === copy ) {
+					continue;
+				}
+
+				// Recurse if we're merging plain objects or arrays
+				if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
+					( copyIsArray = Array.isArray( copy ) ) ) ) {
+					src = target[ name ];
+
+					// Ensure proper type for the source value
+					if ( copyIsArray && !Array.isArray( src ) ) {
+						clone = [];
+					} else if ( !copyIsArray && !jQuery.isPlainObject( src ) ) {
+						clone = {};
+					} else {
+						clone = src;
+					}
+					copyIsArray = false;
+
+					// Never move original objects, clone them
+					target[ name ] = jQuery.extend( deep, clone, copy );
+
+				// Don't bring in undefined values
+				} else if ( copy !== undefined ) {
+					target[ name ] = copy;
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+jQuery.extend( {
+
+	// Unique for each copy of jQuery on the page
+	expando: "jQuery" + ( version + Math.random() ).replace( /\D/g, "" ),
+
+	// Assume jQuery is ready without the ready module
+	isReady: true,
+
+	error: function( msg ) {
+		throw new Error( msg );
+	},
+
+	noop: function() {},
+
+	isPlainObject: function( obj ) {
+		var proto, Ctor;
+
+		// Detect obvious negatives
+		// Use toString instead of jQuery.type to catch host objects
+		if ( !obj || toString.call( obj ) !== "[object Object]" ) {
+			return false;
+		}
+
+		proto = getProto( obj );
+
+		// Objects with no prototype (e.g., `Object.create( null )`) are plain
+		if ( !proto ) {
+			return true;
+		}
+
+		// Objects with prototype are plain iff they were constructed by a global Object function
+		Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
+		return typeof Ctor === "function" && fnToString.call( Ctor ) === ObjectFunctionString;
+	},
+
+	isEmptyObject: function( obj ) {
+		var name;
+
+		for ( name in obj ) {
+			return false;
+		}
+		return true;
+	},
+
+	// Evaluates a script in a provided context; falls back to the global one
+	// if not specified.
+	globalEval: function( code, options, doc ) {
+		DOMEval( code, { nonce: options && options.nonce }, doc );
+	},
+
+	each: function( obj, callback ) {
+		var length, i = 0;
+
+		if ( isArrayLike( obj ) ) {
+			length = obj.length;
+			for ( ; i < length; i++ ) {
+				if ( callback.call( obj[ i ], i, obj[ i ] ) === false ) {
+					break;
+				}
+			}
+		} else {
+			for ( i in obj ) {
+				if ( callback.call( obj[ i ], i, obj[ i ] ) === false ) {
+					break;
+				}
+			}
+		}
+
+		return obj;
+	},
+
+
+	// Retrieve the text value of an array of DOM nodes
+	text: function( elem ) {
+		var node,
+			ret = "",
+			i = 0,
+			nodeType = elem.nodeType;
+
+		if ( !nodeType ) {
+
+			// If no nodeType, this is expected to be an array
+			while ( ( node = elem[ i++ ] ) ) {
+
+				// Do not traverse comment nodes
+				ret += jQuery.text( node );
+			}
+		}
+		if ( nodeType === 1 || nodeType === 11 ) {
+			return elem.textContent;
+		}
+		if ( nodeType === 9 ) {
+			return elem.documentElement.textContent;
+		}
+		if ( nodeType === 3 || nodeType === 4 ) {
+			return elem.nodeValue;
+		}
+
+		// Do not include comment or processing instruction nodes
+
+		return ret;
+	},
+
+	// results is for internal usage only
+	makeArray: function( arr, results ) {
+		var ret = results || [];
+
+		if ( arr != null ) {
+			if ( isArrayLike( Object( arr ) ) ) {
+				jQuery.merge( ret,
+					typeof arr === "string" ?
+						[ arr ] : arr
+				);
+			} else {
+				push.call( ret, arr );
+			}
+		}
+
+		return ret;
+	},
+
+	inArray: function( elem, arr, i ) {
+		return arr == null ? -1 : indexOf.call( arr, elem, i );
+	},
+
+	isXMLDoc: function( elem ) {
+		var namespace = elem && elem.namespaceURI,
+			docElem = elem && ( elem.ownerDocument || elem ).documentElement;
+
+		// Assume HTML when documentElement doesn't yet exist, such as inside
+		// document fragments.
+		return !rhtmlSuffix.test( namespace || docElem && docElem.nodeName || "HTML" );
+	},
+
+	// Support: Android <=4.0 only, PhantomJS 1 only
+	// push.apply(_, arraylike) throws on ancient WebKit
+	merge: function( first, second ) {
+		var len = +second.length,
+			j = 0,
+			i = first.length;
+
+		for ( ; j < len; j++ ) {
+			first[ i++ ] = second[ j ];
+		}
+
+		first.length = i;
+
+		return first;
+	},
+
+	grep: function( elems, callback, invert ) {
+		var callbackInverse,
+			matches = [],
+			i = 0,
+			length = elems.length,
+			callbackExpect = !invert;
+
+		// Go through the array, only saving the items
+		// that pass the validator function
+		for ( ; i < length; i++ ) {
+			callbackInverse = !callback( elems[ i ], i );
+			if ( callbackInverse !== callbackExpect ) {
+				matches.push( elems[ i ] );
+			}
+		}
+
+		return matches;
+	},
+
+	// arg is for internal usage only
+	map: function( elems, callback, arg ) {
+		var length, value,
+			i = 0,
+			ret = [];
+
+		// Go through the array, translating each of the items to their new values
+		if ( isArrayLike( elems ) ) {
+			length = elems.length;
+			for ( ; i < length; i++ ) {
+				value = callback( elems[ i ], i, arg );
+
+				if ( value != null ) {
+					ret.push( value );
+				}
+			}
+
+		// Go through every key on the object,
+		} else {
+			for ( i in elems ) {
+				value = callback( elems[ i ], i, arg );
+
+				if ( value != null ) {
+					ret.push( value );
+				}
+			}
+		}
+
+		// Flatten any nested arrays
+		return flat( ret );
+	},
+
+	// A global GUID counter for objects
+	guid: 1,
+
+	// jQuery.support is not used in Core but other projects attach their
+	// properties to it so it needs to exist.
+	support: support
+} );
+
+if ( typeof Symbol === "function" ) {
+	jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
+}
+
+// Populate the class2type map
+jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
+	function( _i, name ) {
+		class2type[ "[object " + name + "]" ] = name.toLowerCase();
+	} );
+
+function isArrayLike( obj ) {
+
+	// Support: real iOS 8.2 only (not reproducible in simulator)
+	// `in` check used to prevent JIT error (gh-2145)
+	// hasOwn isn't used here due to false negatives
+	// regarding Nodelist length in IE
+	var length = !!obj && "length" in obj && obj.length,
+		type = toType( obj );
+
+	if ( isFunction( obj ) || isWindow( obj ) ) {
+		return false;
+	}
+
+	return type === "array" || length === 0 ||
+		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
+}
+
+
+function nodeName( elem, name ) {
+
+	return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+
+}
+var pop = arr.pop;
+
+
+var sort = arr.sort;
+
+
+var splice = arr.splice;
+
+
+var whitespace = "[\\x20\\t\\r\\n\\f]";
+
+
+var rtrimCSS = new RegExp(
+	"^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$",
+	"g"
+);
+
+
+
+
+// Note: an element does not contain itself
+jQuery.contains = function( a, b ) {
+	var bup = b && b.parentNode;
+
+	return a === bup || !!( bup && bup.nodeType === 1 && (
+
+		// Support: IE 9 - 11+
+		// IE doesn't have `contains` on SVG.
+		a.contains ?
+			a.contains( bup ) :
+			a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
+	) );
+};
+
+
+
+
+// CSS string/identifier serialization
+// https://drafts.csswg.org/cssom/#common-serializing-idioms
+var rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g;
+
+function fcssescape( ch, asCodePoint ) {
+	if ( asCodePoint ) {
+
+		// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
+		if ( ch === "\0" ) {
+			return "\uFFFD";
+		}
+
+		// Control characters and (dependent upon position) numbers get escaped as code points
+		return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+	}
+
+	// Other potentially-special ASCII characters get backslash-escaped
+	return "\\" + ch;
+}
+
+jQuery.escapeSelector = function( sel ) {
+	return ( sel + "" ).replace( rcssescape, fcssescape );
+};
+
+
+
+
+var preferredDoc = document,
+	pushNative = push;
+
+( function() {
+
+var i,
+	Expr,
+	outermostContext,
+	sortInput,
+	hasDuplicate,
+	push = pushNative,
+
+	// Local document vars
+	document,
+	documentElement,
+	documentIsHTML,
+	rbuggyQSA,
+	matches,
+
+	// Instance-specific data
+	expando = jQuery.expando,
+	dirruns = 0,
+	done = 0,
+	classCache = createCache(),
+	tokenCache = createCache(),
+	compilerCache = createCache(),
+	nonnativeSelectorCache = createCache(),
+	sortOrder = function( a, b ) {
+		if ( a === b ) {
+			hasDuplicate = true;
+		}
+		return 0;
+	},
+
+	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|" +
+		"loop|multiple|open|readonly|required|scoped",
+
+	// Regular expressions
+
+	// https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
+	identifier = "(?:\\\\[\\da-fA-F]{1,6}" + whitespace +
+		"?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
+
+	// Attribute selectors: https://www.w3.org/TR/selectors/#attribute-selectors
+	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
+
+		// Operator (capture 2)
+		"*([*^$|!~]?=)" + whitespace +
+
+		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" +
+		whitespace + "*\\]",
+
+	pseudos = ":(" + identifier + ")(?:\\((" +
+
+		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
+		// 1. quoted (capture 3; capture 4 or capture 5)
+		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
+
+		// 2. simple (capture 6)
+		"((?:\\\\.|[^\\\\()[\\]]|" + attributes + ")*)|" +
+
+		// 3. anything else (capture 2)
+		".*" +
+		")\\)|)",
+
+	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
+	rwhitespace = new RegExp( whitespace + "+", "g" ),
+
+	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
+	rleadingCombinator = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" +
+		whitespace + "*" ),
+	rdescend = new RegExp( whitespace + "|>" ),
+
+	rpseudo = new RegExp( pseudos ),
+	ridentifier = new RegExp( "^" + identifier + "$" ),
+
+	matchExpr = {
+		ID: new RegExp( "^#(" + identifier + ")" ),
+		CLASS: new RegExp( "^\\.(" + identifier + ")" ),
+		TAG: new RegExp( "^(" + identifier + "|[*])" ),
+		ATTR: new RegExp( "^" + attributes ),
+		PSEUDO: new RegExp( "^" + pseudos ),
+		CHILD: new RegExp(
+			"^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
+				whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" +
+				whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
+		bool: new RegExp( "^(?:" + booleans + ")$", "i" ),
+
+		// For use in libraries implementing .is()
+		// We use this for POS matching in `select`
+		needsContext: new RegExp( "^" + whitespace +
+			"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace +
+			"*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
+	},
+
+	rinputs = /^(?:input|select|textarea|button)$/i,
+	rheader = /^h\d$/i,
+
+	// Easily-parseable/retrievable ID or TAG or CLASS selectors
+	rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
+
+	rsibling = /[+~]/,
+
+	// CSS escapes
+	// https://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+	runescape = new RegExp( "\\\\[\\da-fA-F]{1,6}" + whitespace +
+		"?|\\\\([^\\r\\n\\f])", "g" ),
+	funescape = function( escape, nonHex ) {
+		var high = "0x" + escape.slice( 1 ) - 0x10000;
+
+		if ( nonHex ) {
+
+			// Strip the backslash prefix from a non-hex escape sequence
+			return nonHex;
+		}
+
+		// Replace a hexadecimal escape sequence with the encoded Unicode code point
+		// Support: IE <=11+
+		// For values outside the Basic Multilingual Plane (BMP), manually construct a
+		// surrogate pair
+		return high < 0 ?
+			String.fromCharCode( high + 0x10000 ) :
+			String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
+	},
+
+	// Used for iframes; see `setDocument`.
+	// Support: IE 9 - 11+, Edge 12 - 18+
+	// Removing the function wrapper causes a "Permission Denied"
+	// error in IE/Edge.
+	unloadHandler = function() {
+		setDocument();
+	},
+
+	inDisabledFieldset = addCombinator(
+		function( elem ) {
+			return elem.disabled === true && nodeName( elem, "fieldset" );
+		},
+		{ dir: "parentNode", next: "legend" }
+	);
+
+// Support: IE <=9 only
+// Accessing document.activeElement can throw unexpectedly
+// https://bugs.jquery.com/ticket/13393
+function safeActiveElement() {
+	try {
+		return document.activeElement;
+	} catch ( err ) { }
+}
+
+// Optimize for push.apply( _, NodeList )
+try {
+	push.apply(
+		( arr = slice.call( preferredDoc.childNodes ) ),
+		preferredDoc.childNodes
+	);
+
+	// Support: Android <=4.0
+	// Detect silently failing push.apply
+	// eslint-disable-next-line no-unused-expressions
+	arr[ preferredDoc.childNodes.length ].nodeType;
+} catch ( e ) {
+	push = {
+		apply: function( target, els ) {
+			pushNative.apply( target, slice.call( els ) );
+		},
+		call: function( target ) {
+			pushNative.apply( target, slice.call( arguments, 1 ) );
+		}
+	};
+}
+
+function find( selector, context, results, seed ) {
+	var m, i, elem, nid, match, groups, newSelector,
+		newContext = context && context.ownerDocument,
+
+		// nodeType defaults to 9, since context defaults to document
+		nodeType = context ? context.nodeType : 9;
+
+	results = results || [];
+
+	// Return early from calls with invalid selector or context
+	if ( typeof selector !== "string" || !selector ||
+		nodeType !== 1 && nodeType !== 9 && nodeType !== 11 ) {
+
+		return results;
+	}
+
+	// Try to shortcut find operations (as opposed to filters) in HTML documents
+	if ( !seed ) {
+		setDocument( context );
+		context = context || document;
+
+		if ( documentIsHTML ) {
+
+			// If the selector is sufficiently simple, try using a "get*By*" DOM method
+			// (excepting DocumentFragment context, where the methods don't exist)
+			if ( nodeType !== 11 && ( match = rquickExpr.exec( selector ) ) ) {
+
+				// ID selector
+				if ( ( m = match[ 1 ] ) ) {
+
+					// Document context
+					if ( nodeType === 9 ) {
+						if ( ( elem = context.getElementById( m ) ) ) {
+
+							// Support: IE 9 only
+							// getElementById can match elements by name instead of ID
+							if ( elem.id === m ) {
+								push.call( results, elem );
+								return results;
+							}
+						} else {
+							return results;
+						}
+
+					// Element context
+					} else {
+
+						// Support: IE 9 only
+						// getElementById can match elements by name instead of ID
+						if ( newContext && ( elem = newContext.getElementById( m ) ) &&
+							find.contains( context, elem ) &&
+							elem.id === m ) {
+
+							push.call( results, elem );
+							return results;
+						}
+					}
+
+				// Type selector
+				} else if ( match[ 2 ] ) {
+					push.apply( results, context.getElementsByTagName( selector ) );
+					return results;
+
+				// Class selector
+				} else if ( ( m = match[ 3 ] ) && context.getElementsByClassName ) {
+					push.apply( results, context.getElementsByClassName( m ) );
+					return results;
+				}
+			}
+
+			// Take advantage of querySelectorAll
+			if ( !nonnativeSelectorCache[ selector + " " ] &&
+				( !rbuggyQSA || !rbuggyQSA.test( selector ) ) ) {
+
+				newSelector = selector;
+				newContext = context;
+
+				// qSA considers elements outside a scoping root when evaluating child or
+				// descendant combinators, which is not what we want.
+				// In such cases, we work around the behavior by prefixing every selector in the
+				// list with an ID selector referencing the scope context.
+				// The technique has to be used as well when a leading combinator is used
+				// as such selectors are not recognized by querySelectorAll.
+				// Thanks to Andrew Dupont for this technique.
+				if ( nodeType === 1 &&
+					( rdescend.test( selector ) || rleadingCombinator.test( selector ) ) ) {
+
+					// Expand context for sibling selectors
+					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
+						context;
+
+					// We can use :scope instead of the ID hack if the browser
+					// supports it & if we're not changing the context.
+					// Support: IE 11+, Edge 17 - 18+
+					// IE/Edge sometimes throw a "Permission denied" error when
+					// strict-comparing two documents; shallow comparisons work.
+					// eslint-disable-next-line eqeqeq
+					if ( newContext != context || !support.scope ) {
+
+						// Capture the context ID, setting it first if necessary
+						if ( ( nid = context.getAttribute( "id" ) ) ) {
+							nid = jQuery.escapeSelector( nid );
+						} else {
+							context.setAttribute( "id", ( nid = expando ) );
+						}
+					}
+
+					// Prefix every selector in the list
+					groups = tokenize( selector );
+					i = groups.length;
+					while ( i-- ) {
+						groups[ i ] = ( nid ? "#" + nid : ":scope" ) + " " +
+							toSelector( groups[ i ] );
+					}
+					newSelector = groups.join( "," );
+				}
+
+				try {
+					push.apply( results,
+						newContext.querySelectorAll( newSelector )
+					);
+					return results;
+				} catch ( qsaError ) {
+					nonnativeSelectorCache( selector, true );
+				} finally {
+					if ( nid === expando ) {
+						context.removeAttribute( "id" );
+					}
+				}
+			}
+		}
+	}
+
+	// All others
+	return select( selector.replace( rtrimCSS, "$1" ), context, results, seed );
+}
+
+/**
+ * Create key-value caches of limited size
+ * @returns {function(string, object)} Returns the Object data after storing it on itself with
+ *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
+ *	deleting the oldest entry
+ */
+function createCache() {
+	var keys = [];
+
+	function cache( key, value ) {
+
+		// Use (key + " ") to avoid collision with native prototype properties
+		// (see https://github.com/jquery/sizzle/issues/157)
+		if ( keys.push( key + " " ) > Expr.cacheLength ) {
+
+			// Only keep the most recent entries
+			delete cache[ keys.shift() ];
+		}
+		return ( cache[ key + " " ] = value );
+	}
+	return cache;
+}
+
+/**
+ * Mark a function for special use by jQuery selector module
+ * @param {Function} fn The function to mark
+ */
+function markFunction( fn ) {
+	fn[ expando ] = true;
+	return fn;
+}
+
+/**
+ * Support testing using an element
+ * @param {Function} fn Passed the created element and returns a boolean result
+ */
+function assert( fn ) {
+	var el = document.createElement( "fieldset" );
+
+	try {
+		return !!fn( el );
+	} catch ( e ) {
+		return false;
+	} finally {
+
+		// Remove from its parent by default
+		if ( el.parentNode ) {
+			el.parentNode.removeChild( el );
+		}
+
+		// release memory in IE
+		el = null;
+	}
+}
+
+/**
+ * Returns a function to use in pseudos for input types
+ * @param {String} type
+ */
+function createInputPseudo( type ) {
+	return function( elem ) {
+		return nodeName( elem, "input" ) && elem.type === type;
+	};
+}
+
+/**
+ * Returns a function to use in pseudos for buttons
+ * @param {String} type
+ */
+function createButtonPseudo( type ) {
+	return function( elem ) {
+		return ( nodeName( elem, "input" ) || nodeName( elem, "button" ) ) &&
+			elem.type === type;
+	};
+}
+
+/**
+ * Returns a function to use in pseudos for :enabled/:disabled
+ * @param {Boolean} disabled true for :disabled; false for :enabled
+ */
+function createDisabledPseudo( disabled ) {
+
+	// Known :disabled false positives: fieldset[disabled] > legend:nth-of-type(n+2) :can-disable
+	return function( elem ) {
+
+		// Only certain elements can match :enabled or :disabled
+		// https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled
+		// https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
+		if ( "form" in elem ) {
+
+			// Check for inherited disabledness on relevant non-disabled elements:
+			// * listed form-associated elements in a disabled fieldset
+			//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
+			//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
+			// * option elements in a disabled optgroup
+			//   https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled
+			// All such elements have a "form" property.
+			if ( elem.parentNode && elem.disabled === false ) {
+
+				// Option elements defer to a parent optgroup if present
+				if ( "label" in elem ) {
+					if ( "label" in elem.parentNode ) {
+						return elem.parentNode.disabled === disabled;
+					} else {
+						return elem.disabled === disabled;
+					}
+				}
+
+				// Support: IE 6 - 11+
+				// Use the isDisabled shortcut property to check for disabled fieldset ancestors
+				return elem.isDisabled === disabled ||
+
+					// Where there is no isDisabled, check manually
+					elem.isDisabled !== !disabled &&
+						inDisabledFieldset( elem ) === disabled;
+			}
+
+			return elem.disabled === disabled;
+
+		// Try to winnow out elements that can't be disabled before trusting the disabled property.
+		// Some victims get caught in our net (label, legend, menu, track), but it shouldn't
+		// even exist on them, let alone have a boolean value.
+		} else if ( "label" in elem ) {
+			return elem.disabled === disabled;
+		}
+
+		// Remaining elements are neither :enabled nor :disabled
+		return false;
+	};
+}
+
+/**
+ * Returns a function to use in pseudos for positionals
+ * @param {Function} fn
+ */
+function createPositionalPseudo( fn ) {
+	return markFunction( function( argument ) {
+		argument = +argument;
+		return markFunction( function( seed, matches ) {
+			var j,
+				matchIndexes = fn( [], seed.length, argument ),
+				i = matchIndexes.length;
+
+			// Match elements found at the specified indexes
+			while ( i-- ) {
+				if ( seed[ ( j = matchIndexes[ i ] ) ] ) {
+					seed[ j ] = !( matches[ j ] = seed[ j ] );
+				}
+			}
+		} );
+	} );
+}
+
+/**
+ * Checks a node for validity as a jQuery selector context
+ * @param {Element|Object=} context
+ * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
+ */
+function testContext( context ) {
+	return context && typeof context.getElementsByTagName !== "undefined" && context;
+}
+
+/**
+ * Sets document-related variables once based on the current document
+ * @param {Element|Object} [node] An element or document object to use to set the document
+ * @returns {Object} Returns the current document
+ */
+function setDocument( node ) {
+	var subWindow,
+		doc = node ? node.ownerDocument || node : preferredDoc;
+
+	// Return early if doc is invalid or already selected
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( doc == document || doc.nodeType !== 9 || !doc.documentElement ) {
+		return document;
+	}
+
+	// Update global variables
+	document = doc;
+	documentElement = document.documentElement;
+	documentIsHTML = !jQuery.isXMLDoc( document );
+
+	// Support: iOS 7 only, IE 9 - 11+
+	// Older browsers didn't support unprefixed `matches`.
+	matches = documentElement.matches ||
+		documentElement.webkitMatchesSelector ||
+		documentElement.msMatchesSelector;
+
+	// Support: IE 9 - 11+, Edge 12 - 18+
+	// Accessing iframe documents after unload throws "permission denied" errors
+	// (see trac-13936).
+	// Limit the fix to IE & Edge Legacy; despite Edge 15+ implementing `matches`,
+	// all IE 9+ and Edge Legacy versions implement `msMatchesSelector` as well.
+	if ( documentElement.msMatchesSelector &&
+
+		// Support: IE 11+, Edge 17 - 18+
+		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+		// two documents; shallow comparisons work.
+		// eslint-disable-next-line eqeqeq
+		preferredDoc != document &&
+		( subWindow = document.defaultView ) && subWindow.top !== subWindow ) {
+
+		// Support: IE 9 - 11+, Edge 12 - 18+
+		subWindow.addEventListener( "unload", unloadHandler );
+	}
+
+	// Support: IE <10
+	// Check if getElementById returns elements by name
+	// The broken getElementById methods don't pick up programmatically-set names,
+	// so use a roundabout getElementsByName test
+	support.getById = assert( function( el ) {
+		documentElement.appendChild( el ).id = jQuery.expando;
+		return !document.getElementsByName ||
+			!document.getElementsByName( jQuery.expando ).length;
+	} );
+
+	// Support: IE 9 only
+	// Check to see if it's possible to do matchesSelector
+	// on a disconnected node.
+	support.disconnectedMatch = assert( function( el ) {
+		return matches.call( el, "*" );
+	} );
+
+	// Support: IE 9 - 11+, Edge 12 - 18+
+	// IE/Edge don't support the :scope pseudo-class.
+	support.scope = assert( function() {
+		return document.querySelectorAll( ":scope" );
+	} );
+
+	// Support: Chrome 105 - 111 only, Safari 15.4 - 16.3 only
+	// Make sure the `:has()` argument is parsed unforgivingly.
+	// We include `*` in the test to detect buggy implementations that are
+	// _selectively_ forgiving (specifically when the list includes at least
+	// one valid selector).
+	// Note that we treat complete lack of support for `:has()` as if it were
+	// spec-compliant support, which is fine because use of `:has()` in such
+	// environments will fail in the qSA path and fall back to jQuery traversal
+	// anyway.
+	support.cssHas = assert( function() {
+		try {
+			document.querySelector( ":has(*,:jqfake)" );
+			return false;
+		} catch ( e ) {
+			return true;
+		}
+	} );
+
+	// ID filter and find
+	if ( support.getById ) {
+		Expr.filter.ID = function( id ) {
+			var attrId = id.replace( runescape, funescape );
+			return function( elem ) {
+				return elem.getAttribute( "id" ) === attrId;
+			};
+		};
+		Expr.find.ID = function( id, context ) {
+			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+				var elem = context.getElementById( id );
+				return elem ? [ elem ] : [];
+			}
+		};
+	} else {
+		Expr.filter.ID =  function( id ) {
+			var attrId = id.replace( runescape, funescape );
+			return function( elem ) {
+				var node = typeof elem.getAttributeNode !== "undefined" &&
+					elem.getAttributeNode( "id" );
+				return node && node.value === attrId;
+			};
+		};
+
+		// Support: IE 6 - 7 only
+		// getElementById is not reliable as a find shortcut
+		Expr.find.ID = function( id, context ) {
+			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+				var node, i, elems,
+					elem = context.getElementById( id );
+
+				if ( elem ) {
+
+					// Verify the id attribute
+					node = elem.getAttributeNode( "id" );
+					if ( node && node.value === id ) {
+						return [ elem ];
+					}
+
+					// Fall back on getElementsByName
+					elems = context.getElementsByName( id );
+					i = 0;
+					while ( ( elem = elems[ i++ ] ) ) {
+						node = elem.getAttributeNode( "id" );
+						if ( node && node.value === id ) {
+							return [ elem ];
+						}
+					}
+				}
+
+				return [];
+			}
+		};
+	}
+
+	// Tag
+	Expr.find.TAG = function( tag, context ) {
+		if ( typeof context.getElementsByTagName !== "undefined" ) {
+			return context.getElementsByTagName( tag );
+
+		// DocumentFragment nodes don't have gEBTN
+		} else {
+			return context.querySelectorAll( tag );
+		}
+	};
+
+	// Class
+	Expr.find.CLASS = function( className, context ) {
+		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
+			return context.getElementsByClassName( className );
+		}
+	};
+
+	/* QSA/matchesSelector
+	---------------------------------------------------------------------- */
+
+	// QSA and matchesSelector support
+
+	rbuggyQSA = [];
+
+	// Build QSA regex
+	// Regex strategy adopted from Diego Perini
+	assert( function( el ) {
+
+		var input;
+
+		documentElement.appendChild( el ).innerHTML =
+			"<a id='" + expando + "' href='' disabled='disabled'></a>" +
+			"<select id='" + expando + "-\r\\' disabled='disabled'>" +
+			"<option selected=''></option></select>";
+
+		// Support: iOS <=7 - 8 only
+		// Boolean attributes and "value" are not treated correctly in some XML documents
+		if ( !el.querySelectorAll( "[selected]" ).length ) {
+			rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
+		}
+
+		// Support: iOS <=7 - 8 only
+		if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
+			rbuggyQSA.push( "~=" );
+		}
+
+		// Support: iOS 8 only
+		// https://bugs.webkit.org/show_bug.cgi?id=136851
+		// In-page `selector#id sibling-combinator selector` fails
+		if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
+			rbuggyQSA.push( ".#.+[+~]" );
+		}
+
+		// Support: Chrome <=105+, Firefox <=104+, Safari <=15.4+
+		// In some of the document kinds, these selectors wouldn't work natively.
+		// This is probably OK but for backwards compatibility we want to maintain
+		// handling them through jQuery traversal in jQuery 3.x.
+		if ( !el.querySelectorAll( ":checked" ).length ) {
+			rbuggyQSA.push( ":checked" );
+		}
+
+		// Support: Windows 8 Native Apps
+		// The type and name attributes are restricted during .innerHTML assignment
+		input = document.createElement( "input" );
+		input.setAttribute( "type", "hidden" );
+		el.appendChild( input ).setAttribute( "name", "D" );
+
+		// Support: IE 9 - 11+
+		// IE's :disabled selector does not pick up the children of disabled fieldsets
+		// Support: Chrome <=105+, Firefox <=104+, Safari <=15.4+
+		// In some of the document kinds, these selectors wouldn't work natively.
+		// This is probably OK but for backwards compatibility we want to maintain
+		// handling them through jQuery traversal in jQuery 3.x.
+		documentElement.appendChild( el ).disabled = true;
+		if ( el.querySelectorAll( ":disabled" ).length !== 2 ) {
+			rbuggyQSA.push( ":enabled", ":disabled" );
+		}
+
+		// Support: IE 11+, Edge 15 - 18+
+		// IE 11/Edge don't find elements on a `[name='']` query in some cases.
+		// Adding a temporary attribute to the document before the selection works
+		// around the issue.
+		// Interestingly, IE 10 & older don't seem to have the issue.
+		input = document.createElement( "input" );
+		input.setAttribute( "name", "" );
+		el.appendChild( input );
+		if ( !el.querySelectorAll( "[name='']" ).length ) {
+			rbuggyQSA.push( "\\[" + whitespace + "*name" + whitespace + "*=" +
+				whitespace + "*(?:''|\"\")" );
+		}
+	} );
+
+	if ( !support.cssHas ) {
+
+		// Support: Chrome 105 - 110+, Safari 15.4 - 16.3+
+		// Our regular `try-catch` mechanism fails to detect natively-unsupported
+		// pseudo-classes inside `:has()` (such as `:has(:contains("Foo"))`)
+		// in browsers that parse the `:has()` argument as a forgiving selector list.
+		// https://drafts.csswg.org/selectors/#relational now requires the argument
+		// to be parsed unforgivingly, but browsers have not yet fully adjusted.
+		rbuggyQSA.push( ":has" );
+	}
+
+	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
+
+	/* Sorting
+	---------------------------------------------------------------------- */
+
+	// Document order sorting
+	sortOrder = function( a, b ) {
+
+		// Flag for duplicate removal
+		if ( a === b ) {
+			hasDuplicate = true;
+			return 0;
+		}
+
+		// Sort on method existence if only one input has compareDocumentPosition
+		var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
+		if ( compare ) {
+			return compare;
+		}
+
+		// Calculate position if both inputs belong to the same document
+		// Support: IE 11+, Edge 17 - 18+
+		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+		// two documents; shallow comparisons work.
+		// eslint-disable-next-line eqeqeq
+		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
+			a.compareDocumentPosition( b ) :
+
+			// Otherwise we know they are disconnected
+			1;
+
+		// Disconnected nodes
+		if ( compare & 1 ||
+			( !support.sortDetached && b.compareDocumentPosition( a ) === compare ) ) {
+
+			// Choose the first element that is related to our preferred document
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( a === document || a.ownerDocument == preferredDoc &&
+				find.contains( preferredDoc, a ) ) {
+				return -1;
+			}
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( b === document || b.ownerDocument == preferredDoc &&
+				find.contains( preferredDoc, b ) ) {
+				return 1;
+			}
+
+			// Maintain original order
+			return sortInput ?
+				( indexOf.call( sortInput, a ) - indexOf.call( sortInput, b ) ) :
+				0;
+		}
+
+		return compare & 4 ? -1 : 1;
+	};
+
+	return document;
+}
+
+find.matches = function( expr, elements ) {
+	return find( expr, null, null, elements );
+};
+
+find.matchesSelector = function( elem, expr ) {
+	setDocument( elem );
+
+	if ( documentIsHTML &&
+		!nonnativeSelectorCache[ expr + " " ] &&
+		( !rbuggyQSA || !rbuggyQSA.test( expr ) ) ) {
+
+		try {
+			var ret = matches.call( elem, expr );
+
+			// IE 9's matchesSelector returns false on disconnected nodes
+			if ( ret || support.disconnectedMatch ||
+
+					// As well, disconnected nodes are said to be in a document
+					// fragment in IE 9
+					elem.document && elem.document.nodeType !== 11 ) {
+				return ret;
+			}
+		} catch ( e ) {
+			nonnativeSelectorCache( expr, true );
+		}
+	}
+
+	return find( expr, document, null, [ elem ] ).length > 0;
+};
+
+find.contains = function( context, elem ) {
+
+	// Set document vars if needed
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( context.ownerDocument || context ) != document ) {
+		setDocument( context );
+	}
+	return jQuery.contains( context, elem );
+};
+
+
+find.attr = function( elem, name ) {
+
+	// Set document vars if needed
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( elem.ownerDocument || elem ) != document ) {
+		setDocument( elem );
+	}
+
+	var fn = Expr.attrHandle[ name.toLowerCase() ],
+
+		// Don't get fooled by Object.prototype properties (see trac-13807)
+		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
+			fn( elem, name, !documentIsHTML ) :
+			undefined;
+
+	if ( val !== undefined ) {
+		return val;
+	}
+
+	return elem.getAttribute( name );
+};
+
+find.error = function( msg ) {
+	throw new Error( "Syntax error, unrecognized expression: " + msg );
+};
+
+/**
+ * Document sorting and removing duplicates
+ * @param {ArrayLike} results
+ */
+jQuery.uniqueSort = function( results ) {
+	var elem,
+		duplicates = [],
+		j = 0,
+		i = 0;
+
+	// Unless we *know* we can detect duplicates, assume their presence
+	//
+	// Support: Android <=4.0+
+	// Testing for detecting duplicates is unpredictable so instead assume we can't
+	// depend on duplicate detection in all browsers without a stable sort.
+	hasDuplicate = !support.sortStable;
+	sortInput = !support.sortStable && slice.call( results, 0 );
+	sort.call( results, sortOrder );
+
+	if ( hasDuplicate ) {
+		while ( ( elem = results[ i++ ] ) ) {
+			if ( elem === results[ i ] ) {
+				j = duplicates.push( i );
+			}
+		}
+		while ( j-- ) {
+			splice.call( results, duplicates[ j ], 1 );
+		}
+	}
+
+	// Clear input after sorting to release objects
+	// See https://github.com/jquery/sizzle/pull/225
+	sortInput = null;
+
+	return results;
+};
+
+jQuery.fn.uniqueSort = function() {
+	return this.pushStack( jQuery.uniqueSort( slice.apply( this ) ) );
+};
+
+Expr = jQuery.expr = {
+
+	// Can be adjusted by the user
+	cacheLength: 50,
+
+	createPseudo: markFunction,
+
+	match: matchExpr,
+
+	attrHandle: {},
+
+	find: {},
+
+	relative: {
+		">": { dir: "parentNode", first: true },
+		" ": { dir: "parentNode" },
+		"+": { dir: "previousSibling", first: true },
+		"~": { dir: "previousSibling" }
+	},
+
+	preFilter: {
+		ATTR: function( match ) {
+			match[ 1 ] = match[ 1 ].replace( runescape, funescape );
+
+			// Move the given value to match[3] whether quoted or unquoted
+			match[ 3 ] = ( match[ 3 ] || match[ 4 ] || match[ 5 ] || "" )
+				.replace( runescape, funescape );
+
+			if ( match[ 2 ] === "~=" ) {
+				match[ 3 ] = " " + match[ 3 ] + " ";
+			}
+
+			return match.slice( 0, 4 );
+		},
+
+		CHILD: function( match ) {
+
+			/* matches from matchExpr["CHILD"]
+				1 type (only|nth|...)
+				2 what (child|of-type)
+				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
+				4 xn-component of xn+y argument ([+-]?\d*n|)
+				5 sign of xn-component
+				6 x of xn-component
+				7 sign of y-component
+				8 y of y-component
+			*/
+			match[ 1 ] = match[ 1 ].toLowerCase();
+
+			if ( match[ 1 ].slice( 0, 3 ) === "nth" ) {
+
+				// nth-* requires argument
+				if ( !match[ 3 ] ) {
+					find.error( match[ 0 ] );
+				}
+
+				// numeric x and y parameters for Expr.filter.CHILD
+				// remember that false/true cast respectively to 0/1
+				match[ 4 ] = +( match[ 4 ] ?
+					match[ 5 ] + ( match[ 6 ] || 1 ) :
+					2 * ( match[ 3 ] === "even" || match[ 3 ] === "odd" )
+				);
+				match[ 5 ] = +( ( match[ 7 ] + match[ 8 ] ) || match[ 3 ] === "odd" );
+
+			// other types prohibit arguments
+			} else if ( match[ 3 ] ) {
+				find.error( match[ 0 ] );
+			}
+
+			return match;
+		},
+
+		PSEUDO: function( match ) {
+			var excess,
+				unquoted = !match[ 6 ] && match[ 2 ];
+
+			if ( matchExpr.CHILD.test( match[ 0 ] ) ) {
+				return null;
+			}
+
+			// Accept quoted arguments as-is
+			if ( match[ 3 ] ) {
+				match[ 2 ] = match[ 4 ] || match[ 5 ] || "";
+
+			// Strip excess characters from unquoted arguments
+			} else if ( unquoted && rpseudo.test( unquoted ) &&
+
+				// Get excess from tokenize (recursively)
+				( excess = tokenize( unquoted, true ) ) &&
+
+				// advance to the next closing parenthesis
+				( excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length ) ) {
+
+				// excess is a negative index
+				match[ 0 ] = match[ 0 ].slice( 0, excess );
+				match[ 2 ] = unquoted.slice( 0, excess );
+			}
+
+			// Return only captures needed by the pseudo filter method (type and argument)
+			return match.slice( 0, 3 );
+		}
+	},
+
+	filter: {
+
+		TAG: function( nodeNameSelector ) {
+			var expectedNodeName = nodeNameSelector.replace( runescape, funescape ).toLowerCase();
+			return nodeNameSelector === "*" ?
+				function() {
+					return true;
+				} :
+				function( elem ) {
+					return nodeName( elem, expectedNodeName );
+				};
+		},
+
+		CLASS: function( className ) {
+			var pattern = classCache[ className + " " ];
+
+			return pattern ||
+				( pattern = new RegExp( "(^|" + whitespace + ")" + className +
+					"(" + whitespace + "|$)" ) ) &&
+				classCache( className, function( elem ) {
+					return pattern.test(
+						typeof elem.className === "string" && elem.className ||
+							typeof elem.getAttribute !== "undefined" &&
+								elem.getAttribute( "class" ) ||
+							""
+					);
+				} );
+		},
+
+		ATTR: function( name, operator, check ) {
+			return function( elem ) {
+				var result = find.attr( elem, name );
+
+				if ( result == null ) {
+					return operator === "!=";
+				}
+				if ( !operator ) {
+					return true;
+				}
+
+				result += "";
+
+				if ( operator === "=" ) {
+					return result === check;
+				}
+				if ( operator === "!=" ) {
+					return result !== check;
+				}
+				if ( operator === "^=" ) {
+					return check && result.indexOf( check ) === 0;
+				}
+				if ( operator === "*=" ) {
+					return check && result.indexOf( check ) > -1;
+				}
+				if ( operator === "$=" ) {
+					return check && result.slice( -check.length ) === check;
+				}
+				if ( operator === "~=" ) {
+					return ( " " + result.replace( rwhitespace, " " ) + " " )
+						.indexOf( check ) > -1;
+				}
+				if ( operator === "|=" ) {
+					return result === check || result.slice( 0, check.length + 1 ) === check + "-";
+				}
+
+				return false;
+			};
+		},
+
+		CHILD: function( type, what, _argument, first, last ) {
+			var simple = type.slice( 0, 3 ) !== "nth",
+				forward = type.slice( -4 ) !== "last",
+				ofType = what === "of-type";
+
+			return first === 1 && last === 0 ?
+
+				// Shortcut for :nth-*(n)
+				function( elem ) {
+					return !!elem.parentNode;
+				} :
+
+				function( elem, _context, xml ) {
+					var cache, outerCache, node, nodeIndex, start,
+						dir = simple !== forward ? "nextSibling" : "previousSibling",
+						parent = elem.parentNode,
+						name = ofType && elem.nodeName.toLowerCase(),
+						useCache = !xml && !ofType,
+						diff = false;
+
+					if ( parent ) {
+
+						// :(first|last|only)-(child|of-type)
+						if ( simple ) {
+							while ( dir ) {
+								node = elem;
+								while ( ( node = node[ dir ] ) ) {
+									if ( ofType ?
+										nodeName( node, name ) :
+										node.nodeType === 1 ) {
+
+										return false;
+									}
+								}
+
+								// Reverse direction for :only-* (if we haven't yet done so)
+								start = dir = type === "only" && !start && "nextSibling";
+							}
+							return true;
+						}
+
+						start = [ forward ? parent.firstChild : parent.lastChild ];
+
+						// non-xml :nth-child(...) stores cache data on `parent`
+						if ( forward && useCache ) {
+
+							// Seek `elem` from a previously-cached index
+							outerCache = parent[ expando ] || ( parent[ expando ] = {} );
+							cache = outerCache[ type ] || [];
+							nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
+							diff = nodeIndex && cache[ 2 ];
+							node = nodeIndex && parent.childNodes[ nodeIndex ];
+
+							while ( ( node = ++nodeIndex && node && node[ dir ] ||
+
+								// Fallback to seeking `elem` from the start
+								( diff = nodeIndex = 0 ) || start.pop() ) ) {
+
+								// When found, cache indexes on `parent` and break
+								if ( node.nodeType === 1 && ++diff && node === elem ) {
+									outerCache[ type ] = [ dirruns, nodeIndex, diff ];
+									break;
+								}
+							}
+
+						} else {
+
+							// Use previously-cached element index if available
+							if ( useCache ) {
+								outerCache = elem[ expando ] || ( elem[ expando ] = {} );
+								cache = outerCache[ type ] || [];
+								nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
+								diff = nodeIndex;
+							}
+
+							// xml :nth-child(...)
+							// or :nth-last-child(...) or :nth(-last)?-of-type(...)
+							if ( diff === false ) {
+
+								// Use the same loop as above to seek `elem` from the start
+								while ( ( node = ++nodeIndex && node && node[ dir ] ||
+									( diff = nodeIndex = 0 ) || start.pop() ) ) {
+
+									if ( ( ofType ?
+										nodeName( node, name ) :
+										node.nodeType === 1 ) &&
+										++diff ) {
+
+										// Cache the index of each encountered element
+										if ( useCache ) {
+											outerCache = node[ expando ] ||
+												( node[ expando ] = {} );
+											outerCache[ type ] = [ dirruns, diff ];
+										}
+
+										if ( node === elem ) {
+											break;
+										}
+									}
+								}
+							}
+						}
+
+						// Incorporate the offset, then check against cycle size
+						diff -= last;
+						return diff === first || ( diff % first === 0 && diff / first >= 0 );
+					}
+				};
+		},
+
+		PSEUDO: function( pseudo, argument ) {
+
+			// pseudo-class names are case-insensitive
+			// https://www.w3.org/TR/selectors/#pseudo-classes
+			// Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
+			// Remember that setFilters inherits from pseudos
+			var args,
+				fn = Expr.pseudos[ pseudo ] || Expr.setFilters[ pseudo.toLowerCase() ] ||
+					find.error( "unsupported pseudo: " + pseudo );
+
+			// The user may use createPseudo to indicate that
+			// arguments are needed to create the filter function
+			// just as jQuery does
+			if ( fn[ expando ] ) {
+				return fn( argument );
+			}
+
+			// But maintain support for old signatures
+			if ( fn.length > 1 ) {
+				args = [ pseudo, pseudo, "", argument ];
+				return Expr.setFilters.hasOwnProperty( pseudo.toLowerCase() ) ?
+					markFunction( function( seed, matches ) {
+						var idx,
+							matched = fn( seed, argument ),
+							i = matched.length;
+						while ( i-- ) {
+							idx = indexOf.call( seed, matched[ i ] );
+							seed[ idx ] = !( matches[ idx ] = matched[ i ] );
+						}
+					} ) :
+					function( elem ) {
+						return fn( elem, 0, args );
+					};
+			}
+
+			return fn;
+		}
+	},
+
+	pseudos: {
+
+		// Potentially complex pseudos
+		not: markFunction( function( selector ) {
+
+			// Trim the selector passed to compile
+			// to avoid treating leading and trailing
+			// spaces as combinators
+			var input = [],
+				results = [],
+				matcher = compile( selector.replace( rtrimCSS, "$1" ) );
+
+			return matcher[ expando ] ?
+				markFunction( function( seed, matches, _context, xml ) {
+					var elem,
+						unmatched = matcher( seed, null, xml, [] ),
+						i = seed.length;
+
+					// Match elements unmatched by `matcher`
+					while ( i-- ) {
+						if ( ( elem = unmatched[ i ] ) ) {
+							seed[ i ] = !( matches[ i ] = elem );
+						}
+					}
+				} ) :
+				function( elem, _context, xml ) {
+					input[ 0 ] = elem;
+					matcher( input, null, xml, results );
+
+					// Don't keep the element
+					// (see https://github.com/jquery/sizzle/issues/299)
+					input[ 0 ] = null;
+					return !results.pop();
+				};
+		} ),
+
+		has: markFunction( function( selector ) {
+			return function( elem ) {
+				return find( selector, elem ).length > 0;
+			};
+		} ),
+
+		contains: markFunction( function( text ) {
+			text = text.replace( runescape, funescape );
+			return function( elem ) {
+				return ( elem.textContent || jQuery.text( elem ) ).indexOf( text ) > -1;
+			};
+		} ),
+
+		// "Whether an element is represented by a :lang() selector
+		// is based solely on the element's language value
+		// being equal to the identifier C,
+		// or beginning with the identifier C immediately followed by "-".
+		// The matching of C against the element's language value is performed case-insensitively.
+		// The identifier C does not have to be a valid language name."
+		// https://www.w3.org/TR/selectors/#lang-pseudo
+		lang: markFunction( function( lang ) {
+
+			// lang value must be a valid identifier
+			if ( !ridentifier.test( lang || "" ) ) {
+				find.error( "unsupported lang: " + lang );
+			}
+			lang = lang.replace( runescape, funescape ).toLowerCase();
+			return function( elem ) {
+				var elemLang;
+				do {
+					if ( ( elemLang = documentIsHTML ?
+						elem.lang :
+						elem.getAttribute( "xml:lang" ) || elem.getAttribute( "lang" ) ) ) {
+
+						elemLang = elemLang.toLowerCase();
+						return elemLang === lang || elemLang.indexOf( lang + "-" ) === 0;
+					}
+				} while ( ( elem = elem.parentNode ) && elem.nodeType === 1 );
+				return false;
+			};
+		} ),
+
+		// Miscellaneous
+		target: function( elem ) {
+			var hash = window.location && window.location.hash;
+			return hash && hash.slice( 1 ) === elem.id;
+		},
+
+		root: function( elem ) {
+			return elem === documentElement;
+		},
+
+		focus: function( elem ) {
+			return elem === safeActiveElement() &&
+				document.hasFocus() &&
+				!!( elem.type || elem.href || ~elem.tabIndex );
+		},
+
+		// Boolean properties
+		enabled: createDisabledPseudo( false ),
+		disabled: createDisabledPseudo( true ),
+
+		checked: function( elem ) {
+
+			// In CSS3, :checked should return both checked and selected elements
+			// https://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
+			return ( nodeName( elem, "input" ) && !!elem.checked ) ||
+				( nodeName( elem, "option" ) && !!elem.selected );
+		},
+
+		selected: function( elem ) {
+
+			// Support: IE <=11+
+			// Accessing the selectedIndex property
+			// forces the browser to treat the default option as
+			// selected when in an optgroup.
+			if ( elem.parentNode ) {
+				// eslint-disable-next-line no-unused-expressions
+				elem.parentNode.selectedIndex;
+			}
+
+			return elem.selected === true;
+		},
+
+		// Contents
+		empty: function( elem ) {
+
+			// https://www.w3.org/TR/selectors/#empty-pseudo
+			// :empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
+			//   but not by others (comment: 8; processing instruction: 7; etc.)
+			// nodeType < 6 works because attributes (2) do not appear as children
+			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
+				if ( elem.nodeType < 6 ) {
+					return false;
+				}
+			}
+			return true;
+		},
+
+		parent: function( elem ) {
+			return !Expr.pseudos.empty( elem );
+		},
+
+		// Element/input types
+		header: function( elem ) {
+			return rheader.test( elem.nodeName );
+		},
+
+		input: function( elem ) {
+			return rinputs.test( elem.nodeName );
+		},
+
+		button: function( elem ) {
+			return nodeName( elem, "input" ) && elem.type === "button" ||
+				nodeName( elem, "button" );
+		},
+
+		text: function( elem ) {
+			var attr;
+			return nodeName( elem, "input" ) && elem.type === "text" &&
+
+				// Support: IE <10 only
+				// New HTML5 attribute values (e.g., "search") appear
+				// with elem.type === "text"
+				( ( attr = elem.getAttribute( "type" ) ) == null ||
+					attr.toLowerCase() === "text" );
+		},
+
+		// Position-in-collection
+		first: createPositionalPseudo( function() {
+			return [ 0 ];
+		} ),
+
+		last: createPositionalPseudo( function( _matchIndexes, length ) {
+			return [ length - 1 ];
+		} ),
+
+		eq: createPositionalPseudo( function( _matchIndexes, length, argument ) {
+			return [ argument < 0 ? argument + length : argument ];
+		} ),
+
+		even: createPositionalPseudo( function( matchIndexes, length ) {
+			var i = 0;
+			for ( ; i < length; i += 2 ) {
+				matchIndexes.push( i );
+			}
+			return matchIndexes;
+		} ),
+
+		odd: createPositionalPseudo( function( matchIndexes, length ) {
+			var i = 1;
+			for ( ; i < length; i += 2 ) {
+				matchIndexes.push( i );
+			}
+			return matchIndexes;
+		} ),
+
+		lt: createPositionalPseudo( function( matchIndexes, length, argument ) {
+			var i;
+
+			if ( argument < 0 ) {
+				i = argument + length;
+			} else if ( argument > length ) {
+				i = length;
+			} else {
+				i = argument;
+			}
+
+			for ( ; --i >= 0; ) {
+				matchIndexes.push( i );
+			}
+			return matchIndexes;
+		} ),
+
+		gt: createPositionalPseudo( function( matchIndexes, length, argument ) {
+			var i = argument < 0 ? argument + length : argument;
+			for ( ; ++i < length; ) {
+				matchIndexes.push( i );
+			}
+			return matchIndexes;
+		} )
+	}
+};
+
+Expr.pseudos.nth = Expr.pseudos.eq;
+
+// Add button/input type pseudos
+for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
+	Expr.pseudos[ i ] = createInputPseudo( i );
+}
+for ( i in { submit: true, reset: true } ) {
+	Expr.pseudos[ i ] = createButtonPseudo( i );
+}
+
+// Easy API for creating new setFilters
+function setFilters() {}
+setFilters.prototype = Expr.filters = Expr.pseudos;
+Expr.setFilters = new setFilters();
+
+function tokenize( selector, parseOnly ) {
+	var matched, match, tokens, type,
+		soFar, groups, preFilters,
+		cached = tokenCache[ selector + " " ];
+
+	if ( cached ) {
+		return parseOnly ? 0 : cached.slice( 0 );
+	}
+
+	soFar = selector;
+	groups = [];
+	preFilters = Expr.preFilter;
+
+	while ( soFar ) {
+
+		// Comma and first run
+		if ( !matched || ( match = rcomma.exec( soFar ) ) ) {
+			if ( match ) {
+
+				// Don't consume trailing commas as valid
+				soFar = soFar.slice( match[ 0 ].length ) || soFar;
+			}
+			groups.push( ( tokens = [] ) );
+		}
+
+		matched = false;
+
+		// Combinators
+		if ( ( match = rleadingCombinator.exec( soFar ) ) ) {
+			matched = match.shift();
+			tokens.push( {
+				value: matched,
+
+				// Cast descendant combinators to space
+				type: match[ 0 ].replace( rtrimCSS, " " )
+			} );
+			soFar = soFar.slice( matched.length );
+		}
+
+		// Filters
+		for ( type in Expr.filter ) {
+			if ( ( match = matchExpr[ type ].exec( soFar ) ) && ( !preFilters[ type ] ||
+				( match = preFilters[ type ]( match ) ) ) ) {
+				matched = match.shift();
+				tokens.push( {
+					value: matched,
+					type: type,
+					matches: match
+				} );
+				soFar = soFar.slice( matched.length );
+			}
+		}
+
+		if ( !matched ) {
+			break;
+		}
+	}
+
+	// Return the length of the invalid excess
+	// if we're just parsing
+	// Otherwise, throw an error or return tokens
+	if ( parseOnly ) {
+		return soFar.length;
+	}
+
+	return soFar ?
+		find.error( selector ) :
+
+		// Cache the tokens
+		tokenCache( selector, groups ).slice( 0 );
+}
+
+function toSelector( tokens ) {
+	var i = 0,
+		len = tokens.length,
+		selector = "";
+	for ( ; i < len; i++ ) {
+		selector += tokens[ i ].value;
+	}
+	return selector;
+}
+
+function addCombinator( matcher, combinator, base ) {
+	var dir = combinator.dir,
+		skip = combinator.next,
+		key = skip || dir,
+		checkNonElements = base && key === "parentNode",
+		doneName = done++;
+
+	return combinator.first ?
+
+		// Check against closest ancestor/preceding element
+		function( elem, context, xml ) {
+			while ( ( elem = elem[ dir ] ) ) {
+				if ( elem.nodeType === 1 || checkNonElements ) {
+					return matcher( elem, context, xml );
+				}
+			}
+			return false;
+		} :
+
+		// Check against all ancestor/preceding elements
+		function( elem, context, xml ) {
+			var oldCache, outerCache,
+				newCache = [ dirruns, doneName ];
+
+			// We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
+			if ( xml ) {
+				while ( ( elem = elem[ dir ] ) ) {
+					if ( elem.nodeType === 1 || checkNonElements ) {
+						if ( matcher( elem, context, xml ) ) {
+							return true;
+						}
+					}
+				}
+			} else {
+				while ( ( elem = elem[ dir ] ) ) {
+					if ( elem.nodeType === 1 || checkNonElements ) {
+						outerCache = elem[ expando ] || ( elem[ expando ] = {} );
+
+						if ( skip && nodeName( elem, skip ) ) {
+							elem = elem[ dir ] || elem;
+						} else if ( ( oldCache = outerCache[ key ] ) &&
+							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
+
+							// Assign to newCache so results back-propagate to previous elements
+							return ( newCache[ 2 ] = oldCache[ 2 ] );
+						} else {
+
+							// Reuse newcache so results back-propagate to previous elements
+							outerCache[ key ] = newCache;
+
+							// A match means we're done; a fail means we have to keep checking
+							if ( ( newCache[ 2 ] = matcher( elem, context, xml ) ) ) {
+								return true;
+							}
+						}
+					}
+				}
+			}
+			return false;
+		};
+}
+
+function elementMatcher( matchers ) {
+	return matchers.length > 1 ?
+		function( elem, context, xml ) {
+			var i = matchers.length;
+			while ( i-- ) {
+				if ( !matchers[ i ]( elem, context, xml ) ) {
+					return false;
+				}
+			}
+			return true;
+		} :
+		matchers[ 0 ];
+}
+
+function multipleContexts( selector, contexts, results ) {
+	var i = 0,
+		len = contexts.length;
+	for ( ; i < len; i++ ) {
+		find( selector, contexts[ i ], results );
+	}
+	return results;
+}
+
+function condense( unmatched, map, filter, context, xml ) {
+	var elem,
+		newUnmatched = [],
+		i = 0,
+		len = unmatched.length,
+		mapped = map != null;
+
+	for ( ; i < len; i++ ) {
+		if ( ( elem = unmatched[ i ] ) ) {
+			if ( !filter || filter( elem, context, xml ) ) {
+				newUnmatched.push( elem );
+				if ( mapped ) {
+					map.push( i );
+				}
+			}
+		}
+	}
+
+	return newUnmatched;
+}
+
+function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postSelector ) {
+	if ( postFilter && !postFilter[ expando ] ) {
+		postFilter = setMatcher( postFilter );
+	}
+	if ( postFinder && !postFinder[ expando ] ) {
+		postFinder = setMatcher( postFinder, postSelector );
+	}
+	return markFunction( function( seed, results, context, xml ) {
+		var temp, i, elem, matcherOut,
+			preMap = [],
+			postMap = [],
+			preexisting = results.length,
+
+			// Get initial elements from seed or context
+			elems = seed ||
+				multipleContexts( selector || "*",
+					context.nodeType ? [ context ] : context, [] ),
+
+			// Prefilter to get matcher input, preserving a map for seed-results synchronization
+			matcherIn = preFilter && ( seed || !selector ) ?
+				condense( elems, preMap, preFilter, context, xml ) :
+				elems;
+
+		if ( matcher ) {
+
+			// If we have a postFinder, or filtered seed, or non-seed postFilter
+			// or preexisting results,
+			matcherOut = postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
+
+				// ...intermediate processing is necessary
+				[] :
+
+				// ...otherwise use results directly
+				results;
+
+			// Find primary matches
+			matcher( matcherIn, matcherOut, context, xml );
+		} else {
+			matcherOut = matcherIn;
+		}
+
+		// Apply postFilter
+		if ( postFilter ) {
+			temp = condense( matcherOut, postMap );
+			postFilter( temp, [], context, xml );
+
+			// Un-match failing elements by moving them back to matcherIn
+			i = temp.length;
+			while ( i-- ) {
+				if ( ( elem = temp[ i ] ) ) {
+					matcherOut[ postMap[ i ] ] = !( matcherIn[ postMap[ i ] ] = elem );
+				}
+			}
+		}
+
+		if ( seed ) {
+			if ( postFinder || preFilter ) {
+				if ( postFinder ) {
+
+					// Get the final matcherOut by condensing this intermediate into postFinder contexts
+					temp = [];
+					i = matcherOut.length;
+					while ( i-- ) {
+						if ( ( elem = matcherOut[ i ] ) ) {
+
+							// Restore matcherIn since elem is not yet a final match
+							temp.push( ( matcherIn[ i ] = elem ) );
+						}
+					}
+					postFinder( null, ( matcherOut = [] ), temp, xml );
+				}
+
+				// Move matched elements from seed to results to keep them synchronized
+				i = matcherOut.length;
+				while ( i-- ) {
+					if ( ( elem = matcherOut[ i ] ) &&
+						( temp = postFinder ? indexOf.call( seed, elem ) : preMap[ i ] ) > -1 ) {
+
+						seed[ temp ] = !( results[ temp ] = elem );
+					}
+				}
+			}
+
+		// Add elements to results, through postFinder if defined
+		} else {
+			matcherOut = condense(
+				matcherOut === results ?
+					matcherOut.splice( preexisting, matcherOut.length ) :
+					matcherOut
+			);
+			if ( postFinder ) {
+				postFinder( null, results, matcherOut, xml );
+			} else {
+				push.apply( results, matcherOut );
+			}
+		}
+	} );
+}
+
+function matcherFromTokens( tokens ) {
+	var checkContext, matcher, j,
+		len = tokens.length,
+		leadingRelative = Expr.relative[ tokens[ 0 ].type ],
+		implicitRelative = leadingRelative || Expr.relative[ " " ],
+		i = leadingRelative ? 1 : 0,
+
+		// The foundational matcher ensures that elements are reachable from top-level context(s)
+		matchContext = addCombinator( function( elem ) {
+			return elem === checkContext;
+		}, implicitRelative, true ),
+		matchAnyContext = addCombinator( function( elem ) {
+			return indexOf.call( checkContext, elem ) > -1;
+		}, implicitRelative, true ),
+		matchers = [ function( elem, context, xml ) {
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			var ret = ( !leadingRelative && ( xml || context != outermostContext ) ) || (
+				( checkContext = context ).nodeType ?
+					matchContext( elem, context, xml ) :
+					matchAnyContext( elem, context, xml ) );
+
+			// Avoid hanging onto element
+			// (see https://github.com/jquery/sizzle/issues/299)
+			checkContext = null;
+			return ret;
+		} ];
+
+	for ( ; i < len; i++ ) {
+		if ( ( matcher = Expr.relative[ tokens[ i ].type ] ) ) {
+			matchers = [ addCombinator( elementMatcher( matchers ), matcher ) ];
+		} else {
+			matcher = Expr.filter[ tokens[ i ].type ].apply( null, tokens[ i ].matches );
+
+			// Return special upon seeing a positional matcher
+			if ( matcher[ expando ] ) {
+
+				// Find the next relative operator (if any) for proper handling
+				j = ++i;
+				for ( ; j < len; j++ ) {
+					if ( Expr.relative[ tokens[ j ].type ] ) {
+						break;
+					}
+				}
+				return setMatcher(
+					i > 1 && elementMatcher( matchers ),
+					i > 1 && toSelector(
+
+						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+						tokens.slice( 0, i - 1 )
+							.concat( { value: tokens[ i - 2 ].type === " " ? "*" : "" } )
+					).replace( rtrimCSS, "$1" ),
+					matcher,
+					i < j && matcherFromTokens( tokens.slice( i, j ) ),
+					j < len && matcherFromTokens( ( tokens = tokens.slice( j ) ) ),
+					j < len && toSelector( tokens )
+				);
+			}
+			matchers.push( matcher );
+		}
+	}
+
+	return elementMatcher( matchers );
+}
+
+function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
+	var bySet = setMatchers.length > 0,
+		byElement = elementMatchers.length > 0,
+		superMatcher = function( seed, context, xml, results, outermost ) {
+			var elem, j, matcher,
+				matchedCount = 0,
+				i = "0",
+				unmatched = seed && [],
+				setMatched = [],
+				contextBackup = outermostContext,
+
+				// We must always have either seed elements or outermost context
+				elems = seed || byElement && Expr.find.TAG( "*", outermost ),
+
+				// Use integer dirruns iff this is the outermost matcher
+				dirrunsUnique = ( dirruns += contextBackup == null ? 1 : Math.random() || 0.1 ),
+				len = elems.length;
+
+			if ( outermost ) {
+
+				// Support: IE 11+, Edge 17 - 18+
+				// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+				// two documents; shallow comparisons work.
+				// eslint-disable-next-line eqeqeq
+				outermostContext = context == document || context || outermost;
+			}
+
+			// Add elements passing elementMatchers directly to results
+			// Support: iOS <=7 - 9 only
+			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching
+			// elements by id. (see trac-14142)
+			for ( ; i !== len && ( elem = elems[ i ] ) != null; i++ ) {
+				if ( byElement && elem ) {
+					j = 0;
+
+					// Support: IE 11+, Edge 17 - 18+
+					// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+					// two documents; shallow comparisons work.
+					// eslint-disable-next-line eqeqeq
+					if ( !context && elem.ownerDocument != document ) {
+						setDocument( elem );
+						xml = !documentIsHTML;
+					}
+					while ( ( matcher = elementMatchers[ j++ ] ) ) {
+						if ( matcher( elem, context || document, xml ) ) {
+							push.call( results, elem );
+							break;
+						}
+					}
+					if ( outermost ) {
+						dirruns = dirrunsUnique;
+					}
+				}
+
+				// Track unmatched elements for set filters
+				if ( bySet ) {
+
+					// They will have gone through all possible matchers
+					if ( ( elem = !matcher && elem ) ) {
+						matchedCount--;
+					}
+
+					// Lengthen the array for every element, matched or not
+					if ( seed ) {
+						unmatched.push( elem );
+					}
+				}
+			}
+
+			// `i` is now the count of elements visited above, and adding it to `matchedCount`
+			// makes the latter nonnegative.
+			matchedCount += i;
+
+			// Apply set filters to unmatched elements
+			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedCount`
+			// equals `i`), unless we didn't visit _any_ elements in the above loop because we have
+			// no element matchers and no seed.
+			// Incrementing an initially-string "0" `i` allows `i` to remain a string only in that
+			// case, which will result in a "00" `matchedCount` that differs from `i` but is also
+			// numerically zero.
+			if ( bySet && i !== matchedCount ) {
+				j = 0;
+				while ( ( matcher = setMatchers[ j++ ] ) ) {
+					matcher( unmatched, setMatched, context, xml );
+				}
+
+				if ( seed ) {
+
+					// Reintegrate element matches to eliminate the need for sorting
+					if ( matchedCount > 0 ) {
+						while ( i-- ) {
+							if ( !( unmatched[ i ] || setMatched[ i ] ) ) {
+								setMatched[ i ] = pop.call( results );
+							}
+						}
+					}
+
+					// Discard index placeholder values to get only actual matches
+					setMatched = condense( setMatched );
+				}
+
+				// Add matches to results
+				push.apply( results, setMatched );
+
+				// Seedless set matches succeeding multiple successful matchers stipulate sorting
+				if ( outermost && !seed && setMatched.length > 0 &&
+					( matchedCount + setMatchers.length ) > 1 ) {
+
+					jQuery.uniqueSort( results );
+				}
+			}
+
+			// Override manipulation of globals by nested matchers
+			if ( outermost ) {
+				dirruns = dirrunsUnique;
+				outermostContext = contextBackup;
+			}
+
+			return unmatched;
+		};
+
+	return bySet ?
+		markFunction( superMatcher ) :
+		superMatcher;
+}
+
+function compile( selector, match /* Internal Use Only */ ) {
+	var i,
+		setMatchers = [],
+		elementMatchers = [],
+		cached = compilerCache[ selector + " " ];
+
+	if ( !cached ) {
+
+		// Generate a function of recursive functions that can be used to check each element
+		if ( !match ) {
+			match = tokenize( selector );
+		}
+		i = match.length;
+		while ( i-- ) {
+			cached = matcherFromTokens( match[ i ] );
+			if ( cached[ expando ] ) {
+				setMatchers.push( cached );
+			} else {
+				elementMatchers.push( cached );
+			}
+		}
+
+		// Cache the compiled function
+		cached = compilerCache( selector,
+			matcherFromGroupMatchers( elementMatchers, setMatchers ) );
+
+		// Save selector and tokenization
+		cached.selector = selector;
+	}
+	return cached;
+}
+
+/**
+ * A low-level selection function that works with jQuery's compiled
+ *  selector functions
+ * @param {String|Function} selector A selector or a pre-compiled
+ *  selector function built with jQuery selector compile
+ * @param {Element} context
+ * @param {Array} [results]
+ * @param {Array} [seed] A set of elements to match against
+ */
+function select( selector, context, results, seed ) {
+	var i, tokens, token, type, find,
+		compiled = typeof selector === "function" && selector,
+		match = !seed && tokenize( ( selector = compiled.selector || selector ) );
+
+	results = results || [];
+
+	// Try to minimize operations if there is only one selector in the list and no seed
+	// (the latter of which guarantees us context)
+	if ( match.length === 1 ) {
+
+		// Reduce context if the leading compound selector is an ID
+		tokens = match[ 0 ] = match[ 0 ].slice( 0 );
+		if ( tokens.length > 2 && ( token = tokens[ 0 ] ).type === "ID" &&
+				context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[ 1 ].type ] ) {
+
+			context = ( Expr.find.ID(
+				token.matches[ 0 ].replace( runescape, funescape ),
+				context
+			) || [] )[ 0 ];
+			if ( !context ) {
+				return results;
+
+			// Precompiled matchers will still verify ancestry, so step up a level
+			} else if ( compiled ) {
+				context = context.parentNode;
+			}
+
+			selector = selector.slice( tokens.shift().value.length );
+		}
+
+		// Fetch a seed set for right-to-left matching
+		i = matchExpr.needsContext.test( selector ) ? 0 : tokens.length;
+		while ( i-- ) {
+			token = tokens[ i ];
+
+			// Abort if we hit a combinator
+			if ( Expr.relative[ ( type = token.type ) ] ) {
+				break;
+			}
+			if ( ( find = Expr.find[ type ] ) ) {
+
+				// Search, expanding context for leading sibling combinators
+				if ( ( seed = find(
+					token.matches[ 0 ].replace( runescape, funescape ),
+					rsibling.test( tokens[ 0 ].type ) &&
+						testContext( context.parentNode ) || context
+				) ) ) {
+
+					// If seed is empty or no tokens remain, we can return early
+					tokens.splice( i, 1 );
+					selector = seed.length && toSelector( tokens );
+					if ( !selector ) {
+						push.apply( results, seed );
+						return results;
+					}
+
+					break;
+				}
+			}
+		}
+	}
+
+	// Compile and execute a filtering function if one is not provided
+	// Provide `match` to avoid retokenization if we modified the selector above
+	( compiled || compile( selector, match ) )(
+		seed,
+		context,
+		!documentIsHTML,
+		results,
+		!context || rsibling.test( selector ) && testContext( context.parentNode ) || context
+	);
+	return results;
+}
+
+// One-time assignments
+
+// Support: Android <=4.0 - 4.1+
+// Sort stability
+support.sortStable = expando.split( "" ).sort( sortOrder ).join( "" ) === expando;
+
+// Initialize against the default document
+setDocument();
+
+// Support: Android <=4.0 - 4.1+
+// Detached nodes confoundingly follow *each other*
+support.sortDetached = assert( function( el ) {
+
+	// Should return 1, but returns 4 (following)
+	return el.compareDocumentPosition( document.createElement( "fieldset" ) ) & 1;
+} );
+
+jQuery.find = find;
+
+// Deprecated
+jQuery.expr[ ":" ] = jQuery.expr.pseudos;
+jQuery.unique = jQuery.uniqueSort;
+
+// These have always been private, but they used to be documented as part of
+// Sizzle so let's maintain them for now for backwards compatibility purposes.
+find.compile = compile;
+find.select = select;
+find.setDocument = setDocument;
+find.tokenize = tokenize;
+
+find.escape = jQuery.escapeSelector;
+find.getText = jQuery.text;
+find.isXML = jQuery.isXMLDoc;
+find.selectors = jQuery.expr;
+find.support = jQuery.support;
+find.uniqueSort = jQuery.uniqueSort;
+
+	/* eslint-enable */
+
+} )();
+
+
+var dir = function( elem, dir, until ) {
+	var matched = [],
+		truncate = until !== undefined;
+
+	while ( ( elem = elem[ dir ] ) && elem.nodeType !== 9 ) {
+		if ( elem.nodeType === 1 ) {
+			if ( truncate && jQuery( elem ).is( until ) ) {
+				break;
+			}
+			matched.push( elem );
+		}
+	}
+	return matched;
+};
+
+
+var siblings = function( n, elem ) {
+	var matched = [];
+
+	for ( ; n; n = n.nextSibling ) {
+		if ( n.nodeType === 1 && n !== elem ) {
+			matched.push( n );
+		}
+	}
+
+	return matched;
+};
+
+
+var rneedsContext = jQuery.expr.match.needsContext;
+
+var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
+
+
+
+// Implement the identical functionality for filter and not
+function winnow( elements, qualifier, not ) {
+	if ( isFunction( qualifier ) ) {
+		return jQuery.grep( elements, function( elem, i ) {
+			return !!qualifier.call( elem, i, elem ) !== not;
+		} );
+	}
+
+	// Single element
+	if ( qualifier.nodeType ) {
+		return jQuery.grep( elements, function( elem ) {
+			return ( elem === qualifier ) !== not;
+		} );
+	}
+
+	// Arraylike of elements (jQuery, arguments, Array)
+	if ( typeof qualifier !== "string" ) {
+		return jQuery.grep( elements, function( elem ) {
+			return ( indexOf.call( qualifier, elem ) > -1 ) !== not;
+		} );
+	}
+
+	// Filtered directly for both simple and complex selectors
+	return jQuery.filter( qualifier, elements, not );
+}
+
+jQuery.filter = function( expr, elems, not ) {
+	var elem = elems[ 0 ];
+
+	if ( not ) {
+		expr = ":not(" + expr + ")";
+	}
+
+	if ( elems.length === 1 && elem.nodeType === 1 ) {
+		return jQuery.find.matchesSelector( elem, expr ) ? [ elem ] : [];
+	}
+
+	return jQuery.find.matches( expr, jQuery.grep( elems, function( elem ) {
+		return elem.nodeType === 1;
+	} ) );
+};
+
+jQuery.fn.extend( {
+	find: function( selector ) {
+		var i, ret,
+			len = this.length,
+			self = this;
+
+		if ( typeof selector !== "string" ) {
+			return this.pushStack( jQuery( selector ).filter( function() {
+				for ( i = 0; i < len; i++ ) {
+					if ( jQuery.contains( self[ i ], this ) ) {
+						return true;
+					}
+				}
+			} ) );
+		}
+
+		ret = this.pushStack( [] );
+
+		for ( i = 0; i < len; i++ ) {
+			jQuery.find( selector, self[ i ], ret );
+		}
+
+		return len > 1 ? jQuery.uniqueSort( ret ) : ret;
+	},
+	filter: function( selector ) {
+		return this.pushStack( winnow( this, selector || [], false ) );
+	},
+	not: function( selector ) {
+		return this.pushStack( winnow( this, selector || [], true ) );
+	},
+	is: function( selector ) {
+		return !!winnow(
+			this,
+
+			// If this is a positional/relative selector, check membership in the returned set
+			// so $("p:first").is("p:last") won't return true for a doc with two "p".
+			typeof selector === "string" && rneedsContext.test( selector ) ?
+				jQuery( selector ) :
+				selector || [],
+			false
+		).length;
+	}
+} );
+
+
+// Initialize a jQuery object
+
+
+// A central reference to the root jQuery(document)
+var rootjQuery,
+
+	// A simple way to check for HTML strings
+	// Prioritize #id over <tag> to avoid XSS via location.hash (trac-9521)
+	// Strict HTML recognition (trac-11290: must start with <)
+	// Shortcut simple #id case for speed
+	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
+
+	init = jQuery.fn.init = function( selector, context, root ) {
+		var match, elem;
+
+		// HANDLE: $(""), $(null), $(undefined), $(false)
+		if ( !selector ) {
+			return this;
+		}
+
+		// Method init() accepts an alternate rootjQuery
+		// so migrate can support jQuery.sub (gh-2101)
+		root = root || rootjQuery;
+
+		// Handle HTML strings
+		if ( typeof selector === "string" ) {
+			if ( selector[ 0 ] === "<" &&
+				selector[ selector.length - 1 ] === ">" &&
+				selector.length >= 3 ) {
+
+				// Assume that strings that start and end with <> are HTML and skip the regex check
+				match = [ null, selector, null ];
+
+			} else {
+				match = rquickExpr.exec( selector );
+			}
+
+			// Match html or make sure no context is specified for #id
+			if ( match && ( match[ 1 ] || !context ) ) {
+
+				// HANDLE: $(html) -> $(array)
+				if ( match[ 1 ] ) {
+					context = context instanceof jQuery ? context[ 0 ] : context;
+
+					// Option to run scripts is true for back-compat
+					// Intentionally let the error be thrown if parseHTML is not present
+					jQuery.merge( this, jQuery.parseHTML(
+						match[ 1 ],
+						context && context.nodeType ? context.ownerDocument || context : document,
+						true
+					) );
+
+					// HANDLE: $(html, props)
+					if ( rsingleTag.test( match[ 1 ] ) && jQuery.isPlainObject( context ) ) {
+						for ( match in context ) {
+
+							// Properties of context are called as methods if possible
+							if ( isFunction( this[ match ] ) ) {
+								this[ match ]( context[ match ] );
+
+							// ...and otherwise set as attributes
+							} else {
+								this.attr( match, context[ match ] );
+							}
+						}
+					}
+
+					return this;
+
+				// HANDLE: $(#id)
+				} else {
+					elem = document.getElementById( match[ 2 ] );
+
+					if ( elem ) {
+
+						// Inject the element directly into the jQuery object
+						this[ 0 ] = elem;
+						this.length = 1;
+					}
+					return this;
+				}
+
+			// HANDLE: $(expr, $(...))
+			} else if ( !context || context.jquery ) {
+				return ( context || root ).find( selector );
+
+			// HANDLE: $(expr, context)
+			// (which is just equivalent to: $(context).find(expr)
+			} else {
+				return this.constructor( context ).find( selector );
+			}
+
+		// HANDLE: $(DOMElement)
+		} else if ( selector.nodeType ) {
+			this[ 0 ] = selector;
+			this.length = 1;
+			return this;
+
+		// HANDLE: $(function)
+		// Shortcut for document ready
+		} else if ( isFunction( selector ) ) {
+			return root.ready !== undefined ?
+				root.ready( selector ) :
+
+				// Execute immediately if ready is not present
+				selector( jQuery );
+		}
+
+		return jQuery.makeArray( selector, this );
+	};
+
+// Give the init function the jQuery prototype for later instantiation
+init.prototype = jQuery.fn;
+
+// Initialize central reference
+rootjQuery = jQuery( document );
+
+
+var rparentsprev = /^(?:parents|prev(?:Until|All))/,
+
+	// Methods guaranteed to produce a unique set when starting from a unique set
+	guaranteedUnique = {
+		children: true,
+		contents: true,
+		next: true,
+		prev: true
+	};
+
+jQuery.fn.extend( {
+	has: function( target ) {
+		var targets = jQuery( target, this ),
+			l = targets.length;
+
+		return this.filter( function() {
+			var i = 0;
+			for ( ; i < l; i++ ) {
+				if ( jQuery.contains( this, targets[ i ] ) ) {
+					return true;
+				}
+			}
+		} );
+	},
+
+	closest: function( selectors, context ) {
+		var cur,
+			i = 0,
+			l = this.length,
+			matched = [],
+			targets = typeof selectors !== "string" && jQuery( selectors );
+
+		// Positional selectors never match, since there's no _selection_ context
+		if ( !rneedsContext.test( selectors ) ) {
+			for ( ; i < l; i++ ) {
+				for ( cur = this[ i ]; cur && cur !== context; cur = cur.parentNode ) {
+
+					// Always skip document fragments
+					if ( cur.nodeType < 11 && ( targets ?
+						targets.index( cur ) > -1 :
+
+						// Don't pass non-elements to jQuery#find
+						cur.nodeType === 1 &&
+							jQuery.find.matchesSelector( cur, selectors ) ) ) {
+
+						matched.push( cur );
+						break;
+					}
+				}
+			}
+		}
+
+		return this.pushStack( matched.length > 1 ? jQuery.uniqueSort( matched ) : matched );
+	},
+
+	// Determine the position of an element within the set
+	index: function( elem ) {
+
+		// No argument, return index in parent
+		if ( !elem ) {
+			return ( this[ 0 ] && this[ 0 ].parentNode ) ? this.first().prevAll().length : -1;
+		}
+
+		// Index in selector
+		if ( typeof elem === "string" ) {
+			return indexOf.call( jQuery( elem ), this[ 0 ] );
+		}
+
+		// Locate the position of the desired element
+		return indexOf.call( this,
+
+			// If it receives a jQuery object, the first element is used
+			elem.jquery ? elem[ 0 ] : elem
+		);
+	},
+
+	add: function( selector, context ) {
+		return this.pushStack(
+			jQuery.uniqueSort(
+				jQuery.merge( this.get(), jQuery( selector, context ) )
+			)
+		);
+	},
+
+	addBack: function( selector ) {
+		return this.add( selector == null ?
+			this.prevObject : this.prevObject.filter( selector )
+		);
+	}
+} );
+
+function sibling( cur, dir ) {
+	while ( ( cur = cur[ dir ] ) && cur.nodeType !== 1 ) {}
+	return cur;
+}
+
+jQuery.each( {
+	parent: function( elem ) {
+		var parent = elem.parentNode;
+		return parent && parent.nodeType !== 11 ? parent : null;
+	},
+	parents: function( elem ) {
+		return dir( elem, "parentNode" );
+	},
+	parentsUntil: function( elem, _i, until ) {
+		return dir( elem, "parentNode", until );
+	},
+	next: function( elem ) {
+		return sibling( elem, "nextSibling" );
+	},
+	prev: function( elem ) {
+		return sibling( elem, "previousSibling" );
+	},
+	nextAll: function( elem ) {
+		return dir( elem, "nextSibling" );
+	},
+	prevAll: function( elem ) {
+		return dir( elem, "previousSibling" );
+	},
+	nextUntil: function( elem, _i, until ) {
+		return dir( elem, "nextSibling", until );
+	},
+	prevUntil: function( elem, _i, until ) {
+		return dir( elem, "previousSibling", until );
+	},
+	siblings: function( elem ) {
+		return siblings( ( elem.parentNode || {} ).firstChild, elem );
+	},
+	children: function( elem ) {
+		return siblings( elem.firstChild );
+	},
+	contents: function( elem ) {
+		if ( elem.contentDocument != null &&
+
+			// Support: IE 11+
+			// <object> elements with no `data` attribute has an object
+			// `contentDocument` with a `null` prototype.
+			getProto( elem.contentDocument ) ) {
+
+			return elem.contentDocument;
+		}
+
+		// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
+		// Treat the template element as a regular one in browsers that
+		// don't support it.
+		if ( nodeName( elem, "template" ) ) {
+			elem = elem.content || elem;
+		}
+
+		return jQuery.merge( [], elem.childNodes );
+	}
+}, function( name, fn ) {
+	jQuery.fn[ name ] = function( until, selector ) {
+		var matched = jQuery.map( this, fn, until );
+
+		if ( name.slice( -5 ) !== "Until" ) {
+			selector = until;
+		}
+
+		if ( selector && typeof selector === "string" ) {
+			matched = jQuery.filter( selector, matched );
+		}
+
+		if ( this.length > 1 ) {
+
+			// Remove duplicates
+			if ( !guaranteedUnique[ name ] ) {
+				jQuery.uniqueSort( matched );
+			}
+
+			// Reverse order for parents* and prev-derivatives
+			if ( rparentsprev.test( name ) ) {
+				matched.reverse();
+			}
+		}
+
+		return this.pushStack( matched );
+	};
+} );
+var rnothtmlwhite = ( /[^\x20\t\r\n\f]+/g );
+
+
+
+// Convert String-formatted options into Object-formatted ones
+function createOptions( options ) {
+	var object = {};
+	jQuery.each( options.match( rnothtmlwhite ) || [], function( _, flag ) {
+		object[ flag ] = true;
+	} );
+	return object;
+}
+
+/*
+ * Create a callback list using the following parameters:
+ *
+ *	options: an optional list of space-separated options that will change how
+ *			the callback list behaves or a more traditional option object
+ *
+ * By default a callback list will act like an event callback list and can be
+ * "fired" multiple times.
+ *
+ * Possible options:
+ *
+ *	once:			will ensure the callback list can only be fired once (like a Deferred)
+ *
+ *	memory:			will keep track of previous values and will call any callback added
+ *					after the list has been fired right away with the latest "memorized"
+ *					values (like a Deferred)
+ *
+ *	unique:			will ensure a callback can only be added once (no duplicate in the list)
+ *
+ *	stopOnFalse:	interrupt callings when a callback returns false
+ *
+ */
+jQuery.Callbacks = function( options ) {
+
+	// Convert options from String-formatted to Object-formatted if needed
+	// (we check in cache first)
+	options = typeof options === "string" ?
+		createOptions( options ) :
+		jQuery.extend( {}, options );
+
+	var // Flag to know if list is currently firing
+		firing,
+
+		// Last fire value for non-forgettable lists
+		memory,
+
+		// Flag to know if list was already fired
+		fired,
+
+		// Flag to prevent firing
+		locked,
+
+		// Actual callback list
+		list = [],
+
+		// Queue of execution data for repeatable lists
+		queue = [],
+
+		// Index of currently firing callback (modified by add/remove as needed)
+		firingIndex = -1,
+
+		// Fire callbacks
+		fire = function() {
+
+			// Enforce single-firing
+			locked = locked || options.once;
+
+			// Execute callbacks for all pending executions,
+			// respecting firingIndex overrides and runtime changes
+			fired = firing = true;
+			for ( ; queue.length; firingIndex = -1 ) {
+				memory = queue.shift();
+				while ( ++firingIndex < list.length ) {
+
+					// Run callback and check for early termination
+					if ( list[ firingIndex ].apply( memory[ 0 ], memory[ 1 ] ) === false &&
+						options.stopOnFalse ) {
+
+						// Jump to end and forget the data so .add doesn't re-fire
+						firingIndex = list.length;
+						memory = false;
+					}
+				}
+			}
+
+			// Forget the data if we're done with it
+			if ( !options.memory ) {
+				memory = false;
+			}
+
+			firing = false;
+
+			// Clean up if we're done firing for good
+			if ( locked ) {
+
+				// Keep an empty list if we have data for future add calls
+				if ( memory ) {
+					list = [];
+
+				// Otherwise, this object is spent
+				} else {
+					list = "";
+				}
+			}
+		},
+
+		// Actual Callbacks object
+		self = {
+
+			// Add a callback or a collection of callbacks to the list
+			add: function() {
+				if ( list ) {
+
+					// If we have memory from a past run, we should fire after adding
+					if ( memory && !firing ) {
+						firingIndex = list.length - 1;
+						queue.push( memory );
+					}
+
+					( function add( args ) {
+						jQuery.each( args, function( _, arg ) {
+							if ( isFunction( arg ) ) {
+								if ( !options.unique || !self.has( arg ) ) {
+									list.push( arg );
+								}
+							} else if ( arg && arg.length && toType( arg ) !== "string" ) {
+
+								// Inspect recursively
+								add( arg );
+							}
+						} );
+					} )( arguments );
+
+					if ( memory && !firing ) {
+						fire();
+					}
+				}
+				return this;
+			},
+
+			// Remove a callback from the list
+			remove: function() {
+				jQuery.each( arguments, function( _, arg ) {
+					var index;
+					while ( ( index = jQuery.inArray( arg, list, index ) ) > -1 ) {
+						list.splice( index, 1 );
+
+						// Handle firing indexes
+						if ( index <= firingIndex ) {
+							firingIndex--;
+						}
+					}
+				} );
+				return this;
+			},
+
+			// Check if a given callback is in the list.
+			// If no argument is given, return whether or not list has callbacks attached.
+			has: function( fn ) {
+				return fn ?
+					jQuery.inArray( fn, list ) > -1 :
+					list.length > 0;
+			},
+
+			// Remove all callbacks from the list
+			empty: function() {
+				if ( list ) {
+					list = [];
+				}
+				return this;
+			},
+
+			// Disable .fire and .add
+			// Abort any current/pending executions
+			// Clear all callbacks and values
+			disable: function() {
+				locked = queue = [];
+				list = memory = "";
+				return this;
+			},
+			disabled: function() {
+				return !list;
+			},
+
+			// Disable .fire
+			// Also disable .add unless we have memory (since it would have no effect)
+			// Abort any pending executions
+			lock: function() {
+				locked = queue = [];
+				if ( !memory && !firing ) {
+					list = memory = "";
+				}
+				return this;
+			},
+			locked: function() {
+				return !!locked;
+			},
+
+			// Call all callbacks with the given context and arguments
+			fireWith: function( context, args ) {
+				if ( !locked ) {
+					args = args || [];
+					args = [ context, args.slice ? args.slice() : args ];
+					queue.push( args );
+					if ( !firing ) {
+						fire();
+					}
+				}
+				return this;
+			},
+
+			// Call all the callbacks with the given arguments
+			fire: function() {
+				self.fireWith( this, arguments );
+				return this;
+			},
+
+			// To know if the callbacks have already been called at least once
+			fired: function() {
+				return !!fired;
+			}
+		};
+
+	return self;
+};
+
+
+function Identity( v ) {
+	return v;
+}
+function Thrower( ex ) {
+	throw ex;
+}
+
+function adoptValue( value, resolve, reject, noValue ) {
+	var method;
+
+	try {
+
+		// Check for promise aspect first to privilege synchronous behavior
+		if ( value && isFunction( ( method = value.promise ) ) ) {
+			method.call( value ).done( resolve ).fail( reject );
+
+		// Other thenables
+		} else if ( value && isFunction( ( method = value.then ) ) ) {
+			method.call( value, resolve, reject );
+
+		// Other non-thenables
+		} else {
+
+			// Control `resolve` arguments by letting Array#slice cast boolean `noValue` to integer:
+			// * false: [ value ].slice( 0 ) => resolve( value )
+			// * true: [ value ].slice( 1 ) => resolve()
+			resolve.apply( undefined, [ value ].slice( noValue ) );
+		}
+
+	// For Promises/A+, convert exceptions into rejections
+	// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
+	// Deferred#then to conditionally suppress rejection.
+	} catch ( value ) {
+
+		// Support: Android 4.0 only
+		// Strict mode functions invoked without .call/.apply get global-object context
+		reject.apply( undefined, [ value ] );
+	}
+}
+
+jQuery.extend( {
+
+	Deferred: function( func ) {
+		var tuples = [
+
+				// action, add listener, callbacks,
+				// ... .then handlers, argument index, [final state]
+				[ "notify", "progress", jQuery.Callbacks( "memory" ),
+					jQuery.Callbacks( "memory" ), 2 ],
+				[ "resolve", "done", jQuery.Callbacks( "once memory" ),
+					jQuery.Callbacks( "once memory" ), 0, "resolved" ],
+				[ "reject", "fail", jQuery.Callbacks( "once memory" ),
+					jQuery.Callbacks( "once memory" ), 1, "rejected" ]
+			],
+			state = "pending",
+			promise = {
+				state: function() {
+					return state;
+				},
+				always: function() {
+					deferred.done( arguments ).fail( arguments );
+					return this;
+				},
+				"catch": function( fn ) {
+					return promise.then( null, fn );
+				},
+
+				// Keep pipe for back-compat
+				pipe: function( /* fnDone, fnFail, fnProgress */ ) {
+					var fns = arguments;
+
+					return jQuery.Deferred( function( newDefer ) {
+						jQuery.each( tuples, function( _i, tuple ) {
+
+							// Map tuples (progress, done, fail) to arguments (done, fail, progress)
+							var fn = isFunction( fns[ tuple[ 4 ] ] ) && fns[ tuple[ 4 ] ];
+
+							// deferred.progress(function() { bind to newDefer or newDefer.notify })
+							// deferred.done(function() { bind to newDefer or newDefer.resolve })
+							// deferred.fail(function() { bind to newDefer or newDefer.reject })
+							deferred[ tuple[ 1 ] ]( function() {
+								var returned = fn && fn.apply( this, arguments );
+								if ( returned && isFunction( returned.promise ) ) {
+									returned.promise()
+										.progress( newDefer.notify )
+										.done( newDefer.resolve )
+										.fail( newDefer.reject );
+								} else {
+									newDefer[ tuple[ 0 ] + "With" ](
+										this,
+										fn ? [ returned ] : arguments
+									);
+								}
+							} );
+						} );
+						fns = null;
+					} ).promise();
+				},
+				then: function( onFulfilled, onRejected, onProgress ) {
+					var maxDepth = 0;
+					function resolve( depth, deferred, handler, special ) {
+						return function() {
+							var that = this,
+								args = arguments,
+								mightThrow = function() {
+									var returned, then;
+
+									// Support: Promises/A+ section 2.3.3.3.3
+									// https://promisesaplus.com/#point-59
+									// Ignore double-resolution attempts
+									if ( depth < maxDepth ) {
+										return;
+									}
+
+									returned = handler.apply( that, args );
+
+									// Support: Promises/A+ section 2.3.1
+									// https://promisesaplus.com/#point-48
+									if ( returned === deferred.promise() ) {
+										throw new TypeError( "Thenable self-resolution" );
+									}
+
+									// Support: Promises/A+ sections 2.3.3.1, 3.5
+									// https://promisesaplus.com/#point-54
+									// https://promisesaplus.com/#point-75
+									// Retrieve `then` only once
+									then = returned &&
+
+										// Support: Promises/A+ section 2.3.4
+										// https://promisesaplus.com/#point-64
+										// Only check objects and functions for thenability
+										( typeof returned === "object" ||
+											typeof returned === "function" ) &&
+										returned.then;
+
+									// Handle a returned thenable
+									if ( isFunction( then ) ) {
+
+										// Special processors (notify) just wait for resolution
+										if ( special ) {
+											then.call(
+												returned,
+												resolve( maxDepth, deferred, Identity, special ),
+												resolve( maxDepth, deferred, Thrower, special )
+											);
+
+										// Normal processors (resolve) also hook into progress
+										} else {
+
+											// ...and disregard older resolution values
+											maxDepth++;
+
+											then.call(
+												returned,
+												resolve( maxDepth, deferred, Identity, special ),
+												resolve( maxDepth, deferred, Thrower, special ),
+												resolve( maxDepth, deferred, Identity,
+													deferred.notifyWith )
+											);
+										}
+
+									// Handle all other returned values
+									} else {
+
+										// Only substitute handlers pass on context
+										// and multiple values (non-spec behavior)
+										if ( handler !== Identity ) {
+											that = undefined;
+											args = [ returned ];
+										}
+
+										// Process the value(s)
+										// Default process is resolve
+										( special || deferred.resolveWith )( that, args );
+									}
+								},
+
+								// Only normal processors (resolve) catch and reject exceptions
+								process = special ?
+									mightThrow :
+									function() {
+										try {
+											mightThrow();
+										} catch ( e ) {
+
+											if ( jQuery.Deferred.exceptionHook ) {
+												jQuery.Deferred.exceptionHook( e,
+													process.error );
+											}
+
+											// Support: Promises/A+ section 2.3.3.3.4.1
+											// https://promisesaplus.com/#point-61
+											// Ignore post-resolution exceptions
+											if ( depth + 1 >= maxDepth ) {
+
+												// Only substitute handlers pass on context
+												// and multiple values (non-spec behavior)
+												if ( handler !== Thrower ) {
+													that = undefined;
+													args = [ e ];
+												}
+
+												deferred.rejectWith( that, args );
+											}
+										}
+									};
+
+							// Support: Promises/A+ section 2.3.3.3.1
+							// https://promisesaplus.com/#point-57
+							// Re-resolve promises immediately to dodge false rejection from
+							// subsequent errors
+							if ( depth ) {
+								process();
+							} else {
+
+								// Call an optional hook to record the error, in case of exception
+								// since it's otherwise lost when execution goes async
+								if ( jQuery.Deferred.getErrorHook ) {
+									process.error = jQuery.Deferred.getErrorHook();
+
+								// The deprecated alias of the above. While the name suggests
+								// returning the stack, not an error instance, jQuery just passes
+								// it directly to `console.warn` so both will work; an instance
+								// just better cooperates with source maps.
+								} else if ( jQuery.Deferred.getStackHook ) {
+									process.error = jQuery.Deferred.getStackHook();
+								}
+								window.setTimeout( process );
+							}
+						};
+					}
+
+					return jQuery.Deferred( function( newDefer ) {
+
+						// progress_handlers.add( ... )
+						tuples[ 0 ][ 3 ].add(
+							resolve(
+								0,
+								newDefer,
+								isFunction( onProgress ) ?
+									onProgress :
+									Identity,
+								newDefer.notifyWith
+							)
+						);
+
+						// fulfilled_handlers.add( ... )
+						tuples[ 1 ][ 3 ].add(
+							resolve(
+								0,
+								newDefer,
+								isFunction( onFulfilled ) ?
+									onFulfilled :
+									Identity
+							)
+						);
+
+						// rejected_handlers.add( ... )
+						tuples[ 2 ][ 3 ].add(
+							resolve(
+								0,
+								newDefer,
+								isFunction( onRejected ) ?
+									onRejected :
+									Thrower
+							)
+						);
+					} ).promise();
+				},
+
+				// Get a promise for this deferred
+				// If obj is provided, the promise aspect is added to the object
+				promise: function( obj ) {
+					return obj != null ? jQuery.extend( obj, promise ) : promise;
+				}
+			},
+			deferred = {};
+
+		// Add list-specific methods
+		jQuery.each( tuples, function( i, tuple ) {
+			var list = tuple[ 2 ],
+				stateString = tuple[ 5 ];
+
+			// promise.progress = list.add
+			// promise.done = list.add
+			// promise.fail = list.add
+			promise[ tuple[ 1 ] ] = list.add;
+
+			// Handle state
+			if ( stateString ) {
+				list.add(
+					function() {
+
+						// state = "resolved" (i.e., fulfilled)
+						// state = "rejected"
+						state = stateString;
+					},
+
+					// rejected_callbacks.disable
+					// fulfilled_callbacks.disable
+					tuples[ 3 - i ][ 2 ].disable,
+
+					// rejected_handlers.disable
+					// fulfilled_handlers.disable
+					tuples[ 3 - i ][ 3 ].disable,
+
+					// progress_callbacks.lock
+					tuples[ 0 ][ 2 ].lock,
+
+					// progress_handlers.lock
+					tuples[ 0 ][ 3 ].lock
+				);
+			}
+
+			// progress_handlers.fire
+			// fulfilled_handlers.fire
+			// rejected_handlers.fire
+			list.add( tuple[ 3 ].fire );
+
+			// deferred.notify = function() { deferred.notifyWith(...) }
+			// deferred.resolve = function() { deferred.resolveWith(...) }
+			// deferred.reject = function() { deferred.rejectWith(...) }
+			deferred[ tuple[ 0 ] ] = function() {
+				deferred[ tuple[ 0 ] + "With" ]( this === deferred ? undefined : this, arguments );
+				return this;
+			};
+
+			// deferred.notifyWith = list.fireWith
+			// deferred.resolveWith = list.fireWith
+			// deferred.rejectWith = list.fireWith
+			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
+		} );
+
+		// Make the deferred a promise
+		promise.promise( deferred );
+
+		// Call given func if any
+		if ( func ) {
+			func.call( deferred, deferred );
+		}
+
+		// All done!
+		return deferred;
+	},
+
+	// Deferred helper
+	when: function( singleValue ) {
+		var
+
+			// count of uncompleted subordinates
+			remaining = arguments.length,
+
+			// count of unprocessed arguments
+			i = remaining,
+
+			// subordinate fulfillment data
+			resolveContexts = Array( i ),
+			resolveValues = slice.call( arguments ),
+
+			// the primary Deferred
+			primary = jQuery.Deferred(),
+
+			// subordinate callback factory
+			updateFunc = function( i ) {
+				return function( value ) {
+					resolveContexts[ i ] = this;
+					resolveValues[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
+					if ( !( --remaining ) ) {
+						primary.resolveWith( resolveContexts, resolveValues );
+					}
+				};
+			};
+
+		// Single- and empty arguments are adopted like Promise.resolve
+		if ( remaining <= 1 ) {
+			adoptValue( singleValue, primary.done( updateFunc( i ) ).resolve, primary.reject,
+				!remaining );
+
+			// Use .then() to unwrap secondary thenables (cf. gh-3000)
+			if ( primary.state() === "pending" ||
+				isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
+
+				return primary.then();
+			}
+		}
+
+		// Multiple arguments are aggregated like Promise.all array elements
+		while ( i-- ) {
+			adoptValue( resolveValues[ i ], updateFunc( i ), primary.reject );
+		}
+
+		return primary.promise();
+	}
+} );
+
+
+// These usually indicate a programmer mistake during development,
+// warn about them ASAP rather than swallowing them by default.
+var rerrorNames = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
+
+// If `jQuery.Deferred.getErrorHook` is defined, `asyncError` is an error
+// captured before the async barrier to get the original error cause
+// which may otherwise be hidden.
+jQuery.Deferred.exceptionHook = function( error, asyncError ) {
+
+	// Support: IE 8 - 9 only
+	// Console exists when dev tools are open, which can happen at any time
+	if ( window.console && window.console.warn && error && rerrorNames.test( error.name ) ) {
+		window.console.warn( "jQuery.Deferred exception: " + error.message,
+			error.stack, asyncError );
+	}
+};
+
+
+
+
+jQuery.readyException = function( error ) {
+	window.setTimeout( function() {
+		throw error;
+	} );
+};
+
+
+
+
+// The deferred used on DOM ready
+var readyList = jQuery.Deferred();
+
+jQuery.fn.ready = function( fn ) {
+
+	readyList
+		.then( fn )
+
+		// Wrap jQuery.readyException in a function so that the lookup
+		// happens at the time of error handling instead of callback
+		// registration.
+		.catch( function( error ) {
+			jQuery.readyException( error );
+		} );
+
+	return this;
+};
+
+jQuery.extend( {
+
+	// Is the DOM ready to be used? Set to true once it occurs.
+	isReady: false,
+
+	// A counter to track how many items to wait for before
+	// the ready event fires. See trac-6781
+	readyWait: 1,
+
+	// Handle when the DOM is ready
+	ready: function( wait ) {
+
+		// Abort if there are pending holds or we're already ready
+		if ( wait === true ? --jQuery.readyWait : jQuery.isReady ) {
+			return;
+		}
+
+		// Remember that the DOM is ready
+		jQuery.isReady = true;
+
+		// If a normal DOM Ready event fired, decrement, and wait if need be
+		if ( wait !== true && --jQuery.readyWait > 0 ) {
+			return;
+		}
+
+		// If there are functions bound, to execute
+		readyList.resolveWith( document, [ jQuery ] );
+	}
+} );
+
+jQuery.ready.then = readyList.then;
+
+// The ready event handler and self cleanup method
+function completed() {
+	document.removeEventListener( "DOMContentLoaded", completed );
+	window.removeEventListener( "load", completed );
+	jQuery.ready();
+}
+
+// Catch cases where $(document).ready() is called
+// after the browser event has already occurred.
+// Support: IE <=9 - 10 only
+// Older IE sometimes signals "interactive" too soon
+if ( document.readyState === "complete" ||
+	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
+
+	// Handle it asynchronously to allow scripts the opportunity to delay ready
+	window.setTimeout( jQuery.ready );
+
+} else {
+
+	// Use the handy event callback
+	document.addEventListener( "DOMContentLoaded", completed );
+
+	// A fallback to window.onload, that will always work
+	window.addEventListener( "load", completed );
+}
+
+
+
+
+// Multifunctional method to get and set values of a collection
+// The value/s can optionally be executed if it's a function
+var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
+	var i = 0,
+		len = elems.length,
+		bulk = key == null;
+
+	// Sets many values
+	if ( toType( key ) === "object" ) {
+		chainable = true;
+		for ( i in key ) {
+			access( elems, fn, i, key[ i ], true, emptyGet, raw );
+		}
+
+	// Sets one value
+	} else if ( value !== undefined ) {
+		chainable = true;
+
+		if ( !isFunction( value ) ) {
+			raw = true;
+		}
+
+		if ( bulk ) {
+
+			// Bulk operations run against the entire set
+			if ( raw ) {
+				fn.call( elems, value );
+				fn = null;
+
+			// ...except when executing function values
+			} else {
+				bulk = fn;
+				fn = function( elem, _key, value ) {
+					return bulk.call( jQuery( elem ), value );
+				};
+			}
+		}
+
+		if ( fn ) {
+			for ( ; i < len; i++ ) {
+				fn(
+					elems[ i ], key, raw ?
+						value :
+						value.call( elems[ i ], i, fn( elems[ i ], key ) )
+				);
+			}
+		}
+	}
+
+	if ( chainable ) {
+		return elems;
+	}
+
+	// Gets
+	if ( bulk ) {
+		return fn.call( elems );
+	}
+
+	return len ? fn( elems[ 0 ], key ) : emptyGet;
+};
+
+
+// Matches dashed string for camelizing
+var rmsPrefix = /^-ms-/,
+	rdashAlpha = /-([a-z])/g;
+
+// Used by camelCase as callback to replace()
+function fcamelCase( _all, letter ) {
+	return letter.toUpperCase();
+}
+
+// Convert dashed to camelCase; used by the css and data modules
+// Support: IE <=9 - 11, Edge 12 - 15
+// Microsoft forgot to hump their vendor prefix (trac-9572)
+function camelCase( string ) {
+	return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
+}
+var acceptData = function( owner ) {
+
+	// Accepts only:
+	//  - Node
+	//    - Node.ELEMENT_NODE
+	//    - Node.DOCUMENT_NODE
+	//  - Object
+	//    - Any
+	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
+};
+
+
+
+
+function Data() {
+	this.expando = jQuery.expando + Data.uid++;
+}
+
+Data.uid = 1;
+
+Data.prototype = {
+
+	cache: function( owner ) {
+
+		// Check if the owner object already has a cache
+		var value = owner[ this.expando ];
+
+		// If not, create one
+		if ( !value ) {
+			value = {};
+
+			// We can accept data for non-element nodes in modern browsers,
+			// but we should not, see trac-8335.
+			// Always return an empty object.
+			if ( acceptData( owner ) ) {
+
+				// If it is a node unlikely to be stringify-ed or looped over
+				// use plain assignment
+				if ( owner.nodeType ) {
+					owner[ this.expando ] = value;
+
+				// Otherwise secure it in a non-enumerable property
+				// configurable must be true to allow the property to be
+				// deleted when data is removed
+				} else {
+					Object.defineProperty( owner, this.expando, {
+						value: value,
+						configurable: true
+					} );
+				}
+			}
+		}
+
+		return value;
+	},
+	set: function( owner, data, value ) {
+		var prop,
+			cache = this.cache( owner );
+
+		// Handle: [ owner, key, value ] args
+		// Always use camelCase key (gh-2257)
+		if ( typeof data === "string" ) {
+			cache[ camelCase( data ) ] = value;
+
+		// Handle: [ owner, { properties } ] args
+		} else {
+
+			// Copy the properties one-by-one to the cache object
+			for ( prop in data ) {
+				cache[ camelCase( prop ) ] = data[ prop ];
+			}
+		}
+		return cache;
+	},
+	get: function( owner, key ) {
+		return key === undefined ?
+			this.cache( owner ) :
+
+			// Always use camelCase key (gh-2257)
+			owner[ this.expando ] && owner[ this.expando ][ camelCase( key ) ];
+	},
+	access: function( owner, key, value ) {
+
+		// In cases where either:
+		//
+		//   1. No key was specified
+		//   2. A string key was specified, but no value provided
+		//
+		// Take the "read" path and allow the get method to determine
+		// which value to return, respectively either:
+		//
+		//   1. The entire cache object
+		//   2. The data stored at the key
+		//
+		if ( key === undefined ||
+				( ( key && typeof key === "string" ) && value === undefined ) ) {
+
+			return this.get( owner, key );
+		}
+
+		// When the key is not a string, or both a key and value
+		// are specified, set or extend (existing objects) with either:
+		//
+		//   1. An object of properties
+		//   2. A key and value
+		//
+		this.set( owner, key, value );
+
+		// Since the "set" path can have two possible entry points
+		// return the expected data based on which path was taken[*]
+		return value !== undefined ? value : key;
+	},
+	remove: function( owner, key ) {
+		var i,
+			cache = owner[ this.expando ];
+
+		if ( cache === undefined ) {
+			return;
+		}
+
+		if ( key !== undefined ) {
+
+			// Support array or space separated string of keys
+			if ( Array.isArray( key ) ) {
+
+				// If key is an array of keys...
+				// We always set camelCase keys, so remove that.
+				key = key.map( camelCase );
+			} else {
+				key = camelCase( key );
+
+				// If a key with the spaces exists, use it.
+				// Otherwise, create an array by matching non-whitespace
+				key = key in cache ?
+					[ key ] :
+					( key.match( rnothtmlwhite ) || [] );
+			}
+
+			i = key.length;
+
+			while ( i-- ) {
+				delete cache[ key[ i ] ];
+			}
+		}
+
+		// Remove the expando if there's no more data
+		if ( key === undefined || jQuery.isEmptyObject( cache ) ) {
+
+			// Support: Chrome <=35 - 45
+			// Webkit & Blink performance suffers when deleting properties
+			// from DOM nodes, so set to undefined instead
+			// https://bugs.chromium.org/p/chromium/issues/detail?id=378607 (bug restricted)
+			if ( owner.nodeType ) {
+				owner[ this.expando ] = undefined;
+			} else {
+				delete owner[ this.expando ];
+			}
+		}
+	},
+	hasData: function( owner ) {
+		var cache = owner[ this.expando ];
+		return cache !== undefined && !jQuery.isEmptyObject( cache );
+	}
+};
+var dataPriv = new Data();
+
+var dataUser = new Data();
+
+
+
+//	Implementation Summary
+//
+//	1. Enforce API surface and semantic compatibility with 1.9.x branch
+//	2. Improve the module's maintainability by reducing the storage
+//		paths to a single mechanism.
+//	3. Use the same single mechanism to support "private" and "user" data.
+//	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
+//	5. Avoid exposing implementation details on user objects (eg. expando properties)
+//	6. Provide a clear path for implementation upgrade to WeakMap in 2014
+
+var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
+	rmultiDash = /[A-Z]/g;
+
+function getData( data ) {
+	if ( data === "true" ) {
+		return true;
+	}
+
+	if ( data === "false" ) {
+		return false;
+	}
+
+	if ( data === "null" ) {
+		return null;
+	}
+
+	// Only convert to a number if it doesn't change the string
+	if ( data === +data + "" ) {
+		return +data;
+	}
+
+	if ( rbrace.test( data ) ) {
+		return JSON.parse( data );
+	}
+
+	return data;
+}
+
+function dataAttr( elem, key, data ) {
+	var name;
+
+	// If nothing was found internally, try to fetch any
+	// data from the HTML5 data-* attribute
+	if ( data === undefined && elem.nodeType === 1 ) {
+		name = "data-" + key.replace( rmultiDash, "-$&" ).toLowerCase();
+		data = elem.getAttribute( name );
+
+		if ( typeof data === "string" ) {
+			try {
+				data = getData( data );
+			} catch ( e ) {}
+
+			// Make sure we set the data so it isn't changed later
+			dataUser.set( elem, key, data );
+		} else {
+			data = undefined;
+		}
+	}
+	return data;
+}
+
+jQuery.extend( {
+	hasData: function( elem ) {
+		return dataUser.hasData( elem ) || dataPriv.hasData( elem );
+	},
+
+	data: function( elem, name, data ) {
+		return dataUser.access( elem, name, data );
+	},
+
+	removeData: function( elem, name ) {
+		dataUser.remove( elem, name );
+	},
+
+	// TODO: Now that all calls to _data and _removeData have been replaced
+	// with direct calls to dataPriv methods, these can be deprecated.
+	_data: function( elem, name, data ) {
+		return dataPriv.access( elem, name, data );
+	},
+
+	_removeData: function( elem, name ) {
+		dataPriv.remove( elem, name );
+	}
+} );
+
+jQuery.fn.extend( {
+	data: function( key, value ) {
+		var i, name, data,
+			elem = this[ 0 ],
+			attrs = elem && elem.attributes;
+
+		// Gets all values
+		if ( key === undefined ) {
+			if ( this.length ) {
+				data = dataUser.get( elem );
+
+				if ( elem.nodeType === 1 && !dataPriv.get( elem, "hasDataAttrs" ) ) {
+					i = attrs.length;
+					while ( i-- ) {
+
+						// Support: IE 11 only
+						// The attrs elements can be null (trac-14894)
+						if ( attrs[ i ] ) {
+							name = attrs[ i ].name;
+							if ( name.indexOf( "data-" ) === 0 ) {
+								name = camelCase( name.slice( 5 ) );
+								dataAttr( elem, name, data[ name ] );
+							}
+						}
+					}
+					dataPriv.set( elem, "hasDataAttrs", true );
+				}
+			}
+
+			return data;
+		}
+
+		// Sets multiple values
+		if ( typeof key === "object" ) {
+			return this.each( function() {
+				dataUser.set( this, key );
+			} );
+		}
+
+		return access( this, function( value ) {
+			var data;
+
+			// The calling jQuery object (element matches) is not empty
+			// (and therefore has an element appears at this[ 0 ]) and the
+			// `value` parameter was not undefined. An empty jQuery object
+			// will result in `undefined` for elem = this[ 0 ] which will
+			// throw an exception if an attempt to read a data cache is made.
+			if ( elem && value === undefined ) {
+
+				// Attempt to get data from the cache
+				// The key will always be camelCased in Data
+				data = dataUser.get( elem, key );
+				if ( data !== undefined ) {
+					return data;
+				}
+
+				// Attempt to "discover" the data in
+				// HTML5 custom data-* attrs
+				data = dataAttr( elem, key );
+				if ( data !== undefined ) {
+					return data;
+				}
+
+				// We tried really hard, but the data doesn't exist.
+				return;
+			}
+
+			// Set the data...
+			this.each( function() {
+
+				// We always store the camelCased key
+				dataUser.set( this, key, value );
+			} );
+		}, null, value, arguments.length > 1, null, true );
+	},
+
+	removeData: function( key ) {
+		return this.each( function() {
+			dataUser.remove( this, key );
+		} );
+	}
+} );
+
+
+jQuery.extend( {
+	queue: function( elem, type, data ) {
+		var queue;
+
+		if ( elem ) {
+			type = ( type || "fx" ) + "queue";
+			queue = dataPriv.get( elem, type );
+
+			// Speed up dequeue by getting out quickly if this is just a lookup
+			if ( data ) {
+				if ( !queue || Array.isArray( data ) ) {
+					queue = dataPriv.access( elem, type, jQuery.makeArray( data ) );
+				} else {
+					queue.push( data );
+				}
+			}
+			return queue || [];
+		}
+	},
+
+	dequeue: function( elem, type ) {
+		type = type || "fx";
+
+		var queue = jQuery.queue( elem, type ),
+			startLength = queue.length,
+			fn = queue.shift(),
+			hooks = jQuery._queueHooks( elem, type ),
+			next = function() {
+				jQuery.dequeue( elem, type );
+			};
+
+		// If the fx queue is dequeued, always remove the progress sentinel
+		if ( fn === "inprogress" ) {
+			fn = queue.shift();
+			startLength--;
+		}
+
+		if ( fn ) {
+
+			// Add a progress sentinel to prevent the fx queue from being
+			// automatically dequeued
+			if ( type === "fx" ) {
+				queue.unshift( "inprogress" );
+			}
+
+			// Clear up the last queue stop function
+			delete hooks.stop;
+			fn.call( elem, next, hooks );
+		}
+
+		if ( !startLength && hooks ) {
+			hooks.empty.fire();
+		}
+	},
+
+	// Not public - generate a queueHooks object, or return the current one
+	_queueHooks: function( elem, type ) {
+		var key = type + "queueHooks";
+		return dataPriv.get( elem, key ) || dataPriv.access( elem, key, {
+			empty: jQuery.Callbacks( "once memory" ).add( function() {
+				dataPriv.remove( elem, [ type + "queue", key ] );
+			} )
+		} );
+	}
+} );
+
+jQuery.fn.extend( {
+	queue: function( type, data ) {
+		var setter = 2;
+
+		if ( typeof type !== "string" ) {
+			data = type;
+			type = "fx";
+			setter--;
+		}
+
+		if ( arguments.length < setter ) {
+			return jQuery.queue( this[ 0 ], type );
+		}
+
+		return data === undefined ?
+			this :
+			this.each( function() {
+				var queue = jQuery.queue( this, type, data );
+
+				// Ensure a hooks for this queue
+				jQuery._queueHooks( this, type );
+
+				if ( type === "fx" && queue[ 0 ] !== "inprogress" ) {
+					jQuery.dequeue( this, type );
+				}
+			} );
+	},
+	dequeue: function( type ) {
+		return this.each( function() {
+			jQuery.dequeue( this, type );
+		} );
+	},
+	clearQueue: function( type ) {
+		return this.queue( type || "fx", [] );
+	},
+
+	// Get a promise resolved when queues of a certain type
+	// are emptied (fx is the type by default)
+	promise: function( type, obj ) {
+		var tmp,
+			count = 1,
+			defer = jQuery.Deferred(),
+			elements = this,
+			i = this.length,
+			resolve = function() {
+				if ( !( --count ) ) {
+					defer.resolveWith( elements, [ elements ] );
+				}
+			};
+
+		if ( typeof type !== "string" ) {
+			obj = type;
+			type = undefined;
+		}
+		type = type || "fx";
+
+		while ( i-- ) {
+			tmp = dataPriv.get( elements[ i ], type + "queueHooks" );
+			if ( tmp && tmp.empty ) {
+				count++;
+				tmp.empty.add( resolve );
+			}
+		}
+		resolve();
+		return defer.promise( obj );
+	}
+} );
+var pnum = ( /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/ ).source;
+
+var rcssNum = new RegExp( "^(?:([+-])=|)(" + pnum + ")([a-z%]*)$", "i" );
+
+
+var cssExpand = [ "Top", "Right", "Bottom", "Left" ];
+
+var documentElement = document.documentElement;
+
+
+
+	var isAttached = function( elem ) {
+			return jQuery.contains( elem.ownerDocument, elem );
+		},
+		composed = { composed: true };
+
+	// Support: IE 9 - 11+, Edge 12 - 18+, iOS 10.0 - 10.2 only
+	// Check attachment across shadow DOM boundaries when possible (gh-3504)
+	// Support: iOS 10.0-10.2 only
+	// Early iOS 10 versions support `attachShadow` but not `getRootNode`,
+	// leading to errors. We need to check for `getRootNode`.
+	if ( documentElement.getRootNode ) {
+		isAttached = function( elem ) {
+			return jQuery.contains( elem.ownerDocument, elem ) ||
+				elem.getRootNode( composed ) === elem.ownerDocument;
+		};
+	}
+var isHiddenWithinTree = function( elem, el ) {
+
+		// isHiddenWithinTree might be called from jQuery#filter function;
+		// in that case, element will be second argument
+		elem = el || elem;
+
+		// Inline style trumps all
+		return elem.style.display === "none" ||
+			elem.style.display === "" &&
+
+			// Otherwise, check computed style
+			// Support: Firefox <=43 - 45
+			// Disconnected elements can have computed display: none, so first confirm that elem is
+			// in the document.
+			isAttached( elem ) &&
+
+			jQuery.css( elem, "display" ) === "none";
+	};
+
+
+
+function adjustCSS( elem, prop, valueParts, tween ) {
+	var adjusted, scale,
+		maxIterations = 20,
+		currentValue = tween ?
+			function() {
+				return tween.cur();
+			} :
+			function() {
+				return jQuery.css( elem, prop, "" );
+			},
+		initial = currentValue(),
+		unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
+
+		// Starting value computation is required for potential unit mismatches
+		initialInUnit = elem.nodeType &&
+			( jQuery.cssNumber[ prop ] || unit !== "px" && +initial ) &&
+			rcssNum.exec( jQuery.css( elem, prop ) );
+
+	if ( initialInUnit && initialInUnit[ 3 ] !== unit ) {
+
+		// Support: Firefox <=54
+		// Halve the iteration target value to prevent interference from CSS upper bounds (gh-2144)
+		initial = initial / 2;
+
+		// Trust units reported by jQuery.css
+		unit = unit || initialInUnit[ 3 ];
+
+		// Iteratively approximate from a nonzero starting point
+		initialInUnit = +initial || 1;
+
+		while ( maxIterations-- ) {
+
+			// Evaluate and update our best guess (doubling guesses that zero out).
+			// Finish if the scale equals or crosses 1 (making the old*new product non-positive).
+			jQuery.style( elem, prop, initialInUnit + unit );
+			if ( ( 1 - scale ) * ( 1 - ( scale = currentValue() / initial || 0.5 ) ) <= 0 ) {
+				maxIterations = 0;
+			}
+			initialInUnit = initialInUnit / scale;
+
+		}
+
+		initialInUnit = initialInUnit * 2;
+		jQuery.style( elem, prop, initialInUnit + unit );
+
+		// Make sure we update the tween properties later on
+		valueParts = valueParts || [];
+	}
+
+	if ( valueParts ) {
+		initialInUnit = +initialInUnit || +initial || 0;
+
+		// Apply relative offset (+=/-=) if specified
+		adjusted = valueParts[ 1 ] ?
+			initialInUnit + ( valueParts[ 1 ] + 1 ) * valueParts[ 2 ] :
+			+valueParts[ 2 ];
+		if ( tween ) {
+			tween.unit = unit;
+			tween.start = initialInUnit;
+			tween.end = adjusted;
+		}
+	}
+	return adjusted;
+}
+
+
+var defaultDisplayMap = {};
+
+function getDefaultDisplay( elem ) {
+	var temp,
+		doc = elem.ownerDocument,
+		nodeName = elem.nodeName,
+		display = defaultDisplayMap[ nodeName ];
+
+	if ( display ) {
+		return display;
+	}
+
+	temp = doc.body.appendChild( doc.createElement( nodeName ) );
+	display = jQuery.css( temp, "display" );
+
+	temp.parentNode.removeChild( temp );
+
+	if ( display === "none" ) {
+		display = "block";
+	}
+	defaultDisplayMap[ nodeName ] = display;
+
+	return display;
+}
+
+function showHide( elements, show ) {
+	var display, elem,
+		values = [],
+		index = 0,
+		length = elements.length;
+
+	// Determine new display value for elements that need to change
+	for ( ; index < length; index++ ) {
+		elem = elements[ index ];
+		if ( !elem.style ) {
+			continue;
+		}
+
+		display = elem.style.display;
+		if ( show ) {
+
+			// Since we force visibility upon cascade-hidden elements, an immediate (and slow)
+			// check is required in this first loop unless we have a nonempty display value (either
+			// inline or about-to-be-restored)
+			if ( display === "none" ) {
+				values[ index ] = dataPriv.get( elem, "display" ) || null;
+				if ( !values[ index ] ) {
+					elem.style.display = "";
+				}
+			}
+			if ( elem.style.display === "" && isHiddenWithinTree( elem ) ) {
+				values[ index ] = getDefaultDisplay( elem );
+			}
+		} else {
+			if ( display !== "none" ) {
+				values[ index ] = "none";
+
+				// Remember what we're overwriting
+				dataPriv.set( elem, "display", display );
+			}
+		}
+	}
+
+	// Set the display of the elements in a second loop to avoid constant reflow
+	for ( index = 0; index < length; index++ ) {
+		if ( values[ index ] != null ) {
+			elements[ index ].style.display = values[ index ];
+		}
+	}
+
+	return elements;
+}
+
+jQuery.fn.extend( {
+	show: function() {
+		return showHide( this, true );
+	},
+	hide: function() {
+		return showHide( this );
+	},
+	toggle: function( state ) {
+		if ( typeof state === "boolean" ) {
+			return state ? this.show() : this.hide();
+		}
+
+		return this.each( function() {
+			if ( isHiddenWithinTree( this ) ) {
+				jQuery( this ).show();
+			} else {
+				jQuery( this ).hide();
+			}
+		} );
+	}
+} );
+var rcheckableType = ( /^(?:checkbox|radio)$/i );
+
+var rtagName = ( /<([a-z][^\/\0>\x20\t\r\n\f]*)/i );
+
+var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
+
+
+
+( function() {
+	var fragment = document.createDocumentFragment(),
+		div = fragment.appendChild( document.createElement( "div" ) ),
+		input = document.createElement( "input" );
+
+	// Support: Android 4.0 - 4.3 only
+	// Check state lost if the name is set (trac-11217)
+	// Support: Windows Web Apps (WWA)
+	// `name` and `type` must use .setAttribute for WWA (trac-14901)
+	input.setAttribute( "type", "radio" );
+	input.setAttribute( "checked", "checked" );
+	input.setAttribute( "name", "t" );
+
+	div.appendChild( input );
+
+	// Support: Android <=4.1 only
+	// Older WebKit doesn't clone checked state correctly in fragments
+	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
+
+	// Support: IE <=11 only
+	// Make sure textarea (and checkbox) defaultValue is properly cloned
+	div.innerHTML = "<textarea>x</textarea>";
+	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
+
+	// Support: IE <=9 only
+	// IE <=9 replaces <option> tags with their contents when inserted outside of
+	// the select element.
+	div.innerHTML = "<option></option>";
+	support.option = !!div.lastChild;
+} )();
+
+
+// We have to close these tags to support XHTML (trac-13200)
+var wrapMap = {
+
+	// XHTML parsers do not magically insert elements in the
+	// same way that tag soup parsers do. So we cannot shorten
+	// this by omitting <tbody> or other required elements.
+	thead: [ 1, "<table>", "</table>" ],
+	col: [ 2, "<table><colgroup>", "</colgroup></table>" ],
+	tr: [ 2, "<table><tbody>", "</tbody></table>" ],
+	td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
+
+	_default: [ 0, "", "" ]
+};
+
+wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
+wrapMap.th = wrapMap.td;
+
+// Support: IE <=9 only
+if ( !support.option ) {
+	wrapMap.optgroup = wrapMap.option = [ 1, "<select multiple='multiple'>", "</select>" ];
+}
+
+
+function getAll( context, tag ) {
+
+	// Support: IE <=9 - 11 only
+	// Use typeof to avoid zero-argument method invocation on host objects (trac-15151)
+	var ret;
+
+	if ( typeof context.getElementsByTagName !== "undefined" ) {
+		ret = context.getElementsByTagName( tag || "*" );
+
+	} else if ( typeof context.querySelectorAll !== "undefined" ) {
+		ret = context.querySelectorAll( tag || "*" );
+
+	} else {
+		ret = [];
+	}
+
+	if ( tag === undefined || tag && nodeName( context, tag ) ) {
+		return jQuery.merge( [ context ], ret );
+	}
+
+	return ret;
+}
+
+
+// Mark scripts as having already been evaluated
+function setGlobalEval( elems, refElements ) {
+	var i = 0,
+		l = elems.length;
+
+	for ( ; i < l; i++ ) {
+		dataPriv.set(
+			elems[ i ],
+			"globalEval",
+			!refElements || dataPriv.get( refElements[ i ], "globalEval" )
+		);
+	}
+}
+
+
+var rhtml = /<|&#?\w+;/;
+
+function buildFragment( elems, context, scripts, selection, ignored ) {
+	var elem, tmp, tag, wrap, attached, j,
+		fragment = context.createDocumentFragment(),
+		nodes = [],
+		i = 0,
+		l = elems.length;
+
+	for ( ; i < l; i++ ) {
+		elem = elems[ i ];
+
+		if ( elem || elem === 0 ) {
+
+			// Add nodes directly
+			if ( toType( elem ) === "object" ) {
+
+				// Support: Android <=4.0 only, PhantomJS 1 only
+				// push.apply(_, arraylike) throws on ancient WebKit
+				jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
+
+			// Convert non-html into a text node
+			} else if ( !rhtml.test( elem ) ) {
+				nodes.push( context.createTextNode( elem ) );
+
+			// Convert html into DOM nodes
+			} else {
+				tmp = tmp || fragment.appendChild( context.createElement( "div" ) );
+
+				// Deserialize a standard representation
+				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
+				wrap = wrapMap[ tag ] || wrapMap._default;
+				tmp.innerHTML = wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ];
+
+				// Descend through wrappers to the right content
+				j = wrap[ 0 ];
+				while ( j-- ) {
+					tmp = tmp.lastChild;
+				}
+
+				// Support: Android <=4.0 only, PhantomJS 1 only
+				// push.apply(_, arraylike) throws on ancient WebKit
+				jQuery.merge( nodes, tmp.childNodes );
+
+				// Remember the top-level container
+				tmp = fragment.firstChild;
+
+				// Ensure the created nodes are orphaned (trac-12392)
+				tmp.textContent = "";
+			}
+		}
+	}
+
+	// Remove wrapper from fragment
+	fragment.textContent = "";
+
+	i = 0;
+	while ( ( elem = nodes[ i++ ] ) ) {
+
+		// Skip elements already in the context collection (trac-4087)
+		if ( selection && jQuery.inArray( elem, selection ) > -1 ) {
+			if ( ignored ) {
+				ignored.push( elem );
+			}
+			continue;
+		}
+
+		attached = isAttached( elem );
+
+		// Append to fragment
+		tmp = getAll( fragment.appendChild( elem ), "script" );
+
+		// Preserve script evaluation history
+		if ( attached ) {
+			setGlobalEval( tmp );
+		}
+
+		// Capture executables
+		if ( scripts ) {
+			j = 0;
+			while ( ( elem = tmp[ j++ ] ) ) {
+				if ( rscriptType.test( elem.type || "" ) ) {
+					scripts.push( elem );
+				}
+			}
+		}
+	}
+
+	return fragment;
+}
+
+
+var rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
+
+function returnTrue() {
+	return true;
+}
+
+function returnFalse() {
+	return false;
+}
+
+function on( elem, types, selector, data, fn, one ) {
+	var origFn, type;
+
+	// Types can be a map of types/handlers
+	if ( typeof types === "object" ) {
+
+		// ( types-Object, selector, data )
+		if ( typeof selector !== "string" ) {
+
+			// ( types-Object, data )
+			data = data || selector;
+			selector = undefined;
+		}
+		for ( type in types ) {
+			on( elem, type, selector, data, types[ type ], one );
+		}
+		return elem;
+	}
+
+	if ( data == null && fn == null ) {
+
+		// ( types, fn )
+		fn = selector;
+		data = selector = undefined;
+	} else if ( fn == null ) {
+		if ( typeof selector === "string" ) {
+
+			// ( types, selector, fn )
+			fn = data;
+			data = undefined;
+		} else {
+
+			// ( types, data, fn )
+			fn = data;
+			data = selector;
+			selector = undefined;
+		}
+	}
+	if ( fn === false ) {
+		fn = returnFalse;
+	} else if ( !fn ) {
+		return elem;
+	}
+
+	if ( one === 1 ) {
+		origFn = fn;
+		fn = function( event ) {
+
+			// Can use an empty set, since event contains the info
+			jQuery().off( event );
+			return origFn.apply( this, arguments );
+		};
+
+		// Use same guid so caller can remove using origFn
+		fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
+	}
+	return elem.each( function() {
+		jQuery.event.add( this, types, fn, data, selector );
+	} );
+}
+
+/*
+ * Helper functions for managing events -- not part of the public interface.
+ * Props to Dean Edwards' addEvent library for many of the ideas.
+ */
+jQuery.event = {
+
+	global: {},
+
+	add: function( elem, types, handler, data, selector ) {
+
+		var handleObjIn, eventHandle, tmp,
+			events, t, handleObj,
+			special, handlers, type, namespaces, origType,
+			elemData = dataPriv.get( elem );
+
+		// Only attach events to objects that accept data
+		if ( !acceptData( elem ) ) {
+			return;
+		}
+
+		// Caller can pass in an object of custom data in lieu of the handler
+		if ( handler.handler ) {
+			handleObjIn = handler;
+			handler = handleObjIn.handler;
+			selector = handleObjIn.selector;
+		}
+
+		// Ensure that invalid selectors throw exceptions at attach time
+		// Evaluate against documentElement in case elem is a non-element node (e.g., document)
+		if ( selector ) {
+			jQuery.find.matchesSelector( documentElement, selector );
+		}
+
+		// Make sure that the handler has a unique ID, used to find/remove it later
+		if ( !handler.guid ) {
+			handler.guid = jQuery.guid++;
+		}
+
+		// Init the element's event structure and main handler, if this is the first
+		if ( !( events = elemData.events ) ) {
+			events = elemData.events = Object.create( null );
+		}
+		if ( !( eventHandle = elemData.handle ) ) {
+			eventHandle = elemData.handle = function( e ) {
+
+				// Discard the second event of a jQuery.event.trigger() and
+				// when an event is called after a page has unloaded
+				return typeof jQuery !== "undefined" && jQuery.event.triggered !== e.type ?
+					jQuery.event.dispatch.apply( elem, arguments ) : undefined;
+			};
+		}
+
+		// Handle multiple events separated by a space
+		types = ( types || "" ).match( rnothtmlwhite ) || [ "" ];
+		t = types.length;
+		while ( t-- ) {
+			tmp = rtypenamespace.exec( types[ t ] ) || [];
+			type = origType = tmp[ 1 ];
+			namespaces = ( tmp[ 2 ] || "" ).split( "." ).sort();
+
+			// There *must* be a type, no attaching namespace-only handlers
+			if ( !type ) {
+				continue;
+			}
+
+			// If event changes its type, use the special event handlers for the changed type
+			special = jQuery.event.special[ type ] || {};
+
+			// If selector defined, determine special event api type, otherwise given type
+			type = ( selector ? special.delegateType : special.bindType ) || type;
+
+			// Update special based on newly reset type
+			special = jQuery.event.special[ type ] || {};
+
+			// handleObj is passed to all event handlers
+			handleObj = jQuery.extend( {
+				type: type,
+				origType: origType,
+				data: data,
+				handler: handler,
+				guid: handler.guid,
+				selector: selector,
+				needsContext: selector && jQuery.expr.match.needsContext.test( selector ),
+				namespace: namespaces.join( "." )
+			}, handleObjIn );
+
+			// Init the event handler queue if we're the first
+			if ( !( handlers = events[ type ] ) ) {
+				handlers = events[ type ] = [];
+				handlers.delegateCount = 0;
+
+				// Only use addEventListener if the special events handler returns false
+				if ( !special.setup ||
+					special.setup.call( elem, data, namespaces, eventHandle ) === false ) {
+
+					if ( elem.addEventListener ) {
+						elem.addEventListener( type, eventHandle );
+					}
+				}
+			}
+
+			if ( special.add ) {
+				special.add.call( elem, handleObj );
+
+				if ( !handleObj.handler.guid ) {
+					handleObj.handler.guid = handler.guid;
+				}
+			}
+
+			// Add to the element's handler list, delegates in front
+			if ( selector ) {
+				handlers.splice( handlers.delegateCount++, 0, handleObj );
+			} else {
+				handlers.push( handleObj );
+			}
+
+			// Keep track of which events have ever been used, for event optimization
+			jQuery.event.global[ type ] = true;
+		}
+
+	},
+
+	// Detach an event or set of events from an element
+	remove: function( elem, types, handler, selector, mappedTypes ) {
+
+		var j, origCount, tmp,
+			events, t, handleObj,
+			special, handlers, type, namespaces, origType,
+			elemData = dataPriv.hasData( elem ) && dataPriv.get( elem );
+
+		if ( !elemData || !( events = elemData.events ) ) {
+			return;
+		}
+
+		// Once for each type.namespace in types; type may be omitted
+		types = ( types || "" ).match( rnothtmlwhite ) || [ "" ];
+		t = types.length;
+		while ( t-- ) {
+			tmp = rtypenamespace.exec( types[ t ] ) || [];
+			type = origType = tmp[ 1 ];
+			namespaces = ( tmp[ 2 ] || "" ).split( "." ).sort();
+
+			// Unbind all events (on this namespace, if provided) for the element
+			if ( !type ) {
+				for ( type in events ) {
+					jQuery.event.remove( elem, type + types[ t ], handler, selector, true );
+				}
+				continue;
+			}
+
+			special = jQuery.event.special[ type ] || {};
+			type = ( selector ? special.delegateType : special.bindType ) || type;
+			handlers = events[ type ] || [];
+			tmp = tmp[ 2 ] &&
+				new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" );
+
+			// Remove matching events
+			origCount = j = handlers.length;
+			while ( j-- ) {
+				handleObj = handlers[ j ];
+
+				if ( ( mappedTypes || origType === handleObj.origType ) &&
+					( !handler || handler.guid === handleObj.guid ) &&
+					( !tmp || tmp.test( handleObj.namespace ) ) &&
+					( !selector || selector === handleObj.selector ||
+						selector === "**" && handleObj.selector ) ) {
+					handlers.splice( j, 1 );
+
+					if ( handleObj.selector ) {
+						handlers.delegateCount--;
+					}
+					if ( special.remove ) {
+						special.remove.call( elem, handleObj );
+					}
+				}
+			}
+
+			// Remove generic event handler if we removed something and no more handlers exist
+			// (avoids potential for endless recursion during removal of special event handlers)
+			if ( origCount && !handlers.length ) {
+				if ( !special.teardown ||
+					special.teardown.call( elem, namespaces, elemData.handle ) === false ) {
+
+					jQuery.removeEvent( elem, type, elemData.handle );
+				}
+
+				delete events[ type ];
+			}
+		}
+
+		// Remove data and the expando if it's no longer used
+		if ( jQuery.isEmptyObject( events ) ) {
+			dataPriv.remove( elem, "handle events" );
+		}
+	},
+
+	dispatch: function( nativeEvent ) {
+
+		var i, j, ret, matched, handleObj, handlerQueue,
+			args = new Array( arguments.length ),
+
+			// Make a writable jQuery.Event from the native event object
+			event = jQuery.event.fix( nativeEvent ),
+
+			handlers = (
+				dataPriv.get( this, "events" ) || Object.create( null )
+			)[ event.type ] || [],
+			special = jQuery.event.special[ event.type ] || {};
+
+		// Use the fix-ed jQuery.Event rather than the (read-only) native event
+		args[ 0 ] = event;
+
+		for ( i = 1; i < arguments.length; i++ ) {
+			args[ i ] = arguments[ i ];
+		}
+
+		event.delegateTarget = this;
+
+		// Call the preDispatch hook for the mapped type, and let it bail if desired
+		if ( special.preDispatch && special.preDispatch.call( this, event ) === false ) {
+			return;
+		}
+
+		// Determine handlers
+		handlerQueue = jQuery.event.handlers.call( this, event, handlers );
+
+		// Run delegates first; they may want to stop propagation beneath us
+		i = 0;
+		while ( ( matched = handlerQueue[ i++ ] ) && !event.isPropagationStopped() ) {
+			event.currentTarget = matched.elem;
+
+			j = 0;
+			while ( ( handleObj = matched.handlers[ j++ ] ) &&
+				!event.isImmediatePropagationStopped() ) {
+
+				// If the event is namespaced, then each handler is only invoked if it is
+				// specially universal or its namespaces are a superset of the event's.
+				if ( !event.rnamespace || handleObj.namespace === false ||
+					event.rnamespace.test( handleObj.namespace ) ) {
+
+					event.handleObj = handleObj;
+					event.data = handleObj.data;
+
+					ret = ( ( jQuery.event.special[ handleObj.origType ] || {} ).handle ||
+						handleObj.handler ).apply( matched.elem, args );
+
+					if ( ret !== undefined ) {
+						if ( ( event.result = ret ) === false ) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+					}
+				}
+			}
+		}
+
+		// Call the postDispatch hook for the mapped type
+		if ( special.postDispatch ) {
+			special.postDispatch.call( this, event );
+		}
+
+		return event.result;
+	},
+
+	handlers: function( event, handlers ) {
+		var i, handleObj, sel, matchedHandlers, matchedSelectors,
+			handlerQueue = [],
+			delegateCount = handlers.delegateCount,
+			cur = event.target;
+
+		// Find delegate handlers
+		if ( delegateCount &&
+
+			// Support: IE <=9
+			// Black-hole SVG <use> instance trees (trac-13180)
+			cur.nodeType &&
+
+			// Support: Firefox <=42
+			// Suppress spec-violating clicks indicating a non-primary pointer button (trac-3861)
+			// https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click
+			// Support: IE 11 only
+			// ...but not arrow key "clicks" of radio inputs, which can have `button` -1 (gh-2343)
+			!( event.type === "click" && event.button >= 1 ) ) {
+
+			for ( ; cur !== this; cur = cur.parentNode || this ) {
+
+				// Don't check non-elements (trac-13208)
+				// Don't process clicks on disabled elements (trac-6911, trac-8165, trac-11382, trac-11764)
+				if ( cur.nodeType === 1 && !( event.type === "click" && cur.disabled === true ) ) {
+					matchedHandlers = [];
+					matchedSelectors = {};
+					for ( i = 0; i < delegateCount; i++ ) {
+						handleObj = handlers[ i ];
+
+						// Don't conflict with Object.prototype properties (trac-13203)
+						sel = handleObj.selector + " ";
+
+						if ( matchedSelectors[ sel ] === undefined ) {
+							matchedSelectors[ sel ] = handleObj.needsContext ?
+								jQuery( sel, this ).index( cur ) > -1 :
+								jQuery.find( sel, this, null, [ cur ] ).length;
+						}
+						if ( matchedSelectors[ sel ] ) {
+							matchedHandlers.push( handleObj );
+						}
+					}
+					if ( matchedHandlers.length ) {
+						handlerQueue.push( { elem: cur, handlers: matchedHandlers } );
+					}
+				}
+			}
+		}
+
+		// Add the remaining (directly-bound) handlers
+		cur = this;
+		if ( delegateCount < handlers.length ) {
+			handlerQueue.push( { elem: cur, handlers: handlers.slice( delegateCount ) } );
+		}
+
+		return handlerQueue;
+	},
+
+	addProp: function( name, hook ) {
+		Object.defineProperty( jQuery.Event.prototype, name, {
+			enumerable: true,
+			configurable: true,
+
+			get: isFunction( hook ) ?
+				function() {
+					if ( this.originalEvent ) {
+						return hook( this.originalEvent );
+					}
+				} :
+				function() {
+					if ( this.originalEvent ) {
+						return this.originalEvent[ name ];
+					}
+				},
+
+			set: function( value ) {
+				Object.defineProperty( this, name, {
+					enumerable: true,
+					configurable: true,
+					writable: true,
+					value: value
+				} );
+			}
+		} );
+	},
+
+	fix: function( originalEvent ) {
+		return originalEvent[ jQuery.expando ] ?
+			originalEvent :
+			new jQuery.Event( originalEvent );
+	},
+
+	special: {
+		load: {
+
+			// Prevent triggered image.load events from bubbling to window.load
+			noBubble: true
+		},
+		click: {
+
+			// Utilize native event to ensure correct state for checkable inputs
+			setup: function( data ) {
+
+				// For mutual compressibility with _default, replace `this` access with a local var.
+				// `|| data` is dead code meant only to preserve the variable through minification.
+				var el = this || data;
+
+				// Claim the first handler
+				if ( rcheckableType.test( el.type ) &&
+					el.click && nodeName( el, "input" ) ) {
+
+					// dataPriv.set( el, "click", ... )
+					leverageNative( el, "click", true );
+				}
+
+				// Return false to allow normal processing in the caller
+				return false;
+			},
+			trigger: function( data ) {
+
+				// For mutual compressibility with _default, replace `this` access with a local var.
+				// `|| data` is dead code meant only to preserve the variable through minification.
+				var el = this || data;
+
+				// Force setup before triggering a click
+				if ( rcheckableType.test( el.type ) &&
+					el.click && nodeName( el, "input" ) ) {
+
+					leverageNative( el, "click" );
+				}
+
+				// Return non-false to allow normal event-path propagation
+				return true;
+			},
+
+			// For cross-browser consistency, suppress native .click() on links
+			// Also prevent it if we're currently inside a leveraged native-event stack
+			_default: function( event ) {
+				var target = event.target;
+				return rcheckableType.test( target.type ) &&
+					target.click && nodeName( target, "input" ) &&
+					dataPriv.get( target, "click" ) ||
+					nodeName( target, "a" );
+			}
+		},
+
+		beforeunload: {
+			postDispatch: function( event ) {
+
+				// Support: Firefox 20+
+				// Firefox doesn't alert if the returnValue field is not set.
+				if ( event.result !== undefined && event.originalEvent ) {
+					event.originalEvent.returnValue = event.result;
+				}
+			}
+		}
+	}
+};
+
+// Ensure the presence of an event listener that handles manually-triggered
+// synthetic events by interrupting progress until reinvoked in response to
+// *native* events that it fires directly, ensuring that state changes have
+// already occurred before other listeners are invoked.
+function leverageNative( el, type, isSetup ) {
+
+	// Missing `isSetup` indicates a trigger call, which must force setup through jQuery.event.add
+	if ( !isSetup ) {
+		if ( dataPriv.get( el, type ) === undefined ) {
+			jQuery.event.add( el, type, returnTrue );
+		}
+		return;
+	}
+
+	// Register the controller as a special universal handler for all event namespaces
+	dataPriv.set( el, type, false );
+	jQuery.event.add( el, type, {
+		namespace: false,
+		handler: function( event ) {
+			var result,
+				saved = dataPriv.get( this, type );
+
+			if ( ( event.isTrigger & 1 ) && this[ type ] ) {
+
+				// Interrupt processing of the outer synthetic .trigger()ed event
+				if ( !saved ) {
+
+					// Store arguments for use when handling the inner native event
+					// There will always be at least one argument (an event object), so this array
+					// will not be confused with a leftover capture object.
+					saved = slice.call( arguments );
+					dataPriv.set( this, type, saved );
+
+					// Trigger the native event and capture its result
+					this[ type ]();
+					result = dataPriv.get( this, type );
+					dataPriv.set( this, type, false );
+
+					if ( saved !== result ) {
+
+						// Cancel the outer synthetic event
+						event.stopImmediatePropagation();
+						event.preventDefault();
+
+						return result;
+					}
+
+				// If this is an inner synthetic event for an event with a bubbling surrogate
+				// (focus or blur), assume that the surrogate already propagated from triggering
+				// the native event and prevent that from happening again here.
+				// This technically gets the ordering wrong w.r.t. to `.trigger()` (in which the
+				// bubbling surrogate propagates *after* the non-bubbling base), but that seems
+				// less bad than duplication.
+				} else if ( ( jQuery.event.special[ type ] || {} ).delegateType ) {
+					event.stopPropagation();
+				}
+
+			// If this is a native event triggered above, everything is now in order
+			// Fire an inner synthetic event with the original arguments
+			} else if ( saved ) {
+
+				// ...and capture the result
+				dataPriv.set( this, type, jQuery.event.trigger(
+					saved[ 0 ],
+					saved.slice( 1 ),
+					this
+				) );
+
+				// Abort handling of the native event by all jQuery handlers while allowing
+				// native handlers on the same element to run. On target, this is achieved
+				// by stopping immediate propagation just on the jQuery event. However,
+				// the native event is re-wrapped by a jQuery one on each level of the
+				// propagation so the only way to stop it for jQuery is to stop it for
+				// everyone via native `stopPropagation()`. This is not a problem for
+				// focus/blur which don't bubble, but it does also stop click on checkboxes
+				// and radios. We accept this limitation.
+				event.stopPropagation();
+				event.isImmediatePropagationStopped = returnTrue;
+			}
+		}
+	} );
+}
+
+jQuery.removeEvent = function( elem, type, handle ) {
+
+	// This "if" is needed for plain objects
+	if ( elem.removeEventListener ) {
+		elem.removeEventListener( type, handle );
+	}
+};
+
+jQuery.Event = function( src, props ) {
+
+	// Allow instantiation without the 'new' keyword
+	if ( !( this instanceof jQuery.Event ) ) {
+		return new jQuery.Event( src, props );
+	}
+
+	// Event object
+	if ( src && src.type ) {
+		this.originalEvent = src;
+		this.type = src.type;
+
+		// Events bubbling up the document may have been marked as prevented
+		// by a handler lower down the tree; reflect the correct value.
+		this.isDefaultPrevented = src.defaultPrevented ||
+				src.defaultPrevented === undefined &&
+
+				// Support: Android <=2.3 only
+				src.returnValue === false ?
+			returnTrue :
+			returnFalse;
+
+		// Create target properties
+		// Support: Safari <=6 - 7 only
+		// Target should not be a text node (trac-504, trac-13143)
+		this.target = ( src.target && src.target.nodeType === 3 ) ?
+			src.target.parentNode :
+			src.target;
+
+		this.currentTarget = src.currentTarget;
+		this.relatedTarget = src.relatedTarget;
+
+	// Event type
+	} else {
+		this.type = src;
+	}
+
+	// Put explicitly provided properties onto the event object
+	if ( props ) {
+		jQuery.extend( this, props );
+	}
+
+	// Create a timestamp if incoming event doesn't have one
+	this.timeStamp = src && src.timeStamp || Date.now();
+
+	// Mark it as fixed
+	this[ jQuery.expando ] = true;
+};
+
+// jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
+// https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+jQuery.Event.prototype = {
+	constructor: jQuery.Event,
+	isDefaultPrevented: returnFalse,
+	isPropagationStopped: returnFalse,
+	isImmediatePropagationStopped: returnFalse,
+	isSimulated: false,
+
+	preventDefault: function() {
+		var e = this.originalEvent;
+
+		this.isDefaultPrevented = returnTrue;
+
+		if ( e && !this.isSimulated ) {
+			e.preventDefault();
+		}
+	},
+	stopPropagation: function() {
+		var e = this.originalEvent;
+
+		this.isPropagationStopped = returnTrue;
+
+		if ( e && !this.isSimulated ) {
+			e.stopPropagation();
+		}
+	},
+	stopImmediatePropagation: function() {
+		var e = this.originalEvent;
+
+		this.isImmediatePropagationStopped = returnTrue;
+
+		if ( e && !this.isSimulated ) {
+			e.stopImmediatePropagation();
+		}
+
+		this.stopPropagation();
+	}
+};
+
+// Includes all common event props including KeyEvent and MouseEvent specific props
+jQuery.each( {
+	altKey: true,
+	bubbles: true,
+	cancelable: true,
+	changedTouches: true,
+	ctrlKey: true,
+	detail: true,
+	eventPhase: true,
+	metaKey: true,
+	pageX: true,
+	pageY: true,
+	shiftKey: true,
+	view: true,
+	"char": true,
+	code: true,
+	charCode: true,
+	key: true,
+	keyCode: true,
+	button: true,
+	buttons: true,
+	clientX: true,
+	clientY: true,
+	offsetX: true,
+	offsetY: true,
+	pointerId: true,
+	pointerType: true,
+	screenX: true,
+	screenY: true,
+	targetTouches: true,
+	toElement: true,
+	touches: true,
+	which: true
+}, jQuery.event.addProp );
+
+jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateType ) {
+
+	function focusMappedHandler( nativeEvent ) {
+		if ( document.documentMode ) {
+
+			// Support: IE 11+
+			// Attach a single focusin/focusout handler on the document while someone wants
+			// focus/blur. This is because the former are synchronous in IE while the latter
+			// are async. In other browsers, all those handlers are invoked synchronously.
+
+			// `handle` from private data would already wrap the event, but we need
+			// to change the `type` here.
+			var handle = dataPriv.get( this, "handle" ),
+				event = jQuery.event.fix( nativeEvent );
+			event.type = nativeEvent.type === "focusin" ? "focus" : "blur";
+			event.isSimulated = true;
+
+			// First, handle focusin/focusout
+			handle( nativeEvent );
+
+			// ...then, handle focus/blur
+			//
+			// focus/blur don't bubble while focusin/focusout do; simulate the former by only
+			// invoking the handler at the lower level.
+			if ( event.target === event.currentTarget ) {
+
+				// The setup part calls `leverageNative`, which, in turn, calls
+				// `jQuery.event.add`, so event handle will already have been set
+				// by this point.
+				handle( event );
+			}
+		} else {
+
+			// For non-IE browsers, attach a single capturing handler on the document
+			// while someone wants focusin/focusout.
+			jQuery.event.simulate( delegateType, nativeEvent.target,
+				jQuery.event.fix( nativeEvent ) );
+		}
+	}
+
+	jQuery.event.special[ type ] = {
+
+		// Utilize native event if possible so blur/focus sequence is correct
+		setup: function() {
+
+			var attaches;
+
+			// Claim the first handler
+			// dataPriv.set( this, "focus", ... )
+			// dataPriv.set( this, "blur", ... )
+			leverageNative( this, type, true );
+
+			if ( document.documentMode ) {
+
+				// Support: IE 9 - 11+
+				// We use the same native handler for focusin & focus (and focusout & blur)
+				// so we need to coordinate setup & teardown parts between those events.
+				// Use `delegateType` as the key as `type` is already used by `leverageNative`.
+				attaches = dataPriv.get( this, delegateType );
+				if ( !attaches ) {
+					this.addEventListener( delegateType, focusMappedHandler );
+				}
+				dataPriv.set( this, delegateType, ( attaches || 0 ) + 1 );
+			} else {
+
+				// Return false to allow normal processing in the caller
+				return false;
+			}
+		},
+		trigger: function() {
+
+			// Force setup before trigger
+			leverageNative( this, type );
+
+			// Return non-false to allow normal event-path propagation
+			return true;
+		},
+
+		teardown: function() {
+			var attaches;
+
+			if ( document.documentMode ) {
+				attaches = dataPriv.get( this, delegateType ) - 1;
+				if ( !attaches ) {
+					this.removeEventListener( delegateType, focusMappedHandler );
+					dataPriv.remove( this, delegateType );
+				} else {
+					dataPriv.set( this, delegateType, attaches );
+				}
+			} else {
+
+				// Return false to indicate standard teardown should be applied
+				return false;
+			}
+		},
+
+		// Suppress native focus or blur if we're currently inside
+		// a leveraged native-event stack
+		_default: function( event ) {
+			return dataPriv.get( event.target, type );
+		},
+
+		delegateType: delegateType
+	};
+
+	// Support: Firefox <=44
+	// Firefox doesn't have focus(in | out) events
+	// Related ticket - https://bugzilla.mozilla.org/show_bug.cgi?id=687787
+	//
+	// Support: Chrome <=48 - 49, Safari <=9.0 - 9.1
+	// focus(in | out) events fire after focus & blur events,
+	// which is spec violation - http://www.w3.org/TR/DOM-Level-3-Events/#events-focusevent-event-order
+	// Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
+	//
+	// Support: IE 9 - 11+
+	// To preserve relative focusin/focus & focusout/blur event order guaranteed on the 3.x branch,
+	// attach a single handler for both events in IE.
+	jQuery.event.special[ delegateType ] = {
+		setup: function() {
+
+			// Handle: regular nodes (via `this.ownerDocument`), window
+			// (via `this.document`) & document (via `this`).
+			var doc = this.ownerDocument || this.document || this,
+				dataHolder = document.documentMode ? this : doc,
+				attaches = dataPriv.get( dataHolder, delegateType );
+
+			// Support: IE 9 - 11+
+			// We use the same native handler for focusin & focus (and focusout & blur)
+			// so we need to coordinate setup & teardown parts between those events.
+			// Use `delegateType` as the key as `type` is already used by `leverageNative`.
+			if ( !attaches ) {
+				if ( document.documentMode ) {
+					this.addEventListener( delegateType, focusMappedHandler );
+				} else {
+					doc.addEventListener( type, focusMappedHandler, true );
+				}
+			}
+			dataPriv.set( dataHolder, delegateType, ( attaches || 0 ) + 1 );
+		},
+		teardown: function() {
+			var doc = this.ownerDocument || this.document || this,
+				dataHolder = document.documentMode ? this : doc,
+				attaches = dataPriv.get( dataHolder, delegateType ) - 1;
+
+			if ( !attaches ) {
+				if ( document.documentMode ) {
+					this.removeEventListener( delegateType, focusMappedHandler );
+				} else {
+					doc.removeEventListener( type, focusMappedHandler, true );
+				}
+				dataPriv.remove( dataHolder, delegateType );
+			} else {
+				dataPriv.set( dataHolder, delegateType, attaches );
+			}
+		}
+	};
+} );
+
+// Create mouseenter/leave events using mouseover/out and event-time checks
+// so that event delegation works in jQuery.
+// Do the same for pointerenter/pointerleave and pointerover/pointerout
+//
+// Support: Safari 7 only
+// Safari sends mouseenter too often; see:
+// https://bugs.chromium.org/p/chromium/issues/detail?id=470258
+// for the description of the bug (it existed in older Chrome versions as well).
+jQuery.each( {
+	mouseenter: "mouseover",
+	mouseleave: "mouseout",
+	pointerenter: "pointerover",
+	pointerleave: "pointerout"
+}, function( orig, fix ) {
+	jQuery.event.special[ orig ] = {
+		delegateType: fix,
+		bindType: fix,
+
+		handle: function( event ) {
+			var ret,
+				target = this,
+				related = event.relatedTarget,
+				handleObj = event.handleObj;
+
+			// For mouseenter/leave call the handler if related is outside the target.
+			// NB: No relatedTarget if the mouse left/entered the browser window
+			if ( !related || ( related !== target && !jQuery.contains( target, related ) ) ) {
+				event.type = handleObj.origType;
+				ret = handleObj.handler.apply( this, arguments );
+				event.type = fix;
+			}
+			return ret;
+		}
+	};
+} );
+
+jQuery.fn.extend( {
+
+	on: function( types, selector, data, fn ) {
+		return on( this, types, selector, data, fn );
+	},
+	one: function( types, selector, data, fn ) {
+		return on( this, types, selector, data, fn, 1 );
+	},
+	off: function( types, selector, fn ) {
+		var handleObj, type;
+		if ( types && types.preventDefault && types.handleObj ) {
+
+			// ( event )  dispatched jQuery.Event
+			handleObj = types.handleObj;
+			jQuery( types.delegateTarget ).off(
+				handleObj.namespace ?
+					handleObj.origType + "." + handleObj.namespace :
+					handleObj.origType,
+				handleObj.selector,
+				handleObj.handler
+			);
+			return this;
+		}
+		if ( typeof types === "object" ) {
+
+			// ( types-object [, selector] )
+			for ( type in types ) {
+				this.off( type, selector, types[ type ] );
+			}
+			return this;
+		}
+		if ( selector === false || typeof selector === "function" ) {
+
+			// ( types [, fn] )
+			fn = selector;
+			selector = undefined;
+		}
+		if ( fn === false ) {
+			fn = returnFalse;
+		}
+		return this.each( function() {
+			jQuery.event.remove( this, types, fn, selector );
+		} );
+	}
+} );
+
+
+var
+
+	// Support: IE <=10 - 11, Edge 12 - 13 only
+	// In IE/Edge using regex groups here causes severe slowdowns.
+	// See https://connect.microsoft.com/IE/feedback/details/1736512/
+	rnoInnerhtml = /<script|<style|<link/i,
+
+	// checked="checked" or checked
+	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
+
+	rcleanScript = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
+
+// Prefer a tbody over its parent table for containing new rows
+function manipulationTarget( elem, content ) {
+	if ( nodeName( elem, "table" ) &&
+		nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
+
+		return jQuery( elem ).children( "tbody" )[ 0 ] || elem;
+	}
+
+	return elem;
+}
+
+// Replace/restore the type attribute of script elements for safe DOM manipulation
+function disableScript( elem ) {
+	elem.type = ( elem.getAttribute( "type" ) !== null ) + "/" + elem.type;
+	return elem;
+}
+function restoreScript( elem ) {
+	if ( ( elem.type || "" ).slice( 0, 5 ) === "true/" ) {
+		elem.type = elem.type.slice( 5 );
+	} else {
+		elem.removeAttribute( "type" );
+	}
+
+	return elem;
+}
+
+function cloneCopyEvent( src, dest ) {
+	var i, l, type, pdataOld, udataOld, udataCur, events;
+
+	if ( dest.nodeType !== 1 ) {
+		return;
+	}
+
+	// 1. Copy private data: events, handlers, etc.
+	if ( dataPriv.hasData( src ) ) {
+		pdataOld = dataPriv.get( src );
+		events = pdataOld.events;
+
+		if ( events ) {
+			dataPriv.remove( dest, "handle events" );
+
+			for ( type in events ) {
+				for ( i = 0, l = events[ type ].length; i < l; i++ ) {
+					jQuery.event.add( dest, type, events[ type ][ i ] );
+				}
+			}
+		}
+	}
+
+	// 2. Copy user data
+	if ( dataUser.hasData( src ) ) {
+		udataOld = dataUser.access( src );
+		udataCur = jQuery.extend( {}, udataOld );
+
+		dataUser.set( dest, udataCur );
+	}
+}
+
+// Fix IE bugs, see support tests
+function fixInput( src, dest ) {
+	var nodeName = dest.nodeName.toLowerCase();
+
+	// Fails to persist the checked state of a cloned checkbox or radio button.
+	if ( nodeName === "input" && rcheckableType.test( src.type ) ) {
+		dest.checked = src.checked;
+
+	// Fails to return the selected option to the default selected state when cloning options
+	} else if ( nodeName === "input" || nodeName === "textarea" ) {
+		dest.defaultValue = src.defaultValue;
+	}
+}
+
+function domManip( collection, args, callback, ignored ) {
+
+	// Flatten any nested arrays
+	args = flat( args );
+
+	var fragment, first, scripts, hasScripts, node, doc,
+		i = 0,
+		l = collection.length,
+		iNoClone = l - 1,
+		value = args[ 0 ],
+		valueIsFunction = isFunction( value );
+
+	// We can't cloneNode fragments that contain checked, in WebKit
+	if ( valueIsFunction ||
+			( l > 1 && typeof value === "string" &&
+				!support.checkClone && rchecked.test( value ) ) ) {
+		return collection.each( function( index ) {
+			var self = collection.eq( index );
+			if ( valueIsFunction ) {
+				args[ 0 ] = value.call( this, index, self.html() );
+			}
+			domManip( self, args, callback, ignored );
+		} );
+	}
+
+	if ( l ) {
+		fragment = buildFragment( args, collection[ 0 ].ownerDocument, false, collection, ignored );
+		first = fragment.firstChild;
+
+		if ( fragment.childNodes.length === 1 ) {
+			fragment = first;
+		}
+
+		// Require either new content or an interest in ignored elements to invoke the callback
+		if ( first || ignored ) {
+			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
+			hasScripts = scripts.length;
+
+			// Use the original fragment for the last item
+			// instead of the first because it can end up
+			// being emptied incorrectly in certain situations (trac-8070).
+			for ( ; i < l; i++ ) {
+				node = fragment;
+
+				if ( i !== iNoClone ) {
+					node = jQuery.clone( node, true, true );
+
+					// Keep references to cloned scripts for later restoration
+					if ( hasScripts ) {
+
+						// Support: Android <=4.0 only, PhantomJS 1 only
+						// push.apply(_, arraylike) throws on ancient WebKit
+						jQuery.merge( scripts, getAll( node, "script" ) );
+					}
+				}
+
+				callback.call( collection[ i ], node, i );
+			}
+
+			if ( hasScripts ) {
+				doc = scripts[ scripts.length - 1 ].ownerDocument;
+
+				// Re-enable scripts
+				jQuery.map( scripts, restoreScript );
+
+				// Evaluate executable scripts on first document insertion
+				for ( i = 0; i < hasScripts; i++ ) {
+					node = scripts[ i ];
+					if ( rscriptType.test( node.type || "" ) &&
+						!dataPriv.access( node, "globalEval" ) &&
+						jQuery.contains( doc, node ) ) {
+
+						if ( node.src && ( node.type || "" ).toLowerCase()  !== "module" ) {
+
+							// Optional AJAX dependency, but won't run scripts if not present
+							if ( jQuery._evalUrl && !node.noModule ) {
+								jQuery._evalUrl( node.src, {
+									nonce: node.nonce || node.getAttribute( "nonce" )
+								}, doc );
+							}
+						} else {
+
+							// Unwrap a CDATA section containing script contents. This shouldn't be
+							// needed as in XML documents they're already not visible when
+							// inspecting element contents and in HTML documents they have no
+							// meaning but we're preserving that logic for backwards compatibility.
+							// This will be removed completely in 4.0. See gh-4904.
+							DOMEval( node.textContent.replace( rcleanScript, "" ), node, doc );
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return collection;
+}
+
+function remove( elem, selector, keepData ) {
+	var node,
+		nodes = selector ? jQuery.filter( selector, elem ) : elem,
+		i = 0;
+
+	for ( ; ( node = nodes[ i ] ) != null; i++ ) {
+		if ( !keepData && node.nodeType === 1 ) {
+			jQuery.cleanData( getAll( node ) );
+		}
+
+		if ( node.parentNode ) {
+			if ( keepData && isAttached( node ) ) {
+				setGlobalEval( getAll( node, "script" ) );
+			}
+			node.parentNode.removeChild( node );
+		}
+	}
+
+	return elem;
+}
+
+jQuery.extend( {
+	htmlPrefilter: function( html ) {
+		return html;
+	},
+
+	clone: function( elem, dataAndEvents, deepDataAndEvents ) {
+		var i, l, srcElements, destElements,
+			clone = elem.cloneNode( true ),
+			inPage = isAttached( elem );
+
+		// Fix IE cloning issues
+		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
+				!jQuery.isXMLDoc( elem ) ) {
+
+			// We eschew jQuery#find here for performance reasons:
+			// https://jsperf.com/getall-vs-sizzle/2
+			destElements = getAll( clone );
+			srcElements = getAll( elem );
+
+			for ( i = 0, l = srcElements.length; i < l; i++ ) {
+				fixInput( srcElements[ i ], destElements[ i ] );
+			}
+		}
+
+		// Copy the events from the original to the clone
+		if ( dataAndEvents ) {
+			if ( deepDataAndEvents ) {
+				srcElements = srcElements || getAll( elem );
+				destElements = destElements || getAll( clone );
+
+				for ( i = 0, l = srcElements.length; i < l; i++ ) {
+					cloneCopyEvent( srcElements[ i ], destElements[ i ] );
+				}
+			} else {
+				cloneCopyEvent( elem, clone );
+			}
+		}
+
+		// Preserve script evaluation history
+		destElements = getAll( clone, "script" );
+		if ( destElements.length > 0 ) {
+			setGlobalEval( destElements, !inPage && getAll( elem, "script" ) );
+		}
+
+		// Return the cloned set
+		return clone;
+	},
+
+	cleanData: function( elems ) {
+		var data, elem, type,
+			special = jQuery.event.special,
+			i = 0;
+
+		for ( ; ( elem = elems[ i ] ) !== undefined; i++ ) {
+			if ( acceptData( elem ) ) {
+				if ( ( data = elem[ dataPriv.expando ] ) ) {
+					if ( data.events ) {
+						for ( type in data.events ) {
+							if ( special[ type ] ) {
+								jQuery.event.remove( elem, type );
+
+							// This is a shortcut to avoid jQuery.event.remove's overhead
+							} else {
+								jQuery.removeEvent( elem, type, data.handle );
+							}
+						}
+					}
+
+					// Support: Chrome <=35 - 45+
+					// Assign undefined instead of using delete, see Data#remove
+					elem[ dataPriv.expando ] = undefined;
+				}
+				if ( elem[ dataUser.expando ] ) {
+
+					// Support: Chrome <=35 - 45+
+					// Assign undefined instead of using delete, see Data#remove
+					elem[ dataUser.expando ] = undefined;
+				}
+			}
+		}
+	}
+} );
+
+jQuery.fn.extend( {
+	detach: function( selector ) {
+		return remove( this, selector, true );
+	},
+
+	remove: function( selector ) {
+		return remove( this, selector );
+	},
+
+	text: function( value ) {
+		return access( this, function( value ) {
+			return value === undefined ?
+				jQuery.text( this ) :
+				this.empty().each( function() {
+					if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
+						this.textContent = value;
+					}
+				} );
+		}, null, value, arguments.length );
+	},
+
+	append: function() {
+		return domManip( this, arguments, function( elem ) {
+			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
+				var target = manipulationTarget( this, elem );
+				target.appendChild( elem );
+			}
+		} );
+	},
+
+	prepend: function() {
+		return domManip( this, arguments, function( elem ) {
+			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
+				var target = manipulationTarget( this, elem );
+				target.insertBefore( elem, target.firstChild );
+			}
+		} );
+	},
+
+	before: function() {
+		return domManip( this, arguments, function( elem ) {
+			if ( this.parentNode ) {
+				this.parentNode.insertBefore( elem, this );
+			}
+		} );
+	},
+
+	after: function() {
+		return domManip( this, arguments, function( elem ) {
+			if ( this.parentNode ) {
+				this.parentNode.insertBefore( elem, this.nextSibling );
+			}
+		} );
+	},
+
+	empty: function() {
+		var elem,
+			i = 0;
+
+		for ( ; ( elem = this[ i ] ) != null; i++ ) {
+			if ( elem.nodeType === 1 ) {
+
+				// Prevent memory leaks
+				jQuery.cleanData( getAll( elem, false ) );
+
+				// Remove any remaining nodes
+				elem.textContent = "";
+			}
+		}
+
+		return this;
+	},
+
+	clone: function( dataAndEvents, deepDataAndEvents ) {
+		dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
+		deepDataAndEvents = deepDataAndEvents == null ? dataAndEvents : deepDataAndEvents;
+
+		return this.map( function() {
+			return jQuery.clone( this, dataAndEvents, deepDataAndEvents );
+		} );
+	},
+
+	html: function( value ) {
+		return access( this, function( value ) {
+			var elem = this[ 0 ] || {},
+				i = 0,
+				l = this.length;
+
+			if ( value === undefined && elem.nodeType === 1 ) {
+				return elem.innerHTML;
+			}
+
+			// See if we can take a shortcut and just use innerHTML
+			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
+				!wrapMap[ ( rtagName.exec( value ) || [ "", "" ] )[ 1 ].toLowerCase() ] ) {
+
+				value = jQuery.htmlPrefilter( value );
+
+				try {
+					for ( ; i < l; i++ ) {
+						elem = this[ i ] || {};
+
+						// Remove element nodes and prevent memory leaks
+						if ( elem.nodeType === 1 ) {
+							jQuery.cleanData( getAll( elem, false ) );
+							elem.innerHTML = value;
+						}
+					}
+
+					elem = 0;
+
+				// If using innerHTML throws an exception, use the fallback method
+				} catch ( e ) {}
+			}
+
+			if ( elem ) {
+				this.empty().append( value );
+			}
+		}, null, value, arguments.length );
+	},
+
+	replaceWith: function() {
+		var ignored = [];
+
+		// Make the changes, replacing each non-ignored context element with the new content
+		return domManip( this, arguments, function( elem ) {
+			var parent = this.parentNode;
+
+			if ( jQuery.inArray( this, ignored ) < 0 ) {
+				jQuery.cleanData( getAll( this ) );
+				if ( parent ) {
+					parent.replaceChild( elem, this );
+				}
+			}
+
+		// Force callback invocation
+		}, ignored );
+	}
+} );
+
+jQuery.each( {
+	appendTo: "append",
+	prependTo: "prepend",
+	insertBefore: "before",
+	insertAfter: "after",
+	replaceAll: "replaceWith"
+}, function( name, original ) {
+	jQuery.fn[ name ] = function( selector ) {
+		var elems,
+			ret = [],
+			insert = jQuery( selector ),
+			last = insert.length - 1,
+			i = 0;
+
+		for ( ; i <= last; i++ ) {
+			elems = i === last ? this : this.clone( true );
+			jQuery( insert[ i ] )[ original ]( elems );
+
+			// Support: Android <=4.0 only, PhantomJS 1 only
+			// .get() because push.apply(_, arraylike) throws on ancient WebKit
+			push.apply( ret, elems.get() );
+		}
+
+		return this.pushStack( ret );
+	};
+} );
+var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
+
+var rcustomProp = /^--/;
+
+
+var getStyles = function( elem ) {
+
+		// Support: IE <=11 only, Firefox <=30 (trac-15098, trac-14150)
+		// IE throws on elements created in popups
+		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
+		var view = elem.ownerDocument.defaultView;
+
+		if ( !view || !view.opener ) {
+			view = window;
+		}
+
+		return view.getComputedStyle( elem );
+	};
+
+var swap = function( elem, options, callback ) {
+	var ret, name,
+		old = {};
+
+	// Remember the old values, and insert the new ones
+	for ( name in options ) {
+		old[ name ] = elem.style[ name ];
+		elem.style[ name ] = options[ name ];
+	}
+
+	ret = callback.call( elem );
+
+	// Revert the old values
+	for ( name in options ) {
+		elem.style[ name ] = old[ name ];
+	}
+
+	return ret;
+};
+
+
+var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
+
+
+
+( function() {
+
+	// Executing both pixelPosition & boxSizingReliable tests require only one layout
+	// so they're executed at the same time to save the second computation.
+	function computeStyleTests() {
+
+		// This is a singleton, we need to execute it only once
+		if ( !div ) {
+			return;
+		}
+
+		container.style.cssText = "position:absolute;left:-11111px;width:60px;" +
+			"margin-top:1px;padding:0;border:0";
+		div.style.cssText =
+			"position:relative;display:block;box-sizing:border-box;overflow:scroll;" +
+			"margin:auto;border:1px;padding:1px;" +
+			"width:60%;top:1%";
+		documentElement.appendChild( container ).appendChild( div );
+
+		var divStyle = window.getComputedStyle( div );
+		pixelPositionVal = divStyle.top !== "1%";
+
+		// Support: Android 4.0 - 4.3 only, Firefox <=3 - 44
+		reliableMarginLeftVal = roundPixelMeasures( divStyle.marginLeft ) === 12;
+
+		// Support: Android 4.0 - 4.3 only, Safari <=9.1 - 10.1, iOS <=7.0 - 9.3
+		// Some styles come back with percentage values, even though they shouldn't
+		div.style.right = "60%";
+		pixelBoxStylesVal = roundPixelMeasures( divStyle.right ) === 36;
+
+		// Support: IE 9 - 11 only
+		// Detect misreporting of content dimensions for box-sizing:border-box elements
+		boxSizingReliableVal = roundPixelMeasures( divStyle.width ) === 36;
+
+		// Support: IE 9 only
+		// Detect overflow:scroll screwiness (gh-3699)
+		// Support: Chrome <=64
+		// Don't get tricked when zoom affects offsetWidth (gh-4029)
+		div.style.position = "absolute";
+		scrollboxSizeVal = roundPixelMeasures( div.offsetWidth / 3 ) === 12;
+
+		documentElement.removeChild( container );
+
+		// Nullify the div so it wouldn't be stored in the memory and
+		// it will also be a sign that checks already performed
+		div = null;
+	}
+
+	function roundPixelMeasures( measure ) {
+		return Math.round( parseFloat( measure ) );
+	}
+
+	var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal,
+		reliableTrDimensionsVal, reliableMarginLeftVal,
+		container = document.createElement( "div" ),
+		div = document.createElement( "div" );
+
+	// Finish early in limited (non-browser) environments
+	if ( !div.style ) {
+		return;
+	}
+
+	// Support: IE <=9 - 11 only
+	// Style of cloned element affects source element cloned (trac-8908)
+	div.style.backgroundClip = "content-box";
+	div.cloneNode( true ).style.backgroundClip = "";
+	support.clearCloneStyle = div.style.backgroundClip === "content-box";
+
+	jQuery.extend( support, {
+		boxSizingReliable: function() {
+			computeStyleTests();
+			return boxSizingReliableVal;
+		},
+		pixelBoxStyles: function() {
+			computeStyleTests();
+			return pixelBoxStylesVal;
+		},
+		pixelPosition: function() {
+			computeStyleTests();
+			return pixelPositionVal;
+		},
+		reliableMarginLeft: function() {
+			computeStyleTests();
+			return reliableMarginLeftVal;
+		},
+		scrollboxSize: function() {
+			computeStyleTests();
+			return scrollboxSizeVal;
+		},
+
+		// Support: IE 9 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Behavior in IE 9 is more subtle than in newer versions & it passes
+		// some versions of this test; make sure not to make it pass there!
+		//
+		// Support: Firefox 70+
+		// Only Firefox includes border widths
+		// in computed dimensions. (gh-4529)
+		reliableTrDimensions: function() {
+			var table, tr, trChild, trStyle;
+			if ( reliableTrDimensionsVal == null ) {
+				table = document.createElement( "table" );
+				tr = document.createElement( "tr" );
+				trChild = document.createElement( "div" );
+
+				table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
+				tr.style.cssText = "box-sizing:content-box;border:1px solid";
+
+				// Support: Chrome 86+
+				// Height set through cssText does not get applied.
+				// Computed height then comes back as 0.
+				tr.style.height = "1px";
+				trChild.style.height = "9px";
+
+				// Support: Android 8 Chrome 86+
+				// In our bodyBackground.html iframe,
+				// display for all div elements is set to "inline",
+				// which causes a problem only in Android 8 Chrome 86.
+				// Ensuring the div is `display: block`
+				// gets around this issue.
+				trChild.style.display = "block";
+
+				documentElement
+					.appendChild( table )
+					.appendChild( tr )
+					.appendChild( trChild );
+
+				trStyle = window.getComputedStyle( tr );
+				reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
+					parseInt( trStyle.borderTopWidth, 10 ) +
+					parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
+
+				documentElement.removeChild( table );
+			}
+			return reliableTrDimensionsVal;
+		}
+	} );
+} )();
+
+
+function curCSS( elem, name, computed ) {
+	var width, minWidth, maxWidth, ret,
+		isCustomProp = rcustomProp.test( name ),
+
+		// Support: Firefox 51+
+		// Retrieving style before computed somehow
+		// fixes an issue with getting wrong values
+		// on detached elements
+		style = elem.style;
+
+	computed = computed || getStyles( elem );
+
+	// getPropertyValue is needed for:
+	//   .css('filter') (IE 9 only, trac-12537)
+	//   .css('--customProperty) (gh-3144)
+	if ( computed ) {
+
+		// Support: IE <=9 - 11+
+		// IE only supports `"float"` in `getPropertyValue`; in computed styles
+		// it's only available as `"cssFloat"`. We no longer modify properties
+		// sent to `.css()` apart from camelCasing, so we need to check both.
+		// Normally, this would create difference in behavior: if
+		// `getPropertyValue` returns an empty string, the value returned
+		// by `.css()` would be `undefined`. This is usually the case for
+		// disconnected elements. However, in IE even disconnected elements
+		// with no styles return `"none"` for `getPropertyValue( "float" )`
+		ret = computed.getPropertyValue( name ) || computed[ name ];
+
+		if ( isCustomProp && ret ) {
+
+			// Support: Firefox 105+, Chrome <=105+
+			// Spec requires trimming whitespace for custom properties (gh-4926).
+			// Firefox only trims leading whitespace. Chrome just collapses
+			// both leading & trailing whitespace to a single space.
+			//
+			// Fall back to `undefined` if empty string returned.
+			// This collapses a missing definition with property defined
+			// and set to an empty string but there's no standard API
+			// allowing us to differentiate them without a performance penalty
+			// and returning `undefined` aligns with older jQuery.
+			//
+			// rtrimCSS treats U+000D CARRIAGE RETURN and U+000C FORM FEED
+			// as whitespace while CSS does not, but this is not a problem
+			// because CSS preprocessing replaces them with U+000A LINE FEED
+			// (which *is* CSS whitespace)
+			// https://www.w3.org/TR/css-syntax-3/#input-preprocessing
+			ret = ret.replace( rtrimCSS, "$1" ) || undefined;
+		}
+
+		if ( ret === "" && !isAttached( elem ) ) {
+			ret = jQuery.style( elem, name );
+		}
+
+		// A tribute to the "awesome hack by Dean Edwards"
+		// Android Browser returns percentage for some values,
+		// but width seems to be reliably pixels.
+		// This is against the CSSOM draft spec:
+		// https://drafts.csswg.org/cssom/#resolved-values
+		if ( !support.pixelBoxStyles() && rnumnonpx.test( ret ) && rboxStyle.test( name ) ) {
+
+			// Remember the original values
+			width = style.width;
+			minWidth = style.minWidth;
+			maxWidth = style.maxWidth;
+
+			// Put in the new values to get a computed value out
+			style.minWidth = style.maxWidth = style.width = ret;
+			ret = computed.width;
+
+			// Revert the changed values
+			style.width = width;
+			style.minWidth = minWidth;
+			style.maxWidth = maxWidth;
+		}
+	}
+
+	return ret !== undefined ?
+
+		// Support: IE <=9 - 11 only
+		// IE returns zIndex value as an integer.
+		ret + "" :
+		ret;
+}
+
+
+function addGetHookIf( conditionFn, hookFn ) {
+
+	// Define the hook, we'll check on the first run if it's really needed.
+	return {
+		get: function() {
+			if ( conditionFn() ) {
+
+				// Hook not needed (or it's not possible to use it due
+				// to missing dependency), remove it.
+				delete this.get;
+				return;
+			}
+
+			// Hook needed; redefine it so that the support test is not executed again.
+			return ( this.get = hookFn ).apply( this, arguments );
+		}
+	};
+}
+
+
+var cssPrefixes = [ "Webkit", "Moz", "ms" ],
+	emptyStyle = document.createElement( "div" ).style,
+	vendorProps = {};
+
+// Return a vendor-prefixed property or undefined
+function vendorPropName( name ) {
+
+	// Check for vendor prefixed names
+	var capName = name[ 0 ].toUpperCase() + name.slice( 1 ),
+		i = cssPrefixes.length;
+
+	while ( i-- ) {
+		name = cssPrefixes[ i ] + capName;
+		if ( name in emptyStyle ) {
+			return name;
+		}
+	}
+}
+
+// Return a potentially-mapped jQuery.cssProps or vendor prefixed property
+function finalPropName( name ) {
+	var final = jQuery.cssProps[ name ] || vendorProps[ name ];
+
+	if ( final ) {
+		return final;
+	}
+	if ( name in emptyStyle ) {
+		return name;
+	}
+	return vendorProps[ name ] = vendorPropName( name ) || name;
+}
+
+
+var
+
+	// Swappable if display is none or starts with table
+	// except "table", "table-cell", or "table-caption"
+	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
+	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
+	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
+	cssNormalTransform = {
+		letterSpacing: "0",
+		fontWeight: "400"
+	};
+
+function setPositiveNumber( _elem, value, subtract ) {
+
+	// Any relative (+/-) values have already been
+	// normalized at this point
+	var matches = rcssNum.exec( value );
+	return matches ?
+
+		// Guard against undefined "subtract", e.g., when used as in cssHooks
+		Math.max( 0, matches[ 2 ] - ( subtract || 0 ) ) + ( matches[ 3 ] || "px" ) :
+		value;
+}
+
+function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, computedVal ) {
+	var i = dimension === "width" ? 1 : 0,
+		extra = 0,
+		delta = 0,
+		marginDelta = 0;
+
+	// Adjustment may not be necessary
+	if ( box === ( isBorderBox ? "border" : "content" ) ) {
+		return 0;
+	}
+
+	for ( ; i < 4; i += 2 ) {
+
+		// Both box models exclude margin
+		// Count margin delta separately to only add it after scroll gutter adjustment.
+		// This is needed to make negative margins work with `outerHeight( true )` (gh-3982).
+		if ( box === "margin" ) {
+			marginDelta += jQuery.css( elem, box + cssExpand[ i ], true, styles );
+		}
+
+		// If we get here with a content-box, we're seeking "padding" or "border" or "margin"
+		if ( !isBorderBox ) {
+
+			// Add padding
+			delta += jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
+
+			// For "border" or "margin", add border
+			if ( box !== "padding" ) {
+				delta += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
+
+			// But still keep track of it otherwise
+			} else {
+				extra += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
+			}
+
+		// If we get here with a border-box (content + padding + border), we're seeking "content" or
+		// "padding" or "margin"
+		} else {
+
+			// For "content", subtract padding
+			if ( box === "content" ) {
+				delta -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
+			}
+
+			// For "content" or "padding", subtract border
+			if ( box !== "margin" ) {
+				delta -= jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
+			}
+		}
+	}
+
+	// Account for positive content-box scroll gutter when requested by providing computedVal
+	if ( !isBorderBox && computedVal >= 0 ) {
+
+		// offsetWidth/offsetHeight is a rounded sum of content, padding, scroll gutter, and border
+		// Assuming integer scroll gutter, subtract the rest and round down
+		delta += Math.max( 0, Math.ceil(
+			elem[ "offset" + dimension[ 0 ].toUpperCase() + dimension.slice( 1 ) ] -
+			computedVal -
+			delta -
+			extra -
+			0.5
+
+		// If offsetWidth/offsetHeight is unknown, then we can't determine content-box scroll gutter
+		// Use an explicit zero to avoid NaN (gh-3964)
+		) ) || 0;
+	}
+
+	return delta + marginDelta;
+}
+
+function getWidthOrHeight( elem, dimension, extra ) {
+
+	// Start with computed style
+	var styles = getStyles( elem ),
+
+		// To avoid forcing a reflow, only fetch boxSizing if we need it (gh-4322).
+		// Fake content-box until we know it's needed to know the true value.
+		boxSizingNeeded = !support.boxSizingReliable() || extra,
+		isBorderBox = boxSizingNeeded &&
+			jQuery.css( elem, "boxSizing", false, styles ) === "border-box",
+		valueIsBorderBox = isBorderBox,
+
+		val = curCSS( elem, dimension, styles ),
+		offsetProp = "offset" + dimension[ 0 ].toUpperCase() + dimension.slice( 1 );
+
+	// Support: Firefox <=54
+	// Return a confounding non-pixel value or feign ignorance, as appropriate.
+	if ( rnumnonpx.test( val ) ) {
+		if ( !extra ) {
+			return val;
+		}
+		val = "auto";
+	}
+
+
+	// Support: IE 9 - 11 only
+	// Use offsetWidth/offsetHeight for when box sizing is unreliable.
+	// In those cases, the computed value can be trusted to be border-box.
+	if ( ( !support.boxSizingReliable() && isBorderBox ||
+
+		// Support: IE 10 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Interestingly, in some cases IE 9 doesn't suffer from this issue.
+		!support.reliableTrDimensions() && nodeName( elem, "tr" ) ||
+
+		// Fall back to offsetWidth/offsetHeight when value is "auto"
+		// This happens for inline elements with no explicit setting (gh-3571)
+		val === "auto" ||
+
+		// Support: Android <=4.1 - 4.3 only
+		// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
+		!parseFloat( val ) && jQuery.css( elem, "display", false, styles ) === "inline" ) &&
+
+		// Make sure the element is visible & connected
+		elem.getClientRects().length ) {
+
+		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
+
+		// Where available, offsetWidth/offsetHeight approximate border box dimensions.
+		// Where not available (e.g., SVG), assume unreliable box-sizing and interpret the
+		// retrieved value as a content box dimension.
+		valueIsBorderBox = offsetProp in elem;
+		if ( valueIsBorderBox ) {
+			val = elem[ offsetProp ];
+		}
+	}
+
+	// Normalize "" and auto
+	val = parseFloat( val ) || 0;
+
+	// Adjust for the element's box model
+	return ( val +
+		boxModelAdjustment(
+			elem,
+			dimension,
+			extra || ( isBorderBox ? "border" : "content" ),
+			valueIsBorderBox,
+			styles,
+
+			// Provide the current computed size to request scroll gutter calculation (gh-3589)
+			val
+		)
+	) + "px";
+}
+
+jQuery.extend( {
+
+	// Add in style property hooks for overriding the default
+	// behavior of getting and setting a style property
+	cssHooks: {
+		opacity: {
+			get: function( elem, computed ) {
+				if ( computed ) {
+
+					// We should always get a number back from opacity
+					var ret = curCSS( elem, "opacity" );
+					return ret === "" ? "1" : ret;
+				}
+			}
+		}
+	},
+
+	// Don't automatically add "px" to these possibly-unitless properties
+	cssNumber: {
+		animationIterationCount: true,
+		aspectRatio: true,
+		borderImageSlice: true,
+		columnCount: true,
+		flexGrow: true,
+		flexShrink: true,
+		fontWeight: true,
+		gridArea: true,
+		gridColumn: true,
+		gridColumnEnd: true,
+		gridColumnStart: true,
+		gridRow: true,
+		gridRowEnd: true,
+		gridRowStart: true,
+		lineHeight: true,
+		opacity: true,
+		order: true,
+		orphans: true,
+		scale: true,
+		widows: true,
+		zIndex: true,
+		zoom: true,
+
+		// SVG-related
+		fillOpacity: true,
+		floodOpacity: true,
+		stopOpacity: true,
+		strokeMiterlimit: true,
+		strokeOpacity: true
+	},
+
+	// Add in properties whose names you wish to fix before
+	// setting or getting the value
+	cssProps: {},
+
+	// Get and set the style property on a DOM Node
+	style: function( elem, name, value, extra ) {
+
+		// Don't set styles on text and comment nodes
+		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
+			return;
+		}
+
+		// Make sure that we're working with the right name
+		var ret, type, hooks,
+			origName = camelCase( name ),
+			isCustomProp = rcustomProp.test( name ),
+			style = elem.style;
+
+		// Make sure that we're working with the right name. We don't
+		// want to query the value if it is a CSS custom property
+		// since they are user-defined.
+		if ( !isCustomProp ) {
+			name = finalPropName( origName );
+		}
+
+		// Gets hook for the prefixed version, then unprefixed version
+		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
+
+		// Check if we're setting a value
+		if ( value !== undefined ) {
+			type = typeof value;
+
+			// Convert "+=" or "-=" to relative numbers (trac-7345)
+			if ( type === "string" && ( ret = rcssNum.exec( value ) ) && ret[ 1 ] ) {
+				value = adjustCSS( elem, name, ret );
+
+				// Fixes bug trac-9237
+				type = "number";
+			}
+
+			// Make sure that null and NaN values aren't set (trac-7116)
+			if ( value == null || value !== value ) {
+				return;
+			}
+
+			// If a number was passed in, add the unit (except for certain CSS properties)
+			// The isCustomProp check can be removed in jQuery 4.0 when we only auto-append
+			// "px" to a few hardcoded values.
+			if ( type === "number" && !isCustomProp ) {
+				value += ret && ret[ 3 ] || ( jQuery.cssNumber[ origName ] ? "" : "px" );
+			}
+
+			// background-* props affect original clone's values
+			if ( !support.clearCloneStyle && value === "" && name.indexOf( "background" ) === 0 ) {
+				style[ name ] = "inherit";
+			}
+
+			// If a hook was provided, use that value, otherwise just set the specified value
+			if ( !hooks || !( "set" in hooks ) ||
+				( value = hooks.set( elem, value, extra ) ) !== undefined ) {
+
+				if ( isCustomProp ) {
+					style.setProperty( name, value );
+				} else {
+					style[ name ] = value;
+				}
+			}
+
+		} else {
+
+			// If a hook was provided get the non-computed value from there
+			if ( hooks && "get" in hooks &&
+				( ret = hooks.get( elem, false, extra ) ) !== undefined ) {
+
+				return ret;
+			}
+
+			// Otherwise just get the value from the style object
+			return style[ name ];
+		}
+	},
+
+	css: function( elem, name, extra, styles ) {
+		var val, num, hooks,
+			origName = camelCase( name ),
+			isCustomProp = rcustomProp.test( name );
+
+		// Make sure that we're working with the right name. We don't
+		// want to modify the value if it is a CSS custom property
+		// since they are user-defined.
+		if ( !isCustomProp ) {
+			name = finalPropName( origName );
+		}
+
+		// Try prefixed name followed by the unprefixed name
+		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
+
+		// If a hook was provided get the computed value from there
+		if ( hooks && "get" in hooks ) {
+			val = hooks.get( elem, true, extra );
+		}
+
+		// Otherwise, if a way to get the computed value exists, use that
+		if ( val === undefined ) {
+			val = curCSS( elem, name, styles );
+		}
+
+		// Convert "normal" to computed value
+		if ( val === "normal" && name in cssNormalTransform ) {
+			val = cssNormalTransform[ name ];
+		}
+
+		// Make numeric if forced or a qualifier was provided and val looks numeric
+		if ( extra === "" || extra ) {
+			num = parseFloat( val );
+			return extra === true || isFinite( num ) ? num || 0 : val;
+		}
+
+		return val;
+	}
+} );
+
+jQuery.each( [ "height", "width" ], function( _i, dimension ) {
+	jQuery.cssHooks[ dimension ] = {
+		get: function( elem, computed, extra ) {
+			if ( computed ) {
+
+				// Certain elements can have dimension info if we invisibly show them
+				// but it must have a current display style that would benefit
+				return rdisplayswap.test( jQuery.css( elem, "display" ) ) &&
+
+					// Support: Safari 8+
+					// Table columns in Safari have non-zero offsetWidth & zero
+					// getBoundingClientRect().width unless display is changed.
+					// Support: IE <=11 only
+					// Running getBoundingClientRect on a disconnected node
+					// in IE throws an error.
+					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
+					swap( elem, cssShow, function() {
+						return getWidthOrHeight( elem, dimension, extra );
+					} ) :
+					getWidthOrHeight( elem, dimension, extra );
+			}
+		},
+
+		set: function( elem, value, extra ) {
+			var matches,
+				styles = getStyles( elem ),
+
+				// Only read styles.position if the test has a chance to fail
+				// to avoid forcing a reflow.
+				scrollboxSizeBuggy = !support.scrollboxSize() &&
+					styles.position === "absolute",
+
+				// To avoid forcing a reflow, only fetch boxSizing if we need it (gh-3991)
+				boxSizingNeeded = scrollboxSizeBuggy || extra,
+				isBorderBox = boxSizingNeeded &&
+					jQuery.css( elem, "boxSizing", false, styles ) === "border-box",
+				subtract = extra ?
+					boxModelAdjustment(
+						elem,
+						dimension,
+						extra,
+						isBorderBox,
+						styles
+					) :
+					0;
+
+			// Account for unreliable border-box dimensions by comparing offset* to computed and
+			// faking a content-box to get border and padding (gh-3699)
+			if ( isBorderBox && scrollboxSizeBuggy ) {
+				subtract -= Math.ceil(
+					elem[ "offset" + dimension[ 0 ].toUpperCase() + dimension.slice( 1 ) ] -
+					parseFloat( styles[ dimension ] ) -
+					boxModelAdjustment( elem, dimension, "border", false, styles ) -
+					0.5
+				);
+			}
+
+			// Convert to pixels if value adjustment is needed
+			if ( subtract && ( matches = rcssNum.exec( value ) ) &&
+				( matches[ 3 ] || "px" ) !== "px" ) {
+
+				elem.style[ dimension ] = value;
+				value = jQuery.css( elem, dimension );
+			}
+
+			return setPositiveNumber( elem, value, subtract );
+		}
+	};
+} );
+
+jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
+	function( elem, computed ) {
+		if ( computed ) {
+			return ( parseFloat( curCSS( elem, "marginLeft" ) ) ||
+				elem.getBoundingClientRect().left -
+					swap( elem, { marginLeft: 0 }, function() {
+						return elem.getBoundingClientRect().left;
+					} )
+			) + "px";
+		}
+	}
+);
+
+// These hooks are used by animate to expand properties
+jQuery.each( {
+	margin: "",
+	padding: "",
+	border: "Width"
+}, function( prefix, suffix ) {
+	jQuery.cssHooks[ prefix + suffix ] = {
+		expand: function( value ) {
+			var i = 0,
+				expanded = {},
+
+				// Assumes a single number if not a string
+				parts = typeof value === "string" ? value.split( " " ) : [ value ];
+
+			for ( ; i < 4; i++ ) {
+				expanded[ prefix + cssExpand[ i ] + suffix ] =
+					parts[ i ] || parts[ i - 2 ] || parts[ 0 ];
+			}
+
+			return expanded;
+		}
+	};
+
+	if ( prefix !== "margin" ) {
+		jQuery.cssHooks[ prefix + suffix ].set = setPositiveNumber;
+	}
+} );
+
+jQuery.fn.extend( {
+	css: function( name, value ) {
+		return access( this, function( elem, name, value ) {
+			var styles, len,
+				map = {},
+				i = 0;
+
+			if ( Array.isArray( name ) ) {
+				styles = getStyles( elem );
+				len = name.length;
+
+				for ( ; i < len; i++ ) {
+					map[ name[ i ] ] = jQuery.css( elem, name[ i ], false, styles );
+				}
+
+				return map;
+			}
+
+			return value !== undefined ?
+				jQuery.style( elem, name, value ) :
+				jQuery.css( elem, name );
+		}, name, value, arguments.length > 1 );
+	}
+} );
+
+
+function Tween( elem, options, prop, end, easing ) {
+	return new Tween.prototype.init( elem, options, prop, end, easing );
+}
+jQuery.Tween = Tween;
+
+Tween.prototype = {
+	constructor: Tween,
+	init: function( elem, options, prop, end, easing, unit ) {
+		this.elem = elem;
+		this.prop = prop;
+		this.easing = easing || jQuery.easing._default;
+		this.options = options;
+		this.start = this.now = this.cur();
+		this.end = end;
+		this.unit = unit || ( jQuery.cssNumber[ prop ] ? "" : "px" );
+	},
+	cur: function() {
+		var hooks = Tween.propHooks[ this.prop ];
+
+		return hooks && hooks.get ?
+			hooks.get( this ) :
+			Tween.propHooks._default.get( this );
+	},
+	run: function( percent ) {
+		var eased,
+			hooks = Tween.propHooks[ this.prop ];
+
+		if ( this.options.duration ) {
+			this.pos = eased = jQuery.easing[ this.easing ](
+				percent, this.options.duration * percent, 0, 1, this.options.duration
+			);
+		} else {
+			this.pos = eased = percent;
+		}
+		this.now = ( this.end - this.start ) * eased + this.start;
+
+		if ( this.options.step ) {
+			this.options.step.call( this.elem, this.now, this );
+		}
+
+		if ( hooks && hooks.set ) {
+			hooks.set( this );
+		} else {
+			Tween.propHooks._default.set( this );
+		}
+		return this;
+	}
+};
+
+Tween.prototype.init.prototype = Tween.prototype;
+
+Tween.propHooks = {
+	_default: {
+		get: function( tween ) {
+			var result;
+
+			// Use a property on the element directly when it is not a DOM element,
+			// or when there is no matching style property that exists.
+			if ( tween.elem.nodeType !== 1 ||
+				tween.elem[ tween.prop ] != null && tween.elem.style[ tween.prop ] == null ) {
+				return tween.elem[ tween.prop ];
+			}
+
+			// Passing an empty string as a 3rd parameter to .css will automatically
+			// attempt a parseFloat and fallback to a string if the parse fails.
+			// Simple values such as "10px" are parsed to Float;
+			// complex values such as "rotate(1rad)" are returned as-is.
+			result = jQuery.css( tween.elem, tween.prop, "" );
+
+			// Empty strings, null, undefined and "auto" are converted to 0.
+			return !result || result === "auto" ? 0 : result;
+		},
+		set: function( tween ) {
+
+			// Use step hook for back compat.
+			// Use cssHook if its there.
+			// Use .style if available and use plain properties where available.
+			if ( jQuery.fx.step[ tween.prop ] ) {
+				jQuery.fx.step[ tween.prop ]( tween );
+			} else if ( tween.elem.nodeType === 1 && (
+				jQuery.cssHooks[ tween.prop ] ||
+					tween.elem.style[ finalPropName( tween.prop ) ] != null ) ) {
+				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
+			} else {
+				tween.elem[ tween.prop ] = tween.now;
+			}
+		}
+	}
+};
+
+// Support: IE <=9 only
+// Panic based approach to setting things on disconnected nodes
+Tween.propHooks.scrollTop = Tween.propHooks.scrollLeft = {
+	set: function( tween ) {
+		if ( tween.elem.nodeType && tween.elem.parentNode ) {
+			tween.elem[ tween.prop ] = tween.now;
+		}
+	}
+};
+
+jQuery.easing = {
+	linear: function( p ) {
+		return p;
+	},
+	swing: function( p ) {
+		return 0.5 - Math.cos( p * Math.PI ) / 2;
+	},
+	_default: "swing"
+};
+
+jQuery.fx = Tween.prototype.init;
+
+// Back compat <1.8 extension point
+jQuery.fx.step = {};
+
+
+
+
+var
+	fxNow, inProgress,
+	rfxtypes = /^(?:toggle|show|hide)$/,
+	rrun = /queueHooks$/;
+
+function schedule() {
+	if ( inProgress ) {
+		if ( document.hidden === false && window.requestAnimationFrame ) {
+			window.requestAnimationFrame( schedule );
+		} else {
+			window.setTimeout( schedule, jQuery.fx.interval );
+		}
+
+		jQuery.fx.tick();
+	}
+}
+
+// Animations created synchronously will run synchronously
+function createFxNow() {
+	window.setTimeout( function() {
+		fxNow = undefined;
+	} );
+	return ( fxNow = Date.now() );
+}
+
+// Generate parameters to create a standard animation
+function genFx( type, includeWidth ) {
+	var which,
+		i = 0,
+		attrs = { height: type };
+
+	// If we include width, step value is 1 to do all cssExpand values,
+	// otherwise step value is 2 to skip over Left and Right
+	includeWidth = includeWidth ? 1 : 0;
+	for ( ; i < 4; i += 2 - includeWidth ) {
+		which = cssExpand[ i ];
+		attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
+	}
+
+	if ( includeWidth ) {
+		attrs.opacity = attrs.width = type;
+	}
+
+	return attrs;
+}
+
+function createTween( value, prop, animation ) {
+	var tween,
+		collection = ( Animation.tweeners[ prop ] || [] ).concat( Animation.tweeners[ "*" ] ),
+		index = 0,
+		length = collection.length;
+	for ( ; index < length; index++ ) {
+		if ( ( tween = collection[ index ].call( animation, prop, value ) ) ) {
+
+			// We're done with this property
+			return tween;
+		}
+	}
+}
+
+function defaultPrefilter( elem, props, opts ) {
+	var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display,
+		isBox = "width" in props || "height" in props,
+		anim = this,
+		orig = {},
+		style = elem.style,
+		hidden = elem.nodeType && isHiddenWithinTree( elem ),
+		dataShow = dataPriv.get( elem, "fxshow" );
+
+	// Queue-skipping animations hijack the fx hooks
+	if ( !opts.queue ) {
+		hooks = jQuery._queueHooks( elem, "fx" );
+		if ( hooks.unqueued == null ) {
+			hooks.unqueued = 0;
+			oldfire = hooks.empty.fire;
+			hooks.empty.fire = function() {
+				if ( !hooks.unqueued ) {
+					oldfire();
+				}
+			};
+		}
+		hooks.unqueued++;
+
+		anim.always( function() {
+
+			// Ensure the complete handler is called before this completes
+			anim.always( function() {
+				hooks.unqueued--;
+				if ( !jQuery.queue( elem, "fx" ).length ) {
+					hooks.empty.fire();
+				}
+			} );
+		} );
+	}
+
+	// Detect show/hide animations
+	for ( prop in props ) {
+		value = props[ prop ];
+		if ( rfxtypes.test( value ) ) {
+			delete props[ prop ];
+			toggle = toggle || value === "toggle";
+			if ( value === ( hidden ? "hide" : "show" ) ) {
+
+				// Pretend to be hidden if this is a "show" and
+				// there is still data from a stopped show/hide
+				if ( value === "show" && dataShow && dataShow[ prop ] !== undefined ) {
+					hidden = true;
+
+				// Ignore all other no-op show/hide data
+				} else {
+					continue;
+				}
+			}
+			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
+		}
+	}
+
+	// Bail out if this is a no-op like .hide().hide()
+	propTween = !jQuery.isEmptyObject( props );
+	if ( !propTween && jQuery.isEmptyObject( orig ) ) {
+		return;
+	}
+
+	// Restrict "overflow" and "display" styles during box animations
+	if ( isBox && elem.nodeType === 1 ) {
+
+		// Support: IE <=9 - 11, Edge 12 - 15
+		// Record all 3 overflow attributes because IE does not infer the shorthand
+		// from identically-valued overflowX and overflowY and Edge just mirrors
+		// the overflowX value there.
+		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
+
+		// Identify a display type, preferring old show/hide data over the CSS cascade
+		restoreDisplay = dataShow && dataShow.display;
+		if ( restoreDisplay == null ) {
+			restoreDisplay = dataPriv.get( elem, "display" );
+		}
+		display = jQuery.css( elem, "display" );
+		if ( display === "none" ) {
+			if ( restoreDisplay ) {
+				display = restoreDisplay;
+			} else {
+
+				// Get nonempty value(s) by temporarily forcing visibility
+				showHide( [ elem ], true );
+				restoreDisplay = elem.style.display || restoreDisplay;
+				display = jQuery.css( elem, "display" );
+				showHide( [ elem ] );
+			}
+		}
+
+		// Animate inline elements as inline-block
+		if ( display === "inline" || display === "inline-block" && restoreDisplay != null ) {
+			if ( jQuery.css( elem, "float" ) === "none" ) {
+
+				// Restore the original display value at the end of pure show/hide animations
+				if ( !propTween ) {
+					anim.done( function() {
+						style.display = restoreDisplay;
+					} );
+					if ( restoreDisplay == null ) {
+						display = style.display;
+						restoreDisplay = display === "none" ? "" : display;
+					}
+				}
+				style.display = "inline-block";
+			}
+		}
+	}
+
+	if ( opts.overflow ) {
+		style.overflow = "hidden";
+		anim.always( function() {
+			style.overflow = opts.overflow[ 0 ];
+			style.overflowX = opts.overflow[ 1 ];
+			style.overflowY = opts.overflow[ 2 ];
+		} );
+	}
+
+	// Implement show/hide animations
+	propTween = false;
+	for ( prop in orig ) {
+
+		// General show/hide setup for this element animation
+		if ( !propTween ) {
+			if ( dataShow ) {
+				if ( "hidden" in dataShow ) {
+					hidden = dataShow.hidden;
+				}
+			} else {
+				dataShow = dataPriv.access( elem, "fxshow", { display: restoreDisplay } );
+			}
+
+			// Store hidden/visible for toggle so `.stop().toggle()` "reverses"
+			if ( toggle ) {
+				dataShow.hidden = !hidden;
+			}
+
+			// Show elements before animating them
+			if ( hidden ) {
+				showHide( [ elem ], true );
+			}
+
+			/* eslint-disable no-loop-func */
+
+			anim.done( function() {
+
+				/* eslint-enable no-loop-func */
+
+				// The final step of a "hide" animation is actually hiding the element
+				if ( !hidden ) {
+					showHide( [ elem ] );
+				}
+				dataPriv.remove( elem, "fxshow" );
+				for ( prop in orig ) {
+					jQuery.style( elem, prop, orig[ prop ] );
+				}
+			} );
+		}
+
+		// Per-property setup
+		propTween = createTween( hidden ? dataShow[ prop ] : 0, prop, anim );
+		if ( !( prop in dataShow ) ) {
+			dataShow[ prop ] = propTween.start;
+			if ( hidden ) {
+				propTween.end = propTween.start;
+				propTween.start = 0;
+			}
+		}
+	}
+}
+
+function propFilter( props, specialEasing ) {
+	var index, name, easing, value, hooks;
+
+	// camelCase, specialEasing and expand cssHook pass
+	for ( index in props ) {
+		name = camelCase( index );
+		easing = specialEasing[ name ];
+		value = props[ index ];
+		if ( Array.isArray( value ) ) {
+			easing = value[ 1 ];
+			value = props[ index ] = value[ 0 ];
+		}
+
+		if ( index !== name ) {
+			props[ name ] = value;
+			delete props[ index ];
+		}
+
+		hooks = jQuery.cssHooks[ name ];
+		if ( hooks && "expand" in hooks ) {
+			value = hooks.expand( value );
+			delete props[ name ];
+
+			// Not quite $.extend, this won't overwrite existing keys.
+			// Reusing 'index' because we have the correct "name"
+			for ( index in value ) {
+				if ( !( index in props ) ) {
+					props[ index ] = value[ index ];
+					specialEasing[ index ] = easing;
+				}
+			}
+		} else {
+			specialEasing[ name ] = easing;
+		}
+	}
+}
+
+function Animation( elem, properties, options ) {
+	var result,
+		stopped,
+		index = 0,
+		length = Animation.prefilters.length,
+		deferred = jQuery.Deferred().always( function() {
+
+			// Don't match elem in the :animated selector
+			delete tick.elem;
+		} ),
+		tick = function() {
+			if ( stopped ) {
+				return false;
+			}
+			var currentTime = fxNow || createFxNow(),
+				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
+
+				// Support: Android 2.3 only
+				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (trac-12497)
+				temp = remaining / animation.duration || 0,
+				percent = 1 - temp,
+				index = 0,
+				length = animation.tweens.length;
+
+			for ( ; index < length; index++ ) {
+				animation.tweens[ index ].run( percent );
+			}
+
+			deferred.notifyWith( elem, [ animation, percent, remaining ] );
+
+			// If there's more to do, yield
+			if ( percent < 1 && length ) {
+				return remaining;
+			}
+
+			// If this was an empty animation, synthesize a final progress notification
+			if ( !length ) {
+				deferred.notifyWith( elem, [ animation, 1, 0 ] );
+			}
+
+			// Resolve the animation and report its conclusion
+			deferred.resolveWith( elem, [ animation ] );
+			return false;
+		},
+		animation = deferred.promise( {
+			elem: elem,
+			props: jQuery.extend( {}, properties ),
+			opts: jQuery.extend( true, {
+				specialEasing: {},
+				easing: jQuery.easing._default
+			}, options ),
+			originalProperties: properties,
+			originalOptions: options,
+			startTime: fxNow || createFxNow(),
+			duration: options.duration,
+			tweens: [],
+			createTween: function( prop, end ) {
+				var tween = jQuery.Tween( elem, animation.opts, prop, end,
+					animation.opts.specialEasing[ prop ] || animation.opts.easing );
+				animation.tweens.push( tween );
+				return tween;
+			},
+			stop: function( gotoEnd ) {
+				var index = 0,
+
+					// If we are going to the end, we want to run all the tweens
+					// otherwise we skip this part
+					length = gotoEnd ? animation.tweens.length : 0;
+				if ( stopped ) {
+					return this;
+				}
+				stopped = true;
+				for ( ; index < length; index++ ) {
+					animation.tweens[ index ].run( 1 );
+				}
+
+				// Resolve when we played the last frame; otherwise, reject
+				if ( gotoEnd ) {
+					deferred.notifyWith( elem, [ animation, 1, 0 ] );
+					deferred.resolveWith( elem, [ animation, gotoEnd ] );
+				} else {
+					deferred.rejectWith( elem, [ animation, gotoEnd ] );
+				}
+				return this;
+			}
+		} ),
+		props = animation.props;
+
+	propFilter( props, animation.opts.specialEasing );
+
+	for ( ; index < length; index++ ) {
+		result = Animation.prefilters[ index ].call( animation, elem, props, animation.opts );
+		if ( result ) {
+			if ( isFunction( result.stop ) ) {
+				jQuery._queueHooks( animation.elem, animation.opts.queue ).stop =
+					result.stop.bind( result );
+			}
+			return result;
+		}
+	}
+
+	jQuery.map( props, createTween, animation );
+
+	if ( isFunction( animation.opts.start ) ) {
+		animation.opts.start.call( elem, animation );
+	}
+
+	// Attach callbacks from options
+	animation
+		.progress( animation.opts.progress )
+		.done( animation.opts.done, animation.opts.complete )
+		.fail( animation.opts.fail )
+		.always( animation.opts.always );
+
+	jQuery.fx.timer(
+		jQuery.extend( tick, {
+			elem: elem,
+			anim: animation,
+			queue: animation.opts.queue
+		} )
+	);
+
+	return animation;
+}
+
+jQuery.Animation = jQuery.extend( Animation, {
+
+	tweeners: {
+		"*": [ function( prop, value ) {
+			var tween = this.createTween( prop, value );
+			adjustCSS( tween.elem, prop, rcssNum.exec( value ), tween );
+			return tween;
+		} ]
+	},
+
+	tweener: function( props, callback ) {
+		if ( isFunction( props ) ) {
+			callback = props;
+			props = [ "*" ];
+		} else {
+			props = props.match( rnothtmlwhite );
+		}
+
+		var prop,
+			index = 0,
+			length = props.length;
+
+		for ( ; index < length; index++ ) {
+			prop = props[ index ];
+			Animation.tweeners[ prop ] = Animation.tweeners[ prop ] || [];
+			Animation.tweeners[ prop ].unshift( callback );
+		}
+	},
+
+	prefilters: [ defaultPrefilter ],
+
+	prefilter: function( callback, prepend ) {
+		if ( prepend ) {
+			Animation.prefilters.unshift( callback );
+		} else {
+			Animation.prefilters.push( callback );
+		}
+	}
+} );
+
+jQuery.speed = function( speed, easing, fn ) {
+	var opt = speed && typeof speed === "object" ? jQuery.extend( {}, speed ) : {
+		complete: fn || !fn && easing ||
+			isFunction( speed ) && speed,
+		duration: speed,
+		easing: fn && easing || easing && !isFunction( easing ) && easing
+	};
+
+	// Go to the end state if fx are off
+	if ( jQuery.fx.off ) {
+		opt.duration = 0;
+
+	} else {
+		if ( typeof opt.duration !== "number" ) {
+			if ( opt.duration in jQuery.fx.speeds ) {
+				opt.duration = jQuery.fx.speeds[ opt.duration ];
+
+			} else {
+				opt.duration = jQuery.fx.speeds._default;
+			}
+		}
+	}
+
+	// Normalize opt.queue - true/undefined/null -> "fx"
+	if ( opt.queue == null || opt.queue === true ) {
+		opt.queue = "fx";
+	}
+
+	// Queueing
+	opt.old = opt.complete;
+
+	opt.complete = function() {
+		if ( isFunction( opt.old ) ) {
+			opt.old.call( this );
+		}
+
+		if ( opt.queue ) {
+			jQuery.dequeue( this, opt.queue );
+		}
+	};
+
+	return opt;
+};
+
+jQuery.fn.extend( {
+	fadeTo: function( speed, to, easing, callback ) {
+
+		// Show any hidden elements after setting opacity to 0
+		return this.filter( isHiddenWithinTree ).css( "opacity", 0 ).show()
+
+			// Animate to the value specified
+			.end().animate( { opacity: to }, speed, easing, callback );
+	},
+	animate: function( prop, speed, easing, callback ) {
+		var empty = jQuery.isEmptyObject( prop ),
+			optall = jQuery.speed( speed, easing, callback ),
+			doAnimation = function() {
+
+				// Operate on a copy of prop so per-property easing won't be lost
+				var anim = Animation( this, jQuery.extend( {}, prop ), optall );
+
+				// Empty animations, or finishing resolves immediately
+				if ( empty || dataPriv.get( this, "finish" ) ) {
+					anim.stop( true );
+				}
+			};
+
+		doAnimation.finish = doAnimation;
+
+		return empty || optall.queue === false ?
+			this.each( doAnimation ) :
+			this.queue( optall.queue, doAnimation );
+	},
+	stop: function( type, clearQueue, gotoEnd ) {
+		var stopQueue = function( hooks ) {
+			var stop = hooks.stop;
+			delete hooks.stop;
+			stop( gotoEnd );
+		};
+
+		if ( typeof type !== "string" ) {
+			gotoEnd = clearQueue;
+			clearQueue = type;
+			type = undefined;
+		}
+		if ( clearQueue ) {
+			this.queue( type || "fx", [] );
+		}
+
+		return this.each( function() {
+			var dequeue = true,
+				index = type != null && type + "queueHooks",
+				timers = jQuery.timers,
+				data = dataPriv.get( this );
+
+			if ( index ) {
+				if ( data[ index ] && data[ index ].stop ) {
+					stopQueue( data[ index ] );
+				}
+			} else {
+				for ( index in data ) {
+					if ( data[ index ] && data[ index ].stop && rrun.test( index ) ) {
+						stopQueue( data[ index ] );
+					}
+				}
+			}
+
+			for ( index = timers.length; index--; ) {
+				if ( timers[ index ].elem === this &&
+					( type == null || timers[ index ].queue === type ) ) {
+
+					timers[ index ].anim.stop( gotoEnd );
+					dequeue = false;
+					timers.splice( index, 1 );
+				}
+			}
+
+			// Start the next in the queue if the last step wasn't forced.
+			// Timers currently will call their complete callbacks, which
+			// will dequeue but only if they were gotoEnd.
+			if ( dequeue || !gotoEnd ) {
+				jQuery.dequeue( this, type );
+			}
+		} );
+	},
+	finish: function( type ) {
+		if ( type !== false ) {
+			type = type || "fx";
+		}
+		return this.each( function() {
+			var index,
+				data = dataPriv.get( this ),
+				queue = data[ type + "queue" ],
+				hooks = data[ type + "queueHooks" ],
+				timers = jQuery.timers,
+				length = queue ? queue.length : 0;
+
+			// Enable finishing flag on private data
+			data.finish = true;
+
+			// Empty the queue first
+			jQuery.queue( this, type, [] );
+
+			if ( hooks && hooks.stop ) {
+				hooks.stop.call( this, true );
+			}
+
+			// Look for any active animations, and finish them
+			for ( index = timers.length; index--; ) {
+				if ( timers[ index ].elem === this && timers[ index ].queue === type ) {
+					timers[ index ].anim.stop( true );
+					timers.splice( index, 1 );
+				}
+			}
+
+			// Look for any animations in the old queue and finish them
+			for ( index = 0; index < length; index++ ) {
+				if ( queue[ index ] && queue[ index ].finish ) {
+					queue[ index ].finish.call( this );
+				}
+			}
+
+			// Turn off finishing flag
+			delete data.finish;
+		} );
+	}
+} );
+
+jQuery.each( [ "toggle", "show", "hide" ], function( _i, name ) {
+	var cssFn = jQuery.fn[ name ];
+	jQuery.fn[ name ] = function( speed, easing, callback ) {
+		return speed == null || typeof speed === "boolean" ?
+			cssFn.apply( this, arguments ) :
+			this.animate( genFx( name, true ), speed, easing, callback );
+	};
+} );
+
+// Generate shortcuts for custom animations
+jQuery.each( {
+	slideDown: genFx( "show" ),
+	slideUp: genFx( "hide" ),
+	slideToggle: genFx( "toggle" ),
+	fadeIn: { opacity: "show" },
+	fadeOut: { opacity: "hide" },
+	fadeToggle: { opacity: "toggle" }
+}, function( name, props ) {
+	jQuery.fn[ name ] = function( speed, easing, callback ) {
+		return this.animate( props, speed, easing, callback );
+	};
+} );
+
+jQuery.timers = [];
+jQuery.fx.tick = function() {
+	var timer,
+		i = 0,
+		timers = jQuery.timers;
+
+	fxNow = Date.now();
+
+	for ( ; i < timers.length; i++ ) {
+		timer = timers[ i ];
+
+		// Run the timer and safely remove it when done (allowing for external removal)
+		if ( !timer() && timers[ i ] === timer ) {
+			timers.splice( i--, 1 );
+		}
+	}
+
+	if ( !timers.length ) {
+		jQuery.fx.stop();
+	}
+	fxNow = undefined;
+};
+
+jQuery.fx.timer = function( timer ) {
+	jQuery.timers.push( timer );
+	jQuery.fx.start();
+};
+
+jQuery.fx.interval = 13;
+jQuery.fx.start = function() {
+	if ( inProgress ) {
+		return;
+	}
+
+	inProgress = true;
+	schedule();
+};
+
+jQuery.fx.stop = function() {
+	inProgress = null;
+};
+
+jQuery.fx.speeds = {
+	slow: 600,
+	fast: 200,
+
+	// Default speed
+	_default: 400
+};
+
+
+// Based off of the plugin by Clint Helfers, with permission.
+jQuery.fn.delay = function( time, type ) {
+	time = jQuery.fx ? jQuery.fx.speeds[ time ] || time : time;
+	type = type || "fx";
+
+	return this.queue( type, function( next, hooks ) {
+		var timeout = window.setTimeout( next, time );
+		hooks.stop = function() {
+			window.clearTimeout( timeout );
+		};
+	} );
+};
+
+
+( function() {
+	var input = document.createElement( "input" ),
+		select = document.createElement( "select" ),
+		opt = select.appendChild( document.createElement( "option" ) );
+
+	input.type = "checkbox";
+
+	// Support: Android <=4.3 only
+	// Default value for a checkbox should be "on"
+	support.checkOn = input.value !== "";
+
+	// Support: IE <=11 only
+	// Must access selectedIndex to make default options select
+	support.optSelected = opt.selected;
+
+	// Support: IE <=11 only
+	// An input loses its value after becoming a radio
+	input = document.createElement( "input" );
+	input.value = "t";
+	input.type = "radio";
+	support.radioValue = input.value === "t";
+} )();
+
+
+var boolHook,
+	attrHandle = jQuery.expr.attrHandle;
+
+jQuery.fn.extend( {
+	attr: function( name, value ) {
+		return access( this, jQuery.attr, name, value, arguments.length > 1 );
+	},
+
+	removeAttr: function( name ) {
+		return this.each( function() {
+			jQuery.removeAttr( this, name );
+		} );
+	}
+} );
+
+jQuery.extend( {
+	attr: function( elem, name, value ) {
+		var ret, hooks,
+			nType = elem.nodeType;
+
+		// Don't get/set attributes on text, comment and attribute nodes
+		if ( nType === 3 || nType === 8 || nType === 2 ) {
+			return;
+		}
+
+		// Fallback to prop when attributes are not supported
+		if ( typeof elem.getAttribute === "undefined" ) {
+			return jQuery.prop( elem, name, value );
+		}
+
+		// Attribute hooks are determined by the lowercase version
+		// Grab necessary hook if one is defined
+		if ( nType !== 1 || !jQuery.isXMLDoc( elem ) ) {
+			hooks = jQuery.attrHooks[ name.toLowerCase() ] ||
+				( jQuery.expr.match.bool.test( name ) ? boolHook : undefined );
+		}
+
+		if ( value !== undefined ) {
+			if ( value === null ) {
+				jQuery.removeAttr( elem, name );
+				return;
+			}
+
+			if ( hooks && "set" in hooks &&
+				( ret = hooks.set( elem, value, name ) ) !== undefined ) {
+				return ret;
+			}
+
+			elem.setAttribute( name, value + "" );
+			return value;
+		}
+
+		if ( hooks && "get" in hooks && ( ret = hooks.get( elem, name ) ) !== null ) {
+			return ret;
+		}
+
+		ret = jQuery.find.attr( elem, name );
+
+		// Non-existent attributes return null, we normalize to undefined
+		return ret == null ? undefined : ret;
+	},
+
+	attrHooks: {
+		type: {
+			set: function( elem, value ) {
+				if ( !support.radioValue && value === "radio" &&
+					nodeName( elem, "input" ) ) {
+					var val = elem.value;
+					elem.setAttribute( "type", value );
+					if ( val ) {
+						elem.value = val;
+					}
+					return value;
+				}
+			}
+		}
+	},
+
+	removeAttr: function( elem, value ) {
+		var name,
+			i = 0,
+
+			// Attribute names can contain non-HTML whitespace characters
+			// https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
+			attrNames = value && value.match( rnothtmlwhite );
+
+		if ( attrNames && elem.nodeType === 1 ) {
+			while ( ( name = attrNames[ i++ ] ) ) {
+				elem.removeAttribute( name );
+			}
+		}
+	}
+} );
+
+// Hooks for boolean attributes
+boolHook = {
+	set: function( elem, value, name ) {
+		if ( value === false ) {
+
+			// Remove boolean attributes when set to false
+			jQuery.removeAttr( elem, name );
+		} else {
+			elem.setAttribute( name, name );
+		}
+		return name;
+	}
+};
+
+jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( _i, name ) {
+	var getter = attrHandle[ name ] || jQuery.find.attr;
+
+	attrHandle[ name ] = function( elem, name, isXML ) {
+		var ret, handle,
+			lowercaseName = name.toLowerCase();
+
+		if ( !isXML ) {
+
+			// Avoid an infinite loop by temporarily removing this function from the getter
+			handle = attrHandle[ lowercaseName ];
+			attrHandle[ lowercaseName ] = ret;
+			ret = getter( elem, name, isXML ) != null ?
+				lowercaseName :
+				null;
+			attrHandle[ lowercaseName ] = handle;
+		}
+		return ret;
+	};
+} );
+
+
+
+
+var rfocusable = /^(?:input|select|textarea|button)$/i,
+	rclickable = /^(?:a|area)$/i;
+
+jQuery.fn.extend( {
+	prop: function( name, value ) {
+		return access( this, jQuery.prop, name, value, arguments.length > 1 );
+	},
+
+	removeProp: function( name ) {
+		return this.each( function() {
+			delete this[ jQuery.propFix[ name ] || name ];
+		} );
+	}
+} );
+
+jQuery.extend( {
+	prop: function( elem, name, value ) {
+		var ret, hooks,
+			nType = elem.nodeType;
+
+		// Don't get/set properties on text, comment and attribute nodes
+		if ( nType === 3 || nType === 8 || nType === 2 ) {
+			return;
+		}
+
+		if ( nType !== 1 || !jQuery.isXMLDoc( elem ) ) {
+
+			// Fix name and attach hooks
+			name = jQuery.propFix[ name ] || name;
+			hooks = jQuery.propHooks[ name ];
+		}
+
+		if ( value !== undefined ) {
+			if ( hooks && "set" in hooks &&
+				( ret = hooks.set( elem, value, name ) ) !== undefined ) {
+				return ret;
+			}
+
+			return ( elem[ name ] = value );
+		}
+
+		if ( hooks && "get" in hooks && ( ret = hooks.get( elem, name ) ) !== null ) {
+			return ret;
+		}
+
+		return elem[ name ];
+	},
+
+	propHooks: {
+		tabIndex: {
+			get: function( elem ) {
+
+				// Support: IE <=9 - 11 only
+				// elem.tabIndex doesn't always return the
+				// correct value when it hasn't been explicitly set
+				// Use proper attribute retrieval (trac-12072)
+				var tabindex = jQuery.find.attr( elem, "tabindex" );
+
+				if ( tabindex ) {
+					return parseInt( tabindex, 10 );
+				}
+
+				if (
+					rfocusable.test( elem.nodeName ) ||
+					rclickable.test( elem.nodeName ) &&
+					elem.href
+				) {
+					return 0;
+				}
+
+				return -1;
+			}
+		}
+	},
+
+	propFix: {
+		"for": "htmlFor",
+		"class": "className"
+	}
+} );
+
+// Support: IE <=11 only
+// Accessing the selectedIndex property
+// forces the browser to respect setting selected
+// on the option
+// The getter ensures a default option is selected
+// when in an optgroup
+// eslint rule "no-unused-expressions" is disabled for this code
+// since it considers such accessions noop
+if ( !support.optSelected ) {
+	jQuery.propHooks.selected = {
+		get: function( elem ) {
+
+			/* eslint no-unused-expressions: "off" */
+
+			var parent = elem.parentNode;
+			if ( parent && parent.parentNode ) {
+				parent.parentNode.selectedIndex;
+			}
+			return null;
+		},
+		set: function( elem ) {
+
+			/* eslint no-unused-expressions: "off" */
+
+			var parent = elem.parentNode;
+			if ( parent ) {
+				parent.selectedIndex;
+
+				if ( parent.parentNode ) {
+					parent.parentNode.selectedIndex;
+				}
+			}
+		}
+	};
+}
+
+jQuery.each( [
+	"tabIndex",
+	"readOnly",
+	"maxLength",
+	"cellSpacing",
+	"cellPadding",
+	"rowSpan",
+	"colSpan",
+	"useMap",
+	"frameBorder",
+	"contentEditable"
+], function() {
+	jQuery.propFix[ this.toLowerCase() ] = this;
+} );
+
+
+
+
+	// Strip and collapse whitespace according to HTML spec
+	// https://infra.spec.whatwg.org/#strip-and-collapse-ascii-whitespace
+	function stripAndCollapse( value ) {
+		var tokens = value.match( rnothtmlwhite ) || [];
+		return tokens.join( " " );
+	}
+
+
+function getClass( elem ) {
+	return elem.getAttribute && elem.getAttribute( "class" ) || "";
+}
+
+function classesToArray( value ) {
+	if ( Array.isArray( value ) ) {
+		return value;
+	}
+	if ( typeof value === "string" ) {
+		return value.match( rnothtmlwhite ) || [];
+	}
+	return [];
+}
+
+jQuery.fn.extend( {
+	addClass: function( value ) {
+		var classNames, cur, curValue, className, i, finalValue;
+
+		if ( isFunction( value ) ) {
+			return this.each( function( j ) {
+				jQuery( this ).addClass( value.call( this, j, getClass( this ) ) );
+			} );
+		}
+
+		classNames = classesToArray( value );
+
+		if ( classNames.length ) {
+			return this.each( function() {
+				curValue = getClass( this );
+				cur = this.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+
+				if ( cur ) {
+					for ( i = 0; i < classNames.length; i++ ) {
+						className = classNames[ i ];
+						if ( cur.indexOf( " " + className + " " ) < 0 ) {
+							cur += className + " ";
+						}
+					}
+
+					// Only assign if different to avoid unneeded rendering.
+					finalValue = stripAndCollapse( cur );
+					if ( curValue !== finalValue ) {
+						this.setAttribute( "class", finalValue );
+					}
+				}
+			} );
+		}
+
+		return this;
+	},
+
+	removeClass: function( value ) {
+		var classNames, cur, curValue, className, i, finalValue;
+
+		if ( isFunction( value ) ) {
+			return this.each( function( j ) {
+				jQuery( this ).removeClass( value.call( this, j, getClass( this ) ) );
+			} );
+		}
+
+		if ( !arguments.length ) {
+			return this.attr( "class", "" );
+		}
+
+		classNames = classesToArray( value );
+
+		if ( classNames.length ) {
+			return this.each( function() {
+				curValue = getClass( this );
+
+				// This expression is here for better compressibility (see addClass)
+				cur = this.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+
+				if ( cur ) {
+					for ( i = 0; i < classNames.length; i++ ) {
+						className = classNames[ i ];
+
+						// Remove *all* instances
+						while ( cur.indexOf( " " + className + " " ) > -1 ) {
+							cur = cur.replace( " " + className + " ", " " );
+						}
+					}
+
+					// Only assign if different to avoid unneeded rendering.
+					finalValue = stripAndCollapse( cur );
+					if ( curValue !== finalValue ) {
+						this.setAttribute( "class", finalValue );
+					}
+				}
+			} );
+		}
+
+		return this;
+	},
+
+	toggleClass: function( value, stateVal ) {
+		var classNames, className, i, self,
+			type = typeof value,
+			isValidValue = type === "string" || Array.isArray( value );
+
+		if ( isFunction( value ) ) {
+			return this.each( function( i ) {
+				jQuery( this ).toggleClass(
+					value.call( this, i, getClass( this ), stateVal ),
+					stateVal
+				);
+			} );
+		}
+
+		if ( typeof stateVal === "boolean" && isValidValue ) {
+			return stateVal ? this.addClass( value ) : this.removeClass( value );
+		}
+
+		classNames = classesToArray( value );
+
+		return this.each( function() {
+			if ( isValidValue ) {
+
+				// Toggle individual class names
+				self = jQuery( this );
+
+				for ( i = 0; i < classNames.length; i++ ) {
+					className = classNames[ i ];
+
+					// Check each className given, space separated list
+					if ( self.hasClass( className ) ) {
+						self.removeClass( className );
+					} else {
+						self.addClass( className );
+					}
+				}
+
+			// Toggle whole class name
+			} else if ( value === undefined || type === "boolean" ) {
+				className = getClass( this );
+				if ( className ) {
+
+					// Store className if set
+					dataPriv.set( this, "__className__", className );
+				}
+
+				// If the element has a class name or if we're passed `false`,
+				// then remove the whole classname (if there was one, the above saved it).
+				// Otherwise bring back whatever was previously saved (if anything),
+				// falling back to the empty string if nothing was stored.
+				if ( this.setAttribute ) {
+					this.setAttribute( "class",
+						className || value === false ?
+							"" :
+							dataPriv.get( this, "__className__" ) || ""
+					);
+				}
+			}
+		} );
+	},
+
+	hasClass: function( selector ) {
+		var className, elem,
+			i = 0;
+
+		className = " " + selector + " ";
+		while ( ( elem = this[ i++ ] ) ) {
+			if ( elem.nodeType === 1 &&
+				( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+} );
+
+
+
+
+var rreturn = /\r/g;
+
+jQuery.fn.extend( {
+	val: function( value ) {
+		var hooks, ret, valueIsFunction,
+			elem = this[ 0 ];
+
+		if ( !arguments.length ) {
+			if ( elem ) {
+				hooks = jQuery.valHooks[ elem.type ] ||
+					jQuery.valHooks[ elem.nodeName.toLowerCase() ];
+
+				if ( hooks &&
+					"get" in hooks &&
+					( ret = hooks.get( elem, "value" ) ) !== undefined
+				) {
+					return ret;
+				}
+
+				ret = elem.value;
+
+				// Handle most common string cases
+				if ( typeof ret === "string" ) {
+					return ret.replace( rreturn, "" );
+				}
+
+				// Handle cases where value is null/undef or number
+				return ret == null ? "" : ret;
+			}
+
+			return;
+		}
+
+		valueIsFunction = isFunction( value );
+
+		return this.each( function( i ) {
+			var val;
+
+			if ( this.nodeType !== 1 ) {
+				return;
+			}
+
+			if ( valueIsFunction ) {
+				val = value.call( this, i, jQuery( this ).val() );
+			} else {
+				val = value;
+			}
+
+			// Treat null/undefined as ""; convert numbers to string
+			if ( val == null ) {
+				val = "";
+
+			} else if ( typeof val === "number" ) {
+				val += "";
+
+			} else if ( Array.isArray( val ) ) {
+				val = jQuery.map( val, function( value ) {
+					return value == null ? "" : value + "";
+				} );
+			}
+
+			hooks = jQuery.valHooks[ this.type ] || jQuery.valHooks[ this.nodeName.toLowerCase() ];
+
+			// If set returns undefined, fall back to normal setting
+			if ( !hooks || !( "set" in hooks ) || hooks.set( this, val, "value" ) === undefined ) {
+				this.value = val;
+			}
+		} );
+	}
+} );
+
+jQuery.extend( {
+	valHooks: {
+		option: {
+			get: function( elem ) {
+
+				var val = jQuery.find.attr( elem, "value" );
+				return val != null ?
+					val :
+
+					// Support: IE <=10 - 11 only
+					// option.text throws exceptions (trac-14686, trac-14858)
+					// Strip and collapse whitespace
+					// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+					stripAndCollapse( jQuery.text( elem ) );
+			}
+		},
+		select: {
+			get: function( elem ) {
+				var value, option, i,
+					options = elem.options,
+					index = elem.selectedIndex,
+					one = elem.type === "select-one",
+					values = one ? null : [],
+					max = one ? index + 1 : options.length;
+
+				if ( index < 0 ) {
+					i = max;
+
+				} else {
+					i = one ? index : 0;
+				}
+
+				// Loop through all the selected options
+				for ( ; i < max; i++ ) {
+					option = options[ i ];
+
+					// Support: IE <=9 only
+					// IE8-9 doesn't update selected after form reset (trac-2551)
+					if ( ( option.selected || i === index ) &&
+
+							// Don't return options that are disabled or in a disabled optgroup
+							!option.disabled &&
+							( !option.parentNode.disabled ||
+								!nodeName( option.parentNode, "optgroup" ) ) ) {
+
+						// Get the specific value for the option
+						value = jQuery( option ).val();
+
+						// We don't need an array for one selects
+						if ( one ) {
+							return value;
+						}
+
+						// Multi-Selects return an array
+						values.push( value );
+					}
+				}
+
+				return values;
+			},
+
+			set: function( elem, value ) {
+				var optionSet, option,
+					options = elem.options,
+					values = jQuery.makeArray( value ),
+					i = options.length;
+
+				while ( i-- ) {
+					option = options[ i ];
+
+					/* eslint-disable no-cond-assign */
+
+					if ( option.selected =
+						jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
+					) {
+						optionSet = true;
+					}
+
+					/* eslint-enable no-cond-assign */
+				}
+
+				// Force browsers to behave consistently when non-matching value is set
+				if ( !optionSet ) {
+					elem.selectedIndex = -1;
+				}
+				return values;
+			}
+		}
+	}
+} );
+
+// Radios and checkboxes getter/setter
+jQuery.each( [ "radio", "checkbox" ], function() {
+	jQuery.valHooks[ this ] = {
+		set: function( elem, value ) {
+			if ( Array.isArray( value ) ) {
+				return ( elem.checked = jQuery.inArray( jQuery( elem ).val(), value ) > -1 );
+			}
+		}
+	};
+	if ( !support.checkOn ) {
+		jQuery.valHooks[ this ].get = function( elem ) {
+			return elem.getAttribute( "value" ) === null ? "on" : elem.value;
+		};
+	}
+} );
+
+
+
+
+// Return jQuery for attributes-only inclusion
+var location = window.location;
+
+var nonce = { guid: Date.now() };
+
+var rquery = ( /\?/ );
+
+
+
+// Cross-browser xml parsing
+jQuery.parseXML = function( data ) {
+	var xml, parserErrorElem;
+	if ( !data || typeof data !== "string" ) {
+		return null;
+	}
+
+	// Support: IE 9 - 11 only
+	// IE throws on parseFromString with invalid input.
+	try {
+		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
+	} catch ( e ) {}
+
+	parserErrorElem = xml && xml.getElementsByTagName( "parsererror" )[ 0 ];
+	if ( !xml || parserErrorElem ) {
+		jQuery.error( "Invalid XML: " + (
+			parserErrorElem ?
+				jQuery.map( parserErrorElem.childNodes, function( el ) {
+					return el.textContent;
+				} ).join( "\n" ) :
+				data
+		) );
+	}
+	return xml;
+};
+
+
+var rfocusMorph = /^(?:focusinfocus|focusoutblur)$/,
+	stopPropagationCallback = function( e ) {
+		e.stopPropagation();
+	};
+
+jQuery.extend( jQuery.event, {
+
+	trigger: function( event, data, elem, onlyHandlers ) {
+
+		var i, cur, tmp, bubbleType, ontype, handle, special, lastElement,
+			eventPath = [ elem || document ],
+			type = hasOwn.call( event, "type" ) ? event.type : event,
+			namespaces = hasOwn.call( event, "namespace" ) ? event.namespace.split( "." ) : [];
+
+		cur = lastElement = tmp = elem = elem || document;
+
+		// Don't do events on text and comment nodes
+		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
+			return;
+		}
+
+		// focus/blur morphs to focusin/out; ensure we're not firing them right now
+		if ( rfocusMorph.test( type + jQuery.event.triggered ) ) {
+			return;
+		}
+
+		if ( type.indexOf( "." ) > -1 ) {
+
+			// Namespaced trigger; create a regexp to match event type in handle()
+			namespaces = type.split( "." );
+			type = namespaces.shift();
+			namespaces.sort();
+		}
+		ontype = type.indexOf( ":" ) < 0 && "on" + type;
+
+		// Caller can pass in a jQuery.Event object, Object, or just an event type string
+		event = event[ jQuery.expando ] ?
+			event :
+			new jQuery.Event( type, typeof event === "object" && event );
+
+		// Trigger bitmask: & 1 for native handlers; & 2 for jQuery (always true)
+		event.isTrigger = onlyHandlers ? 2 : 3;
+		event.namespace = namespaces.join( "." );
+		event.rnamespace = event.namespace ?
+			new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" ) :
+			null;
+
+		// Clean up the event in case it is being reused
+		event.result = undefined;
+		if ( !event.target ) {
+			event.target = elem;
+		}
+
+		// Clone any incoming data and prepend the event, creating the handler arg list
+		data = data == null ?
+			[ event ] :
+			jQuery.makeArray( data, [ event ] );
+
+		// Allow special events to draw outside the lines
+		special = jQuery.event.special[ type ] || {};
+		if ( !onlyHandlers && special.trigger && special.trigger.apply( elem, data ) === false ) {
+			return;
+		}
+
+		// Determine event propagation path in advance, per W3C events spec (trac-9951)
+		// Bubble up to document, then to window; watch for a global ownerDocument var (trac-9724)
+		if ( !onlyHandlers && !special.noBubble && !isWindow( elem ) ) {
+
+			bubbleType = special.delegateType || type;
+			if ( !rfocusMorph.test( bubbleType + type ) ) {
+				cur = cur.parentNode;
+			}
+			for ( ; cur; cur = cur.parentNode ) {
+				eventPath.push( cur );
+				tmp = cur;
+			}
+
+			// Only add window if we got to document (e.g., not plain obj or detached DOM)
+			if ( tmp === ( elem.ownerDocument || document ) ) {
+				eventPath.push( tmp.defaultView || tmp.parentWindow || window );
+			}
+		}
+
+		// Fire handlers on the event path
+		i = 0;
+		while ( ( cur = eventPath[ i++ ] ) && !event.isPropagationStopped() ) {
+			lastElement = cur;
+			event.type = i > 1 ?
+				bubbleType :
+				special.bindType || type;
+
+			// jQuery handler
+			handle = ( dataPriv.get( cur, "events" ) || Object.create( null ) )[ event.type ] &&
+				dataPriv.get( cur, "handle" );
+			if ( handle ) {
+				handle.apply( cur, data );
+			}
+
+			// Native handler
+			handle = ontype && cur[ ontype ];
+			if ( handle && handle.apply && acceptData( cur ) ) {
+				event.result = handle.apply( cur, data );
+				if ( event.result === false ) {
+					event.preventDefault();
+				}
+			}
+		}
+		event.type = type;
+
+		// If nobody prevented the default action, do it now
+		if ( !onlyHandlers && !event.isDefaultPrevented() ) {
+
+			if ( ( !special._default ||
+				special._default.apply( eventPath.pop(), data ) === false ) &&
+				acceptData( elem ) ) {
+
+				// Call a native DOM method on the target with the same name as the event.
+				// Don't do default actions on window, that's where global variables be (trac-6170)
+				if ( ontype && isFunction( elem[ type ] ) && !isWindow( elem ) ) {
+
+					// Don't re-trigger an onFOO event when we call its FOO() method
+					tmp = elem[ ontype ];
+
+					if ( tmp ) {
+						elem[ ontype ] = null;
+					}
+
+					// Prevent re-triggering of the same event, since we already bubbled it above
+					jQuery.event.triggered = type;
+
+					if ( event.isPropagationStopped() ) {
+						lastElement.addEventListener( type, stopPropagationCallback );
+					}
+
+					elem[ type ]();
+
+					if ( event.isPropagationStopped() ) {
+						lastElement.removeEventListener( type, stopPropagationCallback );
+					}
+
+					jQuery.event.triggered = undefined;
+
+					if ( tmp ) {
+						elem[ ontype ] = tmp;
+					}
+				}
+			}
+		}
+
+		return event.result;
+	},
+
+	// Piggyback on a donor event to simulate a different one
+	// Used only for `focus(in | out)` events
+	simulate: function( type, elem, event ) {
+		var e = jQuery.extend(
+			new jQuery.Event(),
+			event,
+			{
+				type: type,
+				isSimulated: true
+			}
+		);
+
+		jQuery.event.trigger( e, null, elem );
+	}
+
+} );
+
+jQuery.fn.extend( {
+
+	trigger: function( type, data ) {
+		return this.each( function() {
+			jQuery.event.trigger( type, data, this );
+		} );
+	},
+	triggerHandler: function( type, data ) {
+		var elem = this[ 0 ];
+		if ( elem ) {
+			return jQuery.event.trigger( type, data, elem, true );
+		}
+	}
+} );
+
+
+var
+	rbracket = /\[\]$/,
+	rCRLF = /\r?\n/g,
+	rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
+	rsubmittable = /^(?:input|select|textarea|keygen)/i;
+
+function buildParams( prefix, obj, traditional, add ) {
+	var name;
+
+	if ( Array.isArray( obj ) ) {
+
+		// Serialize array item.
+		jQuery.each( obj, function( i, v ) {
+			if ( traditional || rbracket.test( prefix ) ) {
+
+				// Treat each array item as a scalar.
+				add( prefix, v );
+
+			} else {
+
+				// Item is non-scalar (array or object), encode its numeric index.
+				buildParams(
+					prefix + "[" + ( typeof v === "object" && v != null ? i : "" ) + "]",
+					v,
+					traditional,
+					add
+				);
+			}
+		} );
+
+	} else if ( !traditional && toType( obj ) === "object" ) {
+
+		// Serialize object item.
+		for ( name in obj ) {
+			buildParams( prefix + "[" + name + "]", obj[ name ], traditional, add );
+		}
+
+	} else {
+
+		// Serialize scalar item.
+		add( prefix, obj );
+	}
+}
+
+// Serialize an array of form elements or a set of
+// key/values into a query string
+jQuery.param = function( a, traditional ) {
+	var prefix,
+		s = [],
+		add = function( key, valueOrFunction ) {
+
+			// If value is a function, invoke it and use its return value
+			var value = isFunction( valueOrFunction ) ?
+				valueOrFunction() :
+				valueOrFunction;
+
+			s[ s.length ] = encodeURIComponent( key ) + "=" +
+				encodeURIComponent( value == null ? "" : value );
+		};
+
+	if ( a == null ) {
+		return "";
+	}
+
+	// If an array was passed in, assume that it is an array of form elements.
+	if ( Array.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
+
+		// Serialize the form elements
+		jQuery.each( a, function() {
+			add( this.name, this.value );
+		} );
+
+	} else {
+
+		// If traditional, encode the "old" way (the way 1.3.2 or older
+		// did it), otherwise encode params recursively.
+		for ( prefix in a ) {
+			buildParams( prefix, a[ prefix ], traditional, add );
+		}
+	}
+
+	// Return the resulting serialization
+	return s.join( "&" );
+};
+
+jQuery.fn.extend( {
+	serialize: function() {
+		return jQuery.param( this.serializeArray() );
+	},
+	serializeArray: function() {
+		return this.map( function() {
+
+			// Can add propHook for "elements" to filter or add form elements
+			var elements = jQuery.prop( this, "elements" );
+			return elements ? jQuery.makeArray( elements ) : this;
+		} ).filter( function() {
+			var type = this.type;
+
+			// Use .is( ":disabled" ) so that fieldset[disabled] works
+			return this.name && !jQuery( this ).is( ":disabled" ) &&
+				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
+				( this.checked || !rcheckableType.test( type ) );
+		} ).map( function( _i, elem ) {
+			var val = jQuery( this ).val();
+
+			if ( val == null ) {
+				return null;
+			}
+
+			if ( Array.isArray( val ) ) {
+				return jQuery.map( val, function( val ) {
+					return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+				} );
+			}
+
+			return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+		} ).get();
+	}
+} );
+
+
+var
+	r20 = /%20/g,
+	rhash = /#.*$/,
+	rantiCache = /([?&])_=[^&]*/,
+	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
+
+	// trac-7653, trac-8125, trac-8152: local protocol detection
+	rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
+	rnoContent = /^(?:GET|HEAD)$/,
+	rprotocol = /^\/\//,
+
+	/* Prefilters
+	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+	 * 2) These are called:
+	 *    - BEFORE asking for a transport
+	 *    - AFTER param serialization (s.data is a string if s.processData is true)
+	 * 3) key is the dataType
+	 * 4) the catchall symbol "*" can be used
+	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
+	 */
+	prefilters = {},
+
+	/* Transports bindings
+	 * 1) key is the dataType
+	 * 2) the catchall symbol "*" can be used
+	 * 3) selection will start with transport dataType and THEN go to "*" if needed
+	 */
+	transports = {},
+
+	// Avoid comment-prolog char sequence (trac-10098); must appease lint and evade compression
+	allTypes = "*/".concat( "*" ),
+
+	// Anchor tag for parsing the document origin
+	originAnchor = document.createElement( "a" );
+
+originAnchor.href = location.href;
+
+// Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
+function addToPrefiltersOrTransports( structure ) {
+
+	// dataTypeExpression is optional and defaults to "*"
+	return function( dataTypeExpression, func ) {
+
+		if ( typeof dataTypeExpression !== "string" ) {
+			func = dataTypeExpression;
+			dataTypeExpression = "*";
+		}
+
+		var dataType,
+			i = 0,
+			dataTypes = dataTypeExpression.toLowerCase().match( rnothtmlwhite ) || [];
+
+		if ( isFunction( func ) ) {
+
+			// For each dataType in the dataTypeExpression
+			while ( ( dataType = dataTypes[ i++ ] ) ) {
+
+				// Prepend if requested
+				if ( dataType[ 0 ] === "+" ) {
+					dataType = dataType.slice( 1 ) || "*";
+					( structure[ dataType ] = structure[ dataType ] || [] ).unshift( func );
+
+				// Otherwise append
+				} else {
+					( structure[ dataType ] = structure[ dataType ] || [] ).push( func );
+				}
+			}
+		}
+	};
+}
+
+// Base inspection function for prefilters and transports
+function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
+
+	var inspected = {},
+		seekingTransport = ( structure === transports );
+
+	function inspect( dataType ) {
+		var selected;
+		inspected[ dataType ] = true;
+		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
+			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
+			if ( typeof dataTypeOrTransport === "string" &&
+				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
+
+				options.dataTypes.unshift( dataTypeOrTransport );
+				inspect( dataTypeOrTransport );
+				return false;
+			} else if ( seekingTransport ) {
+				return !( selected = dataTypeOrTransport );
+			}
+		} );
+		return selected;
+	}
+
+	return inspect( options.dataTypes[ 0 ] ) || !inspected[ "*" ] && inspect( "*" );
+}
+
+// A special extend for ajax options
+// that takes "flat" options (not to be deep extended)
+// Fixes trac-9887
+function ajaxExtend( target, src ) {
+	var key, deep,
+		flatOptions = jQuery.ajaxSettings.flatOptions || {};
+
+	for ( key in src ) {
+		if ( src[ key ] !== undefined ) {
+			( flatOptions[ key ] ? target : ( deep || ( deep = {} ) ) )[ key ] = src[ key ];
+		}
+	}
+	if ( deep ) {
+		jQuery.extend( true, target, deep );
+	}
+
+	return target;
+}
+
+/* Handles responses to an ajax request:
+ * - finds the right dataType (mediates between content-type and expected dataType)
+ * - returns the corresponding response
+ */
+function ajaxHandleResponses( s, jqXHR, responses ) {
+
+	var ct, type, finalDataType, firstDataType,
+		contents = s.contents,
+		dataTypes = s.dataTypes;
+
+	// Remove auto dataType and get content-type in the process
+	while ( dataTypes[ 0 ] === "*" ) {
+		dataTypes.shift();
+		if ( ct === undefined ) {
+			ct = s.mimeType || jqXHR.getResponseHeader( "Content-Type" );
+		}
+	}
+
+	// Check if we're dealing with a known content-type
+	if ( ct ) {
+		for ( type in contents ) {
+			if ( contents[ type ] && contents[ type ].test( ct ) ) {
+				dataTypes.unshift( type );
+				break;
+			}
+		}
+	}
+
+	// Check to see if we have a response for the expected dataType
+	if ( dataTypes[ 0 ] in responses ) {
+		finalDataType = dataTypes[ 0 ];
+	} else {
+
+		// Try convertible dataTypes
+		for ( type in responses ) {
+			if ( !dataTypes[ 0 ] || s.converters[ type + " " + dataTypes[ 0 ] ] ) {
+				finalDataType = type;
+				break;
+			}
+			if ( !firstDataType ) {
+				firstDataType = type;
+			}
+		}
+
+		// Or just use first one
+		finalDataType = finalDataType || firstDataType;
+	}
+
+	// If we found a dataType
+	// We add the dataType to the list if needed
+	// and return the corresponding response
+	if ( finalDataType ) {
+		if ( finalDataType !== dataTypes[ 0 ] ) {
+			dataTypes.unshift( finalDataType );
+		}
+		return responses[ finalDataType ];
+	}
+}
+
+/* Chain conversions given the request and the original response
+ * Also sets the responseXXX fields on the jqXHR instance
+ */
+function ajaxConvert( s, response, jqXHR, isSuccess ) {
+	var conv2, current, conv, tmp, prev,
+		converters = {},
+
+		// Work with a copy of dataTypes in case we need to modify it for conversion
+		dataTypes = s.dataTypes.slice();
+
+	// Create converters map with lowercased keys
+	if ( dataTypes[ 1 ] ) {
+		for ( conv in s.converters ) {
+			converters[ conv.toLowerCase() ] = s.converters[ conv ];
+		}
+	}
+
+	current = dataTypes.shift();
+
+	// Convert to each sequential dataType
+	while ( current ) {
+
+		if ( s.responseFields[ current ] ) {
+			jqXHR[ s.responseFields[ current ] ] = response;
+		}
+
+		// Apply the dataFilter if provided
+		if ( !prev && isSuccess && s.dataFilter ) {
+			response = s.dataFilter( response, s.dataType );
+		}
+
+		prev = current;
+		current = dataTypes.shift();
+
+		if ( current ) {
+
+			// There's only work to do if current dataType is non-auto
+			if ( current === "*" ) {
+
+				current = prev;
+
+			// Convert response if prev dataType is non-auto and differs from current
+			} else if ( prev !== "*" && prev !== current ) {
+
+				// Seek a direct converter
+				conv = converters[ prev + " " + current ] || converters[ "* " + current ];
+
+				// If none found, seek a pair
+				if ( !conv ) {
+					for ( conv2 in converters ) {
+
+						// If conv2 outputs current
+						tmp = conv2.split( " " );
+						if ( tmp[ 1 ] === current ) {
+
+							// If prev can be converted to accepted input
+							conv = converters[ prev + " " + tmp[ 0 ] ] ||
+								converters[ "* " + tmp[ 0 ] ];
+							if ( conv ) {
+
+								// Condense equivalence converters
+								if ( conv === true ) {
+									conv = converters[ conv2 ];
+
+								// Otherwise, insert the intermediate dataType
+								} else if ( converters[ conv2 ] !== true ) {
+									current = tmp[ 0 ];
+									dataTypes.unshift( tmp[ 1 ] );
+								}
+								break;
+							}
+						}
+					}
+				}
+
+				// Apply converter (if not an equivalence)
+				if ( conv !== true ) {
+
+					// Unless errors are allowed to bubble, catch and return them
+					if ( conv && s.throws ) {
+						response = conv( response );
+					} else {
+						try {
+							response = conv( response );
+						} catch ( e ) {
+							return {
+								state: "parsererror",
+								error: conv ? e : "No conversion from " + prev + " to " + current
+							};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return { state: "success", data: response };
+}
+
+jQuery.extend( {
+
+	// Counter for holding the number of active queries
+	active: 0,
+
+	// Last-Modified header cache for next request
+	lastModified: {},
+	etag: {},
+
+	ajaxSettings: {
+		url: location.href,
+		type: "GET",
+		isLocal: rlocalProtocol.test( location.protocol ),
+		global: true,
+		processData: true,
+		async: true,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
+		/*
+		timeout: 0,
+		data: null,
+		dataType: null,
+		username: null,
+		password: null,
+		cache: null,
+		throws: false,
+		traditional: false,
+		headers: {},
+		*/
+
+		accepts: {
+			"*": allTypes,
+			text: "text/plain",
+			html: "text/html",
+			xml: "application/xml, text/xml",
+			json: "application/json, text/javascript"
+		},
+
+		contents: {
+			xml: /\bxml\b/,
+			html: /\bhtml/,
+			json: /\bjson\b/
+		},
+
+		responseFields: {
+			xml: "responseXML",
+			text: "responseText",
+			json: "responseJSON"
+		},
+
+		// Data converters
+		// Keys separate source (or catchall "*") and destination types with a single space
+		converters: {
+
+			// Convert anything to text
+			"* text": String,
+
+			// Text to html (true = no transformation)
+			"text html": true,
+
+			// Evaluate text as a json expression
+			"text json": JSON.parse,
+
+			// Parse text as xml
+			"text xml": jQuery.parseXML
+		},
+
+		// For options that shouldn't be deep extended:
+		// you can add your own custom options here if
+		// and when you create one that shouldn't be
+		// deep extended (see ajaxExtend)
+		flatOptions: {
+			url: true,
+			context: true
+		}
+	},
+
+	// Creates a full fledged settings object into target
+	// with both ajaxSettings and settings fields.
+	// If target is omitted, writes into ajaxSettings.
+	ajaxSetup: function( target, settings ) {
+		return settings ?
+
+			// Building a settings object
+			ajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :
+
+			// Extending ajaxSettings
+			ajaxExtend( jQuery.ajaxSettings, target );
+	},
+
+	ajaxPrefilter: addToPrefiltersOrTransports( prefilters ),
+	ajaxTransport: addToPrefiltersOrTransports( transports ),
+
+	// Main method
+	ajax: function( url, options ) {
+
+		// If url is an object, simulate pre-1.5 signature
+		if ( typeof url === "object" ) {
+			options = url;
+			url = undefined;
+		}
+
+		// Force options to be an object
+		options = options || {};
+
+		var transport,
+
+			// URL without anti-cache param
+			cacheURL,
+
+			// Response headers
+			responseHeadersString,
+			responseHeaders,
+
+			// timeout handle
+			timeoutTimer,
+
+			// Url cleanup var
+			urlAnchor,
+
+			// Request state (becomes false upon send and true upon completion)
+			completed,
+
+			// To know if global events are to be dispatched
+			fireGlobals,
+
+			// Loop variable
+			i,
+
+			// uncached part of the url
+			uncached,
+
+			// Create the final options object
+			s = jQuery.ajaxSetup( {}, options ),
+
+			// Callbacks context
+			callbackContext = s.context || s,
+
+			// Context for global events is callbackContext if it is a DOM node or jQuery collection
+			globalEventContext = s.context &&
+				( callbackContext.nodeType || callbackContext.jquery ) ?
+				jQuery( callbackContext ) :
+				jQuery.event,
+
+			// Deferreds
+			deferred = jQuery.Deferred(),
+			completeDeferred = jQuery.Callbacks( "once memory" ),
+
+			// Status-dependent callbacks
+			statusCode = s.statusCode || {},
+
+			// Headers (they are sent all at once)
+			requestHeaders = {},
+			requestHeadersNames = {},
+
+			// Default abort message
+			strAbort = "canceled",
+
+			// Fake xhr
+			jqXHR = {
+				readyState: 0,
+
+				// Builds headers hashtable if needed
+				getResponseHeader: function( key ) {
+					var match;
+					if ( completed ) {
+						if ( !responseHeaders ) {
+							responseHeaders = {};
+							while ( ( match = rheaders.exec( responseHeadersString ) ) ) {
+								responseHeaders[ match[ 1 ].toLowerCase() + " " ] =
+									( responseHeaders[ match[ 1 ].toLowerCase() + " " ] || [] )
+										.concat( match[ 2 ] );
+							}
+						}
+						match = responseHeaders[ key.toLowerCase() + " " ];
+					}
+					return match == null ? null : match.join( ", " );
+				},
+
+				// Raw string
+				getAllResponseHeaders: function() {
+					return completed ? responseHeadersString : null;
+				},
+
+				// Caches the header
+				setRequestHeader: function( name, value ) {
+					if ( completed == null ) {
+						name = requestHeadersNames[ name.toLowerCase() ] =
+							requestHeadersNames[ name.toLowerCase() ] || name;
+						requestHeaders[ name ] = value;
+					}
+					return this;
+				},
+
+				// Overrides response content-type header
+				overrideMimeType: function( type ) {
+					if ( completed == null ) {
+						s.mimeType = type;
+					}
+					return this;
+				},
+
+				// Status-dependent callbacks
+				statusCode: function( map ) {
+					var code;
+					if ( map ) {
+						if ( completed ) {
+
+							// Execute the appropriate callbacks
+							jqXHR.always( map[ jqXHR.status ] );
+						} else {
+
+							// Lazy-add the new callbacks in a way that preserves old ones
+							for ( code in map ) {
+								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
+							}
+						}
+					}
+					return this;
+				},
+
+				// Cancel the request
+				abort: function( statusText ) {
+					var finalText = statusText || strAbort;
+					if ( transport ) {
+						transport.abort( finalText );
+					}
+					done( 0, finalText );
+					return this;
+				}
+			};
+
+		// Attach deferreds
+		deferred.promise( jqXHR );
+
+		// Add protocol if not provided (prefilters might expect it)
+		// Handle falsy url in the settings object (trac-10093: consistency with old signature)
+		// We also use the url parameter if available
+		s.url = ( ( url || s.url || location.href ) + "" )
+			.replace( rprotocol, location.protocol + "//" );
+
+		// Alias method option to type as per ticket trac-12004
+		s.type = options.method || options.type || s.method || s.type;
+
+		// Extract dataTypes list
+		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
+
+		// A cross-domain request is in order when the origin doesn't match the current origin.
+		if ( s.crossDomain == null ) {
+			urlAnchor = document.createElement( "a" );
+
+			// Support: IE <=8 - 11, Edge 12 - 15
+			// IE throws exception on accessing the href property if url is malformed,
+			// e.g. http://example.com:80x/
+			try {
+				urlAnchor.href = s.url;
+
+				// Support: IE <=8 - 11 only
+				// Anchor's host property isn't correctly set when s.url is relative
+				urlAnchor.href = urlAnchor.href;
+				s.crossDomain = originAnchor.protocol + "//" + originAnchor.host !==
+					urlAnchor.protocol + "//" + urlAnchor.host;
+			} catch ( e ) {
+
+				// If there is an error parsing the URL, assume it is crossDomain,
+				// it can be rejected by the transport if it is invalid
+				s.crossDomain = true;
+			}
+		}
+
+		// Convert data if not already a string
+		if ( s.data && s.processData && typeof s.data !== "string" ) {
+			s.data = jQuery.param( s.data, s.traditional );
+		}
+
+		// Apply prefilters
+		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
+
+		// If request was aborted inside a prefilter, stop there
+		if ( completed ) {
+			return jqXHR;
+		}
+
+		// We can fire global events as of now if asked to
+		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (trac-15118)
+		fireGlobals = jQuery.event && s.global;
+
+		// Watch for a new set of requests
+		if ( fireGlobals && jQuery.active++ === 0 ) {
+			jQuery.event.trigger( "ajaxStart" );
+		}
+
+		// Uppercase the type
+		s.type = s.type.toUpperCase();
+
+		// Determine if request has content
+		s.hasContent = !rnoContent.test( s.type );
+
+		// Save the URL in case we're toying with the If-Modified-Since
+		// and/or If-None-Match header later on
+		// Remove hash to simplify url manipulation
+		cacheURL = s.url.replace( rhash, "" );
+
+		// More options handling for requests with no content
+		if ( !s.hasContent ) {
+
+			// Remember the hash so we can put it back
+			uncached = s.url.slice( cacheURL.length );
+
+			// If data is available and should be processed, append data to url
+			if ( s.data && ( s.processData || typeof s.data === "string" ) ) {
+				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
+
+				// trac-9682: remove data so that it's not used in an eventual retry
+				delete s.data;
+			}
+
+			// Add or update anti-cache param if needed
+			if ( s.cache === false ) {
+				cacheURL = cacheURL.replace( rantiCache, "$1" );
+				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce.guid++ ) +
+					uncached;
+			}
+
+			// Put hash and anti-cache on the URL that will be requested (gh-1732)
+			s.url = cacheURL + uncached;
+
+		// Change '%20' to '+' if this is encoded form body content (gh-2658)
+		} else if ( s.data && s.processData &&
+			( s.contentType || "" ).indexOf( "application/x-www-form-urlencoded" ) === 0 ) {
+			s.data = s.data.replace( r20, "+" );
+		}
+
+		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+		if ( s.ifModified ) {
+			if ( jQuery.lastModified[ cacheURL ] ) {
+				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ cacheURL ] );
+			}
+			if ( jQuery.etag[ cacheURL ] ) {
+				jqXHR.setRequestHeader( "If-None-Match", jQuery.etag[ cacheURL ] );
+			}
+		}
+
+		// Set the correct header, if data is being sent
+		if ( s.data && s.hasContent && s.contentType !== false || options.contentType ) {
+			jqXHR.setRequestHeader( "Content-Type", s.contentType );
+		}
+
+		// Set the Accepts header for the server, depending on the dataType
+		jqXHR.setRequestHeader(
+			"Accept",
+			s.dataTypes[ 0 ] && s.accepts[ s.dataTypes[ 0 ] ] ?
+				s.accepts[ s.dataTypes[ 0 ] ] +
+					( s.dataTypes[ 0 ] !== "*" ? ", " + allTypes + "; q=0.01" : "" ) :
+				s.accepts[ "*" ]
+		);
+
+		// Check for headers option
+		for ( i in s.headers ) {
+			jqXHR.setRequestHeader( i, s.headers[ i ] );
+		}
+
+		// Allow custom headers/mimetypes and early abort
+		if ( s.beforeSend &&
+			( s.beforeSend.call( callbackContext, jqXHR, s ) === false || completed ) ) {
+
+			// Abort if not done already and return
+			return jqXHR.abort();
+		}
+
+		// Aborting is no longer a cancellation
+		strAbort = "abort";
+
+		// Install callbacks on deferreds
+		completeDeferred.add( s.complete );
+		jqXHR.done( s.success );
+		jqXHR.fail( s.error );
+
+		// Get transport
+		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
+
+		// If no transport, we auto-abort
+		if ( !transport ) {
+			done( -1, "No Transport" );
+		} else {
+			jqXHR.readyState = 1;
+
+			// Send global event
+			if ( fireGlobals ) {
+				globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
+			}
+
+			// If request was aborted inside ajaxSend, stop there
+			if ( completed ) {
+				return jqXHR;
+			}
+
+			// Timeout
+			if ( s.async && s.timeout > 0 ) {
+				timeoutTimer = window.setTimeout( function() {
+					jqXHR.abort( "timeout" );
+				}, s.timeout );
+			}
+
+			try {
+				completed = false;
+				transport.send( requestHeaders, done );
+			} catch ( e ) {
+
+				// Rethrow post-completion exceptions
+				if ( completed ) {
+					throw e;
+				}
+
+				// Propagate others as results
+				done( -1, e );
+			}
+		}
+
+		// Callback for when everything is done
+		function done( status, nativeStatusText, responses, headers ) {
+			var isSuccess, success, error, response, modified,
+				statusText = nativeStatusText;
+
+			// Ignore repeat invocations
+			if ( completed ) {
+				return;
+			}
+
+			completed = true;
+
+			// Clear timeout if it exists
+			if ( timeoutTimer ) {
+				window.clearTimeout( timeoutTimer );
+			}
+
+			// Dereference transport for early garbage collection
+			// (no matter how long the jqXHR object will be used)
+			transport = undefined;
+
+			// Cache response headers
+			responseHeadersString = headers || "";
+
+			// Set readyState
+			jqXHR.readyState = status > 0 ? 4 : 0;
+
+			// Determine if successful
+			isSuccess = status >= 200 && status < 300 || status === 304;
+
+			// Get response data
+			if ( responses ) {
+				response = ajaxHandleResponses( s, jqXHR, responses );
+			}
+
+			// Use a noop converter for missing script but not if jsonp
+			if ( !isSuccess &&
+				jQuery.inArray( "script", s.dataTypes ) > -1 &&
+				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
+				s.converters[ "text script" ] = function() {};
+			}
+
+			// Convert no matter what (that way responseXXX fields are always set)
+			response = ajaxConvert( s, response, jqXHR, isSuccess );
+
+			// If successful, handle type chaining
+			if ( isSuccess ) {
+
+				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+				if ( s.ifModified ) {
+					modified = jqXHR.getResponseHeader( "Last-Modified" );
+					if ( modified ) {
+						jQuery.lastModified[ cacheURL ] = modified;
+					}
+					modified = jqXHR.getResponseHeader( "etag" );
+					if ( modified ) {
+						jQuery.etag[ cacheURL ] = modified;
+					}
+				}
+
+				// if no content
+				if ( status === 204 || s.type === "HEAD" ) {
+					statusText = "nocontent";
+
+				// if not modified
+				} else if ( status === 304 ) {
+					statusText = "notmodified";
+
+				// If we have data, let's convert it
+				} else {
+					statusText = response.state;
+					success = response.data;
+					error = response.error;
+					isSuccess = !error;
+				}
+			} else {
+
+				// Extract error from statusText and normalize for non-aborts
+				error = statusText;
+				if ( status || !statusText ) {
+					statusText = "error";
+					if ( status < 0 ) {
+						status = 0;
+					}
+				}
+			}
+
+			// Set data for the fake xhr object
+			jqXHR.status = status;
+			jqXHR.statusText = ( nativeStatusText || statusText ) + "";
+
+			// Success/Error
+			if ( isSuccess ) {
+				deferred.resolveWith( callbackContext, [ success, statusText, jqXHR ] );
+			} else {
+				deferred.rejectWith( callbackContext, [ jqXHR, statusText, error ] );
+			}
+
+			// Status-dependent callbacks
+			jqXHR.statusCode( statusCode );
+			statusCode = undefined;
+
+			if ( fireGlobals ) {
+				globalEventContext.trigger( isSuccess ? "ajaxSuccess" : "ajaxError",
+					[ jqXHR, s, isSuccess ? success : error ] );
+			}
+
+			// Complete
+			completeDeferred.fireWith( callbackContext, [ jqXHR, statusText ] );
+
+			if ( fireGlobals ) {
+				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
+
+				// Handle the global AJAX counter
+				if ( !( --jQuery.active ) ) {
+					jQuery.event.trigger( "ajaxStop" );
+				}
+			}
+		}
+
+		return jqXHR;
+	},
+
+	getJSON: function( url, data, callback ) {
+		return jQuery.get( url, data, callback, "json" );
+	},
+
+	getScript: function( url, callback ) {
+		return jQuery.get( url, undefined, callback, "script" );
+	}
+} );
+
+jQuery.each( [ "get", "post" ], function( _i, method ) {
+	jQuery[ method ] = function( url, data, callback, type ) {
+
+		// Shift arguments if data argument was omitted
+		if ( isFunction( data ) ) {
+			type = type || callback;
+			callback = data;
+			data = undefined;
+		}
+
+		// The url can be an options object (which then must have .url)
+		return jQuery.ajax( jQuery.extend( {
+			url: url,
+			type: method,
+			dataType: type,
+			data: data,
+			success: callback
+		}, jQuery.isPlainObject( url ) && url ) );
+	};
+} );
+
+jQuery.ajaxPrefilter( function( s ) {
+	var i;
+	for ( i in s.headers ) {
+		if ( i.toLowerCase() === "content-type" ) {
+			s.contentType = s.headers[ i ] || "";
+		}
+	}
+} );
+
+
+jQuery._evalUrl = function( url, options, doc ) {
+	return jQuery.ajax( {
+		url: url,
+
+		// Make this explicit, since user can override this through ajaxSetup (trac-11264)
+		type: "GET",
+		dataType: "script",
+		cache: true,
+		async: false,
+		global: false,
+
+		// Only evaluate the response if it is successful (gh-4126)
+		// dataFilter is not invoked for failure responses, so using it instead
+		// of the default converter is kludgy but it works.
+		converters: {
+			"text script": function() {}
+		},
+		dataFilter: function( response ) {
+			jQuery.globalEval( response, options, doc );
+		}
+	} );
+};
+
+
+jQuery.fn.extend( {
+	wrapAll: function( html ) {
+		var wrap;
+
+		if ( this[ 0 ] ) {
+			if ( isFunction( html ) ) {
+				html = html.call( this[ 0 ] );
+			}
+
+			// The elements to wrap the target around
+			wrap = jQuery( html, this[ 0 ].ownerDocument ).eq( 0 ).clone( true );
+
+			if ( this[ 0 ].parentNode ) {
+				wrap.insertBefore( this[ 0 ] );
+			}
+
+			wrap.map( function() {
+				var elem = this;
+
+				while ( elem.firstElementChild ) {
+					elem = elem.firstElementChild;
+				}
+
+				return elem;
+			} ).append( this );
+		}
+
+		return this;
+	},
+
+	wrapInner: function( html ) {
+		if ( isFunction( html ) ) {
+			return this.each( function( i ) {
+				jQuery( this ).wrapInner( html.call( this, i ) );
+			} );
+		}
+
+		return this.each( function() {
+			var self = jQuery( this ),
+				contents = self.contents();
+
+			if ( contents.length ) {
+				contents.wrapAll( html );
+
+			} else {
+				self.append( html );
+			}
+		} );
+	},
+
+	wrap: function( html ) {
+		var htmlIsFunction = isFunction( html );
+
+		return this.each( function( i ) {
+			jQuery( this ).wrapAll( htmlIsFunction ? html.call( this, i ) : html );
+		} );
+	},
+
+	unwrap: function( selector ) {
+		this.parent( selector ).not( "body" ).each( function() {
+			jQuery( this ).replaceWith( this.childNodes );
+		} );
+		return this;
+	}
+} );
+
+
+jQuery.expr.pseudos.hidden = function( elem ) {
+	return !jQuery.expr.pseudos.visible( elem );
+};
+jQuery.expr.pseudos.visible = function( elem ) {
+	return !!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+};
+
+
+
+
+jQuery.ajaxSettings.xhr = function() {
+	try {
+		return new window.XMLHttpRequest();
+	} catch ( e ) {}
+};
+
+var xhrSuccessStatus = {
+
+		// File protocol always yields status code 0, assume 200
+		0: 200,
+
+		// Support: IE <=9 only
+		// trac-1450: sometimes IE returns 1223 when it should be 204
+		1223: 204
+	},
+	xhrSupported = jQuery.ajaxSettings.xhr();
+
+support.cors = !!xhrSupported && ( "withCredentials" in xhrSupported );
+support.ajax = xhrSupported = !!xhrSupported;
+
+jQuery.ajaxTransport( function( options ) {
+	var callback, errorCallback;
+
+	// Cross domain only allowed if supported through XMLHttpRequest
+	if ( support.cors || xhrSupported && !options.crossDomain ) {
+		return {
+			send: function( headers, complete ) {
+				var i,
+					xhr = options.xhr();
+
+				xhr.open(
+					options.type,
+					options.url,
+					options.async,
+					options.username,
+					options.password
+				);
+
+				// Apply custom fields if provided
+				if ( options.xhrFields ) {
+					for ( i in options.xhrFields ) {
+						xhr[ i ] = options.xhrFields[ i ];
+					}
+				}
+
+				// Override mime type if needed
+				if ( options.mimeType && xhr.overrideMimeType ) {
+					xhr.overrideMimeType( options.mimeType );
+				}
+
+				// X-Requested-With header
+				// For cross-domain requests, seeing as conditions for a preflight are
+				// akin to a jigsaw puzzle, we simply never set it to be sure.
+				// (it can always be set on a per-request basis or even using ajaxSetup)
+				// For same-domain requests, won't change header if already provided.
+				if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
+					headers[ "X-Requested-With" ] = "XMLHttpRequest";
+				}
+
+				// Set headers
+				for ( i in headers ) {
+					xhr.setRequestHeader( i, headers[ i ] );
+				}
+
+				// Callback
+				callback = function( type ) {
+					return function() {
+						if ( callback ) {
+							callback = errorCallback = xhr.onload =
+								xhr.onerror = xhr.onabort = xhr.ontimeout =
+									xhr.onreadystatechange = null;
+
+							if ( type === "abort" ) {
+								xhr.abort();
+							} else if ( type === "error" ) {
+
+								// Support: IE <=9 only
+								// On a manual native abort, IE9 throws
+								// errors on any property access that is not readyState
+								if ( typeof xhr.status !== "number" ) {
+									complete( 0, "error" );
+								} else {
+									complete(
+
+										// File: protocol always yields status 0; see trac-8605, trac-14207
+										xhr.status,
+										xhr.statusText
+									);
+								}
+							} else {
+								complete(
+									xhrSuccessStatus[ xhr.status ] || xhr.status,
+									xhr.statusText,
+
+									// Support: IE <=9 only
+									// IE9 has no XHR2 but throws on binary (trac-11426)
+									// For XHR2 non-text, let the caller handle it (gh-2498)
+									( xhr.responseType || "text" ) !== "text"  ||
+									typeof xhr.responseText !== "string" ?
+										{ binary: xhr.response } :
+										{ text: xhr.responseText },
+									xhr.getAllResponseHeaders()
+								);
+							}
+						}
+					};
+				};
+
+				// Listen to events
+				xhr.onload = callback();
+				errorCallback = xhr.onerror = xhr.ontimeout = callback( "error" );
+
+				// Support: IE 9 only
+				// Use onreadystatechange to replace onabort
+				// to handle uncaught aborts
+				if ( xhr.onabort !== undefined ) {
+					xhr.onabort = errorCallback;
+				} else {
+					xhr.onreadystatechange = function() {
+
+						// Check readyState before timeout as it changes
+						if ( xhr.readyState === 4 ) {
+
+							// Allow onerror to be called first,
+							// but that will not handle a native abort
+							// Also, save errorCallback to a variable
+							// as xhr.onerror cannot be accessed
+							window.setTimeout( function() {
+								if ( callback ) {
+									errorCallback();
+								}
+							} );
+						}
+					};
+				}
+
+				// Create the abort callback
+				callback = callback( "abort" );
+
+				try {
+
+					// Do send the request (this may raise an exception)
+					xhr.send( options.hasContent && options.data || null );
+				} catch ( e ) {
+
+					// trac-14683: Only rethrow if this hasn't been notified as an error yet
+					if ( callback ) {
+						throw e;
+					}
+				}
+			},
+
+			abort: function() {
+				if ( callback ) {
+					callback();
+				}
+			}
+		};
+	}
+} );
+
+
+
+
+// Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
+jQuery.ajaxPrefilter( function( s ) {
+	if ( s.crossDomain ) {
+		s.contents.script = false;
+	}
+} );
+
+// Install script dataType
+jQuery.ajaxSetup( {
+	accepts: {
+		script: "text/javascript, application/javascript, " +
+			"application/ecmascript, application/x-ecmascript"
+	},
+	contents: {
+		script: /\b(?:java|ecma)script\b/
+	},
+	converters: {
+		"text script": function( text ) {
+			jQuery.globalEval( text );
+			return text;
+		}
+	}
+} );
+
+// Handle cache's special case and crossDomain
+jQuery.ajaxPrefilter( "script", function( s ) {
+	if ( s.cache === undefined ) {
+		s.cache = false;
+	}
+	if ( s.crossDomain ) {
+		s.type = "GET";
+	}
+} );
+
+// Bind script tag hack transport
+jQuery.ajaxTransport( "script", function( s ) {
+
+	// This transport only deals with cross domain or forced-by-attrs requests
+	if ( s.crossDomain || s.scriptAttrs ) {
+		var script, callback;
+		return {
+			send: function( _, complete ) {
+				script = jQuery( "<script>" )
+					.attr( s.scriptAttrs || {} )
+					.prop( { charset: s.scriptCharset, src: s.url } )
+					.on( "load error", callback = function( evt ) {
+						script.remove();
+						callback = null;
+						if ( evt ) {
+							complete( evt.type === "error" ? 404 : 200, evt.type );
+						}
+					} );
+
+				// Use native DOM manipulation to avoid our domManip AJAX trickery
+				document.head.appendChild( script[ 0 ] );
+			},
+			abort: function() {
+				if ( callback ) {
+					callback();
+				}
+			}
+		};
+	}
+} );
+
+
+
+
+var oldCallbacks = [],
+	rjsonp = /(=)\?(?=&|$)|\?\?/;
+
+// Default jsonp settings
+jQuery.ajaxSetup( {
+	jsonp: "callback",
+	jsonpCallback: function() {
+		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce.guid++ ) );
+		this[ callback ] = true;
+		return callback;
+	}
+} );
+
+// Detect, normalize options and install callbacks for jsonp requests
+jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
+
+	var callbackName, overwritten, responseContainer,
+		jsonProp = s.jsonp !== false && ( rjsonp.test( s.url ) ?
+			"url" :
+			typeof s.data === "string" &&
+				( s.contentType || "" )
+					.indexOf( "application/x-www-form-urlencoded" ) === 0 &&
+				rjsonp.test( s.data ) && "data"
+		);
+
+	// Handle iff the expected data type is "jsonp" or we have a parameter to set
+	if ( jsonProp || s.dataTypes[ 0 ] === "jsonp" ) {
+
+		// Get callback name, remembering preexisting value associated with it
+		callbackName = s.jsonpCallback = isFunction( s.jsonpCallback ) ?
+			s.jsonpCallback() :
+			s.jsonpCallback;
+
+		// Insert callback into url or form data
+		if ( jsonProp ) {
+			s[ jsonProp ] = s[ jsonProp ].replace( rjsonp, "$1" + callbackName );
+		} else if ( s.jsonp !== false ) {
+			s.url += ( rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
+		}
+
+		// Use data converter to retrieve json after script execution
+		s.converters[ "script json" ] = function() {
+			if ( !responseContainer ) {
+				jQuery.error( callbackName + " was not called" );
+			}
+			return responseContainer[ 0 ];
+		};
+
+		// Force json dataType
+		s.dataTypes[ 0 ] = "json";
+
+		// Install callback
+		overwritten = window[ callbackName ];
+		window[ callbackName ] = function() {
+			responseContainer = arguments;
+		};
+
+		// Clean-up function (fires after converters)
+		jqXHR.always( function() {
+
+			// If previous value didn't exist - remove it
+			if ( overwritten === undefined ) {
+				jQuery( window ).removeProp( callbackName );
+
+			// Otherwise restore preexisting value
+			} else {
+				window[ callbackName ] = overwritten;
+			}
+
+			// Save back as free
+			if ( s[ callbackName ] ) {
+
+				// Make sure that re-using the options doesn't screw things around
+				s.jsonpCallback = originalSettings.jsonpCallback;
+
+				// Save the callback name for future use
+				oldCallbacks.push( callbackName );
+			}
+
+			// Call if it was a function and we have a response
+			if ( responseContainer && isFunction( overwritten ) ) {
+				overwritten( responseContainer[ 0 ] );
+			}
+
+			responseContainer = overwritten = undefined;
+		} );
+
+		// Delegate to script
+		return "script";
+	}
+} );
+
+
+
+
+// Support: Safari 8 only
+// In Safari 8 documents created via document.implementation.createHTMLDocument
+// collapse sibling forms: the second one becomes a child of the first one.
+// Because of that, this security measure has to be disabled in Safari 8.
+// https://bugs.webkit.org/show_bug.cgi?id=137337
+support.createHTMLDocument = ( function() {
+	var body = document.implementation.createHTMLDocument( "" ).body;
+	body.innerHTML = "<form></form><form></form>";
+	return body.childNodes.length === 2;
+} )();
+
+
+// Argument "data" should be string of html
+// context (optional): If specified, the fragment will be created in this context,
+// defaults to document
+// keepScripts (optional): If true, will include scripts passed in the html string
+jQuery.parseHTML = function( data, context, keepScripts ) {
+	if ( typeof data !== "string" ) {
+		return [];
+	}
+	if ( typeof context === "boolean" ) {
+		keepScripts = context;
+		context = false;
+	}
+
+	var base, parsed, scripts;
+
+	if ( !context ) {
+
+		// Stop scripts or inline event handlers from being executed immediately
+		// by using document.implementation
+		if ( support.createHTMLDocument ) {
+			context = document.implementation.createHTMLDocument( "" );
+
+			// Set the base href for the created document
+			// so any parsed elements with URLs
+			// are based on the document's URL (gh-2965)
+			base = context.createElement( "base" );
+			base.href = document.location.href;
+			context.head.appendChild( base );
+		} else {
+			context = document;
+		}
+	}
+
+	parsed = rsingleTag.exec( data );
+	scripts = !keepScripts && [];
+
+	// Single tag
+	if ( parsed ) {
+		return [ context.createElement( parsed[ 1 ] ) ];
+	}
+
+	parsed = buildFragment( [ data ], context, scripts );
+
+	if ( scripts && scripts.length ) {
+		jQuery( scripts ).remove();
+	}
+
+	return jQuery.merge( [], parsed.childNodes );
+};
+
+
+/**
+ * Load a url into a page
+ */
+jQuery.fn.load = function( url, params, callback ) {
+	var selector, type, response,
+		self = this,
+		off = url.indexOf( " " );
+
+	if ( off > -1 ) {
+		selector = stripAndCollapse( url.slice( off ) );
+		url = url.slice( 0, off );
+	}
+
+	// If it's a function
+	if ( isFunction( params ) ) {
+
+		// We assume that it's the callback
+		callback = params;
+		params = undefined;
+
+	// Otherwise, build a param string
+	} else if ( params && typeof params === "object" ) {
+		type = "POST";
+	}
+
+	// If we have elements to modify, make the request
+	if ( self.length > 0 ) {
+		jQuery.ajax( {
+			url: url,
+
+			// If "type" variable is undefined, then "GET" method will be used.
+			// Make value of this field explicit since
+			// user can override it through ajaxSetup method
+			type: type || "GET",
+			dataType: "html",
+			data: params
+		} ).done( function( responseText ) {
+
+			// Save response for use in complete callback
+			response = arguments;
+
+			self.html( selector ?
+
+				// If a selector was specified, locate the right elements in a dummy div
+				// Exclude scripts to avoid IE 'Permission Denied' errors
+				jQuery( "<div>" ).append( jQuery.parseHTML( responseText ) ).find( selector ) :
+
+				// Otherwise use the full result
+				responseText );
+
+		// If the request succeeds, this function gets "data", "status", "jqXHR"
+		// but they are ignored because response was set above.
+		// If it fails, this function gets "jqXHR", "status", "error"
+		} ).always( callback && function( jqXHR, status ) {
+			self.each( function() {
+				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
+			} );
+		} );
+	}
+
+	return this;
+};
+
+
+
+
+jQuery.expr.pseudos.animated = function( elem ) {
+	return jQuery.grep( jQuery.timers, function( fn ) {
+		return elem === fn.elem;
+	} ).length;
+};
+
+
+
+
+jQuery.offset = {
+	setOffset: function( elem, options, i ) {
+		var curPosition, curLeft, curCSSTop, curTop, curOffset, curCSSLeft, calculatePosition,
+			position = jQuery.css( elem, "position" ),
+			curElem = jQuery( elem ),
+			props = {};
+
+		// Set position first, in-case top/left are set even on static elem
+		if ( position === "static" ) {
+			elem.style.position = "relative";
+		}
+
+		curOffset = curElem.offset();
+		curCSSTop = jQuery.css( elem, "top" );
+		curCSSLeft = jQuery.css( elem, "left" );
+		calculatePosition = ( position === "absolute" || position === "fixed" ) &&
+			( curCSSTop + curCSSLeft ).indexOf( "auto" ) > -1;
+
+		// Need to be able to calculate position if either
+		// top or left is auto and position is either absolute or fixed
+		if ( calculatePosition ) {
+			curPosition = curElem.position();
+			curTop = curPosition.top;
+			curLeft = curPosition.left;
+
+		} else {
+			curTop = parseFloat( curCSSTop ) || 0;
+			curLeft = parseFloat( curCSSLeft ) || 0;
+		}
+
+		if ( isFunction( options ) ) {
+
+			// Use jQuery.extend here to allow modification of coordinates argument (gh-1848)
+			options = options.call( elem, i, jQuery.extend( {}, curOffset ) );
+		}
+
+		if ( options.top != null ) {
+			props.top = ( options.top - curOffset.top ) + curTop;
+		}
+		if ( options.left != null ) {
+			props.left = ( options.left - curOffset.left ) + curLeft;
+		}
+
+		if ( "using" in options ) {
+			options.using.call( elem, props );
+
+		} else {
+			curElem.css( props );
+		}
+	}
+};
+
+jQuery.fn.extend( {
+
+	// offset() relates an element's border box to the document origin
+	offset: function( options ) {
+
+		// Preserve chaining for setter
+		if ( arguments.length ) {
+			return options === undefined ?
+				this :
+				this.each( function( i ) {
+					jQuery.offset.setOffset( this, options, i );
+				} );
+		}
+
+		var rect, win,
+			elem = this[ 0 ];
+
+		if ( !elem ) {
+			return;
+		}
+
+		// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
+		// Support: IE <=11 only
+		// Running getBoundingClientRect on a
+		// disconnected node in IE throws an error
+		if ( !elem.getClientRects().length ) {
+			return { top: 0, left: 0 };
+		}
+
+		// Get document-relative position by adding viewport scroll to viewport-relative gBCR
+		rect = elem.getBoundingClientRect();
+		win = elem.ownerDocument.defaultView;
+		return {
+			top: rect.top + win.pageYOffset,
+			left: rect.left + win.pageXOffset
+		};
+	},
+
+	// position() relates an element's margin box to its offset parent's padding box
+	// This corresponds to the behavior of CSS absolute positioning
+	position: function() {
+		if ( !this[ 0 ] ) {
+			return;
+		}
+
+		var offsetParent, offset, doc,
+			elem = this[ 0 ],
+			parentOffset = { top: 0, left: 0 };
+
+		// position:fixed elements are offset from the viewport, which itself always has zero offset
+		if ( jQuery.css( elem, "position" ) === "fixed" ) {
+
+			// Assume position:fixed implies availability of getBoundingClientRect
+			offset = elem.getBoundingClientRect();
+
+		} else {
+			offset = this.offset();
+
+			// Account for the *real* offset parent, which can be the document or its root element
+			// when a statically positioned element is identified
+			doc = elem.ownerDocument;
+			offsetParent = elem.offsetParent || doc.documentElement;
+			while ( offsetParent &&
+				( offsetParent === doc.body || offsetParent === doc.documentElement ) &&
+				jQuery.css( offsetParent, "position" ) === "static" ) {
+
+				offsetParent = offsetParent.parentNode;
+			}
+			if ( offsetParent && offsetParent !== elem && offsetParent.nodeType === 1 ) {
+
+				// Incorporate borders into its offset, since they are outside its content origin
+				parentOffset = jQuery( offsetParent ).offset();
+				parentOffset.top += jQuery.css( offsetParent, "borderTopWidth", true );
+				parentOffset.left += jQuery.css( offsetParent, "borderLeftWidth", true );
+			}
+		}
+
+		// Subtract parent offsets and element margins
+		return {
+			top: offset.top - parentOffset.top - jQuery.css( elem, "marginTop", true ),
+			left: offset.left - parentOffset.left - jQuery.css( elem, "marginLeft", true )
+		};
+	},
+
+	// This method will return documentElement in the following cases:
+	// 1) For the element inside the iframe without offsetParent, this method will return
+	//    documentElement of the parent window
+	// 2) For the hidden or detached element
+	// 3) For body or html element, i.e. in case of the html node - it will return itself
+	//
+	// but those exceptions were never presented as a real life use-cases
+	// and might be considered as more preferable results.
+	//
+	// This logic, however, is not guaranteed and can change at any point in the future
+	offsetParent: function() {
+		return this.map( function() {
+			var offsetParent = this.offsetParent;
+
+			while ( offsetParent && jQuery.css( offsetParent, "position" ) === "static" ) {
+				offsetParent = offsetParent.offsetParent;
+			}
+
+			return offsetParent || documentElement;
+		} );
+	}
+} );
+
+// Create scrollLeft and scrollTop methods
+jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( method, prop ) {
+	var top = "pageYOffset" === prop;
+
+	jQuery.fn[ method ] = function( val ) {
+		return access( this, function( elem, method, val ) {
+
+			// Coalesce documents and windows
+			var win;
+			if ( isWindow( elem ) ) {
+				win = elem;
+			} else if ( elem.nodeType === 9 ) {
+				win = elem.defaultView;
+			}
+
+			if ( val === undefined ) {
+				return win ? win[ prop ] : elem[ method ];
+			}
+
+			if ( win ) {
+				win.scrollTo(
+					!top ? val : win.pageXOffset,
+					top ? val : win.pageYOffset
+				);
+
+			} else {
+				elem[ method ] = val;
+			}
+		}, method, val, arguments.length );
+	};
+} );
+
+// Support: Safari <=7 - 9.1, Chrome <=37 - 49
+// Add the top/left cssHooks using jQuery.fn.position
+// Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
+// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
+// getComputedStyle returns percent when specified for top/left/bottom/right;
+// rather than make the css module depend on the offset module, just check for it here
+jQuery.each( [ "top", "left" ], function( _i, prop ) {
+	jQuery.cssHooks[ prop ] = addGetHookIf( support.pixelPosition,
+		function( elem, computed ) {
+			if ( computed ) {
+				computed = curCSS( elem, prop );
+
+				// If curCSS returns percentage, fallback to offset
+				return rnumnonpx.test( computed ) ?
+					jQuery( elem ).position()[ prop ] + "px" :
+					computed;
+			}
+		}
+	);
+} );
+
+
+// Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
+jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
+	jQuery.each( {
+		padding: "inner" + name,
+		content: type,
+		"": "outer" + name
+	}, function( defaultExtra, funcName ) {
+
+		// Margin is only for outerHeight, outerWidth
+		jQuery.fn[ funcName ] = function( margin, value ) {
+			var chainable = arguments.length && ( defaultExtra || typeof margin !== "boolean" ),
+				extra = defaultExtra || ( margin === true || value === true ? "margin" : "border" );
+
+			return access( this, function( elem, type, value ) {
+				var doc;
+
+				if ( isWindow( elem ) ) {
+
+					// $( window ).outerWidth/Height return w/h including scrollbars (gh-1729)
+					return funcName.indexOf( "outer" ) === 0 ?
+						elem[ "inner" + name ] :
+						elem.document.documentElement[ "client" + name ];
+				}
+
+				// Get document width or height
+				if ( elem.nodeType === 9 ) {
+					doc = elem.documentElement;
+
+					// Either scroll[Width/Height] or offset[Width/Height] or client[Width/Height],
+					// whichever is greatest
+					return Math.max(
+						elem.body[ "scroll" + name ], doc[ "scroll" + name ],
+						elem.body[ "offset" + name ], doc[ "offset" + name ],
+						doc[ "client" + name ]
+					);
+				}
+
+				return value === undefined ?
+
+					// Get width or height on the element, requesting but not forcing parseFloat
+					jQuery.css( elem, type, extra ) :
+
+					// Set width or height on the element
+					jQuery.style( elem, type, value, extra );
+			}, type, chainable ? margin : undefined, chainable );
+		};
+	} );
+} );
+
+
+jQuery.each( [
+	"ajaxStart",
+	"ajaxStop",
+	"ajaxComplete",
+	"ajaxError",
+	"ajaxSuccess",
+	"ajaxSend"
+], function( _i, type ) {
+	jQuery.fn[ type ] = function( fn ) {
+		return this.on( type, fn );
+	};
+} );
+
+
+
+
+jQuery.fn.extend( {
+
+	bind: function( types, data, fn ) {
+		return this.on( types, null, data, fn );
+	},
+	unbind: function( types, fn ) {
+		return this.off( types, null, fn );
+	},
+
+	delegate: function( selector, types, data, fn ) {
+		return this.on( types, selector, data, fn );
+	},
+	undelegate: function( selector, types, fn ) {
+
+		// ( namespace ) or ( selector, types [, fn] )
+		return arguments.length === 1 ?
+			this.off( selector, "**" ) :
+			this.off( types, selector || "**", fn );
+	},
+
+	hover: function( fnOver, fnOut ) {
+		return this
+			.on( "mouseenter", fnOver )
+			.on( "mouseleave", fnOut || fnOver );
+	}
+} );
+
+jQuery.each(
+	( "blur focus focusin focusout resize scroll click dblclick " +
+	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
+	function( _i, name ) {
+
+		// Handle event binding
+		jQuery.fn[ name ] = function( data, fn ) {
+			return arguments.length > 0 ?
+				this.on( name, null, data, fn ) :
+				this.trigger( name );
+		};
+	}
+);
+
+
+
+
+// Support: Android <=4.0 only
+// Make sure we trim BOM and NBSP
+// Require that the "whitespace run" starts from a non-whitespace
+// to avoid O(N^2) behavior when the engine would try matching "\s+$" at each space position.
+var rtrim = /^[\s\uFEFF\xA0]+|([^\s\uFEFF\xA0])[\s\uFEFF\xA0]+$/g;
+
+// Bind a function to a context, optionally partially applying any
+// arguments.
+// jQuery.proxy is deprecated to promote standards (specifically Function#bind)
+// However, it is not slated for removal any time soon
+jQuery.proxy = function( fn, context ) {
+	var tmp, args, proxy;
+
+	if ( typeof context === "string" ) {
+		tmp = fn[ context ];
+		context = fn;
+		fn = tmp;
+	}
+
+	// Quick check to determine if target is callable, in the spec
+	// this throws a TypeError, but we will just return undefined.
+	if ( !isFunction( fn ) ) {
+		return undefined;
+	}
+
+	// Simulated bind
+	args = slice.call( arguments, 2 );
+	proxy = function() {
+		return fn.apply( context || this, args.concat( slice.call( arguments ) ) );
+	};
+
+	// Set the guid of unique handler to the same of original handler, so it can be removed
+	proxy.guid = fn.guid = fn.guid || jQuery.guid++;
+
+	return proxy;
+};
+
+jQuery.holdReady = function( hold ) {
+	if ( hold ) {
+		jQuery.readyWait++;
+	} else {
+		jQuery.ready( true );
+	}
+};
+jQuery.isArray = Array.isArray;
+jQuery.parseJSON = JSON.parse;
+jQuery.nodeName = nodeName;
+jQuery.isFunction = isFunction;
+jQuery.isWindow = isWindow;
+jQuery.camelCase = camelCase;
+jQuery.type = toType;
+
+jQuery.now = Date.now;
+
+jQuery.isNumeric = function( obj ) {
+
+	// As of jQuery 3.0, isNumeric is limited to
+	// strings and numbers (primitives or objects)
+	// that can be coerced to finite numbers (gh-2662)
+	var type = jQuery.type( obj );
+	return ( type === "number" || type === "string" ) &&
+
+		// parseFloat NaNs numeric-cast false positives ("")
+		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+		// subtraction forces infinities to NaN
+		!isNaN( obj - parseFloat( obj ) );
+};
+
+jQuery.trim = function( text ) {
+	return text == null ?
+		"" :
+		( text + "" ).replace( rtrim, "$1" );
+};
+
+
+
+// Register as a named AMD module, since jQuery can be concatenated with other
+// files that may use define, but not via a proper concatenation script that
+// understands anonymous AMD modules. A named AMD is safest and most robust
+// way to register. Lowercase jquery is used because AMD module names are
+// derived from file names, and jQuery is normally delivered in a lowercase
+// file name. Do this after creating the global so that if an AMD module wants
+// to call noConflict to hide this version of jQuery, it will work.
+
+// Note that for maximum portability, libraries that are not jQuery should
+// declare themselves as anonymous modules, and avoid setting a global if an
+// AMD loader is present. jQuery is a special case. For more information, see
+// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
+
+if ( true ) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+		return jQuery;
+	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+}
+
+
+
+
+var
+
+	// Map over jQuery in case of overwrite
+	_jQuery = window.jQuery,
+
+	// Map over the $ in case of overwrite
+	_$ = window.$;
+
+jQuery.noConflict = function( deep ) {
+	if ( window.$ === jQuery ) {
+		window.$ = _$;
+	}
+
+	if ( deep && window.jQuery === jQuery ) {
+		window.jQuery = _jQuery;
+	}
+
+	return jQuery;
+};
+
+// Expose jQuery and $ identifiers, even in AMD
+// (trac-7102#comment:10, https://github.com/jquery/jquery/pull/557)
+// and CommonJS for browser emulators (trac-13566)
+if ( typeof noGlobal === "undefined" ) {
+	window.jQuery = window.$ = jQuery;
+}
+
+
+
+
+return jQuery;
+} );
+
+
+/***/ }),
+
+/***/ "./node_modules/node-fetch/browser.js":
+/*!********************************************!*\
+  !*** ./node_modules/node-fetch/browser.js ***!
+  \********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+// ref: https://github.com/tc39/proposal-global
+var getGlobal = function () {
+	// the only reliable means to get the global object is
+	// `Function('return this')()`
+	// However, this causes CSP violations in Chrome apps.
+	if (typeof self !== 'undefined') { return self; }
+	if (typeof window !== 'undefined') { return window; }
+	if (typeof __webpack_require__.g !== 'undefined') { return __webpack_require__.g; }
+	throw new Error('unable to locate global object');
+}
+
+var globalObject = getGlobal();
+
+module.exports = exports = globalObject.fetch;
+
+// Needed for TypeScript and Webpack.
+if (globalObject.fetch) {
+	exports["default"] = globalObject.fetch.bind(globalObject);
+}
+
+exports.Headers = globalObject.Headers;
+exports.Request = globalObject.Request;
+exports.Response = globalObject.Response;
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_consolePlus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/consolePlus */ "./src/modules/consolePlus.js");
+/* harmony import */ var _modules_debugPlus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/debugPlus */ "./src/modules/debugPlus.js");
+/* harmony import */ var _modules_routerPlus__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/routerPlus */ "./src/modules/routerPlus.js");
+/* harmony import */ var _pages_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/index */ "./src/pages/index.js");
+/* harmony import */ var _utils_timeControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/timeControl */ "./src/utils/timeControl.js");
+
+
+
+
+
+
+(function () {
+  _modules_routerPlus__WEBPACK_IMPORTED_MODULE_3__["default"].registerHandlers(_pages_index__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+    var isReset = _utils_timeControl__WEBPACK_IMPORTED_MODULE_5__["default"].isResetTime();
+    if (isReset === 1 || isReset === 2) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_1__["default"].warn("It is ".concat(isReset === 2 ? 'reset' : 'backup', " time, not loading the app."));
+      return;
+    }
+    _modules_consolePlus__WEBPACK_IMPORTED_MODULE_1__["default"].log('FarmRPG Plus app initialized.');
+    if (_modules_debugPlus__WEBPACK_IMPORTED_MODULE_2__["default"].isDevelopmentMode()) {
+      _modules_consolePlus__WEBPACK_IMPORTED_MODULE_1__["default"].warn('Development mode is enabled, debugging features are active.');
+      _modules_debugPlus__WEBPACK_IMPORTED_MODULE_2__["default"].applyDebugFeatures();
+    }
+    _modules_routerPlus__WEBPACK_IMPORTED_MODULE_3__["default"].fixUrlHash();
+    if (window.mainView && mainView.container) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(mainView.container).on('page:init page:reinit', function () {
+        _modules_routerPlus__WEBPACK_IMPORTED_MODULE_3__["default"].fixUrlHash();
+        var page = myApp.getCurrentView().activePage || mainView.activePage;
+        var callback = _modules_routerPlus__WEBPACK_IMPORTED_MODULE_3__["default"].handlePageChange(page);
+        if (callback && typeof callback === 'function') {
+          _modules_consolePlus__WEBPACK_IMPORTED_MODULE_1__["default"].debug("Running callback for page: ".concat(page.name));
+          callback(page);
+        }
+      });
+    }
+  });
+})();
+})();
+
+/******/ })()
+;

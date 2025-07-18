@@ -16,10 +16,19 @@ class WorkshopPage {
             GamePagesEnum.WORKSHOP,
             'addCraftingBonusIndicator',
             {
-                title: 'Add Crafting Bonus Indicator?',
-                subtitle: 'Adds a indicator to crafting items showing how much bonus resources will be crafted with resource saver.',
-                isEnabled: true,
-                configs: {}
+                title: 'Crafting Bonus Indicator',
+                subtitle: 'Displays a indicator next to crafting items showing how much bonus resources will be crafted with resource saver.',
+                enableTitle: 'Enable Crafting Bonus Indicator',
+                enableSubtitle: 'If enabled, shows the indicator next to crafting items.',
+                enabledByDefault: true,
+                configs: {
+                    onlyWhenAboveZero: {
+                        title: 'Show only when greater than zero',
+                        subtitle: 'If enabled, the crafting bonus indicator will only be shown when the crafting bonus is greater than zero.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
             }
         );
     }
@@ -123,6 +132,18 @@ class WorkshopPage {
                 })
                 .text(`(${bonusValue})`);
 
+            const onlyWhenAboveZero = SettingsPlus.getValue(
+                GamePagesEnum.WORKSHOP,
+                'addCraftingBonusIndicator',
+                'onlyWhenAboveZero',
+                true
+            );
+
+            if (onlyWhenAboveZero && bonusValue <= 0) {
+                ConsolePlus.log('Crafting bonus is zero or less, not displaying indicator.');
+                $indicator.text('');
+            }
+
             const itExistsInput = $(element).find('.frpgp-crafting-bonus-indicator').length > 0;
 
             if (!itExistsInput) {
@@ -143,8 +164,21 @@ class WorkshopPage {
                     $indicator.text('');
                     return;
                 }
-                
-                $indicator.text(`(${Math.floor(currentValue * resourceSaver)})`);
+
+                const onlyWhenAboveZero = SettingsPlus.getValue(
+                    GamePagesEnum.WORKSHOP,
+                    'addCraftingBonusIndicator',
+                    'onlyWhenAboveZero',
+                    true
+                );
+
+                const newBonusValue = Math.floor(currentValue * resourceSaver);
+                if (newBonusValue <= 0 && onlyWhenAboveZero) {
+                    $indicator.text('');
+                } else {
+                    $indicator.text(`(${newBonusValue})`);
+                }
+
                 return;
             });
 

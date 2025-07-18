@@ -20,7 +20,7 @@ class NPCSPage {
             {
                 title: 'Add Townsfolk Info Card?',
                 subtitle: 'Adds a card with links to townsfolk information.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
