@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ItemPage` - Changed NPC likings cards positions to be the last card on the page, as it is mostly for reference.
 
 ### Fixed
+- `WorkshopPage` - Fixed crafting bonus text not displaying commas for large numbers.
 - `OvenPage` - Fixed navigation buttons not displaying correctly when a meal is complete.
 
 ## [1.2.1](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/1.2.1/dist/FarmRPGPlus.user.js)

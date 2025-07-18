@@ -130,7 +130,7 @@ class WorkshopPage {
                     'font-weight': 'bold',
                     'font-size': '14px',
                 })
-                .text(`(${bonusValue})`);
+                .text(`(${addCommas(bonusValue.toString())})`);
 
             const onlyWhenAboveZero = SettingsPlus.getValue(
                 GamePagesEnum.WORKSHOP,
@@ -176,7 +176,7 @@ class WorkshopPage {
                 if (newBonusValue <= 0 && onlyWhenAboveZero) {
                     $indicator.text('');
                 } else {
-                    $indicator.text(`(${newBonusValue})`);
+                    $indicator.text(`(${addCommas(newBonusValue.toString())})`);
                 }
 
                 return;
