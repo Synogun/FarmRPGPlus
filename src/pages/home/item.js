@@ -92,7 +92,7 @@ class ItemPage {
                         subtitle: 'If enabled, the indicator will be shown when the item was never collected.',
                         type: 'checkbox',
                         typeData: { defaultValue: true }
-                    }
+                    },
 
                 }
             }
@@ -137,7 +137,7 @@ class ItemPage {
                         subtitle: 'If enabled, the indicator will be shown when the item is at Mega Mastery.',
                         type: 'checkbox',
                         typeData: { defaultValue: true }
-                    },
+                    }
                 }
             }
         );

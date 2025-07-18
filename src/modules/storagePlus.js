@@ -79,7 +79,7 @@ class StoragePlus {
         const keys = key.split('.');
         let value = StoragePlus._getStorage();
         for (const k of keys) {
-            if (value?.[k] !== undefined) {
+            if (value && Object.prototype.hasOwnProperty.call(value, k)) {
                 value = value[k];
             } else {
                 return defaultValue;
