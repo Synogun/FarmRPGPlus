@@ -156,7 +156,7 @@ class ItemPage {
      */
     static titles = Object.freeze({
         ITEM_DETAILS: 'Item Details',
-        PUMPKING_JUICE: 'Pumpkin Juice',
+        PUMPKIN_JUICE: 'Pumpkin Juice',
         COOKING_RECIPE: 'Cooking Recipe',
         COOKING_USE: 'Cooking Use',
         CRAFTING_RECIPE: 'Crafting Recipe',
@@ -295,7 +295,7 @@ class ItemPage {
         throwIfPageInvalid(page, this.addBuddyFarmButton.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addBuddyFarmButton')) {
-            ConsolePlus.log('Buddy Farm button is disabled in settings.');
+            ConsolePlus.debug('Buddy Farm button is disabled in settings.');
             return;
         }
 
@@ -333,6 +333,7 @@ class ItemPage {
         throwIfPageInvalid(page, this.addNpcLikingsCards.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addNpcLikingsCards')) {
+            ConsolePlus.debug('NPC likings cards are disabled in settings.');
             return;
         }
 
@@ -413,7 +414,7 @@ class ItemPage {
         throwIfPageInvalid(page, this.addCollectedIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addCollectedIndicator')) {
-            ConsolePlus.log('Collected indicator is disabled in settings.');
+            ConsolePlus.debug('Collected indicator is disabled in settings.');
             return;
         }
 
@@ -486,12 +487,12 @@ class ItemPage {
         throwIfPageInvalid(page, this.addPJToGoalIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addPJToGoalIndicator')) {
-            ConsolePlus.log('Pumpking Juice goal indicator is disabled in settings.');
+            ConsolePlus.debug('Pumpkin Juice goal indicator is disabled in settings.');
             return;
         }
 
-        if (!getListByTitle(page, ItemPage.titles.PUMPKING_JUICE)) {
-            ConsolePlus.debug('Pumpking Juice section not found on the page.');
+        if (!getListByTitle(page, ItemPage.titles.PUMPKIN_JUICE)) {
+            ConsolePlus.debug('Pumpkin Juice section not found on the page.');
             return;
         }
 

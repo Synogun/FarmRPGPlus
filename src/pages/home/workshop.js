@@ -70,7 +70,7 @@ class WorkshopPage {
         throwIfPageInvalid(page, this.addCraftingBonusIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.WORKSHOP, 'addCraftingBonusIndicator')) {
-            ConsolePlus.log('Crafting bonus indicator is disabled in settings.');
+            ConsolePlus.debug('Crafting bonus indicator is disabled in settings.');
             return;
         }
 

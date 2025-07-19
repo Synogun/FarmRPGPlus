@@ -35,7 +35,7 @@ class WellPage {
         throwIfPageInvalid(page, this.addLibraryCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.WELL, 'addLibraryCard')) {
-            ConsolePlus.log('Wishing Well Library card is disabled in settings.');
+            ConsolePlus.debug('Wishing Well Library card is disabled in settings.');
             return;
         }
 

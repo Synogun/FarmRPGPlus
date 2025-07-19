@@ -39,7 +39,7 @@ class QuestsPage {
         throwIfPageInvalid(page, this.addBuddyFarmCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.QUESTS, 'addBuddyFarmButton')) {
-            ConsolePlus.log('Buddy Farm button is disabled in settings.');
+            ConsolePlus.debug('Buddy Farm button is disabled in settings.');
             return;
         }
 

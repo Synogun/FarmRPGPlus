@@ -46,14 +46,14 @@ class FarmSupplyPage {
         throwIfPageInvalid(page, this.addDisplayDiscounts.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.FARM_SUPPLY, 'addDisplayDiscounts')) {
-            ConsolePlus.log('Discount display is disabled in settings.');
+            ConsolePlus.debug('Discount display is disabled in settings.');
             return;
         }
 
         const $originalPrices = $(page.container).find('span[style^=\'color:teal;\'] strong');
 
         if ($originalPrices.length === 0) {
-            ConsolePlus.log('No discounts found on the Farm Supply page.');
+            ConsolePlus.debug('No discounts found on the Farm Supply page.');
             return;
         }
 
@@ -61,7 +61,7 @@ class FarmSupplyPage {
             const $discountedPrice = $(element).parents('.item-title').next();
             
             if ($discountedPrice.length === 0) {
-                ConsolePlus.log('No discounted price found for:', $(element).text());
+                ConsolePlus.debug('No discounted price found for:', $(element).text());
                 return;
             }
 

@@ -97,6 +97,7 @@ class BottleRocketPage {
         throwIfPageInvalid(page, this.makeStats.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
+            ConsolePlus.debug('Bottle Rocket stats card is disabled in settings.');
             return;
         }
 
@@ -183,7 +184,7 @@ class BottleRocketPage {
         throwIfPageInvalid(page, this.makeAttackHistory.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isAttackHistoryEnabled')) {
-            ConsolePlus.log('Bottle Rocket attack history is disabled in settings.');
+            ConsolePlus.debug('Bottle Rocket attack history is disabled in settings.');
             return;
         }
 
@@ -237,7 +238,7 @@ class BottleRocketPage {
         throwIfPageInvalid(page, this.makeLastPlayersHistory.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isPlayerHistoryEnabled')) {
-            ConsolePlus.log('Bottle Rocket player history is disabled in settings.');
+            ConsolePlus.debug('Bottle Rocket player history is disabled in settings.');
             return;
         }
 

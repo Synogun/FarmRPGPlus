@@ -35,7 +35,7 @@ class NPCSPage {
         throwIfPageInvalid(page, this.addTownsfolkInfoCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.NPCS, 'townsfolkInfo')) {
-            ConsolePlus.log('Townsfolk Info Card is disabled, skipping creation.');
+            ConsolePlus.debug('Townsfolk Info Card is disabled, skipping creation.');
             return;
         }
 

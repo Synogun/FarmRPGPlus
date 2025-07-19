@@ -74,6 +74,7 @@ class OvenPage {
         throwIfPageInvalid(page, this.addOvenNavigationButtons.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.OVEN, 'addOvenNavigationButtons')) {
+            ConsolePlus.debug('Oven navigation buttons are disabled.');
             return;
         }
 

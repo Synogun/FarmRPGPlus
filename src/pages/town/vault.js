@@ -47,7 +47,7 @@ class VaultPage {
         throwIfPageInvalid(page, this.addLibraryCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addLibraryCard')) {
-            ConsolePlus.log('Vault Library card is disabled in settings.');
+            ConsolePlus.debug('Vault Library card is disabled in settings.');
             return;
         }
 
@@ -79,7 +79,7 @@ class VaultPage {
         throwIfPageInvalid(page, this.addGuessVaultCode.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addGuessVaultCode')) {
-            ConsolePlus.log('Vault Guess Code button is disabled in settings.');
+            ConsolePlus.debug('Vault Guess Code button is disabled in settings.');
             return;
         }
 
