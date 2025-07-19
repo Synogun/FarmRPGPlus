@@ -219,7 +219,7 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
     return content;
 }
 
-function watchForElement(selector, callback) {
+function watchForElement(from, selector, callback) {
     let observer = null;
 
     // Verifica se o elemento já está presente
@@ -240,14 +240,14 @@ function watchForElement(selector, callback) {
                     if ($matched.length) {
                         callback($matched.first());
                         observer.disconnect(); // parar após encontrar
-                        return;
+                        return () => { };
                     }
                 }
             });
         }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(from, { childList: true, subtree: true });
 
     // Retorna função para parar manualmente
     return () => {

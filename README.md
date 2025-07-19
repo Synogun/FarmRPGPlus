@@ -186,6 +186,28 @@ Adds a button to the Vault page that guesses the next code try based on the amou
 
 </details>
 
+### ✨ Highlight Row
+
+Adds a highlight effect to specific rows on the home page, making it easier to identify when they are ready for interaction.
+
+- Configurations:
+  - **Enable Highlight Row**: Enable or disable the feature.
+  - **Highlight Ready Crops**: Highlight the "My Farm" row if it has ready crops.
+  - **Highlight Ready Meals**: Highlight the "Kitchen" row if it has ready meals.
+  - **Highlight Meals Attention**: Highlight the "Kitchen" row if it has meals that need attention.
+  - **Highlight Fish Baiting**: Highlight the "Fishing" row if a location is baiting.
+  - **Highlight Ready Quests**: Highlight the "Quests" row if it has quests ready to complete.
+  - **Highlight Available Perks**: Highlight the "Perks" row if it has available perks .
+  - **Highlight Ready Mastery**: Highlight the "Mastery" row if it has mastery ready to collect.
+  - **Highlight NPC Gifts**: Highlight the "NPC Levels" row if it has gifts ready to collect.
+  - **Highlight Ready Daily Chores**: Highlight the "Daily Chores" row if it has chores ready to complete.
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Highlight Row](screenshots/highlight-row.png "Highlight Row")
+
+</details>
+
 ### 🙈🔝 Hide Max Skills
 
 Hides the skills that are already maxed out on the home page.
