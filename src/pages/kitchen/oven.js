@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import RouterPlus from '../../modules/routerPlus';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -20,10 +20,25 @@ class OvenPage {
             GamePagesEnum.OVEN,
             'addOvenNavigationButtons',
             {
-                title: 'Add Oven Navigation Buttons?',
-                subtitle: 'Adds buttons to navigate between different oven pages.',
-                isEnabled: true,
-                configs: {}
+                title: 'Oven Navigation Buttons',
+                subtitle: 'Displays buttons to navigate between oven pages.',
+                enableTitle: 'Enable Oven Navigation Buttons',
+                enableSubtitle: 'If enabled, shows navigation buttons to go to next or previous oven pages.',
+                enabledByDefault: true,
+                configs: {
+                    showNextButton: {
+                        title: 'Show Next Button',
+                        subtitle: 'Display a button to navigate to the next oven page.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    showPreviousButton: {
+                        title: 'Show Previous Button',
+                        subtitle: 'Display a button to navigate to the previous oven page.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
             }
         );
     }
@@ -56,16 +71,10 @@ class OvenPage {
     };
 
     addOvenNavigationButtons = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addOvenNavigationButtons.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addOvenNavigationButtons.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.OVEN, 'addOvenNavigationButtons')) {
-            ConsolePlus.log('Oven navigation buttons are disabled in settings.');
+            ConsolePlus.debug('Oven navigation buttons are disabled.');
             return;
         }
 
@@ -87,12 +96,34 @@ class OvenPage {
                 RouterPlus.goto(`#!/oven.php?num=${currentOven === playerOvens ? 1 : currentOven + 1}`);
             });
 
+        const showNextButton = SettingsPlus.getValue(
+            GamePagesEnum.OVEN,
+            'addOvenNavigationButtons',
+            'showNextButton',
+            true
+        );
+
+        const showPreviousButton = SettingsPlus.getValue(
+            GamePagesEnum.OVEN,
+            'addOvenNavigationButtons',
+            'showPreviousButton',
+            true
+        );
+
+        if (!showNextButton && !showPreviousButton) {
+            return;
+        }
+
         const $navRow = createRow({
             iconImageUrl: IconsUrlEnum.OVEN_ICON,
             title: 'Oven Navigation',
             subtitle: 'Navigate to next or previous oven page',
             rowId: 'frpg-oven-navigation-row',
-            afterLabel: [$previousButton, '<p>&nbsp;</p>', $nextButton],
+            afterLabel: [
+                showPreviousButton ? $previousButton : null,
+                '<p>&nbsp;</p>',
+                showNextButton ? $nextButton : null
+            ],
         });
 
         const $navCard = createCardList({
@@ -101,8 +132,8 @@ class OvenPage {
             children: [$navRow],
         });
         const itExists = $(page.container).find('#frpg-oven-navigation-card').length > 0;
-        
-        if (!this.isCurrentlyCooking(page) && !itExists) {
+
+        if (!this.isCurrentlyCooking(page) && !this.isCookingComplete(page) && !itExists) {
             getListByTitle(
                 page,
                 OvenPage.titles.LEARNED_RECIPES,
@@ -118,13 +149,7 @@ class OvenPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Oven page initialized', page);
         this.addOvenNavigationButtons(page);

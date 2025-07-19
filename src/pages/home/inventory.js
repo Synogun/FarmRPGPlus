@@ -1,18 +1,12 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import StoragePlus from '../../modules/storagePlus';
 
 class InventoryPage {
 
     syncCollectionProgress = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.syncCollectionProgress.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.syncCollectionProgress.name);
 
         const $itemNames = $(page.container).find('.item-title strong');
 
@@ -39,13 +33,7 @@ class InventoryPage {
     
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Inventory page initialized:', page);
 

@@ -1,5 +1,3 @@
-import ConsolePlus from './modules/consolePlus';
-
 const ErrorTypes = Object.freeze({
     PAGE_NOT_FOUND: 'Page not found',
     PARAMETER_MISMATCH: 'Parameter type mismatch',
@@ -12,16 +10,24 @@ const ErrorTypes = Object.freeze({
 
 class FarmRPGPlusError extends Error {
     constructor(type, context = '', extraMessage = '') {
-        super(type || ErrorTypes.UNKNOWN);
-        this.context = context ? ` | ${context}` : '';
-        this.extraMessage = extraMessage ? ` | ${extraMessage}` : '';
-
-        ConsolePlus.error(`Error: ${this.message}${this.context}${this.extraMessage}`);
+        super(`Error: ${type || ErrorTypes.UNKNOWN}${context && ' | ' + context}${extraMessage ? ' | ' + extraMessage : ''}`);
+        this.name = 'FarmRPGPlusError';
     }
 }
 
+const throwIfPageInvalid = (page, context = '') => {
+    if (!page || !page.container) {
+        throw new FarmRPGPlusError(
+            ErrorTypes.PAGE_NOT_FOUND,
+            context,
+            `Page object is invalid or missing container: ${JSON.stringify(page)}`
+        );
+    }
+};
+
 export {
     ErrorTypes as ErrorTypesEnum,
-    FarmRPGPlusError
+    FarmRPGPlusError,
+    throwIfPageInvalid
 };
 

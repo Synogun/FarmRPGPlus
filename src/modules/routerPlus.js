@@ -55,11 +55,11 @@ const RouterPlus = {
             !page.trim() ||
             typeof handler !== 'function'
         ) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.bindPageHandler.name,
+                `Error binding handler for page: ${page}`,
             );
-            return;
         }
 
         this.handlers[page] = handler;
@@ -183,20 +183,20 @@ const RouterPlus = {
      * @throws {FarmRPGPlusError} If the hash is invalid or empty.
      */
     goto: function (hash) {
-        if (typeof hash !== 'string' || hash.trim() === '') {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.INVALID_URL,
+        if (!hash || typeof hash !== 'string' || hash.trim() === '') {
+            throw new FarmRPGPlusError(
+                ErrorTypesEnum.PARAMETER_MISMATCH,
                 this.goto.name,
+                'Hash is required and must be a non-empty string.',
             );
-            return;
         }
 
         if (!this.isHashValid(hash)) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.INVALID_URL,
                 this.goto.name,
+                `Invalid hash format: ${hash}`,
             );
-            return;
         }
 
         hash = hash.replace(/^#!\//, ''); // Remove leading #!/

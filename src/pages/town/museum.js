@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import StoragePlus from '../../modules/storagePlus';
 
@@ -17,13 +17,7 @@ class MuseumPage {
     });
 
     syncCollectionProgress = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.syncCollectionProgress.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.syncCollectionProgress.name);
         
         const $itemBlocks = $(page.container).find('.col-25');
         
@@ -50,13 +44,7 @@ class MuseumPage {
 
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Museum page initialized:', page);
 

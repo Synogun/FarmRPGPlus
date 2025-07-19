@@ -13,28 +13,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-## [1.2.1](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/1.2.1/dist/FarmRPGPlus.user.js)
+## [v1.5.3](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.5.3/dist/FarmRPGPlus.user.js)
 
 ### Added
-- `WorkshopPage` - Added crafting bonus (resource saver) indicator to the Workshop page.
+- `HomePage` - Adds Hide Maxed Skills feature, which hides skills that are already maxed out on the home page.
+- `SettingsPlus` - Adds additional settings for several features.
+- `ItemPage` - Adds Pumpkin Juice Indicator, showing how many uses its needed to reach mastery.
+- `SettingsPlus` - Adds a more robust feature registration and management, allowing better handling of feature defaults and configurations.
+
+### Changed
+- `ItemPage` - Changes NPC likings cards positions to be the last card on the page, as it is mostly for reference.
+- `FarmRPGPlusError` - Changes error handling to use now properly throw the `FarmRPGPlusError`.
+
+### Fixed
+- `SettingsOptionsPage` - Fixes the hidden old configs making feature enablers not display correctly.
+- `WorkshopPage` - Fixes crafting bonus text not displaying commas for large numbers.
+- `OvenPage` - Fixes navigation buttons not displaying correctly when a meal is complete.
+
+## [1.2.1](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.2.1/dist/FarmRPGPlus.user.js)
+
+### Added
+- `WorkshopPage` - Adds crafting bonus (resource saver) indicator to the Workshop page.
 
 ### Changed
 
 ### Fixed
-- `StoragePlus` - Fixed StoragePlus not correctly handling the storage initialization.
+- `StoragePlus` - Fixes StoragePlus not correctly handling the storage initialization.
 
 ## [1.1.0](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/1.1.0/dist/FarmRPGPlus.user.js)
 
 ### Added
-- `Settings` - Added settings options for all features currently available.
-- `SettingsOptionsPage` - Added SettingsOptionsPage for the user enable/disable available features.
-- `SettingsPlus` - Added SettingsPlus module for managing userscript settings.
-- `MuseumPage` - Added collected indicator cache syncronization to the Museum page.
-- `InventoryPage` - Added collected indicator cache syncronization to the Inventory page.
-- `VaultPage` - Added really basic code suggester to the Vault page.
-- `VaultPage` - Added library button to the Vault page.
-- `ItemPage` - Added collected indicator to item pages, showing if the item is collected.
-- `ItemPage` - Sort Npc likings cards by Super Loves, Loves, Likes and Hates.
+- `Settings` - Adds a settings options for all features currently available.
+- `SettingsOptionsPage` - Adds SettingsOptionsPage for the user enable/disable available features.
+- `SettingsPlus` - Adds SettingsPlus module for managing userscript settings.
+- `MuseumPage` - Adds collected indicator cache syncronization to the Museum page.
+- `InventoryPage` - Adds a collected indicator cache syncronization to the Inventory page.
+- `VaultPage` - Adds a really basic code suggester to the Vault page.
+- `VaultPage` - Adds a library button to the Vault page.
+- `ItemPage` - Adds a collected indicator to item pages, showing if the item is collected.
+- `ItemPage` - Adds sorting to Npc likings cards by Super Loves, Loves, Likes and Hates.
 
 ### Changed
 - `StoragePlus` - Made StoragePlus static, removing the need to instantiate it.

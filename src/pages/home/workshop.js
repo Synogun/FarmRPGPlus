@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import SettingsPlus from '../../modules/settingsPlus';
 
@@ -16,10 +16,19 @@ class WorkshopPage {
             GamePagesEnum.WORKSHOP,
             'addCraftingBonusIndicator',
             {
-                title: 'Add Crafting Bonus Indicator?',
-                subtitle: 'Adds a indicator to crafting items showing how much bonus resources will be crafted with resource saver.',
-                isEnabled: true,
-                configs: {}
+                title: 'Crafting Bonus Indicator',
+                subtitle: 'Displays a indicator next to crafting items showing how much bonus resources will be crafted with resource saver.',
+                enableTitle: 'Enable Crafting Bonus Indicator',
+                enableSubtitle: 'If enabled, shows the indicator next to crafting items.',
+                enabledByDefault: true,
+                configs: {
+                    onlyWhenAboveZero: {
+                        title: 'Show only when greater than zero',
+                        subtitle: 'If enabled, the crafting bonus indicator will only be shown when the crafting bonus is greater than zero.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
             }
         );
     }
@@ -30,19 +39,14 @@ class WorkshopPage {
     });
 
     getResourceSaverFactor = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.getResourceSaverFactor.name,
-            );
-            return 1;
-        }
+        throwIfPageInvalid(page, this.getResourceSaverFactor.name);
 
         const $firstCardContent = $(page.container).find('.progressbar').next('.card');
         if ($firstCardContent.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addCraftingBonusIndicator.name,
+                'Resource saver card content not found in the workshop page.'
             );
         }
 
@@ -63,16 +67,10 @@ class WorkshopPage {
     };
 
     addCraftingBonusIndicator = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addCraftingBonusIndicator.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addCraftingBonusIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.WORKSHOP, 'addCraftingBonusIndicator')) {
-            ConsolePlus.log('Crafting bonus indicator is disabled in settings.');
+            ConsolePlus.debug('Crafting bonus indicator is disabled in settings.');
             return;
         }
 
@@ -121,7 +119,19 @@ class WorkshopPage {
                     'font-weight': 'bold',
                     'font-size': '14px',
                 })
-                .text(`(${bonusValue})`);
+                .text(`(${addCommas(bonusValue.toString())})`);
+
+            const onlyWhenAboveZero = SettingsPlus.getValue(
+                GamePagesEnum.WORKSHOP,
+                'addCraftingBonusIndicator',
+                'onlyWhenAboveZero',
+                true
+            );
+
+            if (onlyWhenAboveZero && bonusValue <= 0) {
+                ConsolePlus.log('Crafting bonus is zero or less, not displaying indicator.');
+                $indicator.text('');
+            }
 
             const itExistsInput = $(element).find('.frpgp-crafting-bonus-indicator').length > 0;
 
@@ -143,8 +153,21 @@ class WorkshopPage {
                     $indicator.text('');
                     return;
                 }
-                
-                $indicator.text(`(${Math.floor(currentValue * resourceSaver)})`);
+
+                const onlyWhenAboveZero = SettingsPlus.getValue(
+                    GamePagesEnum.WORKSHOP,
+                    'addCraftingBonusIndicator',
+                    'onlyWhenAboveZero',
+                    true
+                );
+
+                const newBonusValue = Math.floor(currentValue * resourceSaver);
+                if (newBonusValue <= 0 && onlyWhenAboveZero) {
+                    $indicator.text('');
+                } else {
+                    $indicator.text(`(${addCommas(newBonusValue.toString())})`);
+                }
+
                 return;
             });
 
@@ -171,13 +194,7 @@ class WorkshopPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Workshop page initialized:', page);
         this.addCraftingBonusIndicator(page);

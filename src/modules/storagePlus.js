@@ -15,13 +15,7 @@ class StoragePlus {
             typeof localStorage !== 'object' ||
             localStorage?.version !== process.env.VERSION
         ) {
-            StoragePlus._setStorage({
-                version: process.env.VERSION,
-            });
-        }
-
-        if (!localStorage?.version) {
-            StoragePlus.set('version', process.env.VERSION);
+            StoragePlus._setStorage({ version: process.env.VERSION });
         }
     }
 
@@ -33,21 +27,12 @@ class StoragePlus {
     static _getStorage() {
         let localStorage = window.localStorage.getItem(StoragePlus._configKey);
         
-        try {
-            if (!localStorage) {
-                StoragePlus.initStorage();
-                localStorage = window.localStorage.getItem(StoragePlus._configKey);
-            }
-
-            return JSON.parse(localStorage);
-        } catch (e) {
-            console.error('Error parsing stored settings:', e);
-            
+        if (!localStorage) {
             StoragePlus.initStorage();
             localStorage = window.localStorage.getItem(StoragePlus._configKey);
-            
-            return JSON.parse(localStorage);
         }
+
+        return JSON.parse(localStorage);
     }
 
     /**
@@ -67,6 +52,7 @@ class StoragePlus {
     static set(key, value) {
         const keys = key.split('.');
         const storage = StoragePlus._getStorage();
+
         let current = storage;
         for (let i = 0; i < keys.length; i++) {
             const k = keys[i];
@@ -86,7 +72,7 @@ class StoragePlus {
      * Retrieves the value associated with the specified key from storage.
      *
      * @param {string} key - The key of the item to retrieve using dot notation for nested properties.
-     * @param {*} [defaultValue=undefined] - The default value to return if the key does not exist in storage.
+     * @param {*} [defaultValue] - The default value to return if the key does not exist in storage.
      * @returns {*} The value associated with the key, or defaultValue if the key does not exist.
      */
     static get(key, defaultValue) {

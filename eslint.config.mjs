@@ -12,11 +12,15 @@ export default defineConfig([
             sourceType: 'module',
             globals: {
                 ...globals.browser,
+
+                // Game defined globals
                 $$: 'readonly',
                 mainView: 'readonly',
                 myApp: 'readonly',
                 Dom7: 'readonly',
                 process: 'readonly',
+                addCommas: 'readonly',
+                removeCommas: 'readonly',
             },
         },
     },

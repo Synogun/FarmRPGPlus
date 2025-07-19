@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -20,7 +20,7 @@ class VaultPage {
             {
                 title: 'Add Library Card?',
                 subtitle: 'Adds a card with a link to the Vault Library page.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -31,7 +31,7 @@ class VaultPage {
             {
                 title: 'Add Guess Vault Code Button?',
                 subtitle: 'Enables the Guess Vault Code button.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -44,16 +44,10 @@ class VaultPage {
     });
 
     addLibraryCard = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addLibraryCard.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addLibraryCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addLibraryCard')) {
-            ConsolePlus.log('Vault Library card is disabled in settings.');
+            ConsolePlus.debug('Vault Library card is disabled in settings.');
             return;
         }
 
@@ -82,16 +76,10 @@ class VaultPage {
     };
 
     addGuessVaultCode = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addGuessVaultCode.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addGuessVaultCode.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addGuessVaultCode')) {
-            ConsolePlus.log('Vault Guess Code button is disabled in settings.');
+            ConsolePlus.debug('Vault Guess Code button is disabled in settings.');
             return;
         }
 
@@ -116,11 +104,11 @@ class VaultPage {
             evt.preventDefault();
 
             if (!$inputVaultCode.length) {
-                new FarmRPGPlusError(
+                throw new FarmRPGPlusError(
                     ErrorTypesEnum.ELEMENT_NOT_FOUND,
                     this.addGuessVaultCode.name,
+                    'Vault code input not found in the page container.'
                 );
-                return;
             }
 
             const $vaultHints = $(page.container).find('.card-content-inner .row .col-25');
@@ -180,13 +168,7 @@ class VaultPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Vault page initialized:', page);
         this.addLibraryCard(page);

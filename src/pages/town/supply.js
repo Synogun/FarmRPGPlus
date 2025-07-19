@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import SettingsPlus from '../../modules/settingsPlus';
 
@@ -18,7 +18,7 @@ class FarmSupplyPage {
             {
                 title: 'Add discount indicators for on SALE items?',
                 subtitle: 'Adds a discount percentage next to items that are on sale.',
-                isEnabled: true,
+                enabledByDefault: true,
                 configs: {}
             }
         );
@@ -43,23 +43,17 @@ class FarmSupplyPage {
     });
 
     addDisplayDiscounts = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addDisplayDiscounts.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addDisplayDiscounts.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.FARM_SUPPLY, 'addDisplayDiscounts')) {
-            ConsolePlus.log('Discount display is disabled in settings.');
+            ConsolePlus.debug('Discount display is disabled in settings.');
             return;
         }
 
         const $originalPrices = $(page.container).find('span[style^=\'color:teal;\'] strong');
 
         if ($originalPrices.length === 0) {
-            ConsolePlus.log('No discounts found on the Farm Supply page.');
+            ConsolePlus.debug('No discounts found on the Farm Supply page.');
             return;
         }
 
@@ -67,7 +61,7 @@ class FarmSupplyPage {
             const $discountedPrice = $(element).parents('.item-title').next();
             
             if ($discountedPrice.length === 0) {
-                ConsolePlus.log('No discounted price found for:', $(element).text());
+                ConsolePlus.debug('No discounted price found for:', $(element).text());
                 return;
             }
 
@@ -89,13 +83,7 @@ class FarmSupplyPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Farm Supply page initialized:', page);
         

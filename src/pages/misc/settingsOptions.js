@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -150,31 +150,10 @@ class SettingsOptionsPage {
             return null;
         }
 
-        /**
-        <li>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title">
-                        Background Music
-                        <br>
-                        <span style="font-size: 11px">
-                            iOS (all players)
-                            <br>
-                            Android (IN BETA)
-                        </span>
-                    </div>
-                    <div class="item-after">
-                        <select name="music" class="inlineinputlg">
-                            <option value="none" checked="">None</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3 (Winter)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </li>
-         */
+        if (isConfig && !featureObject.typeData?.options) {
+            ConsolePlus.warn('Invalid feature configuration for select row:', featureObject);
+            return null;
+        }
 
         const $itemContent = $('<div>').addClass('item-content');
         const $itemInner = $('<div>').addClass('item-inner');
@@ -191,7 +170,7 @@ class SettingsOptionsPage {
 
         const selectOptions = [];
 
-        if (!featureObject.typeData?.options || !Array.isArray(featureObject.typeData.options)) {
+        if (!featureObject.typeData || !featureObject.typeData.options || !Array.isArray(featureObject.typeData.options)) {
             ConsolePlus.warn('Invalid feature options:', featureObject.typeData?.options);
         }
         
@@ -200,9 +179,16 @@ class SettingsOptionsPage {
                 ConsolePlus.warn('Invalid feature option:', option);
                 continue;
             }
-            selectOptions.push(
-                $('<option>').attr('value', option.value).text(option.label)
-            );
+            
+            const selectOption = $('<option>')
+                .attr('value', option.value)
+                .text(option.label);
+                
+            if (option.value === featureObject.typeData.value) {
+                selectOption.attr('selected', '');
+            }
+
+            selectOptions.push(selectOption);
         }
 
         const $itemAfter = $('<div>')
@@ -271,7 +257,7 @@ class SettingsOptionsPage {
                 break;
 
             case 'select':
-                // $itemContent = this.createSelectRow(page, featureObject, isConfig);
+                $itemContent = this.createSelectRow(page, featureObject, isConfig);
                 break;
 
             default:
@@ -323,6 +309,10 @@ class SettingsOptionsPage {
                 continue;
             }
 
+            if (config.old) {
+                continue;
+            }
+
             const featureFinal = {
                 ...config,
                 featureId: feature.featureId
@@ -344,21 +334,15 @@ class SettingsOptionsPage {
     };
 
     addUserscriptConfiguration = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addUserscriptConfiguration.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addUserscriptConfiguration.name);
 
         const $saveGameOptionsButton = $(page.container).find('.content-block').last();
         if ($saveGameOptionsButton.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addUserscriptConfiguration.name,
+                'Save Options button not found in the page container.'
             );
-            return;
         }
 
         const settings = SettingsPlus.getAllFeatures();
@@ -377,7 +361,7 @@ class SettingsOptionsPage {
             $listContent.push($pageTitle);
 
             for (const feature of page.features) {
-                const $li = feature.configs.length > 0
+                const $li = feature.configs.filter(config => !config.old).length > 0
                     ? this.makeManyConfigFeatureRow(page, feature)
                     : this.makeConfigFeatureRow(page, feature);
 
@@ -421,13 +405,7 @@ class SettingsOptionsPage {
     };
 
     addResetEverythingButton = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addResetEverythingButton.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addResetEverythingButton.name);
     
         const $saveGameOptionsButton = $(page.container).find('.content-block').last();
         const $configListBlock = $(page.container).find('#frpgp-userscript-configuration');
@@ -474,13 +452,7 @@ class SettingsOptionsPage {
     };
     
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Settings Options page initialized:', page);
         this.addUserscriptConfiguration(page);
