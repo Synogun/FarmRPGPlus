@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+- `HomePage` - Added Hide Maxed Skills feature, which hides skills that are already maxed out on the home page.
 - `SettingsPlus` - Added additional settings for several features.
 - `ItemPage` - Added Pumpkin Juice Indicator, showing how many uses its needed to reach mastery.
 - `SettingsPlus` - Added more robust feature registration and management, allowing better handling of feature defaults and configurations.
