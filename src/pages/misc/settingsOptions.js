@@ -170,8 +170,8 @@ class SettingsOptionsPage {
 
         const selectOptions = [];
 
-        if (!featureObject.typeData.options || !Array.isArray(featureObject.typeData.options)) {
-            ConsolePlus.warn('Invalid feature options:', featureObject.typeData.options);
+        if (!featureObject.typeData || !featureObject.typeData.options || !Array.isArray(featureObject.typeData.options)) {
+            ConsolePlus.warn('Invalid feature options:', featureObject.typeData?.options);
         }
         
         for (const option of featureObject.typeData.options) {

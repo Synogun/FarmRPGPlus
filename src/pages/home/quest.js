@@ -238,7 +238,7 @@ class QuestPage {
         throwIfPageInvalid(page, this.addBuddyFarmCard.name);
 
         if (this.isPhrQuestPage(page)) {
-            ConsolePlus.debug('Not a PHR page, skipping Buddy Farm card addition.');
+            ConsolePlus.debug('Is a PHR page, skipping Buddy Farm card addition.');
             return;
         }
 
@@ -296,7 +296,7 @@ class QuestPage {
         throwIfPageInvalid(page, this.addExtraBuddyFarmButtons.name);
 
         if (this.isPhrQuestPage(page)) {
-            ConsolePlus.debug('Not a PHR page, skipping extra Buddy Farm buttons addition.');
+            ConsolePlus.debug('This is a PHR page, skipping extra Buddy Farm buttons addition.');
             return;
         }
 
