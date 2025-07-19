@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [v1.5.3](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.5.3/dist/FarmRPGPlus.user.js)
+
+### Added
 - `HomePage` - Adds Hide Maxed Skills feature, which hides skills that are already maxed out on the home page.
 - `SettingsPlus` - Adds additional settings for several features.
 - `ItemPage` - Adds Pumpkin Juice Indicator, showing how many uses its needed to reach mastery.
@@ -22,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `WorkshopPage` - Fixes crafting bonus text not displaying commas for large numbers.
 - `OvenPage` - Fixes navigation buttons not displaying correctly when a meal is complete.
 
-## [1.2.1](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/1.2.1/dist/FarmRPGPlus.user.js)
+## [1.2.1](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.2.1/dist/FarmRPGPlus.user.js)
 
 ### Added
 - `WorkshopPage` - Adds crafting bonus (resource saver) indicator to the Workshop page.
