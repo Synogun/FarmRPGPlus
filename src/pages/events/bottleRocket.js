@@ -460,7 +460,12 @@ class BottleRocketPage {
             });
         });
 
-        return stopMutatorHandle;
+        return () => {
+            if (stopMutatorHandle) {
+                ConsolePlus.debug('Stopping Bottle Rocket attack buttons observer.');
+                stopMutatorHandle();
+            }
+        };
     };
 
     applyHandler = (page) => {

@@ -139,7 +139,8 @@ const RouterPlus = {
         const pageName = this.getPageName(page);
 
         if (this.isRegistered(pageName) && this.handlers[pageName]) {
-            this.handlers[pageName](page);
+            const callback = this.handlers[pageName](page);
+            return callback;
         } else {
             ConsolePlus.warn(`No handler registered for page: ${pageName}`, page);
         }
