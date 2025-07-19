@@ -31,7 +31,7 @@ All data saved is related to the script's features and settings, such as:
 - Settings for each feature
 - Cached data for performance improvements
 
-Know that the script does not save any personal data, such as your FarmRPG account information or any other sensitive data.
+Know that the script does not save any personal data from your FarmRPG account information or any other sensitive data.
 
 ### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state.
 
@@ -68,7 +68,6 @@ All features can be turned ON/OFF independently and sometimes carries additional
 ### 📚 Buddy Farm and Library Buttons
 
 There's a ton of Buddy Farm and Library buttons throughout the game pages.
-Each button can be enabled/disabled independently.
 
 - Configurations:
   - **Enable Buddy Farm Button**: Enable or disable the Buddy Farm button.
@@ -184,6 +183,20 @@ Adds a button to the Vault page that guesses the next code try based on the amou
     <summary>Screenshots</summary>
 
     ![Vault Guesser Button](screenshots/vault-guesser-button.png "Vault Guesser Button")
+
+</details>
+
+### 🙈🔝 Hide Max Skills
+
+Hides the skills that are already maxed out on the home page.
+
+- Configurations:
+  - **Enable Hide Max Skills**: Enable or disable the feature.
+
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Hide Max Skills](screenshots/hide-max-skills.png "Hide Max Skills")
 
 </details>
 
