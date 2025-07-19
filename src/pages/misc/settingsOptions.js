@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -334,21 +334,15 @@ class SettingsOptionsPage {
     };
 
     addUserscriptConfiguration = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addUserscriptConfiguration.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addUserscriptConfiguration.name);
 
         const $saveGameOptionsButton = $(page.container).find('.content-block').last();
         if ($saveGameOptionsButton.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addUserscriptConfiguration.name,
+                'Save Options button not found in the page container.'
             );
-            return;
         }
 
         const settings = SettingsPlus.getAllFeatures();
@@ -411,13 +405,7 @@ class SettingsOptionsPage {
     };
 
     addResetEverythingButton = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addResetEverythingButton.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addResetEverythingButton.name);
     
         const $saveGameOptionsButton = $(page.container).find('.content-block').last();
         const $configListBlock = $(page.container).find('#frpgp-userscript-configuration');
@@ -464,13 +452,7 @@ class SettingsOptionsPage {
     };
     
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Settings Options page initialized:', page);
         this.addUserscriptConfiguration(page);

@@ -176,11 +176,11 @@ function createRow({
  */
 function createCardList({ cardId = '', cardClass = '', title = '', children = [], cardContentOnly = false }) {
     if (typeof cardClass !== 'string' || !Array.isArray(children)) {
-        new FarmRPGPlusError(
+        throw new FarmRPGPlusError(
             ErrorTypesEnum.PARAMETER_MISMATCH,
-            createCardList.name
+            createCardList.name,
+            'Invalid parameters provided. Ensure cardClass is a string and children is an array.'
         );
-        return;
     }
 
     const content = [];
@@ -275,11 +275,11 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
         !page ||
         !page.container
     ) {
-        new FarmRPGPlusError(
+        throw new FarmRPGPlusError(
             ErrorTypesEnum.PARAMETER_MISMATCH,
-            getListByTitle.name
+            getListByTitle.name,
+            'Invalid parameters provided. Ensure title is a non-empty string, offset is a number, and page is a valid object.'
         );
-        return null;
     }
 
     let $listOfTitles = $(page.container).find('div.content-block-title');
@@ -302,11 +302,11 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
     }
 
     if ($matchingTitle.length === 0) {
-        new FarmRPGPlusError(
+        throw new FarmRPGPlusError(
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
+            `No matching title found for "${title}" in the page container.`
         );
-        return null;
     }
 
     if (returnTitle) {
@@ -316,11 +316,11 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
     const $card = $matchingTitle.next('.card');
 
     if ($card.length === 0) {
-        new FarmRPGPlusError(
+        throw new FarmRPGPlusError(
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
+            `No card found after the matching title "${title}".`
         );
-        return null;
     }
     
     let $list = $card.find('.list-block ul');
@@ -334,11 +334,11 @@ function getListByTitle(page, title, { returnTitle = false, regex = false, offse
     }
 
     if ($list.length === 0) {
-        new FarmRPGPlusError(
+        throw new FarmRPGPlusError(
             ErrorTypesEnum.ELEMENT_NOT_FOUND,
             getListByTitle.name,
+            `No list found after the matching title "${title}".`
         );
-        return null;
     }
 
     return $list;
@@ -409,12 +409,7 @@ function parseKeyToDisplayName(key) {
 }
 
 export {
-    createCardList,
-    createRow,
-    getListByTitle,
-    isUrlValid,
-    parseNameForUrl,
-    parseKeyToDisplayName,
-    watchForElement
+    createCardList, createRow, getListByTitle,
+    isUrlValid, parseKeyToDisplayName, parseNameForUrl, watchForElement
 };
 

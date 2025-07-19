@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -39,20 +39,14 @@ class HomePage {
 
     static titles = Object.freeze({
         HOME: 'Where do you want to go?',
-        MY_SKILLS: 'My Skills',
+        MY_SKILLS: 'My skills',
         PERKS_AND_MASTERY: 'Perks, Mastery & More',
         UPDATE: 'Most Recent Update',
         OTHER_STUFF: 'Other Stuff'
     });
 
     addBuddyFarmButton = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addBuddyFarmButton.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addBuddyFarmButton.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'addBuddyFarmButton')) {
             ConsolePlus.debug('Buddy Farm button is disabled in settings.');
@@ -76,30 +70,25 @@ class HomePage {
     };
 
     hideMaxedSkills = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.hideMaxedSkills.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.hideMaxedSkills.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'hideMaxedSkills')) {
             ConsolePlus.debug('Hiding maxed skills is disabled in settings.');
             return;
         }
 
-        const $skillRows = $(page.container)
-            .find('.content-block-title:contains(\'My skills\')')
-            .next('.card')
-            .find('.row');
+        const $skillRows = getListByTitle(
+            page,
+            HomePage.titles.MY_SKILLS,
+            { returnTitle: true }
+        ).next('.card').find('.row');
 
         if ($skillRows.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.hideMaxedSkills.name,
+                'No skill rows found after "My skills" title.',
             );
-            return;
         }
 
         $skillRows.each((_index, element) => {
@@ -126,13 +115,7 @@ class HomePage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Index page initialized:', page);
         this.addBuddyFarmButton(page);

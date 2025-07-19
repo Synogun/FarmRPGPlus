@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - `ItemPage` - Changed NPC likings cards positions to be the last card on the page, as it is mostly for reference.
+- `FarmRPGPlusError` - Changed error handling to use now properly throw the `FarmRPGPlusError`.
 
 ### Fixed
 - `WorkshopPage` - Fixed crafting bonus text not displaying commas for large numbers.

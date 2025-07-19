@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -32,13 +32,7 @@ class WellPage {
     });
 
     addLibraryCard = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addLibraryCard.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addLibraryCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.WELL, 'addLibraryCard')) {
             ConsolePlus.log('Wishing Well Library card is disabled in settings.');
@@ -88,13 +82,7 @@ class WellPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Well page initialized:', page);
         this.addLibraryCard(page);

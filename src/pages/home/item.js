@@ -4,7 +4,7 @@ import IconsUrlEnum from '../../constants/iconsUrlEnum';
 import MasteryTiersEnum, { MasteryTiersDisplayEnum } from '../../constants/masteryTiersEnum';
 import { ItemGiftsEnum } from '../../constants/npcGiftsEnum';
 import NPCUrlsEnum from '../../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -188,13 +188,7 @@ class ItemPage {
      * @returns {boolean} Returns true if the mastery icon is found, otherwise false.
      */
     doesItemHaveMastery = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.doesItemHaveMastery.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.doesItemHaveMastery.name);
 
         const $mastery = $(page.container).find('img[src="/img/items/icon_mastery2.png?1"]');
         return $mastery.length > 0;
@@ -207,13 +201,7 @@ class ItemPage {
      * @returns {number} The current mastery amount for the item, or 0 if not found or on error.
      */
     getItemMasteryAmount = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.getItemMasteryAmount.name,
-            );
-            return 0;
-        }
+        throwIfPageInvalid(page, this.getItemMasteryAmount.name);
 
         const $mastery = $(page.container).find('.item-title span:contains(\'Progress\')');
         if ($mastery.length === 0) {
@@ -240,21 +228,21 @@ class ItemPage {
      */
     getItemNameOnNavbar = (page) => {
         if (!page?.navbarInnerContainer) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.PAGE_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
+                'Page object is invalid or missing navbarInnerContainer.'
             );
-            return;
         }
 
         const itemName = $(page.navbarInnerContainer).find('a.sharelink').text();
         
         if (!itemName || itemName.trim() === '') {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.getItemNameOnNavbar.name,
+                'Item name not found in navbar.'
             );
-            return;
         }
 
         return itemName.trim();
@@ -268,13 +256,7 @@ class ItemPage {
      * @throws {FarmRPGPlusError} If the item name is not provided or is empty.
      */
     getItemQuantity = (page, { storehouse = false } = {}) => {
-        if (!page || !page.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.INVALID_PARAMETER,
-                this.getItemQuantity.name,
-            );
-            return 0;
-        }
+        throwIfPageInvalid(page, this.getItemQuantity.name);
 
         const [whole, onHand, inStorehouse] = $(page.container)
             .find('.item-title:contains(\'My Inventory\')')
@@ -283,12 +265,11 @@ class ItemPage {
             .match(/([0-9,]+ on hand)([0-9,]+ in Storehouse)?/);
 
         if (!whole || !onHand) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.getItemQuantity.name,
+                'Item quantity not found in the page container.'
             );
-            return 0;
-        
         } else if (storehouse && !inStorehouse) {
             return 0;
         }
@@ -311,13 +292,7 @@ class ItemPage {
      * @throws {FarmRPGPlusError} If the page or its container is not found.
      */
     addBuddyFarmButton = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addBuddyFarmButton.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addBuddyFarmButton.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addBuddyFarmButton')) {
             ConsolePlus.log('Buddy Farm button is disabled in settings.');
@@ -355,13 +330,7 @@ class ItemPage {
      * @returns {void}
      */
     addNpcLikingsCards = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PARAMETER_MISMATCH,
-                this.addNpcLikingsCards.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addNpcLikingsCards.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addNpcLikingsCards')) {
             return;
@@ -441,13 +410,7 @@ class ItemPage {
      * @returns {void}
      */
     addCollectedIndicator = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addCollectedIndicator.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addCollectedIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addCollectedIndicator')) {
             ConsolePlus.log('Collected indicator is disabled in settings.');
@@ -520,13 +483,7 @@ class ItemPage {
      * @returns {void}
      */
     addPJToGoalIndicator = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addPJToGoalIndicator.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addPJToGoalIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.ITEM, 'addPJToGoalIndicator')) {
             ConsolePlus.log('Pumpking Juice goal indicator is disabled in settings.');
@@ -614,13 +571,7 @@ class ItemPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Item page initialized:', page);
         this.addBuddyFarmButton(page);

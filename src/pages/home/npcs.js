@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import NPCUrlsEnum from '../../constants/npcUrlsEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -32,13 +32,7 @@ class NPCSPage {
     });
 
     addTownsfolkInfoCard = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PARAMETER_MISMATCH,
-                this.addTownsfolkInfoCard.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addTownsfolkInfoCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.NPCS, 'townsfolkInfo')) {
             ConsolePlus.log('Townsfolk Info Card is disabled, skipping creation.');
@@ -83,13 +77,7 @@ class NPCSPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('NPCs page initialized:', page);
         this.addTownsfolkInfoCard(page);

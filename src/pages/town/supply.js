@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import SettingsPlus from '../../modules/settingsPlus';
 
@@ -43,13 +43,7 @@ class FarmSupplyPage {
     });
 
     addDisplayDiscounts = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addDisplayDiscounts.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addDisplayDiscounts.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.FARM_SUPPLY, 'addDisplayDiscounts')) {
             ConsolePlus.log('Discount display is disabled in settings.');
@@ -89,13 +83,7 @@ class FarmSupplyPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Farm Supply page initialized:', page);
         

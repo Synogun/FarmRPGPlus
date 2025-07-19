@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import SettingsPlus from '../../modules/settingsPlus';
 
@@ -39,19 +39,14 @@ class WorkshopPage {
     });
 
     getResourceSaverFactor = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.getResourceSaverFactor.name,
-            );
-            return 1;
-        }
+        throwIfPageInvalid(page, this.getResourceSaverFactor.name);
 
         const $firstCardContent = $(page.container).find('.progressbar').next('.card');
         if ($firstCardContent.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addCraftingBonusIndicator.name,
+                'Resource saver card content not found in the workshop page.'
             );
         }
 
@@ -72,13 +67,7 @@ class WorkshopPage {
     };
 
     addCraftingBonusIndicator = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addCraftingBonusIndicator.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addCraftingBonusIndicator.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.WORKSHOP, 'addCraftingBonusIndicator')) {
             ConsolePlus.log('Crafting bonus indicator is disabled in settings.');
@@ -205,13 +194,7 @@ class WorkshopPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Workshop page initialized:', page);
         this.addCraftingBonusIndicator(page);

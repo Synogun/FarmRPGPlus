@@ -1,26 +1,20 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import StoragePlus from '../../modules/storagePlus';
 
 class KitchenPage {
 
     cachePlayerOvenAmount = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.cachePlayerOvenAmount.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.cachePlayerOvenAmount.name);
 
         const $ovenAmount = $(page.container).find('a[href^="oven.php?num="]').last();
         if ($ovenAmount.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.cachePlayerOvenAmount.name,
+                'Oven amount link not found in the kitchen page.'
             );
-            return;
         }
 
         const ovenAmountText = $ovenAmount.attr('href')?.match(/num=(\d+)/)[1];
@@ -34,13 +28,7 @@ class KitchenPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Kitchen page initialized', page);
         this.cachePlayerOvenAmount(page);

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import DebugPlus from '../../modules/debugPlus';
 import { createRow } from '../../modules/rowFactory';
@@ -81,13 +81,7 @@ class BottleRocketPage {
     });
 
     getTokenAmount = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.getTokenAmount.name,
-            );
-            return 0;
-        }
+        throwIfPageInvalid(page, this.getTokenAmount.name);
 
         const $tokenAmount = $(page.container).find('a[href=\'item.php?id=1097\']').next().next().text();
         if (!$tokenAmount) {
@@ -100,13 +94,7 @@ class BottleRocketPage {
     };
 
     makeStats = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.makeStats.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.makeStats.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'addStatsCards')) {
             return;
@@ -192,13 +180,7 @@ class BottleRocketPage {
     };
 
     makeAttackHistory = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.makeAttackHistory.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.makeAttackHistory.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isAttackHistoryEnabled')) {
             ConsolePlus.log('Bottle Rocket attack history is disabled in settings.');
@@ -252,13 +234,7 @@ class BottleRocketPage {
     };
 
     makeLastPlayersHistory = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.makeLastPlayersHistory.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.makeLastPlayersHistory.name);
 
         if (!SettingsPlus.getValue('eventFeatures', 'bottleRocket', 'isPlayerHistoryEnabled')) {
             ConsolePlus.log('Bottle Rocket player history is disabled in settings.');
@@ -315,22 +291,16 @@ class BottleRocketPage {
     };
 
     startObserver = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.startObserver.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.startObserver.name);
 
         const $attackButtons = $(page.container).find('.event-brb-attack');
 
         if ($attackButtons.length === 0) {
-            new FarmRPGPlusError(
+            throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.startObserver.name,
+                'Attack buttons not found.',
             );
-            return;
         }
 
         let stopMutatorHandle = null;
@@ -340,33 +310,33 @@ class BottleRocketPage {
                 const $modalTitle = $el.find('.modal-title');
                 if ($modalTitle.length === 0) {
                     stopMutatorHandle();
-                    new FarmRPGPlusError(
+                    throw new FarmRPGPlusError(
                         ErrorTypesEnum.ELEMENT_NOT_FOUND,
                         this.startObserver.name,
+                        'Modal title not found in the attack results modal.',
                     );
-                    return;
                 }
 
                 const modalTitle = $modalTitle.text().trim();
 
                 if (modalTitle !== 'Attack Results') {
                     stopMutatorHandle();
-                    new FarmRPGPlusError(
+                    throw new FarmRPGPlusError(
                         ErrorTypesEnum.ELEMENT_NOT_FOUND,
                         this.startObserver.name,
+                        'Unexpected modal title.',
                     );
-                    return;
                 }
 
                 const $modalText = $el.find('.modal-text');
 
                 if ($modalText.length === 0) {
                     stopMutatorHandle();
-                    new FarmRPGPlusError(
+                    throw new FarmRPGPlusError(
                         ErrorTypesEnum.ELEMENT_NOT_FOUND,
                         this.startObserver.name,
+                        'Modal text not found in the attack results modal.',
                     );
-                    return;
                 }
 
                 const modalText = $el.text().trim();
@@ -391,11 +361,11 @@ class BottleRocketPage {
                 const attackResults = modalText.split('!').filter(line => line.includes('was'));
                 if (attackResults.length === 0) {
                     stopMutatorHandle();
-                    new FarmRPGPlusError(
+                    throw new FarmRPGPlusError(
                         ErrorTypesEnum.ELEMENT_NOT_FOUND,
                         this.startObserver.name,
+                        'No attack results found in the modal text.',
                     );
-                    return;
                 }
 
                 const attackResultObject = attackResults.reduce((acc, result) => {
@@ -493,13 +463,7 @@ class BottleRocketPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         if (!SettingsPlus.isEnabled('eventFeatures', 'bottleRocket')) {
             return;

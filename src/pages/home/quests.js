@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -36,13 +36,7 @@ class QuestsPage {
     });
 
     addBuddyFarmCard = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                'PAGE_NOT_FOUND',
-                this.addBuddyFarmCard.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addBuddyFarmCard.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.QUESTS, 'addBuddyFarmButton')) {
             ConsolePlus.log('Buddy Farm button is disabled in settings.');
@@ -69,13 +63,7 @@ class QuestsPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Quests page initialized:', page);
         this.addBuddyFarmCard(page);

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
-import { ErrorTypesEnum, FarmRPGPlusError } from '../../FarmRPGPlusError';
+import { throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import RouterPlus from '../../modules/routerPlus';
 import SettingsPlus from '../../modules/settingsPlus';
@@ -71,13 +71,7 @@ class OvenPage {
     };
 
     addOvenNavigationButtons = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.addOvenNavigationButtons.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.addOvenNavigationButtons.name);
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.OVEN, 'addOvenNavigationButtons')) {
             return;
@@ -154,13 +148,7 @@ class OvenPage {
     };
 
     applyHandler = (page) => {
-        if (!page?.container) {
-            new FarmRPGPlusError(
-                ErrorTypesEnum.PAGE_NOT_FOUND,
-                this.applyHandler.name,
-            );
-            return;
-        }
+        throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Oven page initialized', page);
         this.addOvenNavigationButtons(page);
