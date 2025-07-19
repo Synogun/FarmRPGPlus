@@ -307,7 +307,7 @@ class QuestPage {
 
         const $questTitle = $(page.container).find('.item-title[style=\'font-weight: bold\']');
 
-        if (!$questTitle?.length === 0) {
+        if ($questTitle.length === 0) {
             throw new FarmRPGPlusError(
                 ErrorTypesEnum.ELEMENT_NOT_FOUND,
                 this.addExtraBuddyFarmButtons.name,
