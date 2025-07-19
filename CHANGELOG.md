@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `FarmRPGPlusError` - Changed error handling to use now properly throw the `FarmRPGPlusError`.
 
 ### Fixed
+- `SettingsOptionsPage` - Fixed the hidden old configs making feature enablers not display correctly.
 - `WorkshopPage` - Fixed crafting bonus text not displaying commas for large numbers.
 - `OvenPage` - Fixed navigation buttons not displaying correctly when a meal is complete.
 

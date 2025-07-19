@@ -361,7 +361,7 @@ class SettingsOptionsPage {
             $listContent.push($pageTitle);
 
             for (const feature of page.features) {
-                const $li = feature.configs.length > 0
+                const $li = feature.configs.filter(config => !config.old).length > 0
                     ? this.makeManyConfigFeatureRow(page, feature)
                     : this.makeConfigFeatureRow(page, feature);
 
