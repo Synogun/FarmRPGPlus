@@ -170,9 +170,12 @@ class SettingsPlus {
             null
         );
 
-        if (!feature || (!feature.isEnabled &&
-            feature.enabledByDefault !== undefined)) {
-            return feature.enabledByDefault;
+        if (!feature) {
+            return false;
+        }
+
+        if (feature.isEnabled === undefined) {
+            return feature.enabledByDefault !== undefined ? feature.enabledByDefault : false;
         }
 
         return feature.isEnabled;

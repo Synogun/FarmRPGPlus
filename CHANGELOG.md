@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 ### Fixed
+- `SettingsPlus` - Fixes verification of feature value in `isFeatureEnabled` causing features not being disabled properly.
 - `main | RouterPlus` - Fixes callback handling in the main script, which wasn't properly receiving the callback from the router.
 
 ## [v1.5.3](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.5.3/dist/FarmRPGPlus.user.js)
