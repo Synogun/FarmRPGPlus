@@ -3,31 +3,30 @@ const path = require('path');
 const pkg = require('./package.json');
 const webpack = require('webpack');
 
-const developmentEnvironment =
+const productionEnvironment =
     process.env.NODE_ENV &&
-    process.env.NODE_ENV === 'development' &&
+    process.env.NODE_ENV === 'production' &&
     {
-        filename: 'FarmRPGPlusDEVMODE.user.js',
-        path: path.resolve(__dirname, 'build'),
-        scriptName: `${pkg.userscript.name} DEV`,
+        filename: 'FarmRPGPlus.user.js',
+        path: path.resolve(__dirname, 'dist'),
+        scriptName: pkg.userscript.name,
     };
 
 module.exports = {
     entry: './src/main.js',
     output: {
-        filename: developmentEnvironment?.filename ?? 'FarmRPGPlus.user.js',
-        path: developmentEnvironment?.path ?? path.resolve(__dirname, 'dist'),
-
+        filename: productionEnvironment?.filename ?? 'FarmRPGPlusDEVMODE.user.js',
+        path: productionEnvironment?.path ?? path.resolve(__dirname, 'build'),
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
-            'process.env.VERSION': JSON.stringify(pkg.version),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'development',
+            VERSION: pkg.version,
         }),
 
         new UserscriptPlugin({
             headers: {
-                name: developmentEnvironment?.scriptName ?? pkg.userscript.name,
+                name: productionEnvironment?.scriptName ?? `${pkg.userscript.name} DEV`,
                 namespace: pkg.userscript.namespace,
                 match: pkg.userscript.match,
                 grant: pkg.userscript.grant,
@@ -49,11 +48,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    },
+                    options: { presets: ['@babel/preset-env'] },
                 },
             },
+            { test: /\.css$/, type: 'asset/source' },
         ],
     },
 };
