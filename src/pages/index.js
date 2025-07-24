@@ -20,7 +20,7 @@ const Pages = {
     [GamePagesEnum.INVENTORY]: new InventoryPage,
     [GamePagesEnum.WORKSHOP]: new WorkshopPage,
     [GamePagesEnum.KITCHEN]: new KitchenPage,
-    [GamePagesEnum.QUESTS]: new QuestsPage,
+    [GamePagesEnum.HELP_NEEDED]: new QuestsPage,
     [GamePagesEnum.NPCS]: new NPCSPage,
 
     [GamePagesEnum.OVEN]: new OvenPage,
@@ -29,7 +29,7 @@ const Pages = {
 
     [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
     [GamePagesEnum.VAULT]: new VaultPage,
-    [GamePagesEnum.WELL]: new WellPage,
+    [GamePagesEnum.WISHING_WELL]: new WellPage,
     [GamePagesEnum.MUSEUM]: new MuseumPage,
 
     [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,

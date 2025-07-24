@@ -1,11 +1,13 @@
 import $ from 'jquery';
-import GamePagesEnum from '../../constants/gamePagesEnum';
+import GamePagesEnum, { MyFarmPageLinks } from '../../constants/gamePagesEnum';
 import IconsUrlEnum from '../../constants/iconsUrlEnum';
 import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
-import { getListByTitle } from '../../utils/utils';
+import StoragePlus from '../../modules/storagePlus';
+import TimeControl from '../../utils/timeControl';
+import { getListByTitle, isDarkMode } from '../../utils/utils';
 
 class HomePage {
     constructor() {
@@ -103,6 +105,122 @@ class HomePage {
                 }
             }
         );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.HOME,
+            'addDailyChecklist',
+            {
+                title: 'Add Daily Checklist',
+                subtitle: 'Adds a daily checklist to the home page.',
+                enableTitle: 'Enable Daily Checklist',
+                enableSubtitle: 'If enabled, a daily checklist will be displayed on the home page.',
+                enabledByDefault: true,
+                configs: {
+                    trackBankSilver: {
+                        title: 'Track Bank Silver',
+                        subtitle: 'Tracks if you have banked silver today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackCommunityCenter: {
+                        title: 'Track Community Center Donations',
+                        subtitle: 'Tracks if you have donated to the Community Center today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackAnimalWork: {
+                        title: 'Track Animal Work',
+                        subtitle: 'Tracks if you have done your animal work today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackFarmWork: {
+                        title: 'Track Farm Work',
+                        subtitle: 'Tracks if you have done your farm work today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackCraftingFruit: {
+                        title: 'Track Crafting Fruit',
+                        subtitle: 'Tracks if you have crafted fruit today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackSlaughterAnimals: {
+                        title: 'Track Slaughter Animals',
+                        subtitle: 'Tracks if you have sent pigs / cows to slaughterhouse today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackDailyChores: {
+                        title: 'Track Daily Chores',
+                        subtitle: 'Tracks if you have completed your daily chores today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackWishingWell: {
+                        title: 'Track Wishing Well',
+                        subtitle: 'Tracks if you have thrown items into the Wishing Well today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackGrapeJuice: {
+                        title: 'Track Grape Juice',
+                        subtitle: 'Tracks if you have used your Grape Juice today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackSpinningWheel: {
+                        title: 'Track Spinning Wheel',
+                        subtitle: 'Tracks if you have spun the Wheel today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackCrackingVault: {
+                        title: 'Track Cracking Vault',
+                        subtitle: 'Tracks if you have cracked the daily Vault today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackExchangeCenter: {
+                        title: 'Track Exchange Center',
+                        subtitle: 'Tracks if you have visited the Exchange Center today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackCraftingDailyProduction: {
+                        title: 'Track Crafting Daily Production',
+                        subtitle: 'Tracks if you have crafted your daily production items today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackSendingGifts: {
+                        title: 'Track Sending Gifts',
+                        subtitle: 'Tracks if you have sent gifts to NPCs today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackSellingKabobs: {
+                        title: 'Track Selling Kabobs',
+                        subtitle: 'Tracks if you have sold your Raptor Kabobs today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackPHRQuests: {
+                        title: 'Track Personal Help Requests',
+                        subtitle: 'Tracks if you have completed your personal help requests today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
+                    trackPlayingBuddyjack: {
+                        title: 'Track Playing Buddyjack',
+                        subtitle: 'Tracks if you have played against buddy in the House of Cards today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    }
+                }
+            }
+        );
     }
 
     static titles = Object.freeze({
@@ -112,6 +230,33 @@ class HomePage {
         UPDATE: 'Most Recent Update',
         OTHER_STUFF: 'Other Stuff'
     });
+
+    cachePlayerId = (page) => {
+        throwIfPageInvalid(page, this.cachePlayerId.name);
+
+        const myFarmRow = $(page.container).find('a:contains("My Farm")');
+
+        if (myFarmRow.length === 0) {
+            throw new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.cachePlayerId.name,
+                'My Farm row not found on the home page.',
+            );
+        }
+
+        const playerId = myFarmRow.attr('href').split('?id=')[1];
+
+        if (!playerId) {
+            throw new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.cachePlayerId.name,
+                'Player ID not found in My Farm row link.',
+            );
+        }
+
+        StoragePlus.set('player_id', playerId);
+        ConsolePlus.debug(`Player ID cached: ${playerId}`);
+    };
 
     addBuddyFarmButton = (page) => {
         throwIfPageInvalid(page, this.addBuddyFarmButton.name);
@@ -245,13 +390,407 @@ class HomePage {
         };
     };
 
+    _rebalanceRows = (startRow) => {
+        const threshold = window.innerWidth <= 450 ? 2 : 3;
+        let currentRow = startRow;
+
+        // Process all rows in sequence
+        while (currentRow.length > 0) {
+            if (currentRow.children().length < threshold) {
+                let nextRow = currentRow.next('.row');
+
+                while (nextRow.length > 0) {
+
+                    if (nextRow.children().length > 0) {
+                        // Move the first child from next row to current row
+                        const $firstChild = nextRow.children().first().detach();
+                        currentRow.append($firstChild);
+
+                        // If next row is now empty, remove it
+                        if (nextRow.children().length === 0) {
+                            const tempNext = nextRow.next('.row');
+                            nextRow.remove();
+                            nextRow = tempNext;
+                        }
+                        break;
+                    } else {
+                        // Skip empty rows
+                        const tempNext = nextRow.next('.row');
+                        nextRow.remove();
+                        nextRow = tempNext;
+                    }
+                }
+            }
+
+            // Update column sizes for current row
+            if (currentRow.children().length > 0) {
+                const colSize = Math.floor(100 / currentRow.children().length);
+                currentRow.children().each(function () {
+                    $(this).removeClass(function (index, className) {
+                        return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
+                    }).addClass(`col-${colSize}`);
+                });
+                currentRow = currentRow.next('.row');
+            } else {
+                // Remove empty rows
+                const tempNext = currentRow.next('.row');
+                currentRow.remove();
+                currentRow = tempNext;
+            }
+        }
+    };
+
+    addDailyChecklist = (page) => {
+        throwIfPageInvalid(page, this.addDailyChecklist.name);
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'addDailyChecklist')) {
+            ConsolePlus.debug('Daily checklist is disabled in settings.');
+            return;
+        }
+
+        const defaultChecklistStorage = (map) => {
+            const defaultChecklist = {
+                date: (new Date).toISOString(),
+                bankedSilver: {
+                    title: 'Bank',
+                    subtasks: [
+                        { icon: IconsUrlEnum.BANK, link: GamePagesEnum.BANK, title: 'Bank' },
+                    ],
+                    configName: 'trackBankSilver',
+                    completed: false
+                },
+                donatedCommunityCenter: {
+                    title: 'Community Center',
+                    subtasks: [
+                        { icon: IconsUrlEnum.COMMUNITY_CENTER, link: GamePagesEnum.COMMUNITY_CENTER, title: 'Community Center' }
+                    ],
+                    configName: 'trackCommunityCenter',
+                    completed: false
+                },
+                doneAnimalWork: {
+                    title: 'Animal Work',
+                    subtasks: [
+                        { icon: IconsUrlEnum.CHICKEN_COOP, link: GamePagesEnum.CHICKEN_COOP, title: 'Chicken Coop' },
+                        { icon: IconsUrlEnum.COW_PASTURE, link: GamePagesEnum.COW_PASTURE, title: 'Cow Pasture' },
+                        { icon: IconsUrlEnum.PIG_PEN, link: GamePagesEnum.PIG_PEN, title: 'Pig Pen' },
+                        { icon: IconsUrlEnum.RAPTOR_PEN, link: GamePagesEnum.RAPTOR_PEN, title: 'Raptor Pen' },
+                    ],
+                    configName: 'trackAnimalWork',
+                    completed: false
+                },
+                doneFarmWork: {
+                    title: 'Farm Work',
+                    subtasks: [
+                        { icon: IconsUrlEnum.STOREHOUSE, link: GamePagesEnum.STOREHOUSE, title: 'Storehouse' },
+                        { icon: IconsUrlEnum.FARMHOUSE, link: GamePagesEnum.FARMHOUSE, title: 'Farmhouse' },
+                        { icon: IconsUrlEnum.WINE_CELLAR, link: GamePagesEnum.WINE_CELLAR, title: 'Wine Cellar' },
+                    ],
+                    configName: 'trackFarmWork',
+                    completed: false
+                },
+                doneCraftingFruit: {
+                    title: 'Daily Fruits',
+                    subtasks: [
+                        { icon: IconsUrlEnum.ORANGE_JUICE, link: GamePagesEnum.ORANGE_JUICE, title: 'Orange Juice' },
+                        { icon: IconsUrlEnum.APPLE_CIDER, link: GamePagesEnum.APPLE_CIDER, title: 'Apple Cider' },
+                        { icon: IconsUrlEnum.LEMONADE, link: GamePagesEnum.LEMONADE, title: 'Lemonade' },
+                        { icon: IconsUrlEnum.ARNOLD_PALMER, link: GamePagesEnum.ARNOLD_PALMER, title: 'Arnold Palmer' },
+                    ],
+                    configName: 'trackCraftingFruit',
+                    completed: false
+                },
+                doneSlaughterAnimals: {
+                    title: 'Slaughterhouse',
+                    subtasks: [
+                        { icon: IconsUrlEnum.PIG_PEN, link: GamePagesEnum.PIG_PEN, title: 'Pig Pen' },
+                        { icon: IconsUrlEnum.COW_PASTURE, link: GamePagesEnum.COW_PASTURE, title: 'Cow Pasture' },
+                    ],
+                    configName: 'trackSlaughterAnimals',
+                    completed: false
+                },
+                doneDailyChores: {
+                    title: 'Daily Chores',
+                    subtasks: [
+                        { icon: IconsUrlEnum.DAILY_CHORES, link: GamePagesEnum.DAILY_CHORES, title: 'Daily Chores' }
+                    ],
+                    configName: 'trackDailyChores',
+                    completed: false
+                },
+                doneThrowingInWell: {
+                    title: 'Wishing Well',
+                    subtasks: [
+                        { icon: IconsUrlEnum.WISHING_WELL, link: GamePagesEnum.WISHING_WELL, title: 'Wishing Well' }
+                    ],
+                    configName: 'trackWishingWell',
+                    completed: false
+                },
+                doneGrapeJuice: {
+                    title: 'Grape Juice',
+                    subtasks: [
+                        { icon: IconsUrlEnum.MY_FARM, link: GamePagesEnum.MY_FARM, title: 'My Farm' },
+                        { icon: IconsUrlEnum.GRAPE_JUICE_VAT, link: GamePagesEnum.GRAPE_JUICE_VAT, title: 'Grape Juice Vat' }
+                    ],
+                    configName: 'trackGrapeJuice',
+                    completed: false
+                },
+                doneSpinningWheel: {
+                    title: 'Wheel of Borgen',
+                    subtasks: [
+                        { icon: IconsUrlEnum.WHEEL_OF_BORGEN, link: GamePagesEnum.WHEEL_OF_BORGEN, title: 'Wheel of Borgen' }
+                    ],
+                    configName: 'trackSpinningWheel',
+                    completed: false
+                },
+                doneCrackingVault: {
+                    title: 'Vault',
+                    subtasks: [
+                        { icon: IconsUrlEnum.VAULT, link: GamePagesEnum.VAULT, title: 'Vault' }
+                    ],
+                    configName: 'trackCrackingVault',
+                    completed: false
+                },
+                doneExchangeCenter: {
+                    title: 'Exchange Center',
+                    subtasks: [
+                        { icon: IconsUrlEnum.EXCHANGE_CENTER, link: GamePagesEnum.EXCHANGE_CENTER, title: 'Exchange Center' }
+                    ],
+                    configName: 'trackExchangeCenter',
+                    completed: false
+                },
+                doneCraftingDailyProduction: {
+                    title: 'Daily Produce',
+                    subtasks: [
+                        { icon: IconsUrlEnum.ANTLER, link: GamePagesEnum.ANTLER, title: 'Antler' },
+                        { icon: IconsUrlEnum.MILK, link: GamePagesEnum.MILK, title: 'Milk' },
+                        { icon: IconsUrlEnum.FEATHERS, link: GamePagesEnum.FEATHERS, title: 'Feathers' },
+                        { icon: IconsUrlEnum.EGGS, link: GamePagesEnum.EGGS, title: 'Eggs' },
+                    ],
+                    configName: 'trackCraftingDailyProduction',
+                    completed: false
+                },
+                doneSendingGifts:{
+                    title: 'NPCs Gifts',
+                    subtasks:[
+                        { icon: IconsUrlEnum.TROUT, link: GamePagesEnum.TROUT, title: 'Trout' },
+                        { icon: IconsUrlEnum.EGGS, link: GamePagesEnum.EGGS, title: 'Eggs' },
+                        { icon: IconsUrlEnum.MILK, link: GamePagesEnum.MILK, title: 'Milk' },
+                    ],
+                    configName: 'trackSendingGifts',
+                    completed: false
+                },
+                doneSellingKabobs: {
+                    title: 'Raptor Kabobs',
+                    subtasks: [
+                        { icon: IconsUrlEnum.STEAK_MARKET, link: GamePagesEnum.STEAK_MARKET, title: 'Steak Market' },
+                    ],
+                    configName: 'trackSellingKabobs',
+                    completed: false
+                },
+                donePHRQuests: {
+                    title: 'Personal Help Requests',
+                    subtasks: [
+                        { icon: IconsUrlEnum.HELP_NEEDED, link: GamePagesEnum.HELP_NEEDED, title: 'Help Needed' }
+                    ],
+                    configName: 'trackPHRQuests',
+                    completed: false
+                },
+                donePlayingBuddyjack: {
+                    title: 'House of Cards',
+                    subtasks: [
+                        { icon: IconsUrlEnum.HOUSE_OF_CARDS, link: GamePagesEnum.HOUSE_OF_CARDS, title: 'House of Cards' }
+                    ],
+                    configName: 'trackPlayingBuddyjack',
+                    completed: false
+                }
+            };
+
+            return map
+                ? Object.keys(defaultChecklist).reduce((acc, key) => {
+                    if (key === 'date') {
+                        acc[key] = defaultChecklist[key];
+                    } else {
+                        acc[key] = defaultChecklist[key].completed;
+                    }
+                    return acc;
+                }, {})
+                : defaultChecklist;
+        };
+            
+        let completedTasks = StoragePlus.get('checklist_storage') || defaultChecklistStorage(true);
+
+        if (!TimeControl.sameDay(completedTasks.date, (new Date).toISOString())) {
+            ConsolePlus.debug('Daily checklist storage reset for a new day.');
+            completedTasks = defaultChecklistStorage(true);
+            StoragePlus.set('checklist_storage', completedTasks);
+        }
+
+        const $checklistGrid = $('<div>')
+            .addClass('card-content-inner');
+            
+        let checklist = defaultChecklistStorage(false);
+        delete checklist.date;
+            
+        const toCheck = key => SettingsPlus.getValue(GamePagesEnum.HOME, 'addDailyChecklist', key, null);
+        
+        checklist = Object.values(checklist).filter((task) => {
+            if (!toCheck(task.configName)) {
+                ConsolePlus.debug(`${task.configName} is disabled in settings.`);
+                return false;
+            }
+
+            const isCompleted = completedTasks[task.configName] === true;
+            if (isCompleted) {
+                return false;
+            }
+
+            return true;
+        });
+
+        const fixLink = (link = '') => {
+            if (!link) return '';
+
+            if (!link.includes('.php')) {
+                return `${link}.php`;
+            } else if (Object.values(MyFarmPageLinks).includes(link)) {
+                const playerId = StoragePlus.get('player_id', null);
+                return playerId ? `${link}?id=${playerId}` : link;
+            }
+            return link;
+        };
+
+        checklist = Object.values(checklist).map((task) => {
+            const $rows = task.subtasks.map((subtask) => {
+                const $title = $('<strong>')
+                    .addClass('item-title')
+                    .text(subtask.title);
+
+                const $img = $('<img>')
+                    .addClass('itemimgsm')
+                    .attr('src', subtask.icon);
+                
+                return $('<a>')
+                    .addClass('row no-gutter').css({ marginBottom: '5px' })
+                    .attr('href', fixLink(subtask.link))
+                    .append([
+                        $('<div>').addClass('col-30').append($img),
+                        $('<div>').addClass('col-70').append($title)
+                    ]);
+            });
+
+            $rows[0].css('marginTop', '10px');
+
+            const $completeButton = $('<button>')
+                .addClass('button btnsmall btngreen')
+                .css({ marginLeft: 'auto', marginRight: 'auto', marginTop: '10px' })
+                .text('Complete')
+                .on('click', () => {
+                    completedTasks[task.configName] = true;
+                    StoragePlus.set('checklist_storage', completedTasks);
+
+                    const $col = $checklistGrid.find(`#frpgp-checklist-${task.configName}`);
+                    const $parent = $col.parent();
+                    const $grandParent = $parent.parent();
+
+                    $col.remove();
+
+                    if ($parent.children().length === 0) {
+                        $parent.remove();
+                    } else if ($parent.children().length > 0) {
+                        this._rebalanceRows($parent);
+                    }
+
+                    if ($grandParent.children().length === 0) {
+                        $grandParent.append([
+                            $('<i>').addClass('fa fa-fw fa-check').css({ color: isDarkMode() ? 'lightGreen' : 'green', fontSize: '24px' }),
+                            $('<strong>').css({ marginLeft: '5px', fontSize: '18px' }).text('All tasks completed for today!')
+                        ]);
+                    }
+                });
+
+            const $taskTitle = $('<strong>').css({ fontSize: '16px' }).append(task.title);
+
+            const $col = $('<div>')
+                .attr('id', `frpgp-checklist-${task.configName}`)
+                .addClass('col')
+                .css({ padding: '10px' })
+                .append([
+                    $taskTitle,
+                    $completeButton,
+                    ...$rows,
+                ]);
+
+            return $col;
+        });
+
+        //<i class="fa fa-fw fa-globe"></i>
+        if (checklist.length === 0) {
+            $checklistGrid.append(
+                $('<i>').addClass('fa fa-fw fa-check').css({ color: isDarkMode() ? 'lightGreen' : 'green', fontSize: '24px' }),
+                $('<strong>').css({ marginLeft: '5px', fontSize: '18px' }).text('All tasks completed for today!')
+            );
+        } else {
+            const threshold = window.innerWidth <= 450 ? 2 : 3;
+            const colSize = Math.floor(100 / threshold);
+
+            const $rows = checklist.reduce((acc, $col) => {
+                const $newCol = $col.removeClass('col').addClass(`col-${colSize}`);
+
+                if (acc.length === 0 || acc[acc.length - 1].children().length >= threshold) {
+                    acc.push(
+                        $('<div>')
+                            .addClass('row no-gutter')
+                            .css({ marginBottom: '10px' })
+                            .append($newCol)
+                    );
+                } else {
+                    acc[acc.length - 1].append($newCol);
+                }
+                return acc;
+            }, []);
+
+            const $lastRow = $rows[$rows.length - 1];
+            if ($lastRow.children().length <= threshold) {
+                const newColSize = Math.floor(100 / $lastRow.children().length);
+                $lastRow.children().removeClass(`col-${colSize}`).addClass(`col-${newColSize}`);
+            }
+
+            $checklistGrid.append($rows);
+        }
+
+        const $card = $('<div>')
+            .attr('id', 'frpgp-daily-checklist')
+            .addClass('card')
+            .append(
+                $('<div>')
+                    .addClass('card-content')
+                    .append($checklistGrid)
+            );
+
+        const itExists = $(page.container).find('#frpgp-daily-checklist').length > 0;
+        if (itExists) {
+            ConsolePlus.debug('Daily checklist already exists, updating it.');
+            $(page.container).find('#frpgp-daily-checklist').replaceWith($card);
+        } else {
+            getListByTitle(
+                page,
+                HomePage.titles.OTHER_STUFF,
+                { returnTitle: true }
+            ).before([
+                '<div class="content-block-title">Daily Checklist</div>',
+                $card,
+            ]);
+        }
+    };
+
     applyHandler = (page) => {
         throwIfPageInvalid(page, this.applyHandler.name);
 
         ConsolePlus.log('Index page initialized:', page);
+        this.cachePlayerId(page);
         this.addBuddyFarmButton(page);
         this.hideMaxedSkills(page);
         const callback = this.highlightReadyActions(page);
+        this.addDailyChecklist(page);
 
         return callback;
     };

@@ -208,6 +208,36 @@ Adds a highlight effect to specific rows on the home page, making it easier to i
 
 </details>
 
+### 📝 Reset Checklist
+
+Adds a checklist at the bottom of the home page with common daily tasks.
+
+- Configurations:
+  - **Enable Reset Checklist**: Enable or disable the feature.
+  - **Track Bank Silver**: Show or hide the bank silver task.
+  - **Track Community Center Donations**: Show or hide the community center donations task.
+  - **Track Animal Work**: Show or hide the animal work task.
+  - **Track Farm Work**: Show or hide the farm work task.
+  - **Track Crafting Fruit**: Show or hide the crafting fruit task.
+  - **Track Slaughter Animals**: Show or hide the slaughter animals task.
+  - **Track Daily Chores**: Show or hide the daily chores task.
+  - **Track Wishing Well**: Show or hide the wishing well task.
+  - **Track Grape Juice**: Show or hide the grape juice usage task.
+  - **Track Spinning Wheel**: Show or hide the spinning wheel task.
+  - **Track Cracking Vault**: Show or hide the cracking vault task.
+  - **Track Exchange Center**: Show or hide the exchange center task.
+  - **Track Crafting Daily Production**: Show or hide the crafting daily production task.
+  - **Track Sending Gifts**: Show or hide the sending gifts task.
+  - **Track Selling Kabobs**: Show or hide the selling kabobs task.
+  - **Track Personal Help Requests**: Show or hide the personal help requests task.
+  - **Track Playing Buddyjack**: Show or hide the playing buddyjack task.
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Reset Checklist](screenshots/daily-reset-checklist.png "Daily Reset Checklist")
+
+</details>
+
 ### 🙈🔝 Hide Max Skills
 
 Hides the skills that are already maxed out on the home page.

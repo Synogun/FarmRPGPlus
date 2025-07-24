@@ -408,8 +408,20 @@ function parseKeyToDisplayName(key) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
+/**
+ * Determines if the application is currently in dark mode.
+ * Checks for the presence of a '#dark_mode' element with a value of '1'.
+ *
+ * @returns {boolean} True if dark mode is enabled, false otherwise.
+ */
+function isDarkMode() {
+    return $(document.body).find('#dark_mode').text() === '1';
+}
+
+
 export {
     createCardList, createRow, getListByTitle,
-    isUrlValid, parseKeyToDisplayName, parseNameForUrl, watchForElement
+    isDarkMode, isUrlValid, parseKeyToDisplayName,
+    parseNameForUrl, watchForElement
 };
 
