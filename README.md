@@ -208,6 +208,18 @@ Adds a highlight effect to specific rows on the home page, making it easier to i
 
 </details>
 
+### 📢 Announce New Updates
+
+Displays new updates announcements on the top of the home page.
+
+- Configurations:
+  - **Enable Announce New Updates**: Enable or disable the feature.
+  - **Highlight Style**: Choose the highlight style for the announcement (None, Glow, Border, Background).
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Announce New Updates](screenshots/new-update-announcement.png "Announce New Updates")
+
 ### 📝 Reset Checklist
 
 Adds a checklist at the bottom of the home page with common daily tasks.

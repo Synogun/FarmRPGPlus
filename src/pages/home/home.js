@@ -7,7 +7,7 @@ import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
 import TimeControl from '../../utils/timeControl';
-import { getListByTitle, isDarkMode } from '../../utils/utils';
+import { createCardList, getListByTitle, isDarkMode } from '../../utils/utils';
 
 class HomePage {
     constructor() {
@@ -217,6 +217,34 @@ class HomePage {
                         subtitle: 'Tracks if you have played against buddy in the House of Cards today.',
                         type: 'checkbox',
                         typeData: { defaultValue: true }
+                    }
+                }
+            }
+        );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.HOME,
+            'announceNewUpdate',
+            {
+                title: 'Announce New Update',
+                subtitle: 'Shows a card with the most recent update when it is available.',
+                enableTitle: 'Enable New Update Announcement',
+                enableSubtitle: 'If enabled, a card will be displayed on the top of home page.',
+                enabledByDefault: true,
+                configs: {
+                    highlightStyle: {
+                        title: 'Highlight Style',
+                        subtitle: 'Choose how the new update announcement should be highlighted.',
+                        type: 'select',
+                        typeData: {
+                            defaultValue: 'border',
+                            options: [
+                                { value: 'none', label: 'None' },
+                                { value: 'border', label: 'Border' },
+                                { value: 'glow', label: 'Glow' },
+                                { value: 'background', label: 'Background' }
+                            ],
+                        }
                     }
                 }
             }
@@ -782,6 +810,107 @@ class HomePage {
         }
     };
 
+    announceNewUpdate = (page) => {
+        throwIfPageInvalid(page, this.announceNewUpdate.name);
+
+        if (!SettingsPlus.isEnabled(GamePagesEnum.HOME, 'announceNewUpdate')) {
+            ConsolePlus.debug('Announcing new update is disabled in settings.');
+            return;
+        }
+        
+        const $lastUpdateList = getListByTitle(page, HomePage.titles.UPDATE).find('li');
+        
+        if ($lastUpdateList.length === 0) {
+            throw new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.announceNewUpdate.name,
+                'Most Recent Update section not found on the home page.',
+            );
+        }
+        
+        const lastUpdateText = $lastUpdateList.find('.item-title').contents().first().text().trim();
+        
+        if (!lastUpdateText) {
+            throw new FarmRPGPlusError(
+                ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                this.announceNewUpdate.name,
+                'No last update text found in the "Most Recent Update" section.',
+            );
+        }
+        
+        const lastUpdateSubtitle = $lastUpdateList.find('span').text().trim() || 'No subtitle found';
+        
+        let lastUpdate = StoragePlus.get('last_update', null);
+        
+        if (
+            !lastUpdate ||
+            lastUpdate.date !== lastUpdateText ||
+            lastUpdate.subtitle !== lastUpdateSubtitle
+        ) {
+            lastUpdate = {
+                date: lastUpdateText,
+                subtitle: lastUpdateSubtitle,
+                hidden: false
+            };
+
+            StoragePlus.set('last_update', lastUpdate);
+        }
+
+        if (lastUpdate.hidden) {
+            ConsolePlus.debug('Last update is hidden, not announcing it.');
+            return;
+        }
+
+        const highlightStyle = SettingsPlus.getValue(
+            GamePagesEnum.HOME,
+            'announceNewUpdate',
+            'highlightStyle'
+        );
+
+        const $announceList = $lastUpdateList
+            .clone();
+
+        if (highlightStyle === 'glow') {
+            $announceList.addClass('glow1');
+        } else if (highlightStyle === 'border') {
+            $announceList.css({ border: '2px dashed teal' });
+        } else if (highlightStyle === 'background') {
+            $announceList.css({ backgroundColor: 'rgba(0, 255, 255, 0.2)' });
+        }
+
+        $announceList.find('.item-title').contents().first().wrap('<strong>').end();
+        
+        const $announceCard = createCardList({
+            title: 'New Update Available!',
+            children: [$announceList],
+        });
+
+        $announceCard[0].append(
+            $('<a>')
+                .attr('href', '#')
+                .css({ fontSize: '11px', marginLeft: '5px' })
+                .text('[HIDE]')
+                .on('click', (e) => {
+                    e.preventDefault();
+                    lastUpdate.hidden = true;
+                    StoragePlus.set('last_update', lastUpdate);
+                    $announceCard[0].remove();
+                    $announceCard[1].remove();
+                    ConsolePlus.debug('New update announcement hidden.');
+                })
+        );
+        $announceCard[1].attr('id', 'frpgp-new-update-announcement');
+        
+        const itExists = $(page.container).find('#frpgp-new-update-announcement').length > 0;
+        if (!itExists) {
+            getListByTitle(
+                page,
+                HomePage.titles.HOME,
+                { returnTitle: true }
+            ).before($announceCard);
+        }
+    };
+
     applyHandler = (page) => {
         throwIfPageInvalid(page, this.applyHandler.name);
 
@@ -791,6 +920,7 @@ class HomePage {
         this.hideMaxedSkills(page);
         const callback = this.highlightReadyActions(page);
         this.addDailyChecklist(page);
+        this.announceNewUpdate(page);
 
         return callback;
     };

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `HomePage` - Adds Highlight Row feature, which highlights specific rows if they are ready for interaction.
 - `HomePage` - Adds Reset Checklist feature, which adds a list on the bottom of the home page with all the common daily tasks.
+- `HomePage` - Adds Announcements feature, which displays new updates announcements on the top of home page.
 
 ### Changed
 
