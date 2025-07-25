@@ -192,6 +192,7 @@ Adds a highlight effect to specific rows on the home page, making it easier to i
 
 - Configurations:
   - **Enable Highlight Row**: Enable or disable the feature.
+  - **Highlight Style**: Choose the highlight style (None, Glow, Border, Background).
   - **Highlight Ready Crops**: Highlight the "My Farm" row if it has ready crops.
   - **Highlight Ready Meals**: Highlight the "Kitchen" row if it has ready meals.
   - **Highlight Meals Attention**: Highlight the "Kitchen" row if it has meals that need attention.

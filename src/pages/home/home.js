@@ -48,6 +48,20 @@ class HomePage {
                 enableSubtitle: 'If enabled, rows that are ready for interaction will be glowing.',
                 enabledByDefault: true,
                 configs: {
+                    highlightStyle: {
+                        title: 'Highlight Style',
+                        subtitle: 'Choose how the ready rows should be highlighted.',
+                        type: 'select',
+                        typeData: {
+                            defaultValue: 'glow',
+                            options: [
+                                { value: 'none', label: 'None' },
+                                { value: 'glow', label: 'Glow' },
+                                { value: 'border', label: 'Border' },
+                                { value: 'background', label: 'Background' }
+                            ],
+                        }
+                    },
                     highlightReadyCrops: {
                         title: 'Highlight Ready Crops',
                         subtitle: 'Highlights the "My Farm" row if it has ready crops.',
@@ -387,6 +401,20 @@ class HomePage {
 
         let timeoutIds = [];
 
+        const highlightStyle = SettingsPlus.getValue(GamePagesEnum.HOME, 'highlightReadyActions', 'highlightStyle');
+        
+        const applyHighlight = ($row) => {
+            if (highlightStyle === 'none') {
+                return;
+            } else if (highlightStyle === 'glow') {
+                $row.addClass('glow1');
+            } else if (highlightStyle === 'border') {
+                $row.css({ border: '2px dashed teal' });
+            } else if (highlightStyle === 'background') {
+                $row.css({ background: 'rgba(0, 255, 255, 0.2)' });
+            }
+        };
+
         rowsToCheck.forEach((row) => {
             const $row = $(page.container).find(`a:contains("${row.title}")`);
 
@@ -396,12 +424,12 @@ class HomePage {
             }
 
             if ($row.find(`.item-after:contains("${row.textToCheck}")`).length > 0) {
-                $row.addClass('glow1');
+                applyHighlight($row);
             } else if (row.setInterval) {
                 let timeoutId = window.setInterval(() => {
                     const $after = $row.find('.item-after');
                     if ($after.length > 0 && $after.text().includes(row.textToCheck)) {
-                        $row.addClass('glow1');
+                        applyHighlight($row);
                         window.clearInterval(timeoutId);
                         timeoutIds = timeoutIds.filter(id => id !== timeoutId);
                     }
@@ -422,7 +450,6 @@ class HomePage {
         const threshold = window.innerWidth <= 450 ? 2 : 3;
         let currentRow = startRow;
 
-        // Process all rows in sequence
         while (currentRow.length > 0) {
             if (currentRow.children().length < threshold) {
                 let nextRow = currentRow.next('.row');
@@ -430,11 +457,9 @@ class HomePage {
                 while (nextRow.length > 0) {
 
                     if (nextRow.children().length > 0) {
-                        // Move the first child from next row to current row
                         const $firstChild = nextRow.children().first().detach();
                         currentRow.append($firstChild);
 
-                        // If next row is now empty, remove it
                         if (nextRow.children().length === 0) {
                             const tempNext = nextRow.next('.row');
                             nextRow.remove();
