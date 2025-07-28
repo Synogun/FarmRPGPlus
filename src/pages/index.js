@@ -9,7 +9,9 @@ import QuestsPage from './home/quests';
 import WorkshopPage from './home/workshop';
 import KitchenPage from './kitchen/kitchen';
 import OvenPage from './kitchen/oven';
-import SettingsOptionsPage from './misc/settingsOptions';
+import SettingsColorsPage from './settings/settingsColors';
+import SettingsEmblemsPage from './settings/settingsEmblems';
+import SettingsOptionsPage from './settings/settingsOptions';
 import MuseumPage from './town/museum';
 import FarmSupplyPage from './town/supply';
 import VaultPage from './town/vault';
@@ -20,7 +22,7 @@ const Pages = {
     [GamePagesEnum.INVENTORY]: new InventoryPage,
     [GamePagesEnum.WORKSHOP]: new WorkshopPage,
     [GamePagesEnum.KITCHEN]: new KitchenPage,
-    [GamePagesEnum.QUESTS]: new QuestsPage,
+    [GamePagesEnum.HELP_NEEDED]: new QuestsPage,
     [GamePagesEnum.NPCS]: new NPCSPage,
 
     [GamePagesEnum.OVEN]: new OvenPage,
@@ -29,10 +31,12 @@ const Pages = {
 
     [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
     [GamePagesEnum.VAULT]: new VaultPage,
-    [GamePagesEnum.WELL]: new WellPage,
+    [GamePagesEnum.WISHING_WELL]: new WellPage,
     [GamePagesEnum.MUSEUM]: new MuseumPage,
 
     [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,
+    [GamePagesEnum.SETTINGS_EMBLEMS]: new SettingsEmblemsPage,
+    [GamePagesEnum.SETTINGS_COLORS]: new SettingsColorsPage, // Alias for settings colors
 
     // Events
     [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,

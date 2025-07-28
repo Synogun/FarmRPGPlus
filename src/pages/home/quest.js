@@ -81,11 +81,7 @@ class QuestPage {
                 .next()
                 .next();
 
-            ConsolePlus.debug('Buddy Farm card created:', $bfCard);
-
             $bfCardList = $bfCard.find('ul');
-
-            ConsolePlus.debug('Buddy Farm card list:', $bfCardList);
             
             if ($bfCardList.length === 0) {
                 throw new FarmRPGPlusError(
@@ -200,12 +196,6 @@ class QuestPage {
 
         if (!SettingsPlus.isEnabled(GamePagesEnum.QUEST, 'addLibraryButtonToPhr')) {
             ConsolePlus.debug('Library button for PHR is disabled in settings.');
-            return;
-        }
-
-        const $peachJuiceBtn = $(page.container).find('.button.btnorange.drinkpj');
-        if ($peachJuiceBtn.length === 0) {
-            ConsolePlus.debug('Not a PHR page, skipping library button addition.');
             return;
         }
 
@@ -387,7 +377,6 @@ class QuestPage {
                 const itExists = $(page.container).find('#frpgp-buddy-farm-next-quest').length > 0;
                 if (!itExists) {
                     const $frpgpBuddyFarmCard = this.createBuddyFarmCardList(page);
-                    ConsolePlus.debug('Buddy Farm card for next quest:', $frpgpBuddyFarmCard);
                     if ($frpgpBuddyFarmCard) {
                         $frpgpBuddyFarmCard.append($nextQuestRow);
                     } else {

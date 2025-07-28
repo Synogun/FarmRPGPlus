@@ -1,3 +1,5 @@
+import TimeControl from '../utils/timeControl';
+
 const NavBarLinks = Object.freeze({
     HOME: 'index-1',
     PROFILE: 'profile',
@@ -21,7 +23,7 @@ const HomePageLinks = Object.freeze({
     TOWN: 'town',
     FISHING: 'fish',
     EXPLORE: 'explore',
-    QUESTS: 'quests',
+    HELP_NEEDED: 'quests',
     TOWER: 'tower',
 
     PERKS: 'perks',
@@ -36,8 +38,9 @@ const TownPageLinks = Object.freeze({
     FARMERS_MARKET: 'market',
     FLEA_MARKET: 'flea',
     FARM_SUPPLY: 'supply',
+    BORGENS_CAMP: TimeControl.isTodayWednesday() ? 'borgen_camp' : 'wiki.php?page=Borgen\'s%20Camp',
     BORGEN_MERCANTILE: 'bmerc',
-    SPIN: 'spin',
+    WHEEL_OF_BORGEN: 'spin',
     BANK: 'bank',
     VAULT: 'crack',
     STEAK_MARKET: 'steakmarket',
@@ -45,7 +48,7 @@ const TownPageLinks = Object.freeze({
     FISHING_CHARTER: 'charter',
     EXPEDITION: 'expedition',
     PET_SHOP: 'pets',
-    WELL: 'well',
+    WISHING_WELL: 'well',
     EXCHANGE_CENTER: 'exchange',
     HOUSE_OF_CARDS: 'cardshop',
     ART_GALLERY: 'gallery',
@@ -123,6 +126,17 @@ const FishingInfoPageLinks = Object.freeze({
     GLACIER_LAKE_INFO: 'location.php?type=fishing&id=12',
 });
 
+const MyFarmPageLinks = Object.freeze({
+    CHICKEN_COOP: 'coop.php',
+    COW_PASTURE: 'pasture.php',
+    PIG_PEN: 'pigpen.php',
+    STOREHOUSE: 'storehouse.php',
+    FARMHOUSE: 'farmhouse.php',
+    RAPTOR_PEN: 'pen.php',
+    GRAPE_JUICE_VAT: 'grapejuicevat.php',
+    WINE_CELLAR: 'cellar.php',
+});
+
 const EventPageLinks = Object.freeze({
     BOTTLE_ROCKET: 'Bottle-Rocket-Brawl'
 });
@@ -134,14 +148,29 @@ const SinglePageLinks = Object.freeze({
     MAILBOX: 'mailbox',
 });
 
-const MiscPageLinks = Object.freeze({
+const SettingsPageLinks = Object.freeze({
     SETTINGS: 'settings',
-    SETTINGS_OPTIONS: 'settings_options'
+    SETTINGS_OPTIONS: 'settings_options',
+    SETTINGS_EMBLEMS: 'settings_emblems',
+    SETTINGS_COLORS: 'settings_colors',
+});
+
+const ItemPageLinks = Object.freeze({
+    ORANGE_JUICE: 'item.php?id=84',
+    LEMONADE: 'item.php?id=86',
+    APPLE_CIDER: 'item.php?id=379',
+    ARNOLD_PALMER: 'item.php?id=508',
+    ANTLER: 'item.php?id=170',
+    MILK: 'item.php?id=85',
+    FEATHERS: 'item.php?id=42',
+    EGGS: 'item.php?id=26',
+    TROUT: 'item.php?id=63',
 });
 
 const GamePagesEnum = Object.freeze({
     ...NavBarLinks,
     ...HomePageLinks,
+    ...MyFarmPageLinks,
     ...TownPageLinks,
     ...ExplorePageLinks,
     ...ExploreInfoPageLinks,
@@ -149,14 +178,16 @@ const GamePagesEnum = Object.freeze({
     ...FishingInfoPageLinks,
     ...EventPageLinks,
     ...SinglePageLinks,
-    ...MiscPageLinks,
+    ...SettingsPageLinks,
+    ...ItemPageLinks,
 });
 
 export default GamePagesEnum;
 
 export {
     EventPageLinks, ExploreInfoPageLinks, ExplorePageLinks,
-    FishingInfoPageLinks, FishingPageLinks, HomePageLinks,
+    FishingInfoPageLinks, FishingPageLinks, GamePagesEnum,
+    HomePageLinks, ItemPageLinks, SettingsPageLinks as MiscPageLinks, MyFarmPageLinks,
     NavBarLinks, SinglePageLinks, TownPageLinks
 };
 

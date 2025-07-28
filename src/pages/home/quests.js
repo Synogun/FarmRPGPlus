@@ -10,13 +10,13 @@ import { createCardList } from '../../utils/utils';
 class QuestsPage {
 
     constructor() {
-        SettingsPlus.registerPage(GamePagesEnum.QUESTS, {
+        SettingsPlus.registerPage(GamePagesEnum.HELP_NEEDED, {
             displayName: 'Quests Page',
             order: 4,
         });
 
         SettingsPlus.registerFeature(
-            GamePagesEnum.QUESTS,
+            GamePagesEnum.HELP_NEEDED,
             'addBuddyFarmButton',
             {
                 title: 'Add Buddy Farm Button?',
@@ -38,7 +38,7 @@ class QuestsPage {
     addBuddyFarmCard = (page) => {
         throwIfPageInvalid(page, this.addBuddyFarmCard.name);
 
-        if (!SettingsPlus.isEnabled(GamePagesEnum.QUESTS, 'addBuddyFarmButton')) {
+        if (!SettingsPlus.isEnabled(GamePagesEnum.HELP_NEEDED, 'addBuddyFarmButton')) {
             ConsolePlus.debug('Buddy Farm button is disabled in settings.');
             return;
         }

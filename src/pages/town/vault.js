@@ -8,7 +8,11 @@ import { createCardList, getListByTitle } from '../../utils/utils';
 
 class VaultPage {
 
-    constructor() {
+    constructor(isToRegister = true) {
+        if (!isToRegister) {
+            return;
+        }
+
         SettingsPlus.registerPage(GamePagesEnum.VAULT, {
             displayName: 'Vault',
             order: 100,
@@ -145,26 +149,118 @@ class VaultPage {
     };
 
     /**
+ * Simula o feedback de um palpite numérico de 4 dígitos contra o código secreto.
+ * @param {string} guess  - string de 4 dígitos, ex: "0123"
+ * @param {string} secret - string de 4 dígitos, ex: "3021"
+ * @returns {Array<{ number: string, color: 'blue'|'yellow'|'gray' }>}
+ */
+    simulateFeedback = (guess, secret) => {
+        // transforma em arrays de chars
+        const g = guess.split('');
+        const s = secret.split('');
+
+        // inicializa tudo como cinza (gray)
+        const feedback = g.map(d => ({ number: d, color: 'gray' }));
+
+        // 1) marca os verdes (blue)
+        const usedInSecret = [false, false, false, false];
+        for (let i = 0; i < 4; i++) {
+            if (g[i] === s[i]) {
+                feedback[i].color = 'blue';
+                usedInSecret[i] = true;
+            }
+        }
+
+        // 2) conta os dígitos restantes do secreto
+        const counts = {};
+        for (let i = 0; i < 4; i++) {
+            if (!usedInSecret[i]) {
+                counts[s[i]] = (counts[s[i]] || 0) + 1;
+            }
+        }
+
+        // 3) marca os amarelos (yellow) onde couber
+        for (let i = 0; i < 4; i++) {
+            if (feedback[i].color === 'gray') {
+                const d = g[i];
+                if (counts[d]) {
+                    feedback[i].color = 'yellow';
+                    counts[d]--;
+                }
+            }
+        }
+
+        return feedback;
+    };
+
+    /**
      * Make a guess for the Crack The Vault game based on previous hints
-     * @param {Array<T>} hintList - Previous guesses and their feedback
+     * @param {Array<{ color: string, number: string}>} hintList - Previous guesses and their feedback
      * @returns {string} - The next 4-digit guess
     */
     guessVaultCode = (hintList) => {
-        // TODO: Implement a more sophisticated algorithm to analyze hints and make better guesses
         if (!hintList || hintList.length === 0) {
             return '0123'; // Default first guess
         }
 
         const attemptsMade = hintList.length / 4;
-        const suggestedGuess = [];
+        const attemptHints = (attempt = 0) => {
+            if (attempt < 1 || attempt > attemptsMade) {
+                throw new FarmRPGPlusError(
+                    ErrorTypesEnum.INVALID_ARGUMENT,
+                    this.guessVaultCode.name,
+                    `Invalid attempt number: ${attempt}. Must be between 1 and ${attemptsMade}.`
+                );
+            }
 
-        if (attemptsMade === 1) {
-            suggestedGuess.push('4', '5', '6', '7');
-        } else if (attemptsMade === 2) {
-            suggestedGuess.push('8', '9');
+            return hintList.slice((attempt - 1) * 4, attempt * 4);
+        };
+
+        let allCodes = [];
+        for (let i = 1; i < 10000; i++) {
+            allCodes.push(i.toString().padStart(4, '0'));
         }
 
-        return suggestedGuess.join('');
+        const isUniqueCode = code => /^(?!.*(.).*\1)[0-9]{4}$/.test(code);
+
+        for (let attempt = 1; attempt <= attemptsMade; attempt++) {
+            const hints = attemptHints(attempt);
+
+            for (let i = 0; i < hints.length; i++) {
+                const { color, number } = hints[i];
+                const index = i % 4; // Get the index in the 4-digit code
+
+                if (color === 'blue') {
+                    allCodes = allCodes.filter(code => code[index] === number);
+                } else if (color === 'yellow') {
+                    allCodes = allCodes.filter(code => code[index] !== number);
+                } else if (color === 'gray') {
+                    if (isUniqueCode(hints.map(h => h.number).join(''))) {
+                        allCodes = allCodes.filter(code => !code.includes(number));
+                    } else {
+                        allCodes = allCodes.filter(code => code[index] !== number);
+                    }
+                }
+            }
+        }
+
+        let suggestedGuess;
+        if (allCodes.length > 0) {
+            const uniqueCodes = allCodes.filter(isUniqueCode);
+            if (uniqueCodes.length > 0) {
+                const randomIndex = Math.floor(Math.random() * uniqueCodes.length);
+                suggestedGuess = uniqueCodes[randomIndex];
+            } else {
+                const randomIndex = Math.floor(Math.random() * allCodes.length);
+                suggestedGuess = allCodes[randomIndex];
+            }
+        } else {
+            // Should never happen, but just in case
+            ConsolePlus.warn('No codes available for the first guess, using default guess.');
+            suggestedGuess = '4567'; // Default guess if no codes available
+        }
+
+        return suggestedGuess;
     };
 
     applyHandler = (page) => {

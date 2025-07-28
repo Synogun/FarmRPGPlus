@@ -307,7 +307,7 @@ class BottleRocketPage {
         let stopMutatorHandle = null;
         $attackButtons.on('click', (event) => {
 
-            stopMutatorHandle = watchForElement('.modal.modal-in', ($el) => {
+            stopMutatorHandle = watchForElement(document.body, '.modal.modal-in', ($el) => {
                 const $modalTitle = $el.find('.modal-title');
                 if ($modalTitle.length === 0) {
                     stopMutatorHandle();
@@ -460,7 +460,12 @@ class BottleRocketPage {
             });
         });
 
-        return stopMutatorHandle;
+        return () => {
+            if (stopMutatorHandle) {
+                ConsolePlus.debug('Stopping Bottle Rocket attack buttons observer.');
+                stopMutatorHandle();
+            }
+        };
     };
 
     applyHandler = (page) => {

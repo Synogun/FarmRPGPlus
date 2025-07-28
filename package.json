@@ -1,7 +1,7 @@
 {
     "name": "farmrpg-plus",
     "symbol": "FRPGP",
-    "version": "1.5.3",
+    "version": "1.8.2",
     "description": "Add features to Farm RPG while keeping code of conduct in mind.",
     "private": true,
     "scripts": {
@@ -30,6 +30,7 @@
         "globals": "16.3.0",
         "npm-run-all2": "8.0.4",
         "rimraf": "6.0.1",
+        "vitest": "3.2.4",
         "webpack": "5.91.0",
         "webpack-cli": "5.1.4",
         "webpack-userscript": "3.2.3"

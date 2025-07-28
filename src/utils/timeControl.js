@@ -54,6 +54,25 @@ class TimeControl {
 
         return 0;
     }
+
+    /**
+     * Checks if the current day is Wednesday.
+     *
+     * @returns {boolean} Returns true if today is Wednesday, false otherwise.
+     */
+    static isTodayWednesday() {
+        const now = TimeControl.getLocaleTimeOnCT();
+        return now.getDay() === 3;
+    }
+
+    static sameDay(date1, date2) {
+        const d1 = TimeControl.getLocaleTimeOnCT(date1);
+        const d2 = TimeControl.getLocaleTimeOnCT(date2);
+
+        return d1.getFullYear() === d2.getFullYear() &&
+            d1.getMonth() === d2.getMonth() &&
+            d1.getDate() === d2.getDate();
+    }
 }
 
 export default TimeControl;

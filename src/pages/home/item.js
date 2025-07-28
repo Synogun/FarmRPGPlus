@@ -492,20 +492,17 @@ class ItemPage {
         }
 
         if (!getListByTitle(page, ItemPage.titles.PUMPKIN_JUICE)) {
-            ConsolePlus.debug('Pumpkin Juice section not found on the page.');
             return;
         }
 
         const $pumpkinJuiceButton = $(page.container).find('a.usepumpkinjuicebtn');
 
         if (!$pumpkinJuiceButton.length) {
-            ConsolePlus.debug('Pumpkin Juice button not found.');
             return;
         }
 
         const pumpkinJuiceAmount = $pumpkinJuiceButton.find('.item-after').text().trim();
         if (!pumpkinJuiceAmount || pumpkinJuiceAmount === '0') {
-            ConsolePlus.debug('Pumpkin Juice amount is zero or not found.');
             return;
         }
 
@@ -526,7 +523,6 @@ class ItemPage {
         const currentMasteryAmount = this.getItemMasteryAmount(page);
 
         if (currentMasteryAmount >= MasteryTiersEnum.MEGA_MASTERY) {
-            ConsolePlus.debug('Current mastery amount is already at or above Mega Mastery.');
             return;
         }
 
@@ -556,7 +552,6 @@ class ItemPage {
         }
 
         if (goals.length === 0) {
-            ConsolePlus.debug('No mastery goals found for the current item.');
             return;
         }
 

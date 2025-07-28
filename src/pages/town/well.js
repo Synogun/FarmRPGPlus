@@ -9,13 +9,13 @@ import { createCardList, getListByTitle } from '../../utils/utils';
 class WellPage {
 
     constructor() {
-        SettingsPlus.registerPage(GamePagesEnum.WELL, {
+        SettingsPlus.registerPage(GamePagesEnum.WISHING_WELL, {
             displayName: 'Wishing Well',
             order: 100,
         });
 
         SettingsPlus.registerFeature(
-            GamePagesEnum.WELL,
+            GamePagesEnum.WISHING_WELL,
             'addLibraryCard',
             {
                 title: 'Add Library Card?',
@@ -34,7 +34,7 @@ class WellPage {
     addLibraryCard = (page) => {
         throwIfPageInvalid(page, this.addLibraryCard.name);
 
-        if (!SettingsPlus.isEnabled(GamePagesEnum.WELL, 'addLibraryCard')) {
+        if (!SettingsPlus.isEnabled(GamePagesEnum.WISHING_WELL, 'addLibraryCard')) {
             ConsolePlus.debug('Wishing Well Library card is disabled in settings.');
             return;
         }

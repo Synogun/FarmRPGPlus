@@ -25,16 +25,21 @@ import TimeControl from './utils/timeControl';
         RouterPlus.fixUrlHash();
 
         if (window.mainView && mainView.container) {
+            let page = null;
+            let lastPageCallback = null;
             $(mainView.container).on('page:init page:reinit', function () {
+                if (lastPageCallback) {
+                    lastPageCallback();
+                }
+
                 RouterPlus.fixUrlHash();
-
-                const page = myApp.getCurrentView().activePage || mainView.activePage;
-
-                const callback = RouterPlus.handlePageChange(page);
-
-                if (callback && typeof callback === 'function') {
-                    ConsolePlus.debug(`Running callback for page: ${page.name}`);
-                    callback(page);
+                page = myApp.getCurrentView().activePage || mainView.activePage;
+                
+                const currentPageCallback = RouterPlus.handlePageChange(page);
+                if (currentPageCallback && typeof currentPageCallback === 'function') {
+                    lastPageCallback = currentPageCallback;
+                } else {
+                    lastPageCallback = null;
                 }
             });
         }

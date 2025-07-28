@@ -61,7 +61,6 @@ class FarmSupplyPage {
             const $discountedPrice = $(element).parents('.item-title').next();
             
             if ($discountedPrice.length === 0) {
-                ConsolePlus.debug('No discounted price found for:', $(element).text());
                 return;
             }
 

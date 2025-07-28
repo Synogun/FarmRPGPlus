@@ -13,6 +13,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [v1.8.2](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.8.2/dist/FarmRPGPlus.user.js)
+
+### Added
+- `HomePage` - Adds Highlight Row feature, which highlights specific rows if they are ready for interaction.
+- `HomePage` - Adds Reset Checklist feature, which adds a list on the bottom of the home page with all the common daily tasks.
+- `HomePage` - Adds Announcements feature, which displays new updates announcements on the top of home page.
+
+### Changed
+- `VaultPage` - Improves code suggester to handle more complex code patterns and provide better suggestions. The algorithm now is able to crack every single vault code (0001-9999).
+- `Several Pages` - Removes unnecessary debug messages to clean up the console output.
+
+### Fixed
+- `SettingsPlus` - Fixes verification of feature value in `isFeatureEnabled` causing features not being disabled properly.
+- `main | RouterPlus` - Fixes callback handling in the main script, which wasn't properly receiving the callback from the router.
+
 ## [v1.5.3](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.5.3/dist/FarmRPGPlus.user.js)
 
 ### Added

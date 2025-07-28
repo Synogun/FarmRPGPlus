@@ -33,7 +33,7 @@ All data saved is related to the script's features and settings, such as:
 
 Know that the script does not save any personal data from your FarmRPG account information or any other sensitive data.
 
-### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state.
+### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state
 
 ## ⬇ How to Install and Use
 
@@ -175,7 +175,7 @@ Adds a previous and next button inside the Ovens page, making cooking actions le
 
 ### 🏢💰 Vault Guesser Button
 
-Adds a button to the Vault page that guesses the next code try based on the amount of tries done (Still in very early stages, but follows the general strategy: 0123 -> 4567 -> 89).
+Adds a button to the Vault page that guesses the next code try based on the hints provided.
 
 - Configurations:
   - **Enable Vault Guesser Button**: Enable or disable the feature.
@@ -183,6 +183,71 @@ Adds a button to the Vault page that guesses the next code try based on the amou
     <summary>Screenshots</summary>
 
     ![Vault Guesser Button](screenshots/vault-guesser-button.png "Vault Guesser Button")
+
+</details>
+
+### ✨ Highlight Row
+
+Adds a highlight effect to specific rows on the home page, making it easier to identify when they are ready for interaction.
+
+- Configurations:
+  - **Enable Highlight Row**: Enable or disable the feature.
+  - **Highlight Style**: Choose the highlight style (None, Glow, Border, Background).
+  - **Highlight Ready Crops**: Highlight the "My Farm" row if it has ready crops.
+  - **Highlight Ready Meals**: Highlight the "Kitchen" row if it has ready meals.
+  - **Highlight Meals Attention**: Highlight the "Kitchen" row if it has meals that need attention.
+  - **Highlight Fish Baiting**: Highlight the "Fishing" row if a location is baiting.
+  - **Highlight Ready Quests**: Highlight the "Quests" row if it has quests ready to complete.
+  - **Highlight Available Perks**: Highlight the "Perks" row if it has available perks .
+  - **Highlight Ready Mastery**: Highlight the "Mastery" row if it has mastery ready to collect.
+  - **Highlight NPC Gifts**: Highlight the "NPC Levels" row if it has gifts ready to collect.
+  - **Highlight Ready Daily Chores**: Highlight the "Daily Chores" row if it has chores ready to complete.
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Highlight Row](screenshots/highlight-row.png "Highlight Row")
+
+</details>
+
+### 📢 Announce New Updates
+
+Displays new updates announcements on the top of the home page.
+
+- Configurations:
+  - **Enable Announce New Updates**: Enable or disable the feature.
+  - **Highlight Style**: Choose the highlight style for the announcement (None, Glow, Border, Background).
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Announce New Updates](screenshots/new-update-announcement.png "Announce New Updates")
+
+### 📝 Reset Checklist
+
+Adds a checklist at the bottom of the home page with common daily tasks.
+
+- Configurations:
+  - **Enable Reset Checklist**: Enable or disable the feature.
+  - **Track Bank Silver**: Show or hide the bank silver task.
+  - **Track Community Center Donations**: Show or hide the community center donations task.
+  - **Track Animal Work**: Show or hide the animal work task.
+  - **Track Farm Work**: Show or hide the farm work task.
+  - **Track Crafting Fruit**: Show or hide the crafting fruit task.
+  - **Track Slaughter Animals**: Show or hide the slaughter animals task.
+  - **Track Daily Chores**: Show or hide the daily chores task.
+  - **Track Wishing Well**: Show or hide the wishing well task.
+  - **Track Grape Juice**: Show or hide the grape juice usage task.
+  - **Track Spinning Wheel**: Show or hide the spinning wheel task.
+  - **Track Cracking Vault**: Show or hide the cracking vault task.
+  - **Track Exchange Center**: Show or hide the exchange center task.
+  - **Track Crafting Daily Production**: Show or hide the crafting daily production task.
+  - **Track Sending Gifts**: Show or hide the sending gifts task.
+  - **Track Selling Kabobs**: Show or hide the selling kabobs task.
+  - **Track Personal Help Requests**: Show or hide the personal help requests task.
+  - **Track Playing Buddyjack**: Show or hide the playing buddyjack task.
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Reset Checklist](screenshots/daily-reset-checklist.png "Daily Reset Checklist")
 
 </details>
 

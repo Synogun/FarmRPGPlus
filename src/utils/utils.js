@@ -219,7 +219,7 @@ function createCardList({ cardId = '', cardClass = '', title = '', children = []
     return content;
 }
 
-function watchForElement(selector, callback) {
+function watchForElement(from, selector, callback) {
     let observer = null;
 
     // Verifica se o elemento já está presente
@@ -240,14 +240,14 @@ function watchForElement(selector, callback) {
                     if ($matched.length) {
                         callback($matched.first());
                         observer.disconnect(); // parar após encontrar
-                        return;
+                        return () => { };
                     }
                 }
             });
         }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(from, { childList: true, subtree: true });
 
     // Retorna função para parar manualmente
     return () => {
@@ -408,8 +408,20 @@ function parseKeyToDisplayName(key) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
+/**
+ * Determines if the application is currently in dark mode.
+ * Checks for the presence of a '#dark_mode' element with a value of '1'.
+ *
+ * @returns {boolean} True if dark mode is enabled, false otherwise.
+ */
+function isDarkMode() {
+    return $(document.body).find('#dark_mode').text() === '1';
+}
+
+
 export {
     createCardList, createRow, getListByTitle,
-    isUrlValid, parseKeyToDisplayName, parseNameForUrl, watchForElement
+    isDarkMode, isUrlValid, parseKeyToDisplayName,
+    parseNameForUrl, watchForElement
 };
 

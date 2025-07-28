@@ -46,7 +46,7 @@ export default defineConfig([
             // https://eslint.org/docs/latest/rules/grouped-accessor-pairs
             'grouped-accessor-pairs': ['error', 'getBeforeSet'],
             // https://eslint.org/docs/latest/rules/strict
-            'strict': ['error', 'global']
+            'strict': ['error', 'global'],
         },
     },
     {
@@ -68,7 +68,18 @@ export default defineConfig([
             // https://eslint.style/rules/brace-style
             'stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
             // https://eslint.style/rules/comma-dangle
-            'stylistic/comma-dangle': ['error', 'only-multiline'],
+            'stylistic/comma-dangle': ['error', {
+                arrays: 'only-multiline',
+                objects: 'only-multiline',
+                imports: 'never',
+                exports: 'never',
+                functions: 'only-multiline',
+                importAttributes: 'only-multiline',
+                dynamicImports: 'ignore',
+                enums: 'only-multiline',
+                generics: 'only-multiline',
+                tuples: 'only-multiline',
+            }],
             // https://eslint.style/rules/comma-spacing
             'stylistic/comma-spacing': ['error', { before: false, after: true }],
             // https://eslint.style/rules/comma-style
