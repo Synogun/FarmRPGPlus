@@ -148,9 +148,11 @@ const SinglePageLinks = Object.freeze({
     MAILBOX: 'mailbox',
 });
 
-const MiscPageLinks = Object.freeze({
+const SettingsPageLinks = Object.freeze({
     SETTINGS: 'settings',
-    SETTINGS_OPTIONS: 'settings_options'
+    SETTINGS_OPTIONS: 'settings_options',
+    SETTINGS_EMBLEMS: 'settings_emblems',
+    SETTINGS_COLORS: 'settings_colors',
 });
 
 const ItemPageLinks = Object.freeze({
@@ -176,7 +178,7 @@ const GamePagesEnum = Object.freeze({
     ...FishingInfoPageLinks,
     ...EventPageLinks,
     ...SinglePageLinks,
-    ...MiscPageLinks,
+    ...SettingsPageLinks,
     ...ItemPageLinks,
 });
 
@@ -185,7 +187,7 @@ export default GamePagesEnum;
 export {
     EventPageLinks, ExploreInfoPageLinks, ExplorePageLinks,
     FishingInfoPageLinks, FishingPageLinks, GamePagesEnum,
-    HomePageLinks, ItemPageLinks, MiscPageLinks, MyFarmPageLinks,
+    HomePageLinks, ItemPageLinks, SettingsPageLinks as MiscPageLinks, MyFarmPageLinks,
     NavBarLinks, SinglePageLinks, TownPageLinks
 };
 

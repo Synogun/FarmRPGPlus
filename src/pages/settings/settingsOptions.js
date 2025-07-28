@@ -1,12 +1,8 @@
 import $ from 'jquery';
 import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
-import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
 import StoragePlus from '../../modules/storagePlus';
-
-StoragePlus;
-createRow;
 
 class SettingsOptionsPage {
 
