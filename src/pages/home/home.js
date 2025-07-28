@@ -388,7 +388,8 @@ class HomePage {
             { configName: 'highlightAvailablePerks', title: 'Perks', textToCheck: 'Available', setInterval: false },
             { configName: 'highlightReadyMastery', title: 'Mastery', textToCheck: 'READY!', setInterval: false },
             { configName: 'highlightNPCGiftsReady', title: 'NPC Gifts', textToCheck: 'READY!', setInterval: false },
-            { configName: 'highlightReadyDailyChores', title: 'Daily Chores', textToCheck: 'READY!', setInterval: false }
+            { configName: 'highlightReadyDailyChores', title: 'Daily Chores', textToCheck: 'READY!', setInterval: false },
+            { configName: 'highlightReadyEvents', title: 'Bottle Rocket Brawl', textToCheck: 'READY!', setInterval: false },
         ];
         
         const rowsToCheck = allRows.filter((row) => {
