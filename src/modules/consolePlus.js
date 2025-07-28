@@ -24,7 +24,7 @@ class ConsolePlus {
      * @param {...any} args - The messages or objects to log.
      */
     static debug(...args) {
-        if (process.env.NODE_ENV === 'production') {
+        if (process.env.NODE_ENV !== 'development') {
             return; // Skip debug logs in production
         }
         console.debug(`${this.prefix()} [DEBUG]`, ...args);

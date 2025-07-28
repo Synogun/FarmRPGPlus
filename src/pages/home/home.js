@@ -419,7 +419,6 @@ class HomePage {
             const $row = $(page.container).find(`a:contains("${row.title}")`);
 
             if ($row.length === 0) {
-                ConsolePlus.debug(`Row "${row.title}" not found.`);
                 return;
             }
 
@@ -821,7 +820,6 @@ class HomePage {
 
         const itExists = $(page.container).find('#frpgp-daily-checklist').length > 0;
         if (itExists) {
-            ConsolePlus.debug('Daily checklist already exists, updating it.');
             $(page.container).find('#frpgp-daily-checklist').replaceWith($card);
         } else {
             getListByTitle(
@@ -882,7 +880,6 @@ class HomePage {
         }
 
         if (lastUpdate.hidden) {
-            ConsolePlus.debug('Last update is hidden, not announcing it.');
             return;
         }
 
@@ -921,7 +918,6 @@ class HomePage {
                     StoragePlus.set('last_update', lastUpdate);
                     $announceCard[0].remove();
                     $announceCard[1].remove();
-                    ConsolePlus.debug('New update announcement hidden.');
                 })
         );
         $announceCard[1].attr('id', 'frpgp-new-update-announcement');

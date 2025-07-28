@@ -33,7 +33,7 @@ All data saved is related to the script's features and settings, such as:
 
 Know that the script does not save any personal data from your FarmRPG account information or any other sensitive data.
 
-### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state.
+### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state
 
 ## ⬇ How to Install and Use
 
@@ -175,7 +175,7 @@ Adds a previous and next button inside the Ovens page, making cooking actions le
 
 ### 🏢💰 Vault Guesser Button
 
-Adds a button to the Vault page that guesses the next code try based on the amount of tries done (Still in very early stages, but follows the general strategy: 0123 -> 4567 -> 89).
+Adds a button to the Vault page that guesses the next code try based on the hints provided.
 
 - Configurations:
   - **Enable Vault Guesser Button**: Enable or disable the feature.

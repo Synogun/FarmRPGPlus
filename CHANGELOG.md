@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `HomePage` - Adds Announcements feature, which displays new updates announcements on the top of home page.
 
 ### Changed
+- `VaultPage` - Improves code suggester to handle more complex code patterns and provide better suggestions. The algorithm now is able to crack every single vault code (0001-9999).
+- `Several Pages` - Removes unnecessary debug messages to clean up the console output.
 
 ### Fixed
 - `SettingsPlus` - Fixes verification of feature value in `isFeatureEnabled` causing features not being disabled properly.
