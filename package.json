@@ -1,7 +1,7 @@
 {
     "name": "farmrpg-plus",
     "symbol": "FRPGP",
-    "version": "1.5.3",
+    "version": "1.8.2",
     "description": "Add features to Farm RPG while keeping code of conduct in mind.",
     "private": true,
     "scripts": {
