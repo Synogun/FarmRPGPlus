@@ -115,6 +115,12 @@ class HomePage {
                         subtitle: 'Highlights the "Daily Chores" row if it has chores ready to complete.',
                         type: 'checkbox',
                         typeData: { defaultValue: true }
+                    },
+                    highlightReadyEvents: {
+                        title: 'Highlight Ready Events',
+                        subtitle: 'Highlights the event rows if they are ready to interact.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
                     }
                 }
             }
@@ -386,7 +392,7 @@ class HomePage {
             { configName: 'highlightFishBaiting', title: 'Fishing', textToCheck: 'BITING!', setInterval: true },
             { configName: 'highlightQuestsReady', title: 'Help Needed', textToCheck: 'READY!', setInterval: false },
             { configName: 'highlightAvailablePerks', title: 'Perks', textToCheck: 'Available', setInterval: false },
-            { configName: 'highlightReadyMastery', title: 'Mastery', textToCheck: 'READY!', setInterval: false },
+            { configName: 'highlightReadyMastery', title: 'Mastery Progress', textToCheck: 'READY!', setInterval: false },
             { configName: 'highlightNPCGiftsReady', title: 'NPC Gifts', textToCheck: 'READY!', setInterval: false },
             { configName: 'highlightReadyDailyChores', title: 'Daily Chores', textToCheck: 'READY!', setInterval: false },
             { configName: 'highlightReadyEvents', title: 'Bottle Rocket Brawl', textToCheck: 'READY!', setInterval: false },
