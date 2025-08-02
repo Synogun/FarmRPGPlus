@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Changed
+- `VaultPage` - Adopts extra stategy for code suggester, injecting untested digits into blue positions to make better use of space.
 
 ### Fixed
 

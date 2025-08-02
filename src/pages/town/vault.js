@@ -194,7 +194,7 @@ class VaultPage {
     };
 
     /**
-     * Make a guess for the Crack The Vault game based on previous hints
+     * Make a guess for the Crack The Vault game based on previous guesses and feedback.
      * @param {Array<{ color: string, number: string}>} hintList - Previous guesses and their feedback
      * @returns {string} - The next 4-digit guess
     */
@@ -221,24 +221,58 @@ class VaultPage {
             allCodes.push(i.toString().padStart(4, '0'));
         }
 
+        const knownDigits = new Set;
+        const unknownDigits = new Set(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
+        
+        const correctCode = ['', '', '', ''];
+        const maybeCode = ['', '', '', ''];
+
         const isUniqueCode = code => /^(?!.*(.).*\1)[0-9]{4}$/.test(code);
+        const injectDigitOnBlue = (guess, digit) => {
+            const currentGuess = guess.split('');
+            const itsComplete = (correctCode.filter(d => d !== '').length + maybeCode.filter(d => d !== '').length) === 4;
+            const indexToInject = currentGuess.findIndex(
+                (d, index) =>
+                    correctCode[index] !== '' &&
+                    d === correctCode[index] // Only inject if the position is not already injected
+            );
+
+            if (indexToInject !== -1 && !itsComplete) {
+                currentGuess[indexToInject] = digit;
+
+                return currentGuess.join('');
+            } else {
+                return guess; // No position available, return original guess
+            }
+        };
+
+
 
         for (let attempt = 1; attempt <= attemptsMade; attempt++) {
             const hints = attemptHints(attempt);
 
             for (let i = 0; i < hints.length; i++) {
-                const { color, number } = hints[i];
-                const index = i % 4; // Get the index in the 4-digit code
+                const { color, number: digit } = hints[i];
+                const index = i % 4;
+
+                if (!knownDigits.has(digit)) {
+                    knownDigits.add(digit);
+                    unknownDigits.delete(digit);
+                }
 
                 if (color === 'blue') {
-                    allCodes = allCodes.filter(code => code[index] === number);
+                    allCodes = allCodes.filter(code => code[index] === digit);
+
+                    correctCode[index] = digit;
+                    maybeCode[index] = '';
                 } else if (color === 'yellow') {
-                    allCodes = allCodes.filter(code => code[index] !== number);
+                    allCodes = allCodes.filter(code => code[index] !== digit && code.includes(digit));
+                    maybeCode[index] = digit;
                 } else if (color === 'gray') {
                     if (isUniqueCode(hints.map(h => h.number).join(''))) {
-                        allCodes = allCodes.filter(code => !code.includes(number));
+                        allCodes = allCodes.filter(code => !code.includes(digit));
                     } else {
-                        allCodes = allCodes.filter(code => code[index] !== number);
+                        allCodes = allCodes.filter(code => code[index] !== digit);
                     }
                 }
             }
@@ -254,10 +288,19 @@ class VaultPage {
                 const randomIndex = Math.floor(Math.random() * allCodes.length);
                 suggestedGuess = allCodes[randomIndex];
             }
+
+            if (unknownDigits.size > 0) {
+                for (const digit of unknownDigits) {
+                    if (suggestedGuess.includes(digit) || correctCode.includes(digit)) {
+                        continue;
+                    }
+                    suggestedGuess = injectDigitOnBlue(suggestedGuess, digit);
+                }
+            }
         } else {
             // Should never happen, but just in case
             ConsolePlus.warn('No codes available for the first guess, using default guess.');
-            suggestedGuess = '4567'; // Default guess if no codes available
+            suggestedGuess = '4567';
         }
 
         return suggestedGuess;

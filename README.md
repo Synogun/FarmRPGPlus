@@ -11,6 +11,32 @@ Any feedback, ideas, requests, bugs or tips can be send to my ingame DM and Mail
 
 All changes are documented on the [Changelog](CHANGELOG.md).
 
+## Table of Contents
+
+- [👨‍🌾🚜 FarmRPG Plus](#-farmrpg-plus)
+  - [Table of Contents](#table-of-contents)
+  - [🤔💭 Considerations](#-considerations)
+  - [💾 About data saved](#-about-data-saved)
+    - [If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state](#if-any-script-feature-seems-broken-try-resetting-the-its-data-by-going-to-the-settings-page-and-clicking-on-reset-farmrpg-plus-data-this-will-clear-all-saved-data-and-restore-the-script-to-its-default-state)
+  - [⬇ How to Install and Use](#-how-to-install-and-use)
+  - [💻 Setting Up on Desktop](#-setting-up-on-desktop)
+  - [✨ Features](#-features)
+    - [⚙ Modular Features](#-modular-features)
+    - [📚 Buddy Farm and Library Buttons](#-buddy-farm-and-library-buttons)
+    - [♻ Crafting Bonus Indicator](#-crafting-bonus-indicator)
+    - [✅ Items Collected Indicator](#-items-collected-indicator)
+    - [👥🎁 NPC Likings Card](#-npc-likings-card)
+    - [🥤🎃 Pumpkin Juice Goal Indicator](#-pumpkin-juice-goal-indicator)
+    - [🔥 Oven Navigation Buttons](#-oven-navigation-buttons)
+    - [🏢💰 Vault Guesser Button](#-vault-guesser-button)
+    - [✨ Highlight Row](#-highlight-row)
+    - [📢 Announce New Updates](#-announce-new-updates)
+    - [📝 Reset Checklist](#-reset-checklist)
+    - [🙈🔝 Hide Max Skills](#-hide-max-skills)
+    - [➗ Farm Supply Discount Indicator](#-farm-supply-discount-indicator)
+    - [📅 Event Features](#-event-features)
+      - [🚀 Bottle Rocket Brawl](#-bottle-rocket-brawl)
+
 ## 🤔💭 Considerations
 
 > X. Cheating may be subject to an immediate ban.\
@@ -176,6 +202,24 @@ Adds a previous and next button inside the Ovens page, making cooking actions le
 ### 🏢💰 Vault Guesser Button
 
 Adds a button to the Vault page that guesses the next code try based on the hints provided.
+
+The suggester will analyze the hints and previous guesses to provide a guess that is most likely to be correct.\
+It will also inject untested digits in the blue hints (if any) to make better use of space and increase the chances of cracking the vault code.
+
+> Test results for all possible codes:
+> - Tested: 9999 codes
+> - Solved: 9999 codes (100.00%)
+> - Failed: 0 codes
+> - Total attempts: 45615
+> - Average attempts: 4.56
+> - Min attempts needed other than 1 for default first guess: 2
+> - Min attempt guesses other than 1 for default first guess:
+>   - Start > 0123 > 0132
+> - Max attempts needed: 9
+> - Max attempt guesses:
+>   - Start > 0123 > 3901 > 1830 > 1630 > 1530 > 1430 > 1730 > 1330 > 1030
+
+**Note**: The first guess is always `0123`, as it is the most common first guess used.
 
 - Configurations:
   - **Enable Vault Guesser Button**: Enable or disable the feature.

@@ -491,13 +491,10 @@ class ItemPage {
             return;
         }
 
-        if (!getListByTitle(page, ItemPage.titles.PUMPKIN_JUICE)) {
-            return;
-        }
-
         const $pumpkinJuiceButton = $(page.container).find('a.usepumpkinjuicebtn');
 
         if (!$pumpkinJuiceButton.length) {
+            // If the button does not exist, we do not need to proceed.
             return;
         }
 
