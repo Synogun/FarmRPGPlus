@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `VaultPage` - Adopts extra stategy for code suggester, injecting untested digits into blue positions to make better use of space.
 
 ### Fixed
+- `ItemPage` - Fixes Pumpkin Juice Indicator not displaying correctly when the player has 0 mastery on the item.
 
 ## [v1.8.2](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.8.2/dist/FarmRPGPlus.user.js)
 

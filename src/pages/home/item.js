@@ -517,10 +517,12 @@ class ItemPage {
             $pumpkinJuiceButton.find('.item-title').append(['<br>', $ownedPJ]);
         }
 
-        const currentMasteryAmount = this.getItemMasteryAmount(page);
+        let currentMasteryAmount = this.getItemMasteryAmount(page);
 
         if (currentMasteryAmount >= MasteryTiersEnum.MEGA_MASTERY) {
             return;
+        } else if (currentMasteryAmount === 0) {
+            currentMasteryAmount = 1;
         }
 
         const goals = [];
