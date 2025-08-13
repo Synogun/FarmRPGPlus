@@ -17,7 +17,6 @@ All changes are documented on the [Changelog](CHANGELOG.md).
   - [Table of Contents](#table-of-contents)
   - [🤔💭 Considerations](#-considerations)
   - [💾 About data saved](#-about-data-saved)
-    - [If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state](#if-any-script-feature-seems-broken-try-resetting-the-its-data-by-going-to-the-settings-page-and-clicking-on-reset-farmrpg-plus-data-this-will-clear-all-saved-data-and-restore-the-script-to-its-default-state)
   - [⬇ How to Install and Use](#-how-to-install-and-use)
   - [💻 Setting Up on Desktop](#-setting-up-on-desktop)
   - [✨ Features](#-features)
@@ -29,6 +28,7 @@ All changes are documented on the [Changelog](CHANGELOG.md).
     - [🥤🎃 Pumpkin Juice Goal Indicator](#-pumpkin-juice-goal-indicator)
     - [🔥 Oven Navigation Buttons](#-oven-navigation-buttons)
     - [🏢💰 Vault Guesser Button](#-vault-guesser-button)
+    - [🔑 Vault Enter Hotkey](#-vault-enter-hotkey)
     - [✨ Highlight Row](#-highlight-row)
     - [📢 Announce New Updates](#-announce-new-updates)
     - [📝 Reset Checklist](#-reset-checklist)
@@ -59,6 +59,7 @@ All data saved is related to the script's features and settings, such as:
 
 Know that the script does not save any personal data from your FarmRPG account information or any other sensitive data.
 
+<!-- omit from toc -->
 ### If any script feature seems broken, try resetting the it's data by going to the settings page and clicking on "Reset FarmRPG Plus Data". This will clear all saved data and restore the script to its default state
 
 ## ⬇ How to Install and Use
@@ -229,6 +230,13 @@ It will also inject untested digits in the blue hints (if any) to make better us
     ![Vault Guesser Button](screenshots/vault-guesser-button.png "Vault Guesser Button")
 
 </details>
+
+### 🔑⌨ Vault Enter Hotkey
+
+Binds the Enter keyboard key to the Send and Guess (if guesser feature is active) buttons on the Vault page.
+
+- Configurations:
+  - **Enable Vault Enter Hotkey**: Enable or disable the feature.
 
 ### ✨ Highlight Row
 
