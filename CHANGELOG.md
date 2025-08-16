@@ -13,6 +13,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [v1.10.4](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.10.4/dist/FarmRPGPlus.user.js)
+
+### Added
+- `VaultPage` - Adds Enter Hotkey feature, which binds the Enter keyboard key to Send and Guess (if guesser feature its active) buttons.
+- `HomePage` - Adds Color select configuration for Highlight Row feature, allowing users to choose the highlight color.
+
+### Changed
+- `VaultPage` - Adopts extra stategy for code suggester, injecting untested digits into blue positions to make better use of space.
+- `QuestPage` - Disable next quest feature because of potential bugs with external requests.
+
+### Fixed
+- `VaultPage` - Fixes yellow filtering not filtering codes which did not contain the yellow digit in the remaining spaces.
+- `ItemPage` - Fixes Pumpkin Juice Indicator not displaying correctly when the player has 0 mastery on the item.
+
 ## [v1.8.2](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.8.2/dist/FarmRPGPlus.user.js)
 
 ### Added

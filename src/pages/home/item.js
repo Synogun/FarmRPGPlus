@@ -491,13 +491,10 @@ class ItemPage {
             return;
         }
 
-        if (!getListByTitle(page, ItemPage.titles.PUMPKIN_JUICE)) {
-            return;
-        }
-
         const $pumpkinJuiceButton = $(page.container).find('a.usepumpkinjuicebtn');
 
         if (!$pumpkinJuiceButton.length) {
+            // If the button does not exist, we do not need to proceed.
             return;
         }
 
@@ -520,10 +517,12 @@ class ItemPage {
             $pumpkinJuiceButton.find('.item-title').append(['<br>', $ownedPJ]);
         }
 
-        const currentMasteryAmount = this.getItemMasteryAmount(page);
+        let currentMasteryAmount = this.getItemMasteryAmount(page);
 
         if (currentMasteryAmount >= MasteryTiersEnum.MEGA_MASTERY) {
             return;
+        } else if (currentMasteryAmount === 0) {
+            currentMasteryAmount = 1;
         }
 
         const goals = [];

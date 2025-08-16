@@ -39,6 +39,17 @@ class VaultPage {
                 configs: {}
             }
         );
+
+        SettingsPlus.registerFeature(
+            GamePagesEnum.VAULT,
+            'addEnterHotkeys',
+            {
+                title: 'Add Enter Hotkeys?',
+                subtitle: 'Enables enter key hotkey for sending and guessing the vault code.',
+                enabledByDefault: true,
+                configs: {}
+            }
+        );
     }
 
     static titles = Object.freeze({
@@ -79,6 +90,33 @@ class VaultPage {
         }
     };
 
+    /**
+     * Extracts vault hints from the given page's DOM.
+     *
+     * @param {Object} page - The page object containing a `container` property with the DOM element.
+     * @returns {Array<{color: string, number: string}>} An array of hint objects, each with a `color` and `number` property.
+     * @throws {Error} If the provided page is invalid.
+     */
+    getVaultHints = (page) => {
+        throwIfPageInvalid(page, this.getVaultHints.name);
+
+        const $vaultHints = $(page.container).find('.card-content-inner .row .col-25');
+        if (!$vaultHints.length) {
+            return [];
+        }
+
+        return $vaultHints
+            .map((_, hint) => $(hint).text().trim()).get()
+            .reduce((acc, hint) => {
+                const hintParts = hint.match(/([a-zA-Z]+)(\d+)/).slice(1);
+                if (hintParts) {
+                    const [color, number] = hintParts;
+                    acc.push({ color, number });
+                }
+                return acc;
+            }, []);
+    };
+
     addGuessVaultCode = (page) => {
         throwIfPageInvalid(page, this.addGuessVaultCode.name);
 
@@ -96,13 +134,12 @@ class VaultPage {
         IMPORTANT! 0 is a valid number and potentially part of the code.
         Also, the same number could be in the code more than once.
         */
-
-        const $inputVaultCode = $(page.container).find('#vaultcode');
-
         const $guessVaultCodeButton = $('<a>')
             .attr('id', 'frpgp-vault-guess-code-button')
             .addClass('button btn btnblue')
             .text('Guess Vault Code');
+
+        const $inputVaultCode = $(page.container).find('#vaultcode');
 
         $guessVaultCodeButton.on('click', (evt) => {
             evt.preventDefault();
@@ -115,29 +152,18 @@ class VaultPage {
                 );
             }
 
-            const $vaultHints = $(page.container).find('.card-content-inner .row .col-25');
+            const vaultHints = this.getVaultHints(page);
 
-            if (!$vaultHints.length) {
+            if (!vaultHints.length) {
                 $inputVaultCode.val('0123');
+                $inputVaultCode.trigger('focus');
                 return; // No hints available, default to '0123'
             }
-
-            const vaultHints = $vaultHints
-                .map((_, hint) => $(hint).text().trim()).get()
-                .reduce((acc, hint) => {
-                    const hintParts = hint.match(/([a-zA-Z]+)(\d+)/).slice(1);
-                    if (hintParts) {
-                        const [color, number] = hintParts;
-                        acc.push({ color, number });
-                    }
-                    return acc;
-                }, []);
-    
-            console.log('Vault hints:', vaultHints);
 
             $inputVaultCode.val(
                 this.guessVaultCode(vaultHints)
             );
+            $inputVaultCode.trigger('focus');
         });
 
         const newVaultButtonExists = $(page.container).find('.resetbtn').length > 0;
@@ -149,52 +175,7 @@ class VaultPage {
     };
 
     /**
- * Simula o feedback de um palpite numérico de 4 dígitos contra o código secreto.
- * @param {string} guess  - string de 4 dígitos, ex: "0123"
- * @param {string} secret - string de 4 dígitos, ex: "3021"
- * @returns {Array<{ number: string, color: 'blue'|'yellow'|'gray' }>}
- */
-    simulateFeedback = (guess, secret) => {
-        // transforma em arrays de chars
-        const g = guess.split('');
-        const s = secret.split('');
-
-        // inicializa tudo como cinza (gray)
-        const feedback = g.map(d => ({ number: d, color: 'gray' }));
-
-        // 1) marca os verdes (blue)
-        const usedInSecret = [false, false, false, false];
-        for (let i = 0; i < 4; i++) {
-            if (g[i] === s[i]) {
-                feedback[i].color = 'blue';
-                usedInSecret[i] = true;
-            }
-        }
-
-        // 2) conta os dígitos restantes do secreto
-        const counts = {};
-        for (let i = 0; i < 4; i++) {
-            if (!usedInSecret[i]) {
-                counts[s[i]] = (counts[s[i]] || 0) + 1;
-            }
-        }
-
-        // 3) marca os amarelos (yellow) onde couber
-        for (let i = 0; i < 4; i++) {
-            if (feedback[i].color === 'gray') {
-                const d = g[i];
-                if (counts[d]) {
-                    feedback[i].color = 'yellow';
-                    counts[d]--;
-                }
-            }
-        }
-
-        return feedback;
-    };
-
-    /**
-     * Make a guess for the Crack The Vault game based on previous hints
+     * Make a guess for the Crack The Vault game based on previous guesses and feedback.
      * @param {Array<{ color: string, number: string}>} hintList - Previous guesses and their feedback
      * @returns {string} - The next 4-digit guess
     */
@@ -221,24 +202,66 @@ class VaultPage {
             allCodes.push(i.toString().padStart(4, '0'));
         }
 
+        const knownDigits = new Set;
+        const unknownDigits = new Set([...Array(10).keys()].map(String));
+        
+        const correctCode = ['', '', '', ''];
+        const maybeCode = ['', '', '', ''];
+
         const isUniqueCode = code => /^(?!.*(.).*\1)[0-9]{4}$/.test(code);
+        
+        /**
+         * Attempts to inject a given digit into the guess at a position marked as 'blue' (correct digit and position),
+         * but only if the code is not yet complete. This helps test unknown digits in known correct positions.
+         * If no position is available or the code is complete, returns the original guess.
+         *
+         * @param {string} guess - The current 4-digit guess.
+         * @param {string} digit - The digit to inject into the guess.
+         * @returns {string} - The modified guess with the digit injected, or the original guess if not possible.
+         */
+        const injectDigitOnBlue = (guess, digit) => {
+            const currentGuess = guess.split('');
+            const itsComplete = (correctCode.filter(d => d !== '').length + maybeCode.filter(d => d !== '').length) === 4;
+            const indexToInject = currentGuess.findIndex(
+                (d, index) =>
+                    correctCode[index] !== '' &&
+                    d === correctCode[index] // Only inject if the position is not already injected
+            );
+
+            if (indexToInject !== -1 && !itsComplete) {
+                currentGuess[indexToInject] = digit;
+
+                return currentGuess.join('');
+            } else {
+                return guess; // No position available, return original guess
+            }
+        };
 
         for (let attempt = 1; attempt <= attemptsMade; attempt++) {
             const hints = attemptHints(attempt);
 
             for (let i = 0; i < hints.length; i++) {
-                const { color, number } = hints[i];
-                const index = i % 4; // Get the index in the 4-digit code
+                const { color, number: digit } = hints[i];
+                const index = i % 4;
+
+                if (!knownDigits.has(digit)) {
+                    knownDigits.add(digit);
+                    unknownDigits.delete(digit);
+                }
 
                 if (color === 'blue') {
-                    allCodes = allCodes.filter(code => code[index] === number);
+                    allCodes = allCodes.filter(code => code[index] === digit);
+
+                    correctCode[index] = digit;
+                    maybeCode[index] = '';
                 } else if (color === 'yellow') {
-                    allCodes = allCodes.filter(code => code[index] !== number);
+                    allCodes = allCodes.filter(code => code[index] !== digit && code.includes(digit));
+                    maybeCode[index] = digit;
                 } else if (color === 'gray') {
                     if (isUniqueCode(hints.map(h => h.number).join(''))) {
-                        allCodes = allCodes.filter(code => !code.includes(number));
+                        allCodes = allCodes.filter(code => !code.includes(digit));
                     } else {
-                        allCodes = allCodes.filter(code => code[index] !== number);
+                        allCodes = allCodes.filter(code => code[index] !== digit);
                     }
                 }
             }
@@ -254,13 +277,51 @@ class VaultPage {
                 const randomIndex = Math.floor(Math.random() * allCodes.length);
                 suggestedGuess = allCodes[randomIndex];
             }
+
+            if (unknownDigits.size > 0) {
+                for (const digit of unknownDigits) {
+                    if (suggestedGuess.includes(digit) || correctCode.includes(digit)) {
+                        continue;
+                    }
+                    suggestedGuess = injectDigitOnBlue(suggestedGuess, digit);
+                }
+            }
         } else {
             // Should never happen, but just in case
             ConsolePlus.warn('No codes available for the first guess, using default guess.');
-            suggestedGuess = '4567'; // Default guess if no codes available
+            suggestedGuess = '4567';
         }
 
         return suggestedGuess;
+    };
+
+    addEnterHotkeys = (page) => {
+        throwIfPageInvalid(page, this.addEnterHotkeys.name);
+
+        const $inputVaultCode = $(page.container).find('#vaultcode');
+        const isAddGuessVaultCodeEnabled = SettingsPlus.isEnabled(GamePagesEnum.VAULT, 'addGuessVaultCode');
+
+        $inputVaultCode.on('keyup.frpgplus', (event) => {
+            if (event.key === 'Enter') {
+                const $sendButton = $(page.container).find('a.vcbtn');
+                
+                if (!$sendButton.length) {
+                    ConsolePlus.warn('Send button not found');
+                    return;
+                }
+
+                ConsolePlus.log('Sending vault guess:', $inputVaultCode.val());
+                if ($inputVaultCode.val() && $inputVaultCode.val().length === 4) {
+                    $sendButton[0].click();
+                    $inputVaultCode.off('keyup.frpgplus');
+                } else if ($inputVaultCode.val().length === 0 && isAddGuessVaultCodeEnabled) {
+                    const vaultHints = this.getVaultHints(page);
+                    $inputVaultCode.val(
+                        this.guessVaultCode(vaultHints)
+                    );
+                }
+            }
+        });
     };
 
     applyHandler = (page) => {
@@ -269,6 +330,7 @@ class VaultPage {
         ConsolePlus.log('Vault page initialized:', page);
         this.addLibraryCard(page);
         this.addGuessVaultCode(page);
+        this.addEnterHotkeys(page);
     };
 }
 

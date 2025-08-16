@@ -12,6 +12,7 @@ import OvenPage from './kitchen/oven';
 import SettingsColorsPage from './settings/settingsColors';
 import SettingsEmblemsPage from './settings/settingsEmblems';
 import SettingsOptionsPage from './settings/settingsOptions';
+import CommunityCenterPage from './town/communityCenter';
 import MuseumPage from './town/museum';
 import FarmSupplyPage from './town/supply';
 import VaultPage from './town/vault';
@@ -32,6 +33,7 @@ const Pages = {
     [GamePagesEnum.FARM_SUPPLY]: new FarmSupplyPage,
     [GamePagesEnum.VAULT]: new VaultPage,
     [GamePagesEnum.WISHING_WELL]: new WellPage,
+    [GamePagesEnum.COMMUNITY_CENTER]: new CommunityCenterPage,
     [GamePagesEnum.MUSEUM]: new MuseumPage,
 
     [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,

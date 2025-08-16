@@ -58,7 +58,21 @@ class HomePage {
                                 { value: 'none', label: 'None' },
                                 { value: 'glow', label: 'Glow' },
                                 { value: 'border', label: 'Border' },
-                                { value: 'background', label: 'Background' }
+                            ],
+                        }
+                    },
+                    highlightColor: {
+                        title: 'Highlight Color',
+                        subtitle: 'Choose the color for the highlight.',
+                        type: 'select',
+                        typeData: {
+                            defaultValue: 'teal',
+                            options: [
+                                { value: 'teal', label: 'Teal' },
+                                { value: 'red', label: 'Red' },
+                                { value: 'blue', label: 'Blue' },
+                                { value: 'green', label: 'Green' },
+                                { value: 'gold', label: 'Gold' },
                             ],
                         }
                     },
@@ -409,16 +423,23 @@ class HomePage {
         let timeoutIds = [];
 
         const highlightStyle = SettingsPlus.getValue(GamePagesEnum.HOME, 'highlightReadyActions', 'highlightStyle');
-        
+        const highlightColor = SettingsPlus.getValue(GamePagesEnum.HOME, 'highlightReadyActions', 'highlightColor');
+
         const applyHighlight = ($row) => {
+            const colorMapping = {
+                teal: 'rgba(0, 255, 255, 0.55)',
+                red: 'rgba(255, 0, 0, 0.55)',
+                blue: 'rgba(0, 0, 255, 0.46)',
+                green: 'rgba(0, 255, 0, 0.55)',
+                gold: 'rgba(255, 215, 0, 0.55)'
+            };
+
             if (highlightStyle === 'none') {
                 return;
             } else if (highlightStyle === 'glow') {
                 $row.addClass('glow1');
             } else if (highlightStyle === 'border') {
-                $row.css({ border: '2px dashed teal' });
-            } else if (highlightStyle === 'background') {
-                $row.css({ background: 'rgba(0, 255, 255, 0.2)' });
+                $row.css({ border: `2px dashed ${colorMapping[highlightColor]}` });
             }
         };
 

@@ -1,10 +1,11 @@
 {
     "name": "farmrpg-plus",
     "symbol": "FRPGP",
-    "version": "1.8.2",
+    "version": "1.10.4",
     "description": "Add features to Farm RPG while keeping code of conduct in mind.",
     "private": true,
     "scripts": {
+        "utils:test-vault": "vitest --run",
         "remove:dist": "rimraf dist",
         "prebuild": "run-s lint remove:dist",
         "build": "webpack --mode=production",

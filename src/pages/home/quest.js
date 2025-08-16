@@ -1,11 +1,9 @@
 import $ from 'jquery';
-import fetch from 'node-fetch';
 import GamePagesEnum from '../../constants/gamePagesEnum';
 import { ErrorTypesEnum, FarmRPGPlusError, throwIfPageInvalid } from '../../FarmRPGPlusError';
 import ConsolePlus from '../../modules/consolePlus';
 import { createRow } from '../../modules/rowFactory';
 import SettingsPlus from '../../modules/settingsPlus';
-import StoragePlus from '../../modules/storagePlus';
 import Roman from '../../utils/roman';
 import { createCardList, getListByTitle, parseNameForUrl } from '../../utils/utils';
 
@@ -106,40 +104,6 @@ class QuestPage {
         return $bfCardList;
     };
 
-    checkIfNextQuestExists = (questName = '', nextQuestNumber = '') => {
-        if (!questName || typeof questName !== 'string') {
-            throw new FarmRPGPlusError(
-                ErrorTypesEnum.PARAMETER_MISMATCH,
-                this.checkIfNextQuestExists.name,
-                `Invalid quest name: ${questName}`,
-            );
-        }
-
-        const currentQuestNumber = questName.split(' ').at(-1);
-
-        if (!nextQuestNumber) {
-            return Promise.reject(); // Not a valid Roman numeral
-        }
-
-        const nextQuestName = questName.replace(
-            new RegExp(`\\b${currentQuestNumber}$`),
-            ` ${nextQuestNumber}`
-        );
-
-        const cache = StoragePlus.get('next_quest_cache', {});
-
-        return cache[nextQuestName]
-            ? Promise.resolve(cache[nextQuestName])
-            : fetch(`https://buddy.farm/q/${parseNameForUrl(nextQuestName)}`)
-                .then((response) => {
-                    cache[nextQuestName] = response.status === 200;
-                    StoragePlus.set('next_quest_cache', cache);
-
-                    return cache[nextQuestName];
-                }, () => false)
-                .catch(() => false); // Assume no next quest if fetch fails
-    };
-
     isPhrQuestPage = (page) => {
         throwIfPageInvalid(page, this.isPhrQuestPage.name);
 
@@ -165,18 +129,14 @@ class QuestPage {
             }
 
             const previousQuestNumber = Roman.prev(currentQuestNumber);
-            const nextQuestNumber = Roman.next(currentQuestNumber);
-
-            return [previousQuestNumber, nextQuestNumber];
+            return previousQuestNumber;
         } else if (Number.isInteger(Number(currentQuestNumber))) {
             if (currentQuestNumber === '1') {
                 return [null, '2'];
             }
 
             const previousQuestNumber = `${Number(currentQuestNumber) - 1}`;
-            const nextQuestNumber = `${Number(currentQuestNumber) + 1}`;
-
-            return [previousQuestNumber, nextQuestNumber];
+            return previousQuestNumber;
         }
 
         throw new FarmRPGPlusError(
@@ -267,7 +227,7 @@ class QuestPage {
             rowLink: `https://buddy.farm/q/${parseNameForUrl(questName)}`,
         });
 
-        const itExists = $(page.container).find('#frpgp-buddy-current-quest').length > 0;
+        let itExists = $(page.container).find('#frpgp-buddy-current-quest').length > 0;
         if (!itExists) {
             const $frpgpBuddyFarmCard = this.createBuddyFarmCardList(page);
             if ($frpgpBuddyFarmCard) {
@@ -280,117 +240,43 @@ class QuestPage {
                 );
             }
         }
-    };
-
-    addExtraBuddyFarmButtons = (page) => {
-        throwIfPageInvalid(page, this.addExtraBuddyFarmButtons.name);
-
-        if (this.isPhrQuestPage(page)) {
-            ConsolePlus.debug('This is a PHR page, skipping extra Buddy Farm buttons addition.');
-            return;
-        }
-
-        if (!SettingsPlus.isEnabled(GamePagesEnum.QUEST, 'addExtraBuddyFarmButtons')) {
-            ConsolePlus.debug('Extra Buddy Farm buttons are disabled in settings.');
-            return;
-        }
-
-        const $questTitle = $(page.container).find('.item-title[style=\'font-weight: bold\']');
-
-        if ($questTitle.length === 0) {
-            throw new FarmRPGPlusError(
-                ErrorTypesEnum.ELEMENT_NOT_FOUND,
-                this.addExtraBuddyFarmButtons.name,
-                'Quest title not found.',
-            );
-        }
-
-        const questName = $questTitle.children().length >= 1 // Check if it title its multi-row
-            ? $questTitle.html().trim().replace(/<br\s*\/?>/gi, ' ') // Replace <br> tags with spaces
-            : $questTitle.text().trim();
-
-        if (!questName) {
-            throw new FarmRPGPlusError(
-                ErrorTypesEnum.ELEMENT_NOT_FOUND,
-                this.addExtraBuddyFarmButtons.name,
-                'Quest name not found.',
-            );
-        }
 
         let $previousQuestRow;
-        let $nextQuestRow;
+        const previousQuestNumber = this.getPreviousAndNextQuestNumbers(questName);
 
-        const [
-            previousQuestNumber,
-            nextQuestNumber
-        ] = this.getPreviousAndNextQuestNumbers(questName);
-
-        if (previousQuestNumber) {
-            const previousQuestName = questName.replace(
-                new RegExp(`\\b${questName.split(' ').at(-1)}$`),
-                previousQuestNumber
-            );
-
-            $previousQuestRow = createRow({
-                rowId: 'frpgp-buddy-farm-previous-quest',
-                iconClass: 'fa fa-fw fa-arrow-left',
-                title: 'BF - Previous Quest',
-                subtitle: 'Open\'s Buddy Farm previous quest page',
-                rowLink: `https://buddy.farm/q/${parseNameForUrl(previousQuestName)}`,
-            });
-
-            const itExists = $(page.container).find('#frpgp-buddy-farm-previous-quest').length > 0;
-            if (!itExists) {
-
-                const $frpgpBuddyFarmCard = this.createBuddyFarmCardList(page);
-                if ($frpgpBuddyFarmCard) {
-                    $frpgpBuddyFarmCard.prepend($previousQuestRow);
-                } else {
-                    throw new FarmRPGPlusError(
-                        ErrorTypesEnum.ELEMENT_NOT_FOUND,
-                        this.addExtraBuddyFarmButtons.name,
-                        'Buddy Farm card list not found.',
-                    );
-                }
-            }
+        if (!previousQuestNumber) {
+            ConsolePlus.debug('No previous quest number found.');
+            return;
         }
 
-        this.checkIfNextQuestExists(questName, nextQuestNumber).then(
-            (exists) => {
-                if (!exists) {
-                    return false; // No next quest exists
-                }
+        const previousQuestName = questName.replace(
+            new RegExp(`\\b${questName.split(' ').at(-1)}$`),
+            previousQuestNumber
+        );
 
-                const nextQuestName = questName.replace(
-                    new RegExp(`\\b${questName.split(' ').at(-1)}$`),
-                    ` ${nextQuestNumber}`
+        $previousQuestRow = createRow({
+            rowId: 'frpgp-buddy-farm-previous-quest',
+            iconClass: 'fa fa-fw fa-arrow-left',
+            title: 'BF - Previous Quest',
+            subtitle: 'Open\'s Buddy Farm previous quest page',
+            rowLink: `https://buddy.farm/q/${parseNameForUrl(previousQuestName)}`,
+        });
+
+        itExists = $(page.container).find('#frpgp-buddy-farm-previous-quest').length > 0;
+        
+        if (!itExists) {
+
+            const $frpgpBuddyFarmCard = this.createBuddyFarmCardList(page);
+            if ($frpgpBuddyFarmCard) {
+                $frpgpBuddyFarmCard.prepend($previousQuestRow);
+            } else {
+                throw new FarmRPGPlusError(
+                    ErrorTypesEnum.ELEMENT_NOT_FOUND,
+                    this.addExtraBuddyFarmButtons.name,
+                    'Buddy Farm card list not found.',
                 );
-
-                $nextQuestRow = createRow({
-                    rowId: 'frpgp-buddy-farm-next-quest',
-                    iconClass: 'fa fa-fw fa-arrow-right',
-                    title: 'BF - Next Quest',
-                    subtitle: 'Open\'s Buddy Farm next quest page',
-                    rowLink: `https://buddy.farm/q/${parseNameForUrl(nextQuestName)}`,
-                });
-
-                const itExists = $(page.container).find('#frpgp-buddy-farm-next-quest').length > 0;
-                if (!itExists) {
-                    const $frpgpBuddyFarmCard = this.createBuddyFarmCardList(page);
-                    if ($frpgpBuddyFarmCard) {
-                        $frpgpBuddyFarmCard.append($nextQuestRow);
-                    } else {
-                        throw new FarmRPGPlusError(
-                            ErrorTypesEnum.ELEMENT_NOT_FOUND,
-                            this.addExtraBuddyFarmButtons.name,
-                            'Buddy Farm card list not found.',
-                        );
-                    }
-                }
-
-                return true;
-            }, () => false,
-        ).catch(() => false);
+            }
+        }
     };
 
     applyHandler = (page) => {
@@ -399,7 +285,6 @@ class QuestPage {
         ConsolePlus.log('Quest page initialized:', page);
         this.addLibraryButtonToPhr(page);
         this.addBuddyFarmCard(page);
-        this.addExtraBuddyFarmButtons(page);
     };
 }
 
