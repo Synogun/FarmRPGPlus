@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [v1.10.4](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.10.4/dist/FarmRPGPlus.user.js)
+
+### Added
 - `VaultPage` - Adds Enter Hotkey feature, which binds the Enter keyboard key to Send and Guess (if guesser feature its active) buttons.
 - `HomePage` - Adds Color select configuration for Highlight Row feature, allowing users to choose the highlight color.
 
