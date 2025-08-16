@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - `VaultPage` - Adopts extra stategy for code suggester, injecting untested digits into blue positions to make better use of space.
+- `QuestPage` - Disable next quest feature because of potential bugs with external requests.
 
 ### Fixed
 - `VaultPage` - Fixes yellow filtering not filtering codes which did not contain the yellow digit in the remaining spaces.
