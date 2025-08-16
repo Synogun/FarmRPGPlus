@@ -20,7 +20,7 @@ class CommunityCenterPage {
             return;
         }
 
-        $donateInput.on('keyup', function (e) {
+        $donateInput.on('keydown', function (e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 const amount = $(this).val().trim();

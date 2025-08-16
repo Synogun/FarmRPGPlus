@@ -203,12 +203,22 @@ class VaultPage {
         }
 
         const knownDigits = new Set;
-        const unknownDigits = new Set(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
+        const unknownDigits = new Set([...Array(10).keys()].map(String));
         
         const correctCode = ['', '', '', ''];
         const maybeCode = ['', '', '', ''];
 
         const isUniqueCode = code => /^(?!.*(.).*\1)[0-9]{4}$/.test(code);
+        
+        /**
+         * Attempts to inject a given digit into the guess at a position marked as 'blue' (correct digit and position),
+         * but only if the code is not yet complete. This helps test unknown digits in known correct positions.
+         * If no position is available or the code is complete, returns the original guess.
+         *
+         * @param {string} guess - The current 4-digit guess.
+         * @param {string} digit - The digit to inject into the guess.
+         * @returns {string} - The modified guess with the digit injected, or the original guess if not possible.
+         */
         const injectDigitOnBlue = (guess, digit) => {
             const currentGuess = guess.split('');
             const itsComplete = (correctCode.filter(d => d !== '').length + maybeCode.filter(d => d !== '').length) === 4;

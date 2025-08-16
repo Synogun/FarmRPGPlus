@@ -58,7 +58,6 @@ class HomePage {
                                 { value: 'none', label: 'None' },
                                 { value: 'glow', label: 'Glow' },
                                 { value: 'border', label: 'Border' },
-                                { value: 'background', label: 'Background' }
                             ],
                         }
                     },
@@ -441,8 +440,6 @@ class HomePage {
                 $row.addClass('glow1');
             } else if (highlightStyle === 'border') {
                 $row.css({ border: `2px dashed ${colorMapping[highlightColor]}` });
-            } else if (highlightStyle === 'background') {
-                $row.css({ background: `${highlightColor}` });
             }
         };
 
