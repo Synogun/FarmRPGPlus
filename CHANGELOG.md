@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+- `HomePage` - Adds Track Trading in Borgen's Camp config, which tracks if the player has traded in Borgen's Camp on Wednesdays.
 
 ### Changed
 
