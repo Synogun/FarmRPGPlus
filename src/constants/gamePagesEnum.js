@@ -187,7 +187,7 @@ export default GamePagesEnum;
 export {
     EventPageLinks, ExploreInfoPageLinks, ExplorePageLinks,
     FishingInfoPageLinks, FishingPageLinks, GamePagesEnum,
-    HomePageLinks, ItemPageLinks, SettingsPageLinks as MiscPageLinks, MyFarmPageLinks,
-    NavBarLinks, SinglePageLinks, TownPageLinks
+    HomePageLinks, ItemPageLinks, MyFarmPageLinks,
+    NavBarLinks, SettingsPageLinks, SinglePageLinks, TownPageLinks
 };
 
