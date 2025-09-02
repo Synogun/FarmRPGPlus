@@ -95,7 +95,7 @@ const ExploreInfoPageLinks = Object.freeze({
 });
 
 const FishingPageLinks = Object.freeze({
-    FISHING: 'fish',
+    FISHING: 'fishing',
     FARM_POND: 'fishing.php?id=2',
     SMALL_POND: 'fishing.php?id=1',
     FOREST_POND: 'fishing.php?id=3',

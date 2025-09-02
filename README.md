@@ -34,6 +34,7 @@ All changes are documented on the [Changelog](CHANGELOG.md).
     - [📝 Reset Checklist](#-reset-checklist)
     - [🙈🔝 Hide Max Skills](#-hide-max-skills)
     - [➗ Farm Supply Discount Indicator](#-farm-supply-discount-indicator)
+    - [🎣 Fish On Center](#-fish-on-center)
     - [📅 Event Features](#-event-features)
       - [🚀 Bottle Rocket Brawl](#-bottle-rocket-brawl)
 
@@ -329,6 +330,20 @@ Calculates the discount factor for perks on SALE and adds a label next to the bu
     <summary>Screenshots</summary>
 
     ![Farm Supply Discount Indicator](screenshots/farm-supply-discount-indicator.png "Farm Supply Discount Indicator")
+
+</details>
+
+### 🎣 Fish On Center
+
+Centers the fishing shadow on the screen.
+
+- Configurations:
+  - **Enable Fish On Center**: Enable or disable the feature.
+
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Fish On Center](screenshots/fish-on-center.png "Fish On Center")
 
 </details>
 
