@@ -622,7 +622,8 @@ class HomePage {
                 doneTradingBorgen: {
                     title: 'Borgen\'s Camp',
                     subtasks: [
-                        { icon: IconsUrlEnum.BORGENS_CAMP, link: GamePagesEnum.BORGENS_CAMP, title: 'Borgen\'s Camp' }
+                        { icon: IconsUrlEnum.BORGENS_CAMP, link: GamePagesEnum.BORGENS_CAMP, title: 'Borgen\'s Camp' },
+                        { icon: IconsUrlEnum.LOCKSMITH, link: GamePagesEnum.LOCKSMITH, title: 'Locksmith' }
                     ],
                     configName: 'trackTradingBorgen',
                     completed: false
