@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/heads/develop/dist/FarmRPGPlus.user.js)
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [v1.12.0](https://raw.githubusercontent.com/Synogun/FarmRPGPlus/refs/tags/v1.12.0/dist/FarmRPGPlus.user.js)
+
+### Added
 - `HomePage` - Adds Track Trading in Borgen's Camp config, which tracks if the player has traded in Borgen's Camp on Wednesdays.
 - `FishingPage` - Adds Fish On Center feature, which centers the fishing shadow on the screen.
 
