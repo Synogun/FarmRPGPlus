@@ -1,5 +1,6 @@
 import GamePagesEnum from '../constants/gamePagesEnum';
 import BottleRocketPage from './events/bottleRocket';
+import FishingPage from './home/fishing';
 import HomePage from './home/home';
 import InventoryPage from './home/inventory';
 import ItemPage from './home/item';
@@ -23,6 +24,7 @@ const Pages = {
     [GamePagesEnum.INVENTORY]: new InventoryPage,
     [GamePagesEnum.WORKSHOP]: new WorkshopPage,
     [GamePagesEnum.KITCHEN]: new KitchenPage,
+    [GamePagesEnum.FISHING]: new FishingPage,
     [GamePagesEnum.HELP_NEEDED]: new QuestsPage,
     [GamePagesEnum.NPCS]: new NPCSPage,
 
@@ -38,7 +40,7 @@ const Pages = {
 
     [GamePagesEnum.SETTINGS_OPTIONS]: new SettingsOptionsPage,
     [GamePagesEnum.SETTINGS_EMBLEMS]: new SettingsEmblemsPage,
-    [GamePagesEnum.SETTINGS_COLORS]: new SettingsColorsPage, // Alias for settings colors
+    [GamePagesEnum.SETTINGS_COLORS]: new SettingsColorsPage,
 
     // Events
     [GamePagesEnum.BOTTLE_ROCKET]: new BottleRocketPage,

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name FarmRPG Plus
 // @description Add features to Farm RPG while keeping code of conduct in mind.
-// @version 1.10.4
+// @version 1.12.0
 // @author Synogun
 // @match https://farmrpg.com/*
 // @grant none

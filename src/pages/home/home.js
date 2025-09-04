@@ -204,6 +204,12 @@ class HomePage {
                         type: 'checkbox',
                         typeData: { defaultValue: true }
                     },
+                    trackTradingBorgen: {
+                        title: 'Track Trading in Borgen\'s Camp',
+                        subtitle: 'Tracks if you have traded in Borgen\'s Camp today.',
+                        type: 'checkbox',
+                        typeData: { defaultValue: true }
+                    },
                     trackSpinningWheel: {
                         title: 'Track Spinning Wheel',
                         subtitle: 'Tracks if you have spun the Wheel today.',
@@ -613,6 +619,15 @@ class HomePage {
                     configName: 'trackGrapeJuice',
                     completed: false
                 },
+                doneTradingBorgen: {
+                    title: 'Borgen\'s Camp',
+                    subtasks: [
+                        { icon: IconsUrlEnum.BORGENS_CAMP, link: GamePagesEnum.BORGENS_CAMP, title: 'Borgen\'s Camp' },
+                        { icon: IconsUrlEnum.LOCKSMITH, link: GamePagesEnum.LOCKSMITH, title: 'Locksmith' }
+                    ],
+                    configName: 'trackTradingBorgen',
+                    completed: false
+                },
                 doneSpinningWheel: {
                     title: 'Wheel of Borgen',
                     subtasks: [
@@ -723,6 +738,10 @@ class HomePage {
                 return false;
             }
 
+            if (task.configName === 'trackTradingBorgen' && !TimeControl.isTodayWednesday()) {
+                return false;
+            }
+
             return true;
         });
 
@@ -802,7 +821,6 @@ class HomePage {
             return $col;
         });
 
-        //<i class="fa fa-fw fa-globe"></i>
         if (checklist.length === 0) {
             $checklistGrid.append(
                 $('<i>').addClass('fa fa-fw fa-check').css({ color: isDarkMode() ? 'lightGreen' : 'green', fontSize: '24px' }),

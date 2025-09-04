@@ -24,7 +24,7 @@ import TimeControl from './utils/timeControl';
 
         RouterPlus.fixUrlHash();
 
-        if (window.mainView && mainView.container) {
+        if (window.mainView && mainView.container && !window.frpg_initialized) {
             let page = null;
             let lastPageCallback = null;
             $(mainView.container).on('page:init page:reinit', function () {
@@ -42,6 +42,7 @@ import TimeControl from './utils/timeControl';
                     lastPageCallback = null;
                 }
             });
+            window.frpg_initialized = true;
         }
     });
 })();

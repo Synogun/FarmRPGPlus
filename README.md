@@ -34,6 +34,7 @@ All changes are documented on the [Changelog](CHANGELOG.md).
     - [📝 Reset Checklist](#-reset-checklist)
     - [🙈🔝 Hide Max Skills](#-hide-max-skills)
     - [➗ Farm Supply Discount Indicator](#-farm-supply-discount-indicator)
+    - [🎣 Fish On Center](#-fish-on-center)
     - [📅 Event Features](#-event-features)
       - [🚀 Bottle Rocket Brawl](#-bottle-rocket-brawl)
 
@@ -244,7 +245,7 @@ Adds a highlight effect to specific rows on the home page, making it easier to i
 
 - Configurations:
   - **Enable Highlight Row**: Enable or disable the feature.
-  - **Highlight Style**: Choose the highlight style (None, Glow, Border, Background).
+  - **Highlight Style**: Choose the highlight style (None, Glow, Border).
   - **Highlight Ready Crops**: Highlight the "My Farm" row if it has ready crops.
   - **Highlight Ready Meals**: Highlight the "Kitchen" row if it has ready meals.
   - **Highlight Meals Attention**: Highlight the "Kitchen" row if it has meals that need attention.
@@ -288,6 +289,7 @@ Adds a checklist at the bottom of the home page with common daily tasks.
   - **Track Daily Chores**: Show or hide the daily chores task.
   - **Track Wishing Well**: Show or hide the wishing well task.
   - **Track Grape Juice**: Show or hide the grape juice usage task.
+  - **Track Trading in Borgen's Camp**: Show or hide the trading in Borgen's Camp task.
   - **Track Spinning Wheel**: Show or hide the spinning wheel task.
   - **Track Cracking Vault**: Show or hide the cracking vault task.
   - **Track Exchange Center**: Show or hide the exchange center task.
@@ -328,6 +330,20 @@ Calculates the discount factor for perks on SALE and adds a label next to the bu
     <summary>Screenshots</summary>
 
     ![Farm Supply Discount Indicator](screenshots/farm-supply-discount-indicator.png "Farm Supply Discount Indicator")
+
+</details>
+
+### 🎣 Fish On Center
+
+Centers the fishing shadow on the screen.
+
+- Configurations:
+  - **Enable Fish On Center**: Enable or disable the feature.
+
+- <details>
+    <summary>Screenshots</summary>
+
+    ![Fish On Center](screenshots/fish-on-center.png "Fish On Center")
 
 </details>
 

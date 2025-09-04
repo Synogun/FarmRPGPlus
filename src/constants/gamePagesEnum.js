@@ -38,7 +38,7 @@ const TownPageLinks = Object.freeze({
     FARMERS_MARKET: 'market',
     FLEA_MARKET: 'flea',
     FARM_SUPPLY: 'supply',
-    BORGENS_CAMP: TimeControl.isTodayWednesday() ? 'borgen_camp' : 'wiki.php?page=Borgen\'s%20Camp',
+    BORGENS_CAMP: TimeControl.isTodayWednesday() ? 'tent' : 'wiki.php?page=Borgen\'s%20Camp',
     BORGEN_MERCANTILE: 'bmerc',
     WHEEL_OF_BORGEN: 'spin',
     BANK: 'bank',
@@ -95,7 +95,7 @@ const ExploreInfoPageLinks = Object.freeze({
 });
 
 const FishingPageLinks = Object.freeze({
-    FISHING: 'fish',
+    FISHING: 'fishing',
     FARM_POND: 'fishing.php?id=2',
     SMALL_POND: 'fishing.php?id=1',
     FOREST_POND: 'fishing.php?id=3',
@@ -187,7 +187,7 @@ export default GamePagesEnum;
 export {
     EventPageLinks, ExploreInfoPageLinks, ExplorePageLinks,
     FishingInfoPageLinks, FishingPageLinks, GamePagesEnum,
-    HomePageLinks, ItemPageLinks, SettingsPageLinks as MiscPageLinks, MyFarmPageLinks,
-    NavBarLinks, SinglePageLinks, TownPageLinks
+    HomePageLinks, ItemPageLinks, MyFarmPageLinks,
+    NavBarLinks, SettingsPageLinks, SinglePageLinks, TownPageLinks
 };
 
